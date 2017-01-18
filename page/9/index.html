@@ -1,0 +1,149 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>第 9 页 | bubkoo</title><meta name="author" content="bubkoo"><meta name="description" content="bubkoo's blog"><meta name="viewport" content="width=device-width,initial-scale=1"><meta property="og:site_name" content="bubkoo"><link href="/favicon.ico" rel="icon" type="image/x-ico"><link href="/atom.xml" rel="alternate" title="bubkoo" type="application/atom+xml"><link href="/css/style.css" rel="stylesheet" type="text/css" charset="utf-8"><link href="/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" charset="utf-8"><script id="google_analytics">(function (window, document, src, ga) {
+
+  window['GoogleAnalyticsObject'] = ga;
+
+  if (!window[ga]) {
+    window[ga] = function () {
+      (window[ga].q = window[ga].q || []).push(arguments);
+    };
+  }
+
+  window[ga].l = 1 * new Date();
+
+  var thisTag = document.getElementById('google_analytics');
+  var script  = document.createElement('script');
+
+  script.async = true;
+  script.src   = src;
+
+  thisTag.parentNode.insertBefore(script, thisTag);
+
+  setTimeout(function () {
+    script.parentNode.removeChild(script);
+    thisTag.parentNode.removeChild(thisTag);
+  }, 100);
+
+})(window, document, 'https://www.google-analytics.com/analytics.js', 'ga');
+
+ga('create', 'UA-78428859-2', 'auto');
+ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
+(function () {
+  var script  = document.createElement('script');
+  var thisTag = document.getElementById('baidu_tongji');
+
+  script.src = '//hm.baidu.com/hm.js?49a1665c33b011585a2a629fdbed5b61';
+
+  thisTag.parentNode.insertBefore(script, thisTag);
+
+  setTimeout(function () {
+    script.parentNode.removeChild(script);
+    thisTag.parentNode.removeChild(thisTag);
+  }, 100);
+})();</script><!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script>__start__ = window.performance && performance.timing ? performance.timing.navigationStart : Date.now();</script></head><body><header id="header" hoot="default" hoot-rate="1" class="inner"><div class="f-left"><a href="/" class="site-title">bubkoo</a></div><nav class="f-right"><ul class="site-nav"><li><a href="/">&lt;&gt;</a></li><li><a href="/archives">Archives</a></li><li><a href="https://github.com/bubkoo">Github</a></li></ul></nav></header><div id="container" class="inner"><div id="main"><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon"></span><h1 class="article-header-title"><a href="/2014/01/19/angular/make-your-own-angular-part-1-scopes-and-digest/">【译】构建您自己的 AngularJS，第一部分：scopes 和 digest</a></h1><time datetime="2014-01-19T13:26:18.000Z" itemprop="datePublished" class="article-header-time"><span class="day">19</span><span class="month">2014年01月</span></time></header><section class="article-content"><p>原文链接：<a href="http://teropa.info/blog/2013/11/03/make-your-own-angular-part-1-scopes-and-digest.html">Make Your Own AngularJS, Part 1: Scopes And Digest</a></p>
+<p><img src="http://bubkoo.qiniudn.com/AngularJS-large.png" alt="AngularJS"></p>
+<p>Angular 是一个成熟和功能强大的 JavaScript 框架，也是一个庞大的框架，要正真有效地使用它，需要掌握许多新概念。在 Web 开发人员涌向 Angular 的同时，许多人都面临着同样的疑问：Digest 到底是做什么的？可以有哪些不同的方式来定义一个指令（directive）？service 和 provider 之间有些什么区别？</p>
+<p><a href="http://docs.angularjs.org/">Angular官方文档</a>是非常好的学习资源，并且还有越来越多的<a href="http://syntaxspectrum.com/tag/angularjs/">第三方资源</a>，不过，想要深入了解一个新的框架，没有比分解它，然后研究其内部运作原理更加有效。</p>
+<p>在本系列文章中，我将从零开始建立一个 AngularJS 类库，并逐步深入讲解，最后，您将对 Angular 的工作原理有一个全面深刻地理解。</p>
+<p>这是本系列的第一部分，我们将分析 Angular 中的 scopes 的工作原理，并且将知道像 <code>$eval</code>、<code>$digest</code> 和 <code>$apply</code> 这些方法到底有些什么作用，Angular 的脏值检查（dirty-checking）貌似很神奇，但是后面您将看到的并非如此。</p></section><footer class="article-footer clearfix"><div class="f-left"><a href="/2014/01/19/angular/make-your-own-angular-part-1-scopes-and-digest/#more" class="more-link">全文</a></div></footer></div></article><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon"></span><h1 class="article-header-title"><a href="/2014/01/17/sort-algorithm/archives/">常见排序算法【归档】</a></h1><time datetime="2014-01-16T16:54:42.000Z" itemprop="datePublished" class="article-header-time"><span class="day">17</span><span class="month">2014年01月</span></time></header><section class="article-content"><p>最近整理了一些常见的排序算法，资料基本上都来自网上，大部分参考了维基百科，分析了常见算法的原理，并举例分步说明，有的还给出了排序动画演示，但没有涉及算法复杂度等方面的概念，最后对每一种排序算法都给出了至少一种 JavaScript 的实现方法（因为我是做前端方面的，所以只给出了 JavaScript 代码）。</p>
+<p>由于自己能力和经验有限，难免出现某些纰漏和错误，欢迎指正。</p>
+<p>日本程序员 norahiko，写了一个排序算法的<a href="http://jsdo.it/norahiko/oxIy/fullscreen" target="_blank" rel="external">动画演示</a>，非常有趣。另外，今天一同事告诉我有一个排序算法的舞蹈，请点击【<a href="http://www.cnbeta.com/articles/202221.htm" target="_blank" rel="external">程序员的艺术：排序算法舞蹈</a>】。</p>
+<ul>
+<li><a href="/2014/01/12/sort-algorithm/bubble-sort/">常见排序算法 - 冒泡排序 (Bubble Sort)</a></li>
+<li><a href="/2014/01/12/sort-algorithm/quick-sort/">常见排序算法 - 快速排序 (Quick Sort)</a></li>
+<li><a href="/2014/01/13/sort-algorithm/selection-sort/">常见排序算法 - 选择排序 (Selection Sort)</a></li>
+<li><a href="/2014/01/14/sort-algorithm/heap-sort/">常见排序算法 - 堆排序 (Heap Sort)</a></li>
+<li><a href="/2014/01/14/sort-algorithm/insertion-sort/">常见排序算法 - 插入排序 (Insertion Sort)</a></li>
+<li><a href="/2014/01/15/sort-algorithm/shell-sort/">常见排序算法 - 希尔排序 (Shell Sort)</a></li>
+<li><a href="/2014/01/15/sort-algorithm/merge-sort/">常见排序算法 - 归并排序 (Merge Sort)</a></li>
+<li><a href="/2014/01/15/sort-algorithm/shaker-sort/">常见排序算法 - 鸡尾酒排序 (Cocktail Sort/Shaker Sort)</a></li>
+<li><a href="/2014/01/15/sort-algorithm/bogo-sort/">常见排序算法 - 猴子排序 (Bogo Sort)</a></li>
+<li><a href="/2014/01/15/sort-algorithm/bucket-sort/">常见排序算法 - 桶排序 (Bucket Sort)</a></li>
+<li><a href="/2014/01/15/sort-algorithm/radix-sort/">常见排序算法 - 基数排序 (Radix sort)</a></li>
+</ul></section><footer class="article-footer clearfix"><div class="f-left"><a href="/2014/01/17/sort-algorithm/archives/" class="more-link">全文</a></div></footer></div></article><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon"></span><h1 class="article-header-title"><a href="/2014/01/15/sort-algorithm/radix-sort/">常见排序算法 - 基数排序 (Radix Sort)</a></h1><time datetime="2014-01-15T14:38:55.000Z" itemprop="datePublished" class="article-header-time"><span class="day">15</span><span class="month">2014年01月</span></time></header><section class="article-content"><h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>基数排序 (Radix Sort) 是一种非比较型整数排序算法，其原理是将整数按位数切割成不同的数字，然后按每个位数分别比较。基数排序的发明可以追溯到 1887 年<a href="http://zh.wikipedia.org/wiki/%E8%B5%AB%E7%88%BE%E6%9B%BC%C2%B7%E4%BD%95%E6%A8%82%E7%A6%AE">赫尔曼·何乐礼</a>在<a href="http://zh.wikipedia.org/w/index.php?title=%E6%89%93%E5%AD%94%E5%8D%A1%E7%89%87%E5%88%B6%E8%A1%A8%E6%9C%BA&amp;action=edit&amp;redlink=1">打孔卡片制表机 (Tabulation Machine)</a>上的贡献。</p>
+<p>排序过程：将所有待比较数值（<strong>正整数</strong>）统一为同样的数位长度，数位较短的数前面补零。然后，从最低位开始，依次进行一次排序。这样从最低位排序一直到最高位排序完成以后, 数列就变成一个有序序列。</p>
+<p>基数排序法会使用到桶 (Bucket)，顾名思义，通过将要比较的位（个位、十位、百位…），将要排序的元素分配至 0~9 个桶中，借以达到排序的作用，在某些时候，基数排序法的效率高于其它的比较性排序法。</p>
+<p><a href="http://www.cs.usfca.edu/~galles/visualization/RadixSort.html">Data Structure Visualizations</a> 提供了一个基数排序的分步动画演示。<br></p></section><footer class="article-footer clearfix"><div class="f-left"><a href="/2014/01/15/sort-algorithm/radix-sort/#more" class="more-link">全文</a></div></footer></div></article><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon"></span><h1 class="article-header-title"><a href="/2014/01/15/sort-algorithm/bucket-sort/">常见排序算法 - 桶排序 (Bucket Sort)</a></h1><time datetime="2014-01-15T14:27:51.000Z" itemprop="datePublished" class="article-header-time"><span class="day">15</span><span class="month">2014年01月</span></time></header><section class="article-content"><h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>桶排序 (Bucket sort)或所谓的<strong>箱排序</strong>的原理是将数组分到有限数量的桶子里，然后对每个桶子再分别排序（有可能再使用别的排序算法或是以递归方式继续使用桶排序进行排序），最后将各个桶中的数据有序的合并起来。</p>
+<p>排序过程：</p>
+<ol>
+<li>假设待排序的一组数统一的分布在一个范围中，并将这一范围划分成几个子范围，也就是桶</li>
+<li>将待排序的一组数，分档规入这些子桶，并将桶中的数据进行排序</li>
+<li>将各个桶中的数据有序的合并起来</li>
+</ol>
+<p><a href="http://www.cs.usfca.edu/~galles/visualization/BucketSort.html">Data Structure Visualizations</a> 提供了一个桶排序的分步动画演示。<br></p></section><footer class="article-footer clearfix"><div class="f-left"><a href="/2014/01/15/sort-algorithm/bucket-sort/#more" class="more-link">全文</a></div></footer></div></article><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon"></span><h1 class="article-header-title"><a href="/2014/01/15/sort-algorithm/bogo-sort/">常见排序算法 - 猴子排序 (Bogo Sort)</a></h1><time datetime="2014-01-15T14:04:22.000Z" itemprop="datePublished" class="article-header-time"><span class="day">15</span><span class="month">2014年01月</span></time></header><section class="article-content"><h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>猴子排序 (Bogo Sort) 是个既不实用又原始的排序算法，其原理等同将一堆卡片抛起，落在桌上后检查卡片是否已整齐排列好，若非就再抛一次。其名字源自 Quantum bogodynamics，又称 bozo sort、blort sort 或猴子排序（参见<a href="http://zh.wikipedia.org/wiki/%E7%84%A1%E9%99%90%E7%8C%B4%E5%AD%90%E5%AE%9A%E7%90%86">无限猴子定理</a>）。并且在最坏的情况下所需时间是无限的。</p>
+<p>伪代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> not InOrder(list) <span class="keyword">do</span></div><div class="line">   Shuffle(list)</div><div class="line">done</div></pre></td></tr></table></figure></section><footer class="article-footer clearfix"><div class="f-left"><a href="/2014/01/15/sort-algorithm/bogo-sort/#more" class="more-link">全文</a></div></footer></div></article><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon"></span><h1 class="article-header-title"><a href="/2014/01/15/sort-algorithm/shaker-sort/">常见排序算法 - 鸡尾酒排序 (Cocktail Sort/Shaker Sort)</a></h1><time datetime="2014-01-15T12:50:02.000Z" itemprop="datePublished" class="article-header-time"><span class="day">15</span><span class="month">2014年01月</span></time></header><section class="article-content"><h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>为什么叫鸡尾酒排序？其实我也不知道，知道的小伙伴请告诉我。</p>
+<p>其实它还有很多<strong>奇怪</strong>的名称，比如双向冒泡排序 (Bidirectional Bubble Sort)、波浪排序 (Ripple Sort)、摇曳排序 (Shuffle Sort)、飞梭排序 (Shuttle Sort) 和欢乐时光排序 (Happy Hour Sort)。本文中就以鸡尾酒排序来称呼它。</p>
+<p>鸡尾酒排序是<a href="/2014/01/12/sort-algorithm/bubble-sort/">冒泡排序</a>的轻微变形。不同的地方在于，鸡尾酒排序是从低到高然后从高到低来回排序，而冒泡排序则仅从低到高去比较序列里的每个元素。他可比冒泡排序的效率稍微好一点，原因是冒泡排序只从一个方向进行比对(由低到高)，每次循环只移动一个项目。</p>
+<p>以序列(2,3,4,5,1)为例，鸡尾酒排序只需要访问一次序列就可以完成排序，但如果使用冒泡排序则需要四次。但是在乱数序列状态下，鸡尾酒排序与冒泡排序的效率都很差劲，优点只有原理简单这一点。</p>
+<p>排序过程：</p>
+<ol>
+<li>先对数组从左到右进行冒泡排序（升序），则最大的元素去到最右端</li>
+<li>再对数组从右到左进行冒泡排序（降序），则最小的元素去到最左端</li>
+<li>以此类推，依次改变冒泡的方向，并不断缩小未排序元素的范围，直到最后一个元素结束</li>
+</ol>
+<p><img src="http://bubkoo.qiniudn.com/sorting-shaker-sort-anim.gif" alt="图片来自维基百科"></p></section><footer class="article-footer clearfix"><div class="f-left"><a href="/2014/01/15/sort-algorithm/shaker-sort/#more" class="more-link">全文</a></div></footer></div></article><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon"></span><h1 class="article-header-title"><a href="/2014/01/15/sort-algorithm/merge-sort/">常见排序算法 - 归并排序 (Merge Sort)</a></h1><time datetime="2014-01-14T18:32:28.000Z" itemprop="datePublished" class="article-header-time"><span class="day">15</span><span class="month">2014年01月</span></time></header><section class="article-content"><h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>归并排序（Merge Sort，台湾译作：合并排序）是建立在归并操作上的一种有效的排序算法。该算法是采用<a href="http://zh.wikipedia.org/wiki/%E5%88%86%E6%B2%BB%E6%B3%95">分治法</a>（Divide and Conquer）的一个非常典型的应用。</p>
+<p>归并操作(Merge)，也叫归并算法，指的是将两个已经排序的序列合并成一个序列的操作。归并排序算法依赖归并操作。归并排序有多路归并排序、两路归并排序 , 可用于内排序，也可以用于外排序。这里仅对内排序的两路归并方法进行讨论。 </p>
+<p>算法思路：</p>
+<ol>
+<li>把 n 个记录看成 n 个长度为 l 的有序子表</li>
+<li>进行两两归并使记录关键字有序，得到 n/2 个长度为 2 的有序子表</li>
+<li>重复第 2 步直到所有记录归并成一个长度为 n 的有序表为止。</li>
+</ol>
+<p><img src="http://bubkoo.qiniudn.com/merge-sort-animation.gif" alt="图片来自维基百科"></p></section><footer class="article-footer clearfix"><div class="f-left"><a href="/2014/01/15/sort-algorithm/merge-sort/#more" class="more-link">全文</a></div></footer></div></article><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon"></span><h1 class="article-header-title"><a href="/2014/01/15/sort-algorithm/shell-sort/">常见排序算法 - 希尔排序 (Shell Sort)</a></h1><time datetime="2014-01-14T16:54:59.000Z" itemprop="datePublished" class="article-header-time"><span class="day">15</span><span class="month">2014年01月</span></time></header><section class="article-content"><h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>希尔排序算法是按其设计者希尔（Donald Shell）的名字命名，该算法由1959年公布，是插入排序的一种更高效的改进版本。它的作法不是每次一个元素挨一个元素的比较。而是初期选用大跨步（增量较大）间隔比较，使记录跳跃式接近它的排序位置；然后增量缩小；最后增量为 1 ，这样记录移动次数大大减少，提高了排序效率。希尔排序对增量序列的选择没有严格规定。</p>
+<p>希尔排序是基于插入排序的以下两点性质而提出改进方法的：</p>
+<ul>
+<li>插入排序在对几乎已经排好序的数据操作时， 效率高， 即可以达到线性排序的效率</li>
+<li>但插入排序一般来说是低效的， 因为插入排序每次只能将数据移动一位</li>
+</ul>
+<p>算法思路：</p>
+<ol>
+<li>先取一个正整数 d<sub>1</sub>(d<sub>1</sub> &lt; n)，把全部记录分成 d<sub>1</sub> 个组，所有距离为 d<sub>1</sub> 的倍数的记录看成一组，然后在各组内进行插入排序</li>
+<li>然后取 d<sub>2</sub>(d<sub>2</sub> &lt; d<sub>1</sub>)</li>
+<li>重复上述分组和排序操作；直到取 d<sub>i</sub> = 1(i &gt;= 1) 位置，即所有记录成为一个组，最后对这个组进行插入排序。一般选 d<sub>1</sub> 约为 n/2，d<sub>2</sub> 为 d<sub>1</sub> /2， d<sub>3</sub> 为 d<sub>2</sub>/2 ，…， d<sub>i</sub> = 1。</li>
+</ol>
+<p><img src="http://bubkoo.qiniudn.com/shell-sort-animation.gif" alt="图片来自维基百科"></p></section><footer class="article-footer clearfix"><div class="f-left"><a href="/2014/01/15/sort-algorithm/shell-sort/#more" class="more-link">全文</a></div></footer></div></article><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon"></span><h1 class="article-header-title"><a href="/2014/01/14/sort-algorithm/insertion-sort/">常见排序算法 - 插入排序 (Insertion Sort)</a></h1><time datetime="2014-01-14T08:53:07.000Z" itemprop="datePublished" class="article-header-time"><span class="day">14</span><span class="month">2014年01月</span></time></header><section class="article-content"><h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>设有一组关键字｛K<sub>1</sub>， K<sub>2</sub>，…， K<sub>n</sub>｝；排序开始就认为 K<sub>1</sub> 是一个有序序列；让 K<sub>2</sub> 插入上述表长为 1 的有序序列，使之成为一个表长为 2 的有序序列；然后让 K<sub>3</sub> 插入上述表长为 2 的有序序列，使之成为一个表长为 3 的有序序列；依次类推，最后让 K<sub>n</sub> 插入上述表长为 n-1 的有序序列，得一个表长为 n 的有序序列。</p>
+<p>具体算法描述如下：</p>
+<ol>
+<li>从第一个元素开始，该元素可以认为已经被排序</li>
+<li>取出下一个元素，在已经排序的元素序列中从后向前扫描</li>
+<li>如果该元素（已排序）大于新元素，将该元素移到下一位置</li>
+<li>重复步骤 3，直到找到已排序的元素小于或者等于新元素的位置</li>
+<li>将新元素插入到该位置后</li>
+<li>重复步骤 2~5</li>
+</ol>
+<p>如果比较操作的代价比交换操作大的话，可以采用<a href="http://zh.wikipedia.org/wiki/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%B3%95">二分查找法</a>来减少比较操作的数目。该算法可以认为是插入排序的一个变种，称为<strong>二分查找排序</strong>。</p>
+<p>二分查找法，是一种在有序数组中查找某一特定元素的搜索算法。搜素过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则搜素过程结束；如果某一特定元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半中查找，而且跟开始一样从中间元素开始比较。如果在某一步骤数组为空，则代表找不到。这种搜索算法每一次比较都使搜索范围缩小一半。</p>
+<p><img src="http://bubkoo.qiniudn.com/Insertion_sort_animation.gif" alt="图片来自维基百科"></p></section><footer class="article-footer clearfix"><div class="f-left"><a href="/2014/01/14/sort-algorithm/insertion-sort/#more" class="more-link">全文</a></div></footer></div></article><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon"></span><h1 class="article-header-title"><a href="/2014/01/14/sort-algorithm/heap-sort/">常见排序算法 - 堆排序 (Heap Sort)</a></h1><time datetime="2014-01-14T02:42:50.000Z" itemprop="datePublished" class="article-header-time"><span class="day">14</span><span class="month">2014年01月</span></time></header><section class="article-content"><h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>先上一张堆排序动画演示图片：</p>
+<p><img src="http://bubkoo.qiniudn.com/Sorting_heapsort_anim.gif" alt="图片来自维基百科"></p>
+<p><strong>1. 不得不说说二叉树</strong></p>
+<p>要了解堆首先得了解一下<a href="http://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉树</a>，在计算机科学中，二叉树是每个节点最多有两个子树的树结构。通常子树被称作“左子树”（left subtree）和“右子树”（right subtree）。二叉树常被用于实现<a href="http://zh.wikipedia.org/wiki/%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B%E6%A8%B9">二叉查找树</a>和<a href="http://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E5%A0%86">二叉堆</a>。</p>
+<p>二叉树的每个结点至多只有二棵子树（不存在度大于 2 的结点），二叉树的子树有左右之分，次序不能颠倒。二叉树的第 i 层至多有 2<sup>i</sup> - 1 个结点；深度为 k 的二叉树至多有 2<sup>k</sup> - 1 个结点；对任何一棵二叉树 T，如果其终端结点数为 n<sub>0</sub>，度为 2 的结点数为 n<sub>2</sub>，则n<sub>0</sub> = n<sub>2</sub> + 1。</p>
+<p>树和二叉树的三个主要差别：</p>
+<ul>
+<li>树的结点个数至少为 1，而二叉树的结点个数可以为 0</li>
+<li>树中结点的最大度数没有限制，而二叉树结点的最大度数为 2</li>
+<li>树的结点无左、右之分，而二叉树的结点有左、右之分</li>
+</ul>
+<p>二叉树又分为完全二叉树（complete binary tree）和满二叉树（full binary tree）</p>
+<p>满二叉树：一棵深度为 k，且有 2<sup>k</sup> - 1 个节点称之为满二叉树</p>
+<p><img src="http://bubkoo.qiniudn.com/full%C2%A0binary%C2%A0tree.png" alt="深度为 3 的满二叉树 full binary tree"></p>
+<p>完全二叉树：深度为 k，有 n 个节点的二叉树，当且仅当其每一个节点都与深度为 k 的满二叉树中序号为 1 至 n 的节点对应时，称之为完全二叉树</p>
+<p><img src="http://bubkoo.qiniudn.com/complete%C2%A0binary%C2%A0tree.png" alt="深度为 3 的完全二叉树 complete binary tree"></p></section><footer class="article-footer clearfix"><div class="f-left"><a href="/2014/01/14/sort-algorithm/heap-sort/#more" class="more-link">全文</a></div></footer></div></article><nav id="pagination" class="clearfix"><a href="/page/8/" class="f-left prev">上一页</a><a href="/page/10/" class="f-right next">下一页</a></nav></div><aside id="sidebar" role="sidebar"><div class="widget tagcloud"><h3 class="widget-title">标签</h3><div class="widget-content"><a href="/tags/aop/" style="font-size: 10px">AOP</a> <a href="/tags/algorithm/" style="font-size: 18.33px">Algorithm</a> <a href="/tags/analysis/" style="font-size: 10px">Analysis</a> <a href="/tags/angularjs/" style="font-size: 15px">AngularJS</a> <a href="/tags/animation/" style="font-size: 10px">Animation</a> <a href="/tags/architecture/" style="font-size: 16.67px">Architecture</a> <a href="/tags/archives/" style="font-size: 10.83px">Archives</a> <a href="/tags/async/" style="font-size: 12.5px">Async</a> <a href="/tags/backbone/" style="font-size: 10px">Backbone</a> <a href="/tags/browsers/" style="font-size: 10px">Browsers</a> <a href="/tags/css/" style="font-size: 12.5px">CSS</a> <a href="/tags/css3/" style="font-size: 10px">CSS3</a> <a href="/tags/closure/" style="font-size: 10.83px">Closure</a> <a href="/tags/closures/" style="font-size: 10px">Closures</a> <a href="/tags/cookies/" style="font-size: 10px">Cookies</a> <a href="/tags/cross-domain/" style="font-size: 10px">Cross Domain</a> <a href="/tags/custom-elements/" style="font-size: 10.83px">Custom Elements</a> <a href="/tags/d3/" style="font-size: 10px">D3</a> <a href="/tags/debounce/" style="font-size: 10px">Debounce</a> <a href="/tags/debug/" style="font-size: 10.83px">Debug</a> <a href="/tags/dependency/" style="font-size: 10px">Dependency</a> <a href="/tags/document/" style="font-size: 10px">Document</a> <a href="/tags/ecma-262-3/" style="font-size: 15.83px">ECMA-262-3</a> <a href="/tags/ecmascript/" style="font-size: 15.83px">ECMAScript</a> <a href="/tags/es6/" style="font-size: 20px">ES6</a> <a href="/tags/errors/" style="font-size: 10px">Errors</a> <a href="/tags/essential/" style="font-size: 10px">Essential</a> <a href="/tags/evaluation-strategy/" style="font-size: 10px">Evaluation strategy</a> <a href="/tags/event/" style="font-size: 10px">Event</a> <a href="/tags/exceptions/" style="font-size: 10px">Exceptions</a> <a href="/tags/express/" style="font-size: 10px">Express</a> <a href="/tags/flip/" style="font-size: 10px">FLIP</a> <a href="/tags/flexbox/" style="font-size: 10px">Flexbox</a> <a href="/tags/funarg/" style="font-size: 10px">Funarg</a> <a href="/tags/gist/" style="font-size: 10px">Gist</a> <a href="/tags/github/" style="font-size: 10px">Github</a> <a href="/tags/guide/" style="font-size: 10px">Guide</a> <a href="/tags/html/" style="font-size: 10px">HTML</a> <a href="/tags/http/" style="font-size: 10px">HTTP</a> <a href="/tags/hexo/" style="font-size: 10.83px">Hexo</a> <a href="/tags/ie/" style="font-size: 10px">IE</a> <a href="/tags/iife/" style="font-size: 10px">IIFE</a> <a href="/tags/jshint/" style="font-size: 10px">JSHint</a> <a href="/tags/javascript/" style="font-size: 19.17px">JavaScript</a> <a href="/tags/leak/" style="font-size: 10px">Leak</a> <a href="/tags/linting/" style="font-size: 10px">Linting</a> <a href="/tags/mvc/" style="font-size: 10px">MVC</a> <a href="/tags/methodology/" style="font-size: 10px">Methodology</a> <a href="/tags/mock/" style="font-size: 10px">Mock</a> <a href="/tags/modular/" style="font-size: 10px">Modular</a> <a href="/tags/mongodb/" style="font-size: 10px">MongoDB</a> <a href="/tags/oop/" style="font-size: 10.83px">OOP</a> <a href="/tags/partial-application/" style="font-size: 10px">Partial Application</a> <a href="/tags/pattern/" style="font-size: 10px">Pattern</a> <a href="/tags/patterns/" style="font-size: 10px">Patterns</a> <a href="/tags/performance/" style="font-size: 14.17px">Performance</a> <a href="/tags/promise/" style="font-size: 13.33px">Promise</a> <a href="/tags/prototype/" style="font-size: 11.67px">Prototype</a> <a href="/tags/quality/" style="font-size: 10px">Quality</a> <a href="/tags/quiz/" style="font-size: 10px">Quiz</a> <a href="/tags/regex/" style="font-size: 10px">Regex</a> <a href="/tags/requirejs/" style="font-size: 10px">RequireJS</a> <a href="/tags/sass/" style="font-size: 10px">SASS</a> <a href="/tags/svg/" style="font-size: 10px">SVG</a> <a href="/tags/scope/" style="font-size: 10.83px">Scope</a> <a href="/tags/shapes/" style="font-size: 10px">Shapes</a> <a href="/tags/shuffle/" style="font-size: 10px">Shuffle</a> <a href="/tags/sort/" style="font-size: 17.5px">Sort</a> <a href="/tags/source-map/" style="font-size: 10.83px">Source Map</a> <a href="/tags/styling/" style="font-size: 10px">Styling</a> <a href="/tags/sublime-text/" style="font-size: 10px">Sublime Text</a> <a href="/tags/template/" style="font-size: 10px">Template</a> <a href="/tags/throttle/" style="font-size: 10px">Throttle</a> <a href="/tags/timing/" style="font-size: 10px">Timing</a> <a href="/tags/tools/" style="font-size: 12.5px">Tools</a> <a href="/tags/variable-object/" style="font-size: 10px">Variable object</a> <a href="/tags/visualizations/" style="font-size: 10px">Visualizations</a> <a href="/tags/when/" style="font-size: 12.5px">When</a> <a href="/tags/delete/" style="font-size: 10px">delete</a> <a href="/tags/execution-context/" style="font-size: 10px">execution context</a> <a href="/tags/fetch/" style="font-size: 10px">fetch</a> <a href="/tags/function/" style="font-size: 10px">function</a> <a href="/tags/nodejs/" style="font-size: 10px">nodejs</a> <a href="/tags/nodemon/" style="font-size: 10px">nodemon</a> <a href="/tags/npm/" style="font-size: 10px">npm</a> <a href="/tags/nvm/" style="font-size: 10px">nvm</a> <a href="/tags/performance/" style="font-size: 10px">performance</a> <a href="/tags/prebrowsing/" style="font-size: 10px">prebrowsing</a> <a href="/tags/prefetching/" style="font-size: 10px">prefetching</a> <a href="/tags/preloading/" style="font-size: 10px">preloading</a> <a href="/tags/tabindex/" style="font-size: 10px">tabindex</a> <a href="/tags/this/" style="font-size: 10px">this</a> <a href="/tags/ui-router/" style="font-size: 14.17px">ui-router</a></div></div><div class="widget"><h3 class="widget-title">最新文章</h3><div class="widget-content"><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/01/18/debouncing-throttling-explained-examples/">实例解析防抖和节流函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/08/quick-tip-multiple-versions-node-nvm/">使用 nvm 管理不同版本的 node 与 npm</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/08/15-ways-to-write-self-documenting-javascript/">如何编写更加自解释的代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/high-performance-animations/">使用 FLIP 来提高 Web 动画的性能</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/28/styling-broken-images/">定制图片加载失败时的样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/26/delivering-octicons-with-svg/">使用 SVG 输出 Octicon</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/18/how-to-use-npm-as-a-build-tool/">如何将 npm 作为构建工具使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/what-you-can-do-with-gists-on-github/">任何人都可以使用到的 Gist 服务</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/prefetching-preloading-prebrowsing/">前端性能优化 - 资源预加载</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/es6-in-depth-the-future/">深入解析 ES6：未来展望</a></li></ul></div></div></aside></div><footer id="footer" class="inner"><span class="copyright">© 2017 bubkoo</span><span class="theme">@<a href="https://github.com/bubkoo/hexo-theme-formula" target="_blank">formula</a></span></footer><img id="go2top" src="/images/top_arrow.png" alt="go2top"><script charset="utf-8" src="/js/lib/jquery-2.1.3.min.js"></script><script charset="utf-8" src="/js/lib/jquery.imagesloaded.min.js"></script><script charset="utf-8" src="/fancybox/jquery.fancybox.pack.js"></script><script charset="utf-8" src="/js/lib/sea.js"></script><script charset="utf-8" src="/js/main.js"></script><script id="redundancy3">var duoshuoQuery = { short_name: 'bubkoo' };
+(function () {
+  var ds = document.createElement('script');
+
+  ds.type    = 'text/javascript';
+  ds.async   = true;
+  ds.src     = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+
+  (document.getElementsByTagName('head')[0]
+  || document.getElementsByTagName('body')[0]).appendChild(ds);
+
+  ds.parentNode.removeChild(ds);
+
+  var script = document.getElementById('redundancy3');
+  script && script.parentNode.removeChild(script);
+})();</script></body></html>

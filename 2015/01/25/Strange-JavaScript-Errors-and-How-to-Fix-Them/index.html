@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>如何修复那些奇怪的 JavaScript 错误 | bubkoo</title><meta name="author" content="bubkoo"><meta name="description" content="调试 JavaScript 也许是一场噩梦：一些错误非常难理解，并且给出的错误行号并不是总是很有帮助。如果有一个列表，列举这些错误的意思和如何修复它们，将对我们非常有帮助。
+本文列举了 JavaScript 中一些奇怪的错误。对于相同的错误不同的浏览器可能给出不同的提示，所以分别给出了不同的例子。"><meta name="viewport" content="width=device-width,initial-scale=1"><meta property="og:title" content="如何修复那些奇怪的 JavaScript 错误"><meta property="og:site_name" content="bubkoo"><link href="/favicon.ico" rel="icon" type="image/x-ico"><link href="/atom.xml" rel="alternate" title="bubkoo" type="application/atom+xml"><link href="/css/style.css" rel="stylesheet" type="text/css" charset="utf-8"><link href="/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" charset="utf-8"><script id="google_analytics">(function (window, document, src, ga) {
+
+  window['GoogleAnalyticsObject'] = ga;
+
+  if (!window[ga]) {
+    window[ga] = function () {
+      (window[ga].q = window[ga].q || []).push(arguments);
+    };
+  }
+
+  window[ga].l = 1 * new Date();
+
+  var thisTag = document.getElementById('google_analytics');
+  var script  = document.createElement('script');
+
+  script.async = true;
+  script.src   = src;
+
+  thisTag.parentNode.insertBefore(script, thisTag);
+
+  setTimeout(function () {
+    script.parentNode.removeChild(script);
+    thisTag.parentNode.removeChild(thisTag);
+  }, 100);
+
+})(window, document, 'https://www.google-analytics.com/analytics.js', 'ga');
+
+ga('create', 'UA-78428859-2', 'auto');
+ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
+(function () {
+  var script  = document.createElement('script');
+  var thisTag = document.getElementById('baidu_tongji');
+
+  script.src = '//hm.baidu.com/hm.js?49a1665c33b011585a2a629fdbed5b61';
+
+  thisTag.parentNode.insertBefore(script, thisTag);
+
+  setTimeout(function () {
+    script.parentNode.removeChild(script);
+    thisTag.parentNode.removeChild(thisTag);
+  }, 100);
+})();</script><!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script>__start__ = window.performance && performance.timing ? performance.timing.navigationStart : Date.now();</script></head><body><header id="header" hoot="default" hoot-rate="1" class="inner"><div class="f-left"><a href="/" class="site-title">bubkoo</a></div><nav class="f-right"><ul class="site-nav"><li><a href="/">&lt;&gt;</a></li><li><a href="/archives">Archives</a></li><li><a href="https://github.com/bubkoo">Github</a></li></ul></nav></header><div id="container" class="inner"><div id="main"><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon icon-black"></span><h1 class="article-header-title">如何修复那些奇怪的 JavaScript 错误</h1><time datetime="2015-01-25T13:47:02.000Z" itemprop="datePublished" class="article-header-time"><span class="day">25</span><span class="month">2015年01月</span></time></header><section class="article-content"><p>调试 JavaScript 也许是一场噩梦：一些错误非常难理解，并且给出的错误行号并不是总是很有帮助。如果有一个列表，列举这些错误的意思和如何修复它们，将对我们非常有帮助。</p>
+<p>本文列举了 JavaScript 中一些奇怪的错误。对于相同的错误不同的浏览器可能给出不同的提示，所以分别给出了不同的例子。</p>
+<a id="more"></a>
+<h2 id="如何阅读错误"><a href="#如何阅读错误" class="headerlink" title="如何阅读错误"></a>如何阅读错误</h2><p>进入正题之前，我们先快速分析一下错误消息的结构，这对我们理解错误消息非常有用，同时也将有助于你理解那些没有在本文中列举的错误。</p>
+<p>Chrome 中一个典型的错误看起来像这样：</p>
+<blockquote>
+<p>Uncaught TypeError: undefined is not a function</p>
+</blockquote>
+<p>该错误的结构如下：</p>
+<ol>
+<li><strong>Uncaught TypeError: </strong>该部分并不是很有用。<code>Uncaught</code> 表示该错误没有被 <code>catch</code> 语句捕获，<code>TypeError</code> 是错误名。</li>
+<li><strong>undefined is not a function: </strong>是消息体，需要从字面上理解。例如本例中，它的字面意思是，代码尝试将 <code>undefined</code> 当作函数使用。</li>
+</ol>
+<p>其他基于 webkit 的浏览器，比如 Safari，错误消息与 Chrome 基本一样。Firefox 的错误消息与上面非常相似，但并不总是都包含第一部分，最近版本的 IE 的错误消息也比 Chrome 的简单，但在这里，更简单并不意味着更好。</p>
+<p>下面看看我们经常会遇到的一些错误。</p>
+<h2 id="uncaught-typeerror-undefined-is-not-a-function"><a href="#Uncaught-TypeError-undefined-is-not-a-function" class="headerlink" title="Uncaught TypeError: undefined is not a function"></a>Uncaught TypeError: undefined is not a function</h2><p>同类错误：</p>
+<ul>
+<li>number is not a function</li>
+<li>object is not a function</li>
+<li>string is not a function</li>
+<li>Unhandled Error: ‘foo’ is not a function</li>
+<li>Function Expected</li>
+</ul>
+<p>尝试将一个值（value）当作函数使用，但该值并不是一个函数。例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = <span class="literal">undefined</span>;</div><div class="line">foo();</div></pre></td></tr></table></figure>
+<p>这个错误很常见，当调用对象中的一个方法，但写错了方法名：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="built_in">document</span>.getElementByID(<span class="string">'foo'</span>);</div></pre></td></tr></table></figure>
+<p>访问对象中不存在的属性时将返回 <code>undefined</code>，上面代码就将出现该错误。</p>
+<p>其他类似的错误，比如“number is not a function”发生在尝试将一个 <code>Number</code> 当作函数使用时。</p>
+<p><strong>如何修复：</strong>确保函数名正确。对于该错误，行号通常准确地指向了错误发生的位置。</p>
+<h2 id="uncaught-referenceerror-invalid-left-hand-side-in-assignment"><a href="#Uncaught-ReferenceError-Invalid-left-hand-side-in-assignment" class="headerlink" title="Uncaught ReferenceError: Invalid left-hand side in assignment"></a>Uncaught ReferenceError: Invalid left-hand side in assignment</h2><p>同类错误：</p>
+<ul>
+<li>Uncaught exception: ReferenceError: Cannot assign to ‘functionCall()’</li>
+<li>Uncaught exception: ReferenceError: Cannot assign to ‘this’</li>
+</ul>
+<p>当尝试给一个不能被赋值的变量赋值时将发生该错误。看下面的典型例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(doSomething() = <span class="string">'somevalue'</span>)</div></pre></td></tr></table></figure>
+<p>在上面例子中，开发人员不小心将 <code>==</code> 写成了 <code>=</code>，错误消息“left-hand side in assignment”指等号左边包含不能被赋值的变量。</p>
+<p><strong>如何修复：</strong>确保不给函数函数的返回值或 <code>this</code> 关键字赋值。</p>
+<h2 id="uncaught-typeerror-converting-circular-structure-to-json"><a href="#Uncaught-TypeError-Converting-circular-structure-to-JSON" class="headerlink" title="Uncaught TypeError: Converting circular structure to JSON"></a>Uncaught TypeError: Converting circular structure to JSON</h2><p>同类错误：</p>
+<ul>
+<li>Uncaught exception: TypeError: JSON.stringify: Not an acyclic Object</li>
+<li>TypeError: cyclic object value</li>
+<li>Circular reference in value argument not supported</li>
+</ul>
+<p>该错误总是发生在使用 <code>JSON.stringify</code> 序列化一个存在循环引用的对象时。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = &#123; &#125;;</div><div class="line"><span class="keyword">var</span> b = &#123; <span class="attr">a</span>: a &#125;;</div><div class="line">a.b = b;</div><div class="line"><span class="built_in">JSON</span>.stringify(a);</div></pre></td></tr></table></figure>
+<p>由于上面 <code>a</code> 和 <code>b</code> 两个对象都彼此相互引用，结果导致对象不能被转换为 JSON 字符串。</p>
+<p><strong>如何修复：</strong>移除将要被转换为 JSON 字符串对象内部的循环引用。</p>
+<h2 id="unexpected-token"><a href="#Unexpected-token" class="headerlink" title="Unexpected token ;"></a>Unexpected token ;</h2><p>同类错误：</p>
+<ul>
+<li>Expected )</li>
+<li>missing ) after argument list</li>
+</ul>
+<p>通常发生在缺少括号或分号时。</p>
+<p>该错误中所谓的符号（token）可以多种多样，如“Unexpected token ]”或“Expected {”等等。</p>
+<p><strong>如何修复：</strong>该错误提示的行号有时并不能指向正确的位置，这增加了修复难度。</p>
+<ul>
+<li>错误信息中包含“[ ] { } ( )”时，通常是因为缺少配对的部分，检查所有括号，保证都是配对的。这种情况下，行号通常指向了其他位置，问不是错误的位置。</li>
+<li>异常的 <code>/</code> 和正则表达式有关，行号指向了正确的位置。</li>
+<li>异常的 <code>;</code> 通常发生在对象、数组或函数调用时参数列表内部包含 <code>;</code>，行号也指向了正确的位置。</li>
+</ul>
+<h2 id="uncaught-syntaxerror-unexpected-token-illegal"><a href="#Uncaught-SyntaxError-Unexpected-token-ILLEGAL" class="headerlink" title="Uncaught SyntaxError: Unexpected token ILLEGAL"></a>Uncaught SyntaxError: Unexpected token ILLEGAL</h2><p>同类错误：</p>
+<ul>
+<li>Unterminated String Literal</li>
+<li>Invalid Line Terminator</li>
+</ul>
+<p>字符串字面量缺少闭合的引号。</p>
+<p><strong>如何修复：</strong>确保所有字符串都包含闭合的引号。</p>
+<h2 id="uncaught-typeerror-cannot-read-property-foo-of-null-uncaught-typeerror-cannot-read-property-foo-of-undefined"><a href="#Uncaught-TypeError-Cannot-read-property-‘foo’-of-null-Uncaught-TypeError-Cannot-read-property-‘foo’-of-undefined" class="headerlink" title="Uncaught TypeError: Cannot read property ‘foo’ of null, Uncaught TypeError: Cannot read property ‘foo’ of undefined"></a>Uncaught TypeError: Cannot read property ‘foo’ of null, Uncaught TypeError: Cannot read property ‘foo’ of undefined</h2><p>同类错误：</p>
+<ul>
+<li>TypeError: someVal is null</li>
+<li>Unable to get property ‘foo’ of undefined or null reference</li>
+</ul>
+<p>尝试将 <code>null</code> 过 <code>undefined</code> 作为一个对象使用，例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> someVal = <span class="literal">null</span>;</div><div class="line"><span class="built_in">console</span>.log(someVal.foo);</div></pre></td></tr></table></figure>
+<p><strong>如何修复：</strong>通常是由于书写失误导致，确保错误提示的行号附近的变量都是书写正确的。</p>
+<h2 id="uncaught-typeerror-cannot-set-property-foo-of-null-uncaught-typeerror-cannot-set-property-foo-of-undefined"><a href="#Uncaught-TypeError-Cannot-set-property-‘foo’-of-null-Uncaught-TypeError-Cannot-set-property-‘foo’-of-undefined" class="headerlink" title="Uncaught TypeError: Cannot set property ‘foo’ of null, Uncaught TypeError: Cannot set property ‘foo’ of undefined"></a>Uncaught TypeError: Cannot set property ‘foo’ of null, Uncaught TypeError: Cannot set property ‘foo’ of undefined</h2><p>同类错误：</p>
+<ul>
+<li>TypeError: someVal is undefined</li>
+<li>Unable to set property ‘foo’ of undefined or null reference</li>
+</ul>
+<p>尝试为值为 <code>null</code> 或 <code>undefined</code> 的对象的属性赋值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> someVal = <span class="literal">null</span>;</div><div class="line">someVal.foo = <span class="number">1</span>;</div></pre></td></tr></table></figure>
+<p><strong>如何修复：</strong>这也通常是由于书写错误导致，检查错误提示的行号附近的变量名是否正确。</p>
+<h2 id="uncaught-rangeerror-maximum-call-stack-size-exceeded"><a href="#Uncaught-RangeError-Maximum-call-stack-size-exceeded" class="headerlink" title="Uncaught RangeError: Maximum call stack size exceeded"></a>Uncaught RangeError: Maximum call stack size exceeded</h2><p>同类错误：</p>
+<ul>
+<li>Uncaught exception: RangeError: Maximum recursion depth exceeded</li>
+<li>too much recursion</li>
+<li>Stack overflow</li>
+</ul>
+<p>通常是由程序逻辑问题，导致了无限递归的函数调用。</p>
+<p><strong>如何修复：</strong>检查函数的递归调用，确保函数不是无限递归的。</p>
+<h2 id="uncaught-urierror-uri-malformed"><a href="#Uncaught-URIError-URI-malformed" class="headerlink" title="Uncaught URIError: URI malformed"></a>Uncaught URIError: URI malformed</h2><p>同类错误：URIError: malformed URI sequence</p>
+<p>无效的 <code>decodeURIComponent</code> 调用将导致该错误。</p>
+<p><strong>如何修复：</strong>确保行号所指位置的 <code>decodeURIComponent</code> 调用的参数正确。</p>
+<h2 id="xmlhttprequest-cannot-load-httpsomeurl-no-access-control-allow-origin-header-is-present-on-the-requested-resource"><a href="#XMLHttpRequest-cannot-load-http-some-url-No-‘Access-Control-Allow-Origin’-header-is-present-on-the-requested-resource" class="headerlink" title="XMLHttpRequest cannot load http://some/url/. No ‘Access-Control-Allow-Origin’ header is present on the requested resource"></a>XMLHttpRequest cannot load <a href="http://some/url/" target="_blank" rel="external">http://some/url/</a>. No ‘Access-Control-Allow-Origin’ header is present on the requested resource</h2><p>同类错误：Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at <a href="http://some/url/" target="_blank" rel="external">http://some/url/</a></p>
+<p>该错误总是由使用 <code>XMLHttpRequest</code> 时导致。</p>
+<p><strong>如何修复：</strong>确保请求的 url 满足<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy" target="_blank" rel="external">同源策略</a>。</p>
+<h2 id="invalidstateerror-an-attempt-was-made-to-use-an-object-that-is-not-or-is-no-longer-usable"><a href="#InvalidStateError-An-attempt-was-made-to-use-an-object-that-is-not-or-is-no-longer-usable" class="headerlink" title="InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable"></a>InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable</h2><p>同类错误：</p>
+<ul>
+<li>InvalidStateError</li>
+<li>DOMException code 11</li>
+</ul>
+<p>该错误表示调用对象的方法时，对象的状态不对。在使用 <code>XMLHttpRequest</code> 时，在其准备好之前尝试调用其中的方法将导致该错误。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">xhr.setRequestHeader(<span class="string">'Some-Header'</span>, <span class="string">'val'</span>);</div></pre></td></tr></table></figure>
+<p>上例中将导致错误，因为 <code>setRequestHeader</code> 方法只能在 <code>xhr.open</code> 之后调用。</p>
+<p><strong>如何修复：</strong>检查行号指示的位置，确保代码运行在合适的时间，或在这之前添加必要的函数调用（比如<code>xhr.open</code>）。</p>
+<p class="j-quote">原文：<a href="http://davidwalsh.name/fix-javascript-errors" target="_blank" rel="external">JavaScript Errors and How to Fix Them</a></p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/errors/" title="Errors">Errors</a> <a href="/tags/exceptions/" title="Exceptions">Exceptions</a></div></footer></div><nav class="article-nav clearfix"><a href="/2015/01/31/understanding-and-solving-internet-explorer-leak-patterns/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">理解和解决 IE 内存泄露问题</span></a><a href="/2014/12/02/use-nodemon-with-node-applications/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">在 Express 开发中使用 nodemon</span></a></nav></article><section id="article-comment" class="article-comment"><div data-thread-key="http://bubkoo.com/2015/01/25/Strange-JavaScript-Errors-and-How-to-Fix-Them/" data-title="如何修复那些奇怪的 JavaScript 错误" data-url="http://bubkoo.com/2015/01/25/Strange-JavaScript-Errors-and-How-to-Fix-Them/" class="ds-thread"></div></section></div><aside id="sidebar" role="sidebar"><div class="widget tagcloud"><h3 class="widget-title">标签</h3><div class="widget-content"><a href="/tags/aop/" style="font-size: 10px">AOP</a> <a href="/tags/algorithm/" style="font-size: 18.33px">Algorithm</a> <a href="/tags/analysis/" style="font-size: 10px">Analysis</a> <a href="/tags/angularjs/" style="font-size: 15px">AngularJS</a> <a href="/tags/animation/" style="font-size: 10px">Animation</a> <a href="/tags/architecture/" style="font-size: 16.67px">Architecture</a> <a href="/tags/archives/" style="font-size: 10.83px">Archives</a> <a href="/tags/async/" style="font-size: 12.5px">Async</a> <a href="/tags/backbone/" style="font-size: 10px">Backbone</a> <a href="/tags/browsers/" style="font-size: 10px">Browsers</a> <a href="/tags/css/" style="font-size: 12.5px">CSS</a> <a href="/tags/css3/" style="font-size: 10px">CSS3</a> <a href="/tags/closure/" style="font-size: 10.83px">Closure</a> <a href="/tags/closures/" style="font-size: 10px">Closures</a> <a href="/tags/cookies/" style="font-size: 10px">Cookies</a> <a href="/tags/cross-domain/" style="font-size: 10px">Cross Domain</a> <a href="/tags/custom-elements/" style="font-size: 10.83px">Custom Elements</a> <a href="/tags/d3/" style="font-size: 10px">D3</a> <a href="/tags/debounce/" style="font-size: 10px">Debounce</a> <a href="/tags/debug/" style="font-size: 10.83px">Debug</a> <a href="/tags/dependency/" style="font-size: 10px">Dependency</a> <a href="/tags/document/" style="font-size: 10px">Document</a> <a href="/tags/ecma-262-3/" style="font-size: 15.83px">ECMA-262-3</a> <a href="/tags/ecmascript/" style="font-size: 15.83px">ECMAScript</a> <a href="/tags/es6/" style="font-size: 20px">ES6</a> <a href="/tags/errors/" style="font-size: 10px">Errors</a> <a href="/tags/essential/" style="font-size: 10px">Essential</a> <a href="/tags/evaluation-strategy/" style="font-size: 10px">Evaluation strategy</a> <a href="/tags/event/" style="font-size: 10px">Event</a> <a href="/tags/exceptions/" style="font-size: 10px">Exceptions</a> <a href="/tags/express/" style="font-size: 10px">Express</a> <a href="/tags/flip/" style="font-size: 10px">FLIP</a> <a href="/tags/flexbox/" style="font-size: 10px">Flexbox</a> <a href="/tags/funarg/" style="font-size: 10px">Funarg</a> <a href="/tags/gist/" style="font-size: 10px">Gist</a> <a href="/tags/github/" style="font-size: 10px">Github</a> <a href="/tags/guide/" style="font-size: 10px">Guide</a> <a href="/tags/html/" style="font-size: 10px">HTML</a> <a href="/tags/http/" style="font-size: 10px">HTTP</a> <a href="/tags/hexo/" style="font-size: 10.83px">Hexo</a> <a href="/tags/ie/" style="font-size: 10px">IE</a> <a href="/tags/iife/" style="font-size: 10px">IIFE</a> <a href="/tags/jshint/" style="font-size: 10px">JSHint</a> <a href="/tags/javascript/" style="font-size: 19.17px">JavaScript</a> <a href="/tags/leak/" style="font-size: 10px">Leak</a> <a href="/tags/linting/" style="font-size: 10px">Linting</a> <a href="/tags/mvc/" style="font-size: 10px">MVC</a> <a href="/tags/methodology/" style="font-size: 10px">Methodology</a> <a href="/tags/mock/" style="font-size: 10px">Mock</a> <a href="/tags/modular/" style="font-size: 10px">Modular</a> <a href="/tags/mongodb/" style="font-size: 10px">MongoDB</a> <a href="/tags/oop/" style="font-size: 10.83px">OOP</a> <a href="/tags/partial-application/" style="font-size: 10px">Partial Application</a> <a href="/tags/pattern/" style="font-size: 10px">Pattern</a> <a href="/tags/patterns/" style="font-size: 10px">Patterns</a> <a href="/tags/performance/" style="font-size: 14.17px">Performance</a> <a href="/tags/promise/" style="font-size: 13.33px">Promise</a> <a href="/tags/prototype/" style="font-size: 11.67px">Prototype</a> <a href="/tags/quality/" style="font-size: 10px">Quality</a> <a href="/tags/quiz/" style="font-size: 10px">Quiz</a> <a href="/tags/regex/" style="font-size: 10px">Regex</a> <a href="/tags/requirejs/" style="font-size: 10px">RequireJS</a> <a href="/tags/sass/" style="font-size: 10px">SASS</a> <a href="/tags/svg/" style="font-size: 10px">SVG</a> <a href="/tags/scope/" style="font-size: 10.83px">Scope</a> <a href="/tags/shapes/" style="font-size: 10px">Shapes</a> <a href="/tags/shuffle/" style="font-size: 10px">Shuffle</a> <a href="/tags/sort/" style="font-size: 17.5px">Sort</a> <a href="/tags/source-map/" style="font-size: 10.83px">Source Map</a> <a href="/tags/styling/" style="font-size: 10px">Styling</a> <a href="/tags/sublime-text/" style="font-size: 10px">Sublime Text</a> <a href="/tags/template/" style="font-size: 10px">Template</a> <a href="/tags/throttle/" style="font-size: 10px">Throttle</a> <a href="/tags/timing/" style="font-size: 10px">Timing</a> <a href="/tags/tools/" style="font-size: 12.5px">Tools</a> <a href="/tags/variable-object/" style="font-size: 10px">Variable object</a> <a href="/tags/visualizations/" style="font-size: 10px">Visualizations</a> <a href="/tags/when/" style="font-size: 12.5px">When</a> <a href="/tags/delete/" style="font-size: 10px">delete</a> <a href="/tags/execution-context/" style="font-size: 10px">execution context</a> <a href="/tags/fetch/" style="font-size: 10px">fetch</a> <a href="/tags/function/" style="font-size: 10px">function</a> <a href="/tags/nodejs/" style="font-size: 10px">nodejs</a> <a href="/tags/nodemon/" style="font-size: 10px">nodemon</a> <a href="/tags/npm/" style="font-size: 10px">npm</a> <a href="/tags/nvm/" style="font-size: 10px">nvm</a> <a href="/tags/performance/" style="font-size: 10px">performance</a> <a href="/tags/prebrowsing/" style="font-size: 10px">prebrowsing</a> <a href="/tags/prefetching/" style="font-size: 10px">prefetching</a> <a href="/tags/preloading/" style="font-size: 10px">preloading</a> <a href="/tags/tabindex/" style="font-size: 10px">tabindex</a> <a href="/tags/this/" style="font-size: 10px">this</a> <a href="/tags/ui-router/" style="font-size: 14.17px">ui-router</a></div></div><div class="widget"><h3 class="widget-title">最新文章</h3><div class="widget-content"><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/01/18/debouncing-throttling-explained-examples/">实例解析防抖和节流函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/08/quick-tip-multiple-versions-node-nvm/">使用 nvm 管理不同版本的 node 与 npm</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/08/15-ways-to-write-self-documenting-javascript/">如何编写更加自解释的代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/high-performance-animations/">使用 FLIP 来提高 Web 动画的性能</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/28/styling-broken-images/">定制图片加载失败时的样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/26/delivering-octicons-with-svg/">使用 SVG 输出 Octicon</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/18/how-to-use-npm-as-a-build-tool/">如何将 npm 作为构建工具使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/what-you-can-do-with-gists-on-github/">任何人都可以使用到的 Gist 服务</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/prefetching-preloading-prebrowsing/">前端性能优化 - 资源预加载</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/es6-in-depth-the-future/">深入解析 ES6：未来展望</a></li></ul></div></div></aside><aside id="topic-wrap" class="toc-wrap f-right"><h3 class="toc-wrap-title">内容</h3><div class="toc-tree"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何阅读错误"><span class="toc-number">1.</span> <span class="toc-text">如何阅读错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uncaught-typeerror-undefined-is-not-a-function"><span class="toc-number">2.</span> <span class="toc-text">Uncaught TypeError: undefined is not a function</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uncaught-referenceerror-invalid-left-hand-side-in-assignment"><span class="toc-number">3.</span> <span class="toc-text">Uncaught ReferenceError: Invalid left-hand side in assignment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uncaught-typeerror-converting-circular-structure-to-json"><span class="toc-number">4.</span> <span class="toc-text">Uncaught TypeError: Converting circular structure to JSON</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#unexpected-token"><span class="toc-number">5.</span> <span class="toc-text">Unexpected token ;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uncaught-syntaxerror-unexpected-token-illegal"><span class="toc-number">6.</span> <span class="toc-text">Uncaught SyntaxError: Unexpected token ILLEGAL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uncaught-typeerror-cannot-read-property-foo-of-null-uncaught-typeerror-cannot-read-property-foo-of-undefined"><span class="toc-number">7.</span> <span class="toc-text">Uncaught TypeError: Cannot read property ‘foo’ of null, Uncaught TypeError: Cannot read property ‘foo’ of undefined</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uncaught-typeerror-cannot-set-property-foo-of-null-uncaught-typeerror-cannot-set-property-foo-of-undefined"><span class="toc-number">8.</span> <span class="toc-text">Uncaught TypeError: Cannot set property ‘foo’ of null, Uncaught TypeError: Cannot set property ‘foo’ of undefined</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uncaught-rangeerror-maximum-call-stack-size-exceeded"><span class="toc-number">9.</span> <span class="toc-text">Uncaught RangeError: Maximum call stack size exceeded</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uncaught-urierror-uri-malformed"><span class="toc-number">10.</span> <span class="toc-text">Uncaught URIError: URI malformed</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xmlhttprequest-cannot-load-httpsomeurl-no-access-control-allow-origin-header-is-present-on-the-requested-resource"><span class="toc-number">11.</span> <span class="toc-text">XMLHttpRequest cannot load http://some/url/. No ‘Access-Control-Allow-Origin’ header is present on the requested resource</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#invalidstateerror-an-attempt-was-made-to-use-an-object-that-is-not-or-is-no-longer-usable"><span class="toc-number">12.</span> <span class="toc-text">InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable</span></a></li></ol></div><div class="toc-progress"></div></aside></div><footer id="footer" class="inner"><span class="copyright">© 2017 bubkoo</span><span class="theme">@<a href="https://github.com/bubkoo/hexo-theme-formula" target="_blank">formula</a></span></footer><img id="go2top" src="/images/top_arrow.png" alt="go2top"><script charset="utf-8" src="/js/lib/jquery-2.1.3.min.js"></script><script charset="utf-8" src="/js/lib/jquery.imagesloaded.min.js"></script><script charset="utf-8" src="/fancybox/jquery.fancybox.pack.js"></script><script charset="utf-8" src="/js/lib/sea.js"></script><script charset="utf-8" src="/js/main.js"></script><script id="redundancy3">var duoshuoQuery = { short_name: 'bubkoo' };
+(function () {
+  var ds = document.createElement('script');
+
+  ds.type    = 'text/javascript';
+  ds.async   = true;
+  ds.src     = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+
+  (document.getElementsByTagName('head')[0]
+  || document.getElementsByTagName('body')[0]).appendChild(ds);
+
+  ds.parentNode.removeChild(ds);
+
+  var script = document.getElementById('redundancy3');
+  script && script.parentNode.removeChild(script);
+})();</script></body></html>

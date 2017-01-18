@@ -1,0 +1,129 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>前端性能优化 - 资源预加载 | bubkoo</title><meta name="author" content="bubkoo"><meta name="description" content="当提到前端性能优化时，我们首先会联想到文件的合并、压缩，文件缓存和开启服务器端的 gzip 压缩等，这使得页面加载更快，用户可以尽快使用我们的 Web 应用来达到他们的目标。
+资源预加载是另一个性能优化技术，我们可以使用该技术来预先告知浏览器某些资源可能在将来会被使用到。
+引用 Patrick Hamann 的解释：
+
+预加载是浏览器对将来可能被使用资源的一种暗示，一些资源可以在当前页面使用到，一些可能在将来的某些页面中被使用。作为开发人员，我们比浏览器更加了解我们的应用，所以我们可以对我们的核心资源使用该技术。
+
+这种做法曾经被称为 prebrowsing，但这并不是一项单一的技术，可以细分为几个不同的技术：DNS-prefetch、subresource 和标准的 prefetch、preconnect、prerender。"><meta name="viewport" content="width=device-width,initial-scale=1"><meta property="og:title" content="前端性能优化 - 资源预加载"><meta property="og:site_name" content="bubkoo"><link href="/favicon.ico" rel="icon" type="image/x-ico"><link href="/atom.xml" rel="alternate" title="bubkoo" type="application/atom+xml"><link href="/css/style.css" rel="stylesheet" type="text/css" charset="utf-8"><link href="/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" charset="utf-8"><script id="google_analytics">(function (window, document, src, ga) {
+
+  window['GoogleAnalyticsObject'] = ga;
+
+  if (!window[ga]) {
+    window[ga] = function () {
+      (window[ga].q = window[ga].q || []).push(arguments);
+    };
+  }
+
+  window[ga].l = 1 * new Date();
+
+  var thisTag = document.getElementById('google_analytics');
+  var script  = document.createElement('script');
+
+  script.async = true;
+  script.src   = src;
+
+  thisTag.parentNode.insertBefore(script, thisTag);
+
+  setTimeout(function () {
+    script.parentNode.removeChild(script);
+    thisTag.parentNode.removeChild(thisTag);
+  }, 100);
+
+})(window, document, 'https://www.google-analytics.com/analytics.js', 'ga');
+
+ga('create', 'UA-78428859-2', 'auto');
+ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
+(function () {
+  var script  = document.createElement('script');
+  var thisTag = document.getElementById('baidu_tongji');
+
+  script.src = '//hm.baidu.com/hm.js?49a1665c33b011585a2a629fdbed5b61';
+
+  thisTag.parentNode.insertBefore(script, thisTag);
+
+  setTimeout(function () {
+    script.parentNode.removeChild(script);
+    thisTag.parentNode.removeChild(thisTag);
+  }, 100);
+})();</script><!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script>__start__ = window.performance && performance.timing ? performance.timing.navigationStart : Date.now();</script></head><body><header id="header" hoot="default" hoot-rate="1" class="inner"><div class="f-left"><a href="/" class="site-title">bubkoo</a></div><nav class="f-right"><ul class="site-nav"><li><a href="/">&lt;&gt;</a></li><li><a href="/archives">Archives</a></li><li><a href="https://github.com/bubkoo">Github</a></li></ul></nav></header><div id="container" class="inner"><div id="main"><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon icon-black"></span><h1 class="article-header-title">前端性能优化 - 资源预加载</h1><time datetime="2015-11-18T16:29:36.000Z" itemprop="datePublished" class="article-header-time"><span class="day">19</span><span class="month">2015年11月</span></time></header><section class="article-content"><p>当提到前端性能优化时，我们首先会联想到文件的合并、压缩，文件缓存和开启服务器端的 gzip 压缩等，这使得页面加载更快，用户可以尽快使用我们的 Web 应用来达到他们的目标。</p>
+<p>资源预加载是另一个性能优化技术，我们可以使用该技术来预先告知浏览器某些资源可能在将来会被使用到。</p>
+<p>引用 <a href="https://twitter.com/patrickhamann" target="_blank" rel="external">Patrick Hamann</a> 的<a href="http://patrickhamann.com/workshops/performance/tasks/2_Critical_Path/2_3.html" target="_blank" rel="external">解释</a>：</p>
+<blockquote>
+<p>预加载是浏览器对将来可能被使用资源的一种暗示，一些资源可以在当前页面使用到，一些可能在将来的某些页面中被使用。作为开发人员，我们比浏览器更加了解我们的应用，所以我们可以对我们的核心资源使用该技术。</p>
+</blockquote>
+<p>这种做法曾经被称为 <em>prebrowsing</em>，但这并不是一项单一的技术，可以细分为几个不同的技术：<code>DNS-prefetch</code>、<code>subresource</code> 和标准的 <code>prefetch</code>、<code>preconnect</code>、<code>prerender</code>。</p>
+<a id="more"></a>
+<h2 id="dns-预解析-dns-prefetch"><a href="#DNS-预解析-DNS-Prefetch" class="headerlink" title="DNS 预解析 DNS-Prefetch"></a>DNS 预解析 DNS-Prefetch</h2><p>通过 DNS 预解析来告诉浏览器未来我们可能从某个特定的 URL 获取资源，当浏览器真正使用到该域中的某个资源时就可以尽快地完成 DNS 解析。例如，我们将来可能从 <code>example.com</code> 获取图片或音频资源，那么可以在文档顶部的 <code>&lt;head&gt;</code> 标签中加入以下内容：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"dns-prefetch"</span> <span class="attr">href</span>=<span class="string">"//example.com"</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>当我们从该 URL 请求一个资源时，就不再需要等待 DNS 的解析过程。该技术对使用第三方资源特别有用。</p>
+<p>在 Harry Roberts 的<a href="http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers/#section:dns-prefetching" target="_blank" rel="external">文章</a>中提到：</p>
+<blockquote>
+<p>通过简单的一行代码就可以告知那些兼容的浏览器进行 DNS 预解析，这意味着当浏览器真正请求该域中的某个资源时，DNS 的解析就已经完成了。</p>
+</blockquote>
+<p>这似乎是一个非常微小的性能优化，显得也并非那么重要，但事实并非如此 – <a href="https://docs.google.com/presentation/d/18zlAdKAxnc51y_kj-6sWLmnjl6TLnaru_WH0LJTjP-o/present?slide=id.g120f70e9a_041" target="_blank" rel="external">Chrome 一直都做了类似的优化</a>。当在浏览器的地址栏中输入 URL 的一小段时，Chrome 就自动完成了 DNS 预解析（甚至页面预渲染），从而为每个请求节省了至关重要的时间。</p>
+<h2 id="预连接-preconnect"><a href="#预连接-Preconnect" class="headerlink" title="预连接 Preconnect"></a>预连接 Preconnect</h2><p>与 DNS 预解析类似，<code>preconnect</code> 不仅完成 DNS 预解析，同时还将进行 TCP 握手和建立传输层协议。可以这样使用：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"preconnect"</span> <span class="attr">href</span>=<span class="string">"http://example.com"</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在 Ilya Grigorik 的<a href="https://www.igvita.com/2015/08/17/eliminating-roundtrips-with-preconnect/" target="_blank" rel="external">文章</a>中有更详细的介绍：</p>
+<blockquote>
+<p>现代浏览器都试着预测网站将来需要哪些连接，然后预先建立 socket 连接，从而消除昂贵的 DNS 查找、TCP 握手和 TLS 往返开销。然而，浏览器还不够聪明，并不能准确预测每个网站的所有预链接目标。好在，在 Firefox 39 和 Chrome 46 中我们可以使用 <code>preconnect</code> 告诉浏览器我们需要进行哪些预连接。</p>
+</blockquote>
+<h2 id="预获取-prefetching"><a href="#预获取-Prefetching" class="headerlink" title="预获取 Prefetching"></a>预获取 Prefetching</h2><p>如果我们确定某个资源将来一定会被使用到，我们可以让浏览器预先请求该资源并放入浏览器缓存中。例如，一个图片和脚本或任何可以被浏览器缓存的资源：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"prefetch"</span> <span class="attr">href</span>=<span class="string">"image.png"</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>与 DNS 预解析不同，预获取真正请求并下载了资源，并储存在缓存中。但预获取还依赖于一些条件，某些预获取可能会被浏览器忽略，例如从一个非常缓慢的网络中获取一个庞大的字体文件。并且，Firefox 只会在<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ" target="_blank" rel="external">浏览器闲置</a>时进行资源预获取。</p>
+<p>在 Bram Stein 的<a href="http://www.bramstein.com/writing/preload-hints-for-web-fonts.html" target="_blank" rel="external">帖子</a>中说到，这对 webfonts 性能提升非常明显。目前，字体文件必须等到 DOM 和 CSS 构建完成之后才开始下载，使用预获取就可以轻松绕过该瓶颈。</p>
+<p><strong>注意：</strong>要测试资源的预获取有点困难，但在 Chrome 和 Firefox 的网络面板中都有资源预获取的记录。还需要记住，预获取的资源没有同源策略的限制。</p>
+<h2 id="subresources"><a href="#Subresources" class="headerlink" title="Subresources"></a>Subresources</h2><p>这是另一个预获取方式，这种方式指定的预获取资源具有最高的优先级，在所有 <code>prefetch</code> 项之前进行：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"subresource"</span> <span class="attr">href</span>=<span class="string">"styles.css"</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>根据 <a href="https://www.chromium.org/spdy/link-headers-and-server-hint/link-rel-subresource" target="_blank" rel="external">Chrome 文档</a>：</p>
+<blockquote>
+<p><code>rel=prefetch</code> 为将来的页面提供了一种低优先级的资源预加载方式，而 <code>rel=subresource</code> 为当前页面提供了一种高优先级的资源预加载。</p>
+</blockquote>
+<p>所以，如果资源是当前页面必须的，或者资源需要尽快可用，那么最好使用 <code>subresource</code> 而不是 <code>prefetch</code>。</p>
+<h2 id="预渲染-prerender"><a href="#预渲染-Prerender" class="headerlink" title="预渲染 Prerender"></a>预渲染 Prerender</h2><p>这是一个核武器，因为 <code>prerender</code> 可以预先加载文档的所有资源：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"prerender"</span> <span class="attr">href</span>=<span class="string">"http://example.com"</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Steve Souders 在他的<a href="http://www.stevesouders.com/blog/2013/11/07/prebrowsing/" target="_blank" rel="external">一篇文章</a>中写到：</p>
+<blockquote>
+<p>这类似于在一个隐藏的 tab 页中打开了某个链接 – 将下载所有资源、创建 DOM 结构、完成页面布局、应用 CSS 样式和执行 JavaScript 脚本等。当用户真正访问该链接时，隐藏的页面就切换为可见，使页面看起来就是瞬间加载完成一样。Google 搜索在其即时搜索页面中已经应用该技术多年了，微软也宣称将在 IE11 中支持该特性。</p>
+</blockquote>
+<p>需要注意的是不要滥用该特性，当你知道用户一定会点击某个链接时才可以进行预渲染，否则浏览器将无条件地下载所有预渲染需要的资源。</p>
+<p>更多相关讨论：</p>
+<blockquote>
+<p>所有预加载技术都存在一个潜在的风险：对资源预测错误，而预加载的开销（抢占 CPU 资源，消耗电池，浪费带宽等）是高昂的，所以必须谨慎行事。虽然很难确定用户下一步将访问哪些资源，但高可信的场景确实存在：</p>
+<ul>
+<li>如果用户完成一个带有明显结果的搜索，那么结果页面很可能会被加载</li>
+<li>如果用户进入到登陆页面，那么登陆成功的页面很可能会被加载</li>
+<li>如果用户阅读一个多页的文章或访问一个分页的结果集，那么下一页很可能会被加载</li>
+</ul>
+</blockquote>
+<p>最后，使用 <a href="http://www.w3.org/TR/page-visibility/" target="_blank" rel="external">Page Visibility API</a> 可以防止页面真正可见前被执行。</p>
+<h2 id="preload"><a href="#Preload" class="headerlink" title="Preload"></a>Preload</h2><p><code>preload</code> 是一个新规范，与 <code>prefetch</code> 不同（可能被忽略）的是，浏览器一定会预加载该资源：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"preload"</span> <span class="attr">href</span>=<span class="string">"image.png"</span>&gt;</span>☄</div></pre></td></tr></table></figure>
+<p>虽然该规范还没有被所有浏览器兼容，但其背后的思想还是非常有意思的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>预测用户下一步将访问哪些资源是困难的，需要进行大量的测试，但是这带来的性能提升是明显的。如果我们愿意尝试这些预获取技术，一定会显著提升用户的体验。</p>
+<h2 id="深入阅读"><a href="#深入阅读" class="headerlink" title="深入阅读"></a>深入阅读</h2><ul>
+<li><a href="https://docs.google.com/presentation/d/18zlAdKAxnc51y_kj-6sWLmnjl6TLnaru_WH0LJTjP-o/present?slide=id.p19" target="_blank" rel="external">Slides from a talk by Ilya Grigorik called Preconnect, prerender, prefetch</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ" target="_blank" rel="external">MDN link prefetching FAQ</a></li>
+<li><a href="https://w3c.github.io/preload/" target="_blank" rel="external">W3C preload spec</a></li>
+<li><a href="http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers/#section:dns-prefetching" target="_blank" rel="external">Harry Roberts on DNS prefetching</a></li>
+<li><a href="https://medium.com/@luisvieira_gmr/html5-prefetch-1e54f6dda15d" target="_blank" rel="external">HTML5 prefetch</a></li>
+<li><a href="http://www.bramstein.com/writing/preload-hints-for-web-fonts.html" target="_blank" rel="external">Preload hints for webfonts</a></li>
+</ul>
+<p class="j-quote">原文：<a href="https://css-tricks.com/prefetching-preloading-prebrowsing" target="_blank" rel="external">Prefetching, preloading, prebrowsing</a></p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/css/" title="CSS">CSS</a></div><div class="tags"><a href="/tags/performance/" title="performance">performance</a> <a href="/tags/prefetching/" title="prefetching">prefetching</a> <a href="/tags/preloading/" title="preloading">preloading</a> <a href="/tags/prebrowsing/" title="prebrowsing">prebrowsing</a></div></footer></div><nav class="article-nav clearfix"><a href="/2016/02/24/what-you-can-do-with-gists-on-github/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">任何人都可以使用到的 Gist 服务</span></a><a href="/2015/11/18/es6-in-depth-the-future/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">深入解析 ES6：未来展望</span></a></nav></article><section id="article-comment" class="article-comment"><div data-thread-key="http://bubkoo.com/2015/11/19/prefetching-preloading-prebrowsing/" data-title="前端性能优化 - 资源预加载" data-url="http://bubkoo.com/2015/11/19/prefetching-preloading-prebrowsing/" class="ds-thread"></div></section></div><aside id="sidebar" role="sidebar"><div class="widget tagcloud"><h3 class="widget-title">标签</h3><div class="widget-content"><a href="/tags/aop/" style="font-size: 10px">AOP</a> <a href="/tags/algorithm/" style="font-size: 18.33px">Algorithm</a> <a href="/tags/analysis/" style="font-size: 10px">Analysis</a> <a href="/tags/angularjs/" style="font-size: 15px">AngularJS</a> <a href="/tags/animation/" style="font-size: 10px">Animation</a> <a href="/tags/architecture/" style="font-size: 16.67px">Architecture</a> <a href="/tags/archives/" style="font-size: 10.83px">Archives</a> <a href="/tags/async/" style="font-size: 12.5px">Async</a> <a href="/tags/backbone/" style="font-size: 10px">Backbone</a> <a href="/tags/browsers/" style="font-size: 10px">Browsers</a> <a href="/tags/css/" style="font-size: 12.5px">CSS</a> <a href="/tags/css3/" style="font-size: 10px">CSS3</a> <a href="/tags/closure/" style="font-size: 10.83px">Closure</a> <a href="/tags/closures/" style="font-size: 10px">Closures</a> <a href="/tags/cookies/" style="font-size: 10px">Cookies</a> <a href="/tags/cross-domain/" style="font-size: 10px">Cross Domain</a> <a href="/tags/custom-elements/" style="font-size: 10.83px">Custom Elements</a> <a href="/tags/d3/" style="font-size: 10px">D3</a> <a href="/tags/debounce/" style="font-size: 10px">Debounce</a> <a href="/tags/debug/" style="font-size: 10.83px">Debug</a> <a href="/tags/dependency/" style="font-size: 10px">Dependency</a> <a href="/tags/document/" style="font-size: 10px">Document</a> <a href="/tags/ecma-262-3/" style="font-size: 15.83px">ECMA-262-3</a> <a href="/tags/ecmascript/" style="font-size: 15.83px">ECMAScript</a> <a href="/tags/es6/" style="font-size: 20px">ES6</a> <a href="/tags/errors/" style="font-size: 10px">Errors</a> <a href="/tags/essential/" style="font-size: 10px">Essential</a> <a href="/tags/evaluation-strategy/" style="font-size: 10px">Evaluation strategy</a> <a href="/tags/event/" style="font-size: 10px">Event</a> <a href="/tags/exceptions/" style="font-size: 10px">Exceptions</a> <a href="/tags/express/" style="font-size: 10px">Express</a> <a href="/tags/flip/" style="font-size: 10px">FLIP</a> <a href="/tags/flexbox/" style="font-size: 10px">Flexbox</a> <a href="/tags/funarg/" style="font-size: 10px">Funarg</a> <a href="/tags/gist/" style="font-size: 10px">Gist</a> <a href="/tags/github/" style="font-size: 10px">Github</a> <a href="/tags/guide/" style="font-size: 10px">Guide</a> <a href="/tags/html/" style="font-size: 10px">HTML</a> <a href="/tags/http/" style="font-size: 10px">HTTP</a> <a href="/tags/hexo/" style="font-size: 10.83px">Hexo</a> <a href="/tags/ie/" style="font-size: 10px">IE</a> <a href="/tags/iife/" style="font-size: 10px">IIFE</a> <a href="/tags/jshint/" style="font-size: 10px">JSHint</a> <a href="/tags/javascript/" style="font-size: 19.17px">JavaScript</a> <a href="/tags/leak/" style="font-size: 10px">Leak</a> <a href="/tags/linting/" style="font-size: 10px">Linting</a> <a href="/tags/mvc/" style="font-size: 10px">MVC</a> <a href="/tags/methodology/" style="font-size: 10px">Methodology</a> <a href="/tags/mock/" style="font-size: 10px">Mock</a> <a href="/tags/modular/" style="font-size: 10px">Modular</a> <a href="/tags/mongodb/" style="font-size: 10px">MongoDB</a> <a href="/tags/oop/" style="font-size: 10.83px">OOP</a> <a href="/tags/partial-application/" style="font-size: 10px">Partial Application</a> <a href="/tags/pattern/" style="font-size: 10px">Pattern</a> <a href="/tags/patterns/" style="font-size: 10px">Patterns</a> <a href="/tags/performance/" style="font-size: 14.17px">Performance</a> <a href="/tags/promise/" style="font-size: 13.33px">Promise</a> <a href="/tags/prototype/" style="font-size: 11.67px">Prototype</a> <a href="/tags/quality/" style="font-size: 10px">Quality</a> <a href="/tags/quiz/" style="font-size: 10px">Quiz</a> <a href="/tags/regex/" style="font-size: 10px">Regex</a> <a href="/tags/requirejs/" style="font-size: 10px">RequireJS</a> <a href="/tags/sass/" style="font-size: 10px">SASS</a> <a href="/tags/svg/" style="font-size: 10px">SVG</a> <a href="/tags/scope/" style="font-size: 10.83px">Scope</a> <a href="/tags/shapes/" style="font-size: 10px">Shapes</a> <a href="/tags/shuffle/" style="font-size: 10px">Shuffle</a> <a href="/tags/sort/" style="font-size: 17.5px">Sort</a> <a href="/tags/source-map/" style="font-size: 10.83px">Source Map</a> <a href="/tags/styling/" style="font-size: 10px">Styling</a> <a href="/tags/sublime-text/" style="font-size: 10px">Sublime Text</a> <a href="/tags/template/" style="font-size: 10px">Template</a> <a href="/tags/throttle/" style="font-size: 10px">Throttle</a> <a href="/tags/timing/" style="font-size: 10px">Timing</a> <a href="/tags/tools/" style="font-size: 12.5px">Tools</a> <a href="/tags/variable-object/" style="font-size: 10px">Variable object</a> <a href="/tags/visualizations/" style="font-size: 10px">Visualizations</a> <a href="/tags/when/" style="font-size: 12.5px">When</a> <a href="/tags/delete/" style="font-size: 10px">delete</a> <a href="/tags/execution-context/" style="font-size: 10px">execution context</a> <a href="/tags/fetch/" style="font-size: 10px">fetch</a> <a href="/tags/function/" style="font-size: 10px">function</a> <a href="/tags/nodejs/" style="font-size: 10px">nodejs</a> <a href="/tags/nodemon/" style="font-size: 10px">nodemon</a> <a href="/tags/npm/" style="font-size: 10px">npm</a> <a href="/tags/nvm/" style="font-size: 10px">nvm</a> <a href="/tags/performance/" style="font-size: 10px">performance</a> <a href="/tags/prebrowsing/" style="font-size: 10px">prebrowsing</a> <a href="/tags/prefetching/" style="font-size: 10px">prefetching</a> <a href="/tags/preloading/" style="font-size: 10px">preloading</a> <a href="/tags/tabindex/" style="font-size: 10px">tabindex</a> <a href="/tags/this/" style="font-size: 10px">this</a> <a href="/tags/ui-router/" style="font-size: 14.17px">ui-router</a></div></div><div class="widget"><h3 class="widget-title">最新文章</h3><div class="widget-content"><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/01/18/debouncing-throttling-explained-examples/">实例解析防抖和节流函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/08/quick-tip-multiple-versions-node-nvm/">使用 nvm 管理不同版本的 node 与 npm</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/08/15-ways-to-write-self-documenting-javascript/">如何编写更加自解释的代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/high-performance-animations/">使用 FLIP 来提高 Web 动画的性能</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/28/styling-broken-images/">定制图片加载失败时的样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/26/delivering-octicons-with-svg/">使用 SVG 输出 Octicon</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/18/how-to-use-npm-as-a-build-tool/">如何将 npm 作为构建工具使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/what-you-can-do-with-gists-on-github/">任何人都可以使用到的 Gist 服务</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/prefetching-preloading-prebrowsing/">前端性能优化 - 资源预加载</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/es6-in-depth-the-future/">深入解析 ES6：未来展望</a></li></ul></div></div></aside><aside id="topic-wrap" class="toc-wrap f-right"><h3 class="toc-wrap-title">内容</h3><div class="toc-tree"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#dns-预解析-dns-prefetch"><span class="toc-number">1.</span> <span class="toc-text">DNS 预解析 DNS-Prefetch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#预连接-preconnect"><span class="toc-number">2.</span> <span class="toc-text">预连接 Preconnect</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#预获取-prefetching"><span class="toc-number">3.</span> <span class="toc-text">预获取 Prefetching</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#subresources"><span class="toc-number">4.</span> <span class="toc-text">Subresources</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#预渲染-prerender"><span class="toc-number">5.</span> <span class="toc-text">预渲染 Prerender</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#preload"><span class="toc-number">6.</span> <span class="toc-text">Preload</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">7.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深入阅读"><span class="toc-number">8.</span> <span class="toc-text">深入阅读</span></a></li></ol></div><div class="toc-progress"></div></aside></div><footer id="footer" class="inner"><span class="copyright">© 2017 bubkoo</span><span class="theme">@<a href="https://github.com/bubkoo/hexo-theme-formula" target="_blank">formula</a></span></footer><img id="go2top" src="/images/top_arrow.png" alt="go2top"><script charset="utf-8" src="/js/lib/jquery-2.1.3.min.js"></script><script charset="utf-8" src="/js/lib/jquery.imagesloaded.min.js"></script><script charset="utf-8" src="/fancybox/jquery.fancybox.pack.js"></script><script charset="utf-8" src="/js/lib/sea.js"></script><script charset="utf-8" src="/js/main.js"></script><script id="redundancy3">var duoshuoQuery = { short_name: 'bubkoo' };
+(function () {
+  var ds = document.createElement('script');
+
+  ds.type    = 'text/javascript';
+  ds.async   = true;
+  ds.src     = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+
+  (document.getElementsByTagName('head')[0]
+  || document.getElementsByTagName('body')[0]).appendChild(ds);
+
+  ds.parentNode.removeChild(ds);
+
+  var script = document.getElementById('redundancy3');
+  script && script.parentNode.removeChild(script);
+})();</script></body></html>

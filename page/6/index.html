@@ -1,0 +1,184 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>第 6 页 | bubkoo</title><meta name="author" content="bubkoo"><meta name="description" content="bubkoo's blog"><meta name="viewport" content="width=device-width,initial-scale=1"><meta property="og:site_name" content="bubkoo"><link href="/favicon.ico" rel="icon" type="image/x-ico"><link href="/atom.xml" rel="alternate" title="bubkoo" type="application/atom+xml"><link href="/css/style.css" rel="stylesheet" type="text/css" charset="utf-8"><link href="/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" charset="utf-8"><script id="google_analytics">(function (window, document, src, ga) {
+
+  window['GoogleAnalyticsObject'] = ga;
+
+  if (!window[ga]) {
+    window[ga] = function () {
+      (window[ga].q = window[ga].q || []).push(arguments);
+    };
+  }
+
+  window[ga].l = 1 * new Date();
+
+  var thisTag = document.getElementById('google_analytics');
+  var script  = document.createElement('script');
+
+  script.async = true;
+  script.src   = src;
+
+  thisTag.parentNode.insertBefore(script, thisTag);
+
+  setTimeout(function () {
+    script.parentNode.removeChild(script);
+    thisTag.parentNode.removeChild(thisTag);
+  }, 100);
+
+})(window, document, 'https://www.google-analytics.com/analytics.js', 'ga');
+
+ga('create', 'UA-78428859-2', 'auto');
+ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
+(function () {
+  var script  = document.createElement('script');
+  var thisTag = document.getElementById('baidu_tongji');
+
+  script.src = '//hm.baidu.com/hm.js?49a1665c33b011585a2a629fdbed5b61';
+
+  thisTag.parentNode.insertBefore(script, thisTag);
+
+  setTimeout(function () {
+    script.parentNode.removeChild(script);
+    thisTag.parentNode.removeChild(thisTag);
+  }, 100);
+})();</script><!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script>__start__ = window.performance && performance.timing ? performance.timing.navigationStart : Date.now();</script></head><body><header id="header" hoot="default" hoot-rate="1" class="inner"><div class="f-left"><a href="/" class="site-title">bubkoo</a></div><nav class="f-right"><ul class="site-nav"><li><a href="/">&lt;&gt;</a></li><li><a href="/archives">Archives</a></li><li><a href="https://github.com/bubkoo">Github</a></li></ul></nav></header><div id="container" class="inner"><div id="main"><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon"></span><h1 class="article-header-title"><a href="/2014/05/08/intro-to-aspect-oriented-programming/">面向切面编程（AOP）简介</a></h1><time datetime="2014-05-08T08:30:37.000Z" itemprop="datePublished" class="article-header-time"><span class="day">08</span><span class="month">2014年05月</span></time></header><section class="article-content"><p>原文连接：<a href="http://know.cujojs.com/tutorials/aop/intro-to-aspect-oriented-programming">Intro to Aspect Oriented Programming</a></p>
+<p>本文简单地介绍了 AOP 的原理，以及 AOP 与其他方式的异同，并没有涉及太多的复杂逻辑，另外推荐下面两篇文章，这些文章中都间接或直接提及了 AOP：</p>
+<ul>
+<li><a href="http://www.alloyteam.com/2013/08/yong-aop-gai-shan-javascript-dai-ma/">用 AOP 改善 JavaScript 代码</a></li>
+<li><a href="http://www.ibm.com/developerworks/cn/web/wa-lo-jshttp/index.html">使用 JavaScript 拦截和跟踪浏览器中的 HTTP 请求</a></li>
+</ul>
+<p>面向切面编程（AOP）是一种非侵入式扩充对象、方法和函数行为的技术。通过 AOP 可以从“外部”去增加一些行为，进而合并既有行为或修改既有行为。</p>
+<p>虽然有很多技术可以用来增加和合并行为，例如继承、组合、委托，然而，在很多情况下，AOP 被证明是更灵活和更少侵入的方式，非常值得将其纳入我们的工具箱中。<br></p></section><footer class="article-footer clearfix"><div class="f-left"><a href="/2014/05/08/intro-to-aspect-oriented-programming/#more" class="more-link">全文</a></div></footer></div></article><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon"></span><h1 class="article-header-title"><a href="/2014/04/22/improve-cross-domain-communication-with-client-side-solutions/">前端跨域通信解决方案</a></h1><time datetime="2014-04-22T09:45:48.000Z" itemprop="datePublished" class="article-header-time"><span class="day">22</span><span class="month">2014年04月</span></time></header><section class="article-content"><p>此类文章在社区中一抓一大把，但为什么还要来翻译这篇文章呢？最主要的原因是本章的配图太好了，一看就懂，扯远了。。</p>
+<p>原文：<a href="http://www.ibm.com/developerworks/library/wa-crossdomaincomm/">Improve cross-domain communication with client-side solutions</a></p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>越来越多的网站需要相互协作。例如，一个在线房屋租赁网站需要谷歌地图的支持，以显示某个出租屋的位置。为了满足这种需求，出现了各种各样的聚合应用（mashup）。聚合应用是一种将来自不同供应商的数据或组件整合在一起，使其更有价值或更加可定制化的 Web 应用。聚合应用或协作能力，被认为是 Web 2.0 的一个重要组成部分</p>
+<p>但是，要将异步 AJAX 和聚合应用结合在一起并不是那么容易，由于浏览器的安全限制，页面上不同组件之间的通信也难以做到。传统的解决方案是，在服务器上设置一个代理，但这种方式的伸缩性不大。在本文中，你可以了解到一些客户端的跨域通信和数据传输的解决方案。</p>
+<h2 id="安全限制"><a href="#安全限制" class="headerlink" title="安全限制"></a>安全限制</h2><p>同源策略（SOP）将阻止从一个源加载的脚本去操作另一个源的数据或方法，<em>同源</em>要求脚本的域名、协议和端口都相同，你可能会误解同源策略，它不仅仅意味着站点 A 不允许从站点 B 获取信息，你需要知道在同源策略下能做什么和不能做什么。</p>
+<h2 id="同源策略的限制"><a href="#同源策略的限制" class="headerlink" title="同源策略的限制"></a>同源策略的限制</h2><p>例如，A 源中的页面可以：</p>
+<ul>
+<li>从 B 源获取脚本、样式和图片文件</li>
+<li>使用 <code>iframe/frame</code> 嵌入指向 B 源的页面</li>
+<li>通过 HTML 元素（如 <code>iframe</code> 或 <code>img</code>）的 <code>src</code> 属性，向 B 源发送信息</li>
+</ul>
+<p>A 源中的页面不能：</p>
+<ul>
+<li>向 B 源发送 AJAX 请求</li>
+<li>读取或操作通过 <code>iframe/frame</code> 嵌入的 B 源页面的内容</li>
+</ul>
+<p>为什么会这样？主要是为了保护用户的重要信息。假设，一个用户正在访问某个网站，他不希望提交到该网站的任何信息被泄露给其他网站。这种限制限制了网站之间的合作，但可以保护用户免受潜在的恶意攻击。</p>
+<p>接下来的章节将讨论跨域通信和数据传输的客户端解决方案。每一种解决方案都有优缺点，应用场景在很大程度上影响你的选择。<br></p></section><footer class="article-footer clearfix"><div class="f-left"><a href="/2014/04/22/improve-cross-domain-communication-with-client-side-solutions/#more" class="more-link">全文</a></div></footer></div></article><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon"></span><h1 class="article-header-title"><a href="/2014/04/21/patterns-for-large-scale-javascript-application-architecture/">大型 JavaScript 架构中的设计模式</a></h1><time datetime="2014-04-21T14:57:24.000Z" itemprop="datePublished" class="article-header-time"><span class="day">21</span><span class="month">2014年04月</span></time></header><section class="article-content"><p>我们今天要讨论的主题是，大型 JavaScript 应用中一些有效的设计模式。本文基于我最近发布在 LondonJS 上同名演讲，灵感则来自于 Nicholas Zakas <a href="http://yuilibrary.com/theater/nicholas-zakas/zakas-architecture/">之前的研究成果</a>。</p>
+<h2 id="我是谁以及我为什么要撰写这个主题？"><a href="#我是谁以及我为什么要撰写这个主题？" class="headerlink" title="我是谁以及我为什么要撰写这个主题？"></a>我是谁以及我为什么要撰写这个主题？</h2><p>我目前是 AOL 的一名 JavaScript 和 UI 开发人员，负责规划和编写下一代面向用户的应用的前端架构。这些应用不仅复杂，而且需要一种可扩展和高复用的架构，我的职责之一就是确保这类应用中的设计模式尽可能是可持续的。</p>
+<p>尽管在这个领域有许多比我知识渊博的专家，我也认为自己是设计模式的狂热者。先前，我基于 <a href="http://wiki.creativecommons.org/Books">Creative Commons</a> 许可写了 <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/">《Essential JavaScript Design Patterns》</a> 一书，现在我正在为此书撰写更详尽的后续版本。</p>
+<h2 id="140-个字的全文概述"><a href="#140-个字的全文概述" class="headerlink" title="140 个字的全文概述"></a>140 个字的全文概述</h2><p>如果你时间不够，下面是本文的概述，只有一条 tweet 的长度。</p>
+<p class="j-warning">应用解耦。架构/模块，外观模式和中介模式。模块发布消息，中介管理发布/订阅，外观处理安全问题。</p>
+
+<h2 id="什么是“大型”-JavaScript-应用"><a href="#什么是“大型”-JavaScript-应用" class="headerlink" title="什么是“大型” JavaScript 应用"></a>什么是“大型” JavaScript 应用</h2><p>正式开始之前，我们先尝试为“大型” JavaScript 应用下个定义。我发现，即便是在这个领域有多年开发经验的开发者，对于这个问题他们的答案都可能很主观。</p>
+<p>作为实验，我询问了一些中级开发者，让他们试着作一个非正式的定义。一个开发者认为是代码超过 100,000 行的 JavaScript 应用，而另一个则认为是源代码超过 1M 的 JavaScript 应用。他们的答案很大胆，但都<strong>准确</strong>，因为代码量的大小不总是和应用的复杂度相关，100,000 行代码也可能是相当琐碎的代码。</p>
+<p>虽然我的定义并不一定是普遍观点，但我认为这更接近大型 JavaScript 应用的本质：</p>
+<p class="j-warning">在我看来，大型 JavaScript 应用是那种<strong>非琐碎</strong>，并且需要<strong>大量</strong>开发人员努力维护的应用，在浏览器端有繁重的数据操作和显示处理。</p>
+
+<p>也许，该定义的最后一句话才是最重要的。</p></section><footer class="article-footer clearfix"><div class="f-left"><a href="/2014/04/21/patterns-for-large-scale-javascript-application-architecture/#more" class="more-link">全文</a></div></footer></div></article><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon"></span><h1 class="article-header-title"><a href="/2014/04/21/http-cookies-explained/">HTTP cookies 详解</a></h1><time datetime="2014-04-21T07:08:49.000Z" itemprop="datePublished" class="article-header-time"><span class="day">21</span><span class="month">2014年04月</span></time></header><section class="article-content"><p>HTTP cookies，通常称之为“cookie”，已经存在很长时间了，但是仍然没有被充分理解。首要问题是存在许多误解，认为 cookie 是后门程序或病毒，却忽视了其工作原理。第二个问题是，对于 cookie 的操作缺少统一的接口。尽管存在这些问题，cookie 仍旧在 Web 开发中扮演者重要的角色，以至于如果没有出现相应的代替品就消失的话，我们许多喜欢的 Web 应用将变的不可用。</p>
+<h2 id="cookie-的起源"><a href="#cookie-的起源" class="headerlink" title="cookie 的起源"></a>cookie 的起源</h2><p>早期的 Web 应用面临的最大问题之一就是如何维持状态。简言之，服务器无法知道两个请求是否来自于同一个浏览器。当时，最简单的办法就是在请求的页面中插入一个 token，然后在下次请求时将这个 token 返回至服务器。这需要在页面的 form 表单中插入一个包含 token 的隐藏域，或者将 token 放在 URL 的 query 字符串中来传递。这两种方法都需要手动操作，而且极易出错。</p>
+<p>当时网景通讯的一名员工 <a href="http://en.wikipedia.org/wiki/Lou_Montulli">Lou Montulli</a>，在 1994 年将 “<a href="http://en.wikipedia.org/wiki/Magic_cookie">magic cookies</a>” 的概念应用到 Web 通讯中。他试图解决 Web 的第一个购物车应用，现在购物车成了购物网站的支柱。他的<a href="http://curl.haxx.se/rfc/cookie_spec.html">原始说明文档</a>提供了 cookie 工作原理的基本信息，该文档后来被作为规范纳入到 <a href="http://tools.ietf.org/html/rfc2109">RFC 2109</a>（大多数浏览器的实现参考文档）中，最终被纳入到 <a href="http://tools.ietf.org/html/rfc2965">RFC 2965</a> 中。Montulli 也被授予 cookie 的美国<a href="http://v3.espacenet.com/publicationDetails/biblio?CC=US&amp;NR=5774670&amp;KC=&amp;FT=E">专利</a>。网景浏览器在它的第一个版本中就开始支持 cookie，现在所有 Web 浏览器都支持 cookie。</p></section><footer class="article-footer clearfix"><div class="f-left"><a href="/2014/04/21/http-cookies-explained/#more" class="more-link">全文</a></div></footer></div></article><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon"></span><h1 class="article-header-title"><a href="/2014/04/20/angry-birds-of-javascript-mighty-eagle-automation/">神鹰 - 自动化</a></h1><time datetime="2014-04-20T13:40:10.000Z" itemprop="datePublished" class="article-header-time"><span class="day">20</span><span class="month">2014年04月</span></time></header><section class="article-content"><p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-mighty-eagle-automation.png" alt=""></p>
+<p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
+<p>小鸟们最终能取得胜利吗？它们会战胜那些满身培根味的敌人吗？让我们一起来揭示 JavaScript 之愤怒的小鸟系列的另一个扣人心弦的章节！</p>
+<blockquote>
+<p>阅读本系列的<a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-series/">介绍文章</a>，查看所有小鸟以及它们的进攻力量。</p>
+</blockquote>
+<h2 id="战况"><a href="#战况" class="headerlink" title="战况"></a>战况</h2><ul>
+<li><a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-red-bird-iife/">红色大鸟 - 立即调用的函数表达式</a></li>
+<li><a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-blue-bird-events/">蓝色小鸟 - 事件</a></li>
+<li><a href="http://bubkoo.com/2014/03/29/angry-birds-of-javascript-yellow-bird-requirejs/">黄色小鸟 - 模块化、依赖管理、性能优化</a></li>
+<li><a href="http://bubkoo.com/2014/03/29/angry-birds-of-javascript-black-bird-backbone/">黑色小鸟 - 前端分层架构</a></li>
+<li><a href="http://bubkoo.com/2014/04/14/angry-birds-of-javascript-white-bird-linting/">白色小鸟 - 代码质量和代码分析</a></li>
+<li><a href="http://bubkoo.com/2014/04/17/angry-birds-of-javascript-green-bird-mocking/">绿色小鸟 - 模拟请求和模拟数据</a></li>
+<li><a href="http://bubkoo.com/2014/04/18/angry-birds-of-javascript-orange-bird-templating/">橙色小鸟 - 模板引擎</a></li>
+<li><a href="http://bubkoo.com/2014/04/19/angry-birds-of-javascript-big-brother-bird-patterns/">大兄弟 - 设计模式</a></li>
+</ul>
+<h2 id="神鹰的攻击力"><a href="#神鹰的攻击力" class="headerlink" title="神鹰的攻击力"></a>神鹰的攻击力</h2><p><img src="http://bubkoo.qiniudn.com/angry-birds-angrybirds-eagle.png" alt=""></p>
+<p>本文我们将看看使用超级武器的神鹰，它使用一套工具来组织和部署鸟儿们到战斗中去。渐渐的，它们一个接一个地夺回了本属于他们的东西。</p></section><footer class="article-footer clearfix"><div class="f-left"><a href="/2014/04/20/angry-birds-of-javascript-mighty-eagle-automation/#more" class="more-link">全文</a></div></footer></div></article><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon"></span><h1 class="article-header-title"><a href="/2014/04/19/angry-birds-of-javascript-big-brother-bird-patterns/">大兄弟 - 设计模式</a></h1><time datetime="2014-04-18T16:39:52.000Z" itemprop="datePublished" class="article-header-time"><span class="day">19</span><span class="month">2014年04月</span></time></header><section class="article-content"><p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-big-brother-bird-patterns.jpg" alt=""></p>
+<p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
+<p>小鸟们最终能取得胜利吗？它们会战胜那些满身培根味的敌人吗？让我们一起来揭示 JavaScript 之愤怒的小鸟系列的另一个扣人心弦的章节！</p>
+<blockquote>
+<p>阅读本系列的<a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-series/">介绍文章</a>，查看所有小鸟以及它们的进攻力量。</p>
+</blockquote>
+<h2 id="战况"><a href="#战况" class="headerlink" title="战况"></a>战况</h2><ul>
+<li><a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-red-bird-iife/">红色大鸟 - 立即调用的函数表达式</a></li>
+<li><a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-blue-bird-events/">蓝色小鸟 - 事件</a></li>
+<li><a href="http://bubkoo.com/2014/03/29/angry-birds-of-javascript-yellow-bird-requirejs/">黄色小鸟 - 模块化、依赖管理、性能优化</a></li>
+<li><a href="http://bubkoo.com/2014/03/29/angry-birds-of-javascript-black-bird-backbone/">黑色小鸟 - 前端分层架构</a></li>
+<li><a href="http://bubkoo.com/2014/04/14/angry-birds-of-javascript-white-bird-linting/">白色小鸟 - 代码质量和代码分析</a></li>
+<li><a href="http://bubkoo.com/2014/04/17/angry-birds-of-javascript-green-bird-mocking/">绿色小鸟 - 模拟请求和模拟数据</a></li>
+<li><a href="http://bubkoo.com/2014/04/18/angry-birds-of-javascript-orange-bird-templating/">橙色小鸟 - 模板引擎</a></li>
+</ul>
+<h2 id="大兄弟的攻击力"><a href="#大兄弟的攻击力" class="headerlink" title="大兄弟的攻击力"></a>大兄弟的攻击力</h2><p><img src="http://bubkoo.qiniudn.com/angry-birds-big-brother-bird.png" alt=""></p>
+<p>本文我们将看看大兄弟，它拿出了重武器：有限状态机和成熟的设计模式，渐渐的，它们逐一夺回了本属于它们的东西</p></section><footer class="article-footer clearfix"><div class="f-left"><a href="/2014/04/19/angry-birds-of-javascript-big-brother-bird-patterns/#more" class="more-link">全文</a></div></footer></div></article><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon"></span><h1 class="article-header-title"><a href="/2014/04/18/angry-birds-of-javascript-orange-bird-templating/">橙色小鸟 - 模板系统</a></h1><time datetime="2014-04-18T13:39:35.000Z" itemprop="datePublished" class="article-header-time"><span class="day">18</span><span class="month">2014年04月</span></time></header><section class="article-content"><p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-orange-bird-templating.jpg" alt=""></p>
+<p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
+<p>小鸟们最终能取得胜利吗？它们会战胜那些满身培根味的敌人吗？让我们一起来揭示 JavaScript 之愤怒的小鸟系列的另一个扣人心弦的章节！</p>
+<blockquote>
+<p>阅读本系列的<a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-series/">介绍文章</a>，查看所有小鸟以及它们的进攻力量。</p>
+</blockquote>
+<h2 id="战况"><a href="#战况" class="headerlink" title="战况"></a>战况</h2><ul>
+<li><a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-red-bird-iife/">红色大鸟 - 立即调用的函数表达式</a></li>
+<li><a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-blue-bird-events/">蓝色小鸟 - 事件</a></li>
+<li><a href="http://bubkoo.com/2014/03/29/angry-birds-of-javascript-yellow-bird-requirejs/">黄色小鸟 - 模块化、依赖管理、性能优化</a></li>
+<li><a href="http://bubkoo.com/2014/03/29/angry-birds-of-javascript-black-bird-backbone/">黑色小鸟 - 前端分层架构</a></li>
+<li><a href="http://bubkoo.com/2014/04/14/angry-birds-of-javascript-white-bird-linting/">白色小鸟 - 代码质量和代码分析</a></li>
+<li><a href="http://bubkoo.com/2014/04/17/angry-birds-of-javascript-green-bird-mocking/">绿色小鸟 - 模拟请求和模拟数据</a></li>
+</ul>
+<h2 id="橙色小鸟的攻击力"><a href="#橙色小鸟的攻击力" class="headerlink" title="橙色小鸟的攻击力"></a>橙色小鸟的攻击力</h2><p><img src="http://bubkoo.qiniudn.com/angry-birds-Orange-bird.png" alt=""></p>
+<p>本文我们将一起来看看橙色小鸟。开始时，它是一个简单的模板，然后被解析成为 DOM 对象，这明确传达了一个消息就是小鸟们是认真的。渐渐的，小鸟们一个接一个地夺回了本属于他们的东西。</p></section><footer class="article-footer clearfix"><div class="f-left"><a href="/2014/04/18/angry-birds-of-javascript-orange-bird-templating/#more" class="more-link">全文</a></div></footer></div></article><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon"></span><h1 class="article-header-title"><a href="/2014/04/17/angry-birds-of-javascript-green-bird-mocking/">绿色小鸟 - 模拟请求和模拟数据</a></h1><time datetime="2014-04-17T13:39:20.000Z" itemprop="datePublished" class="article-header-time"><span class="day">17</span><span class="month">2014年04月</span></time></header><section class="article-content"><p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-green-bird-mocking.png" alt=""></p>
+<p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
+<p>小鸟们最终能取得胜利吗？它们会战胜那些满身培根味的敌人吗？让我们一起来揭示 JavaScript 之愤怒的小鸟系列的另一个扣人心弦的章节！</p>
+<blockquote>
+<p>阅读本系列的<a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-series/">介绍文章</a>，查看所有小鸟以及它们的进攻力量。</p>
+</blockquote>
+<h2 id="战况"><a href="#战况" class="headerlink" title="战况"></a>战况</h2><ul>
+<li><a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-red-bird-iife/">红色大鸟 - 立即调用的函数表达式</a></li>
+<li><a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-blue-bird-events/">蓝色小鸟 - 事件</a></li>
+<li><a href="http://bubkoo.com/2014/03/29/angry-birds-of-javascript-yellow-bird-requirejs/">黄色小鸟 - 模块化、依赖管理、性能优化</a></li>
+<li><a href="http://bubkoo.com/2014/03/29/angry-birds-of-javascript-black-bird-backbone/">黑色小鸟 - 前端分层架构</a></li>
+<li><a href="http://bubkoo.com/2014/04/14/angry-birds-of-javascript-white-bird-linting/">白色小鸟 - 代码质量和代码分析</a></li>
+</ul>
+<h2 id="绿色小鸟的攻击力"><a href="#绿色小鸟的攻击力" class="headerlink" title="绿色小鸟的攻击力"></a>绿色小鸟的攻击力</h2><p><img src="http://bubkoo.qiniudn.com/angry-birds-green-bird.png" alt=""></p>
+<p>本文将介绍绿色小鸟，它可以穿透那些难以抵达的地方，并且伪装和监视那些偷东西的小猪，这正是他们的攻击力。渐渐地，他们夺回了属于他们的东西。</p></section><footer class="article-footer clearfix"><div class="f-left"><a href="/2014/04/17/angry-birds-of-javascript-green-bird-mocking/#more" class="more-link">全文</a></div></footer></div></article><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon"></span><h1 class="article-header-title"><a href="/2014/04/14/angry-birds-of-javascript-white-bird-linting/">白色小鸟 - 代码质量和代码分析</a></h1><time datetime="2014-04-14T09:11:47.000Z" itemprop="datePublished" class="article-header-time"><span class="day">14</span><span class="month">2014年04月</span></time></header><section class="article-content"><p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-white-bird-linting.jpg" alt=""></p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
+<p>小鸟们最终能取得胜利吗？它们会战胜那些满身培根味的敌人吗？让我们一起来揭示 JavaScript 之愤怒的小鸟系列的另一个扣人心弦的章节！</p>
+<blockquote>
+<p>阅读本系列的<a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-series/">介绍文章</a>，查看所有小鸟以及它们的进攻力量。</p>
+</blockquote>
+<h2 id="战况"><a href="#战况" class="headerlink" title="战况"></a>战况</h2><ul>
+<li><a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-red-bird-iife/">红色大鸟 - 立即调用的函数表达式</a></li>
+<li><a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-blue-bird-events/">蓝色小鸟 - 事件</a></li>
+<li><a href="http://bubkoo.com/2014/03/29/angry-birds-of-javascript-yellow-bird-requirejs/">黄色小鸟 - 模块化、依赖管理、性能优化</a></li>
+<li><a href="http://bubkoo.com/2014/03/29/angry-birds-of-javascript-black-bird-backbone/">黑色小鸟 - 前端分层架构</a></li>
+</ul>
+<h2 id="白色小鸟的攻击力"><a href="#白色小鸟的攻击力" class="headerlink" title="白色小鸟的攻击力"></a>白色小鸟的攻击力</h2><p><img src="http://bubkoo.qiniudn.com/angry-birds-white-bird.png" alt="white bird"></p>
+<p>本篇文章我将介绍白色小鸟，它看似没有什么攻击力，但当它们拿出严格的代码风格和质量检查时，小猪们都惊呆了。渐渐的，小鸟们将一个接一个地夺回属于他们的东西。</p></section><footer class="article-footer clearfix"><div class="f-left"><a href="/2014/04/14/angry-birds-of-javascript-white-bird-linting/#more" class="more-link">全文</a></div></footer></div></article><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon"></span><h1 class="article-header-title"><a href="/2014/03/29/angry-birds-of-javascript-black-bird-backbone/">黑色小鸟 - 前端分层架构</a></h1><time datetime="2014-03-29T07:28:40.000Z" itemprop="datePublished" class="article-header-time"><span class="day">29</span><span class="month">2014年03月</span></time></header><section class="article-content"><p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-black-bird-backbone.jpg" alt=""></p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
+<p>小鸟们最终能取得胜利吗？它们会战胜那些满身培根味的敌人吗？让我们一起来揭示 JavaScript 之愤怒的小鸟系列的另一个扣人心弦的章节！</p>
+<blockquote>
+<p>阅读本系列的<a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-series/">介绍文章</a>，查看所有小鸟以及它们的进攻力量。</p>
+</blockquote>
+<h2 id="战况"><a href="#战况" class="headerlink" title="战况"></a>战况</h2><ul>
+<li><a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-red-bird-iife/">红色大鸟 - 立即调用的函数表达式</a></li>
+<li><a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-blue-bird-events/">蓝色小鸟 - 事件</a></li>
+<li><a href="http://bubkoo.com/2014/03/29/angry-birds-of-javascript-yellow-bird-requirejs/">黄色小鸟 - 模块化、依赖管理、性能优化</a></li>
+</ul>
+<h2 id="黑色小鸟的攻击力"><a href="#黑色小鸟的攻击力" class="headerlink" title="黑色小鸟的攻击力"></a>黑色小鸟的攻击力</h2><p><img src="http://bubkoo.qiniudn.com/angry-birds-black-bird.png" alt="black bird"></p>
+<p>在这篇文章中，我们将看看黑色小鸟，它们使用 Backbone.js 的组织方式，用炸弹进攻肥小猪们。慢慢的，小鸟们将一个接一个地夺回本属于他们的东西。</p></section><footer class="article-footer clearfix"><div class="f-left"><a href="/2014/03/29/angry-birds-of-javascript-black-bird-backbone/#more" class="more-link">全文</a></div></footer></div></article><nav id="pagination" class="clearfix"><a href="/page/5/" class="f-left prev">上一页</a><a href="/page/7/" class="f-right next">下一页</a></nav></div><aside id="sidebar" role="sidebar"><div class="widget tagcloud"><h3 class="widget-title">标签</h3><div class="widget-content"><a href="/tags/aop/" style="font-size: 10px">AOP</a> <a href="/tags/algorithm/" style="font-size: 18.33px">Algorithm</a> <a href="/tags/analysis/" style="font-size: 10px">Analysis</a> <a href="/tags/angularjs/" style="font-size: 15px">AngularJS</a> <a href="/tags/animation/" style="font-size: 10px">Animation</a> <a href="/tags/architecture/" style="font-size: 16.67px">Architecture</a> <a href="/tags/archives/" style="font-size: 10.83px">Archives</a> <a href="/tags/async/" style="font-size: 12.5px">Async</a> <a href="/tags/backbone/" style="font-size: 10px">Backbone</a> <a href="/tags/browsers/" style="font-size: 10px">Browsers</a> <a href="/tags/css/" style="font-size: 12.5px">CSS</a> <a href="/tags/css3/" style="font-size: 10px">CSS3</a> <a href="/tags/closure/" style="font-size: 10.83px">Closure</a> <a href="/tags/closures/" style="font-size: 10px">Closures</a> <a href="/tags/cookies/" style="font-size: 10px">Cookies</a> <a href="/tags/cross-domain/" style="font-size: 10px">Cross Domain</a> <a href="/tags/custom-elements/" style="font-size: 10.83px">Custom Elements</a> <a href="/tags/d3/" style="font-size: 10px">D3</a> <a href="/tags/debounce/" style="font-size: 10px">Debounce</a> <a href="/tags/debug/" style="font-size: 10.83px">Debug</a> <a href="/tags/dependency/" style="font-size: 10px">Dependency</a> <a href="/tags/document/" style="font-size: 10px">Document</a> <a href="/tags/ecma-262-3/" style="font-size: 15.83px">ECMA-262-3</a> <a href="/tags/ecmascript/" style="font-size: 15.83px">ECMAScript</a> <a href="/tags/es6/" style="font-size: 20px">ES6</a> <a href="/tags/errors/" style="font-size: 10px">Errors</a> <a href="/tags/essential/" style="font-size: 10px">Essential</a> <a href="/tags/evaluation-strategy/" style="font-size: 10px">Evaluation strategy</a> <a href="/tags/event/" style="font-size: 10px">Event</a> <a href="/tags/exceptions/" style="font-size: 10px">Exceptions</a> <a href="/tags/express/" style="font-size: 10px">Express</a> <a href="/tags/flip/" style="font-size: 10px">FLIP</a> <a href="/tags/flexbox/" style="font-size: 10px">Flexbox</a> <a href="/tags/funarg/" style="font-size: 10px">Funarg</a> <a href="/tags/gist/" style="font-size: 10px">Gist</a> <a href="/tags/github/" style="font-size: 10px">Github</a> <a href="/tags/guide/" style="font-size: 10px">Guide</a> <a href="/tags/html/" style="font-size: 10px">HTML</a> <a href="/tags/http/" style="font-size: 10px">HTTP</a> <a href="/tags/hexo/" style="font-size: 10.83px">Hexo</a> <a href="/tags/ie/" style="font-size: 10px">IE</a> <a href="/tags/iife/" style="font-size: 10px">IIFE</a> <a href="/tags/jshint/" style="font-size: 10px">JSHint</a> <a href="/tags/javascript/" style="font-size: 19.17px">JavaScript</a> <a href="/tags/leak/" style="font-size: 10px">Leak</a> <a href="/tags/linting/" style="font-size: 10px">Linting</a> <a href="/tags/mvc/" style="font-size: 10px">MVC</a> <a href="/tags/methodology/" style="font-size: 10px">Methodology</a> <a href="/tags/mock/" style="font-size: 10px">Mock</a> <a href="/tags/modular/" style="font-size: 10px">Modular</a> <a href="/tags/mongodb/" style="font-size: 10px">MongoDB</a> <a href="/tags/oop/" style="font-size: 10.83px">OOP</a> <a href="/tags/partial-application/" style="font-size: 10px">Partial Application</a> <a href="/tags/pattern/" style="font-size: 10px">Pattern</a> <a href="/tags/patterns/" style="font-size: 10px">Patterns</a> <a href="/tags/performance/" style="font-size: 14.17px">Performance</a> <a href="/tags/promise/" style="font-size: 13.33px">Promise</a> <a href="/tags/prototype/" style="font-size: 11.67px">Prototype</a> <a href="/tags/quality/" style="font-size: 10px">Quality</a> <a href="/tags/quiz/" style="font-size: 10px">Quiz</a> <a href="/tags/regex/" style="font-size: 10px">Regex</a> <a href="/tags/requirejs/" style="font-size: 10px">RequireJS</a> <a href="/tags/sass/" style="font-size: 10px">SASS</a> <a href="/tags/svg/" style="font-size: 10px">SVG</a> <a href="/tags/scope/" style="font-size: 10.83px">Scope</a> <a href="/tags/shapes/" style="font-size: 10px">Shapes</a> <a href="/tags/shuffle/" style="font-size: 10px">Shuffle</a> <a href="/tags/sort/" style="font-size: 17.5px">Sort</a> <a href="/tags/source-map/" style="font-size: 10.83px">Source Map</a> <a href="/tags/styling/" style="font-size: 10px">Styling</a> <a href="/tags/sublime-text/" style="font-size: 10px">Sublime Text</a> <a href="/tags/template/" style="font-size: 10px">Template</a> <a href="/tags/throttle/" style="font-size: 10px">Throttle</a> <a href="/tags/timing/" style="font-size: 10px">Timing</a> <a href="/tags/tools/" style="font-size: 12.5px">Tools</a> <a href="/tags/variable-object/" style="font-size: 10px">Variable object</a> <a href="/tags/visualizations/" style="font-size: 10px">Visualizations</a> <a href="/tags/when/" style="font-size: 12.5px">When</a> <a href="/tags/delete/" style="font-size: 10px">delete</a> <a href="/tags/execution-context/" style="font-size: 10px">execution context</a> <a href="/tags/fetch/" style="font-size: 10px">fetch</a> <a href="/tags/function/" style="font-size: 10px">function</a> <a href="/tags/nodejs/" style="font-size: 10px">nodejs</a> <a href="/tags/nodemon/" style="font-size: 10px">nodemon</a> <a href="/tags/npm/" style="font-size: 10px">npm</a> <a href="/tags/nvm/" style="font-size: 10px">nvm</a> <a href="/tags/performance/" style="font-size: 10px">performance</a> <a href="/tags/prebrowsing/" style="font-size: 10px">prebrowsing</a> <a href="/tags/prefetching/" style="font-size: 10px">prefetching</a> <a href="/tags/preloading/" style="font-size: 10px">preloading</a> <a href="/tags/tabindex/" style="font-size: 10px">tabindex</a> <a href="/tags/this/" style="font-size: 10px">this</a> <a href="/tags/ui-router/" style="font-size: 14.17px">ui-router</a></div></div><div class="widget"><h3 class="widget-title">最新文章</h3><div class="widget-content"><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/01/18/debouncing-throttling-explained-examples/">实例解析防抖和节流函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/08/quick-tip-multiple-versions-node-nvm/">使用 nvm 管理不同版本的 node 与 npm</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/08/15-ways-to-write-self-documenting-javascript/">如何编写更加自解释的代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/high-performance-animations/">使用 FLIP 来提高 Web 动画的性能</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/28/styling-broken-images/">定制图片加载失败时的样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/26/delivering-octicons-with-svg/">使用 SVG 输出 Octicon</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/18/how-to-use-npm-as-a-build-tool/">如何将 npm 作为构建工具使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/what-you-can-do-with-gists-on-github/">任何人都可以使用到的 Gist 服务</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/prefetching-preloading-prebrowsing/">前端性能优化 - 资源预加载</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/es6-in-depth-the-future/">深入解析 ES6：未来展望</a></li></ul></div></div></aside></div><footer id="footer" class="inner"><span class="copyright">© 2017 bubkoo</span><span class="theme">@<a href="https://github.com/bubkoo/hexo-theme-formula" target="_blank">formula</a></span></footer><img id="go2top" src="/images/top_arrow.png" alt="go2top"><script charset="utf-8" src="/js/lib/jquery-2.1.3.min.js"></script><script charset="utf-8" src="/js/lib/jquery.imagesloaded.min.js"></script><script charset="utf-8" src="/fancybox/jquery.fancybox.pack.js"></script><script charset="utf-8" src="/js/lib/sea.js"></script><script charset="utf-8" src="/js/main.js"></script><script id="redundancy3">var duoshuoQuery = { short_name: 'bubkoo' };
+(function () {
+  var ds = document.createElement('script');
+
+  ds.type    = 'text/javascript';
+  ds.async   = true;
+  ds.src     = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+
+  (document.getElementsByTagName('head')[0]
+  || document.getElementsByTagName('body')[0]).appendChild(ds);
+
+  ds.parentNode.removeChild(ds);
+
+  var script = document.getElementById('redundancy3');
+  script && script.parentNode.removeChild(script);
+})();</script></body></html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>神鹰 - 自动化 | bubkoo</title><meta name="author" content="bubkoo"><meta name="description" content="一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）
+小鸟们最终能取得胜利吗？它们会战胜那些满身培根味的敌人吗？让我们一起来揭示 JavaScript 之愤怒的小鸟系列的另一个扣人心弦的章节！
+
+阅读本系列的介绍文章，查看所有小鸟以及它们的进攻力量。
+
+战况
+红色大鸟 - 立即调用的函数表达式
+蓝色小鸟 - 事件
+黄色小鸟 - 模块化、依赖管理、性能优化
+黑色小鸟 - 前端分层架构
+白色小鸟 - 代码质量和代码分析
+绿色小鸟 - 模拟请求和模拟数据
+橙色小鸟 - 模板引擎
+大兄弟 - 设计模式
+
+神鹰的攻击力
+本文我们将看看使用超级武器的神鹰，它使用一套工具来组织和部署鸟儿们到战斗中去。渐渐的，它们一个接一个地夺回了本属于他们的东西。"><meta name="viewport" content="width=device-width,initial-scale=1"><meta property="og:title" content="神鹰 - 自动化"><meta property="og:site_name" content="bubkoo"><link href="/favicon.ico" rel="icon" type="image/x-ico"><link href="/atom.xml" rel="alternate" title="bubkoo" type="application/atom+xml"><link href="/css/style.css" rel="stylesheet" type="text/css" charset="utf-8"><link href="/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" charset="utf-8"><script id="google_analytics">(function (window, document, src, ga) {
+
+  window['GoogleAnalyticsObject'] = ga;
+
+  if (!window[ga]) {
+    window[ga] = function () {
+      (window[ga].q = window[ga].q || []).push(arguments);
+    };
+  }
+
+  window[ga].l = 1 * new Date();
+
+  var thisTag = document.getElementById('google_analytics');
+  var script  = document.createElement('script');
+
+  script.async = true;
+  script.src   = src;
+
+  thisTag.parentNode.insertBefore(script, thisTag);
+
+  setTimeout(function () {
+    script.parentNode.removeChild(script);
+    thisTag.parentNode.removeChild(thisTag);
+  }, 100);
+
+})(window, document, 'https://www.google-analytics.com/analytics.js', 'ga');
+
+ga('create', 'UA-78428859-2', 'auto');
+ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
+(function () {
+  var script  = document.createElement('script');
+  var thisTag = document.getElementById('baidu_tongji');
+
+  script.src = '//hm.baidu.com/hm.js?49a1665c33b011585a2a629fdbed5b61';
+
+  thisTag.parentNode.insertBefore(script, thisTag);
+
+  setTimeout(function () {
+    script.parentNode.removeChild(script);
+    thisTag.parentNode.removeChild(thisTag);
+  }, 100);
+})();</script><!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script>__start__ = window.performance && performance.timing ? performance.timing.navigationStart : Date.now();</script></head><body><header id="header" hoot="default" hoot-rate="1" class="inner"><div class="f-left"><a href="/" class="site-title">bubkoo</a></div><nav class="f-right"><ul class="site-nav"><li><a href="/">&lt;&gt;</a></li><li><a href="/archives">Archives</a></li><li><a href="https://github.com/bubkoo">Github</a></li></ul></nav></header><div id="container" class="inner"><div id="main"><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon icon-black"></span><h1 class="article-header-title">神鹰 - 自动化</h1><time datetime="2014-04-20T13:40:10.000Z" itemprop="datePublished" class="article-header-time"><span class="day">20</span><span class="month">2014年04月</span></time></header><section class="article-content"><p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-mighty-eagle-automation.png" alt=""></p>
+<p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
+<p>小鸟们最终能取得胜利吗？它们会战胜那些满身培根味的敌人吗？让我们一起来揭示 JavaScript 之愤怒的小鸟系列的另一个扣人心弦的章节！</p>
+<blockquote>
+<p>阅读本系列的<a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-series/">介绍文章</a>，查看所有小鸟以及它们的进攻力量。</p>
+</blockquote>
+<h2 id="战况"><a href="#战况" class="headerlink" title="战况"></a>战况</h2><ul>
+<li><a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-red-bird-iife/">红色大鸟 - 立即调用的函数表达式</a></li>
+<li><a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-blue-bird-events/">蓝色小鸟 - 事件</a></li>
+<li><a href="http://bubkoo.com/2014/03/29/angry-birds-of-javascript-yellow-bird-requirejs/">黄色小鸟 - 模块化、依赖管理、性能优化</a></li>
+<li><a href="http://bubkoo.com/2014/03/29/angry-birds-of-javascript-black-bird-backbone/">黑色小鸟 - 前端分层架构</a></li>
+<li><a href="http://bubkoo.com/2014/04/14/angry-birds-of-javascript-white-bird-linting/">白色小鸟 - 代码质量和代码分析</a></li>
+<li><a href="http://bubkoo.com/2014/04/17/angry-birds-of-javascript-green-bird-mocking/">绿色小鸟 - 模拟请求和模拟数据</a></li>
+<li><a href="http://bubkoo.com/2014/04/18/angry-birds-of-javascript-orange-bird-templating/">橙色小鸟 - 模板引擎</a></li>
+<li><a href="http://bubkoo.com/2014/04/19/angry-birds-of-javascript-big-brother-bird-patterns/">大兄弟 - 设计模式</a></li>
+</ul>
+<h2 id="神鹰的攻击力"><a href="#神鹰的攻击力" class="headerlink" title="神鹰的攻击力"></a>神鹰的攻击力</h2><p><img src="http://bubkoo.qiniudn.com/angry-birds-angrybirds-eagle.png" alt=""></p>
+<p>本文我们将看看使用超级武器的神鹰，它使用一套工具来组织和部署鸟儿们到战斗中去。渐渐的，它们一个接一个地夺回了本属于他们的东西。</p>
+<a id="more"></a>
+<h2 id="猪猪偷走了什么"><a href="#猪猪偷走了什么" class="headerlink" title="猪猪偷走了什么"></a>猪猪偷走了什么</h2><p>经过一段时间后，小鸟们开始使用 RequireJS (黄色小鸟)，JSHint (白色小鸟)，Plato，Mustache (橙色小鸟) 和其他一系列强大的工具，但所有这些工具都需要依靠命令行。记住这些工具对应的命令很烦人，并且在更新网站时，很容易忘记运行某个命令。幸好，神鹰带来了一些工具，使得这些工作变得简单，神鹰用 Grunt 和 Bowser 自动执行常见任务，并让项目可以很容易的引入必需的常用库。</p>
+<p>但是，在最近的一次进攻中，小猪偷走了鸟儿们的自动化工具。其中一只神鹰被指派去夺回来，它将使用神鹰神奇的力量去夺回本系列中介绍过的技术。</p>
+<h2 id="grunt"><a href="#Grunt" class="headerlink" title="Grunt"></a>Grunt</h2><p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-mighty-eagle-automation-grunt.png" alt=""></p>
+<p>Grunt 是一个基于任务的命令行工具，用于前端应用的自动构建。社区被这个工具深深吸引，并产出了大量插件可供选择，例如 CoffeeScript 编译、Handlebars 预编译、Less 支持、JSHint 检查等等…</p>
+<p>事实上已经有几个大型项目正在使用 Grunt 辅助自动构建过程以及其他任务，例如 Twitter、jQuery、Modernizr、Sauce Labs 等。</p>
+<h3 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h3><p>开始使用之前，你需要在 node 中用下面的命令安装 Grunt</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g grunt-cli grunt-init</div></pre></td></tr></table></figure>
+<p>安装 Grun 之后，每个项目需要两个主要的文件：</p>
+<ul>
+<li>Gruntfile.js</li>
+<li>package.json</li>
+</ul>
+<h4 id="gruntfilejs"><a href="#Gruntfile-js" class="headerlink" title="Gruntfile.js"></a>Gruntfile.js</h4><p>你可以从头创建自己的 <code>Gruntfile.js</code>，也可以从文档中拷贝一份初学者的 <code>Gruntfile.js</code>，或者使用项目脚手架 <code>grunt-init gruntfile</code>。如何安装脚手架请参阅 Grunt 的项目<a href="http://gruntjs.com/project-scaffolding" target="_blank" rel="external">脚手架页面</a>的介绍。下面的 <code>Gruntfile.js</code> 示例来自 Grunt 的<a href="http://gruntjs.com/getting-started" target="_blank" rel="external">入门指南</a>页面…</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">grunt</span>) </span>&#123;</div><div class="line">    <span class="comment">// Project configuration.</span></div><div class="line">    grunt.initConfig(&#123;</div><div class="line">        <span class="attr">pkg</span>: grunt.file.readJSON(<span class="string">'package.json'</span>),</div><div class="line">        <span class="attr">uglify</span>: &#123;</div><div class="line">            <span class="attr">options</span>: &#123;</div><div class="line">                <span class="attr">banner</span>: <span class="string">'/*! &lt;%= pkg.name %&gt; &lt;%= grunt.template.today("yyyy-mm-dd") %&gt; */\n'</span></div><div class="line">            &#125;,</div><div class="line">            <span class="attr">build</span>: &#123;</div><div class="line">                <span class="attr">src</span>: <span class="string">'src/&lt;%= pkg.name %&gt;.js'</span>,</div><div class="line">                <span class="attr">dest</span>: <span class="string">'build/&lt;%= pkg.name %&gt;.min.js'</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    <span class="comment">// Load the plugin that provides the "uglify" task.</span></div><div class="line">    grunt.loadNpmTasks(<span class="string">'grunt-contrib-uglify'</span>);</div><div class="line">    </div><div class="line">    <span class="comment">// Default task(s).</span></div><div class="line">    grunt.registerTask(<span class="string">'default'</span>, [<span class="string">'uglify'</span>]);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="packagejson"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h4><p><code>package.json</code> 描述了项目名称、版本，以及可能有的依赖，例如 Grunt 和 Grunt 插件。你可以从 Grunt 的<a href="http://gruntjs.com/getting-started" target="_blank" rel="external">入门指南</a>页面拷贝一份 package.json 示例…（如下所示）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"name"</span>: <span class="string">"my-project-name"</span>,</div><div class="line">    <span class="string">"version"</span>: <span class="string">"0.1.0"</span>,</div><div class="line">    <span class="string">"devDependencies"</span>: &#123;</div><div class="line">        <span class="string">"grunt"</span>: <span class="string">"~0.4.1"</span>,</div><div class="line">        <span class="string">"grunt-contrib-jshint"</span>: <span class="string">"~0.1.1"</span>,</div><div class="line">        <span class="string">"grunt-contrib-nodeunit"</span>: <span class="string">"~0.1.2"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="grunt-插件"><a href="#Grunt-插件" class="headerlink" title="Grunt 插件"></a>Grunt 插件</h3><p>现在一切就绪，你可以使用一整套插件开始自动执行任务。这里有几个有趣的插件，你可能会感兴趣…</p>
+<ul>
+<li>grunt-contrib-coffee - 把 CoffeeScript 编译为 JavaScript</li>
+<li>grunt-contrib-compass - 把 Compass 编译为 CSS</li>
+<li>grunt-contrib-concat - 合并文件</li>
+<li>grunt-contrib-connect - 启动一个 Web 服务</li>
+<li>grunt-contrib-csslint - 检测 CSS 文件</li>
+<li>grunt-contrib-handlebars - 预编译 Handlebar 模板</li>
+<li>grunt-contrib-htmlmin - 压缩 HTML 文件</li>
+<li>grunt-contrib-imagemin - 压缩 PNG 和 JPEG 图片</li>
+<li>grunt-contrib-jshint - 用 JSHint 检查 JS 文件</li>
+<li>grunt-contrib-less - 将 LESS 编译为 CSS</li>
+<li>grunt-contrib-nodeunit - 运行 Nodeunit 单元测试</li>
+<li>grunt-contrib-watch - 当文件发生变化时运行与定义任务</li>
+<li>grunt-contrib-requirejs - 使用 r.js 优化 RequireJS 项目</li>
+<li>grunt-contrib-uglify - 用 UglifyJS 压缩文件</li>
+<li>grunt-contrib-yuidoc - 编译 YUIDocs</li>
+<li>… more …</li>
+</ul>
+<h3 id="jquery-的-gruntfile"><a href="#jQuery-的-Gruntfile" class="headerlink" title="jQuery 的 Gruntfile"></a>jQuery 的 Gruntfile</h3><p>我从 GitHub 上 clone 了一份 jQuery，用来查看 jQuery 是如何使用 Grunt 的，下面是执行 Grunt 时得到的输出。</p>
+<p><img src="http://bubkoo.qiniudn.com/grunt-jquery.png" alt=""></p>
+<p>如果你仔细查看上图，你会发现执行了一下任务：更新 Git 子模块（Sizzle，Qunit），从各个模块中构建出 jQuery，执行 JSHint 检查，创建 SourceMaps，并运行一个比较指定文件大小的任务。如果你深入研究它的 Gruntfile 的话，你还会发现它自定义一种不同于 Browserstack 的方式来运行单元测试。</p>
+<h3 id="modernizr-的-gruntfile"><a href="#Modernizr-的-Gruntfile" class="headerlink" title="Modernizr 的 Gruntfile"></a>Modernizr 的 Gruntfile</h3><p>我同样也 clone 了一份 Modernizr 库，然后输入 <code>grunt qunit</code> 观察它的 746 项单元测试的测试过程，并在 369ms 内测试通过，测试使用了无界面的浏览器引擎 PhantomJS。</p>
+<p><img src="http://bubkoo.qiniudn.com/grunt-modernizr.png" alt=""></p>
+<h3 id="grunt-资源"><a href="#Grunt-资源" class="headerlink" title="Grunt 资源"></a>Grunt 资源</h3><p>本文的意图不是教会你如何使用 Grunt，只是让你意识到有这个东西的存在，它是实现前端自动化构建的一个非常好的工具，如果你还不了解 Grunt，你可以参阅下面的资源，这些资源将引导你逐步深入…</p>
+<ul>
+<li><a href="http://www.youtube.com/watch?v=q3Sqljpr-Vc" target="_blank" rel="external">The Grunt Basics</a> by Cary Landholt (<a href="http://twitter.com/carylandholt" target="_blank" rel="external">@carylandholt</a>)</li>
+<li><a href="http://merrickchristensen.com/articles/gruntjs-workflow.html" target="_blank" rel="external">Grunt.js Workflow</a> by Merrick Christensen (<a href="http://twitter.com/iammerrick" target="_blank" rel="external">@iammerrick</a>)</li>
+<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/meeting-grunt-the-build-tool-for-javascript/" target="_blank" rel="external">Meet Grunt: The Build Tool for JavavScript</a> by Andrew Burgess (<a href="http://twitter.com/andrew8088" target="_blank" rel="external">@andrew8088</a>)</li>
+</ul>
+<h2 id="twitter-bower"><a href="#Twitter-Bower" class="headerlink" title="Twitter Bower"></a>Twitter Bower</h2><p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-mighty-eagle-automation-bower.png" alt=""></p>
+<p>使用 Node 或 Ruby 的开发人员可能已经熟悉了 npm 或 gems，但是对于浏览器脚本和样式没有类似的工具…至少到目前为止还没有！</p>
+<p>Twitter Bower 项目旨在为 HTML、CSS 和 JavaScript 提供一套包管理器来解决这个问题。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g bower</div></pre></td></tr></table></figure>
+<p>安装 Bower 之后你就可以开始下载库！例如，我想下载最新版本的 jQuery，只需要运行 <code>bower install jquery</code>，然后你会看到下面的输出…</p>
+<p><img src="http://bubkoo.qiniudn.com/bower-install-jquery.png" alt=""></p>
+<h4 id="bower-资源"><a href="#Bower-资源" class="headerlink" title="Bower 资源"></a>Bower 资源</h4><p>如果想更多的了解 Bower，建议去看看下面的这些好资源。</p>
+<ul>
+<li><a href="http://net.tutsplus.com/tutorials/tools-and-tips/meet-bower-a-package-manager-for-the-web/" target="_blank" rel="external">Meet Bower: A Package Manager For The Web</a> by Andrew Burgess (<a href="http://twitter.com/andrew8088" target="_blank" rel="external">@andrew8088</a>)</li>
+<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/a-requirejs-backbone-and-bower-starter-template/" target="_blank" rel="external">A RequireJS, Backbone, and Bower Starter Template</a> by Jeffrey Way (<a href="http://twitter.com/jeffrey_way" target="_blank" rel="external">@jeffrey_way</a>)</li>
+</ul>
+<h2 id="yeoman"><a href="#Yeoman" class="headerlink" title="Yeoman"></a>Yeoman</h2><p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-mighty-eagle-automation-yo.png" alt=""></p>
+<p>Yeoman 项目是一款与 Grunt 和 Bower 协同工作的脚手架引擎。可以让你的应用快速运行起来。要使用 Yeoman，你需要先用下面的语法安装它…</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g yo grunt-cli bower</div></pre></td></tr></table></figure>
+<p>Yeoman 安装之后，你可以生成各种不同类型的项目。在下面的的截图中，我用 Yeoman 创建了一个 Web 应用。在按我的需求订制应用的过程中，它会问几个问题。</p>
+<p><img src="http://bubkoo.qiniudn.com/yo-webapp.png" alt=""></p>
+<p>还有其他的脚手架，例如 <a href="https://github.com/yeoman/generator-backbone" target="_blank" rel="external">Backbone</a>、<a href="https://github.com/yeoman/generator-angular" target="_blank" rel="external">AngularJS</a> 等，你可以安装它们，然后开始你的项目。可以在 Yeoman 的 GitHub 页面看到更多的<a href="https://github.com/yeoman" target="_blank" rel="external">生成器列表</a>。</p>
+<p>例如在下面的截图中，我先创建了一个新的 Backbone 应用，然后立即创建了一个新的 <code>bird</code> 模型。</p>
+<p><img src="http://bubkoo.qiniudn.com/yo-backbone-app.png" alt=""></p>
+<p><img src="http://bubkoo.qiniudn.com/yo-backbone-model.png" alt=""></p>
+<blockquote>
+<p>Yeoman 目前是 1.0 测试版，网站上说在 Windows 下有一些问题。虽然我已经能用它做一些扩展，但是我敢肯定有一些计划完全支持的功能尚不支持。</p>
+</blockquote>
+<h2 id="进攻"><a href="#进攻" class="headerlink" title="进攻"></a>进攻</h2><p>下面是一个用 <a href="http://incompl.github.com/boxbox/" target="_blank" rel="external">boxbox</a> 构建的简易版 Angry Birds，boxbox 是一个用于 <a href="https://code.google.com/p/box2dweb/" target="_blank" rel="external">box2dweb</a> 的物理学框架，由 <a href="http://bocoup.com/" target="_blank" rel="external">Bocoup</a> 的 <a href="http://twitter.com/_gsmith" target="_blank" rel="external">Greg Smith</a> 编写。</p>
+<blockquote>
+<p>按下空格键来发射神鹰，你也可以使用方向键。</p>
+</blockquote>
+<p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-mighty-eagle-automation-attack.png" alt=""></p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>拥抱 Grunt、Bower 和 Yeoman 可以帮助自动化开发、测试、部署过程中的各个环节。这些工具的社区非常活跃，你可以在上面找到满足你应用需求的插件。</p>
+<p>还有很多其他的前端架构技术也被猪偷走了。接下来，另一只愤怒的小鸟将继续复仇！Dun, dun, daaaaaaa!</p>
+<p class="j-quote">原文：<a href="http://www.elijahmanor.com/angry-birds-of-javascript-mighty-eagle-automation/" target="_blank" rel="external">Angry Birds of JavaScript- Mighty Eagle: Automation</a></p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/architecture/" title="Architecture">Architecture</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/04/21/http-cookies-explained/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">HTTP cookies 详解</span></a><a href="/2014/04/19/angry-birds-of-javascript-big-brother-bird-patterns/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">大兄弟 - 设计模式</span></a></nav></article><section id="article-comment" class="article-comment"><div data-thread-key="http://bubkoo.com/2014/04/20/angry-birds-of-javascript-mighty-eagle-automation/" data-title="神鹰 - 自动化" data-url="http://bubkoo.com/2014/04/20/angry-birds-of-javascript-mighty-eagle-automation/" class="ds-thread"></div></section></div><aside id="sidebar" role="sidebar"><div class="widget tagcloud"><h3 class="widget-title">标签</h3><div class="widget-content"><a href="/tags/aop/" style="font-size: 10px">AOP</a> <a href="/tags/algorithm/" style="font-size: 18.33px">Algorithm</a> <a href="/tags/analysis/" style="font-size: 10px">Analysis</a> <a href="/tags/angularjs/" style="font-size: 15px">AngularJS</a> <a href="/tags/animation/" style="font-size: 10px">Animation</a> <a href="/tags/architecture/" style="font-size: 16.67px">Architecture</a> <a href="/tags/archives/" style="font-size: 10.83px">Archives</a> <a href="/tags/async/" style="font-size: 12.5px">Async</a> <a href="/tags/backbone/" style="font-size: 10px">Backbone</a> <a href="/tags/browsers/" style="font-size: 10px">Browsers</a> <a href="/tags/css/" style="font-size: 12.5px">CSS</a> <a href="/tags/css3/" style="font-size: 10px">CSS3</a> <a href="/tags/closure/" style="font-size: 10.83px">Closure</a> <a href="/tags/closures/" style="font-size: 10px">Closures</a> <a href="/tags/cookies/" style="font-size: 10px">Cookies</a> <a href="/tags/cross-domain/" style="font-size: 10px">Cross Domain</a> <a href="/tags/custom-elements/" style="font-size: 10.83px">Custom Elements</a> <a href="/tags/d3/" style="font-size: 10px">D3</a> <a href="/tags/debounce/" style="font-size: 10px">Debounce</a> <a href="/tags/debug/" style="font-size: 10.83px">Debug</a> <a href="/tags/dependency/" style="font-size: 10px">Dependency</a> <a href="/tags/document/" style="font-size: 10px">Document</a> <a href="/tags/ecma-262-3/" style="font-size: 15.83px">ECMA-262-3</a> <a href="/tags/ecmascript/" style="font-size: 15.83px">ECMAScript</a> <a href="/tags/es6/" style="font-size: 20px">ES6</a> <a href="/tags/errors/" style="font-size: 10px">Errors</a> <a href="/tags/essential/" style="font-size: 10px">Essential</a> <a href="/tags/evaluation-strategy/" style="font-size: 10px">Evaluation strategy</a> <a href="/tags/event/" style="font-size: 10px">Event</a> <a href="/tags/exceptions/" style="font-size: 10px">Exceptions</a> <a href="/tags/express/" style="font-size: 10px">Express</a> <a href="/tags/flip/" style="font-size: 10px">FLIP</a> <a href="/tags/flexbox/" style="font-size: 10px">Flexbox</a> <a href="/tags/funarg/" style="font-size: 10px">Funarg</a> <a href="/tags/gist/" style="font-size: 10px">Gist</a> <a href="/tags/github/" style="font-size: 10px">Github</a> <a href="/tags/guide/" style="font-size: 10px">Guide</a> <a href="/tags/html/" style="font-size: 10px">HTML</a> <a href="/tags/http/" style="font-size: 10px">HTTP</a> <a href="/tags/hexo/" style="font-size: 10.83px">Hexo</a> <a href="/tags/ie/" style="font-size: 10px">IE</a> <a href="/tags/iife/" style="font-size: 10px">IIFE</a> <a href="/tags/jshint/" style="font-size: 10px">JSHint</a> <a href="/tags/javascript/" style="font-size: 19.17px">JavaScript</a> <a href="/tags/leak/" style="font-size: 10px">Leak</a> <a href="/tags/linting/" style="font-size: 10px">Linting</a> <a href="/tags/mvc/" style="font-size: 10px">MVC</a> <a href="/tags/methodology/" style="font-size: 10px">Methodology</a> <a href="/tags/mock/" style="font-size: 10px">Mock</a> <a href="/tags/modular/" style="font-size: 10px">Modular</a> <a href="/tags/mongodb/" style="font-size: 10px">MongoDB</a> <a href="/tags/oop/" style="font-size: 10.83px">OOP</a> <a href="/tags/partial-application/" style="font-size: 10px">Partial Application</a> <a href="/tags/pattern/" style="font-size: 10px">Pattern</a> <a href="/tags/patterns/" style="font-size: 10px">Patterns</a> <a href="/tags/performance/" style="font-size: 14.17px">Performance</a> <a href="/tags/promise/" style="font-size: 13.33px">Promise</a> <a href="/tags/prototype/" style="font-size: 11.67px">Prototype</a> <a href="/tags/quality/" style="font-size: 10px">Quality</a> <a href="/tags/quiz/" style="font-size: 10px">Quiz</a> <a href="/tags/regex/" style="font-size: 10px">Regex</a> <a href="/tags/requirejs/" style="font-size: 10px">RequireJS</a> <a href="/tags/sass/" style="font-size: 10px">SASS</a> <a href="/tags/svg/" style="font-size: 10px">SVG</a> <a href="/tags/scope/" style="font-size: 10.83px">Scope</a> <a href="/tags/shapes/" style="font-size: 10px">Shapes</a> <a href="/tags/shuffle/" style="font-size: 10px">Shuffle</a> <a href="/tags/sort/" style="font-size: 17.5px">Sort</a> <a href="/tags/source-map/" style="font-size: 10.83px">Source Map</a> <a href="/tags/styling/" style="font-size: 10px">Styling</a> <a href="/tags/sublime-text/" style="font-size: 10px">Sublime Text</a> <a href="/tags/template/" style="font-size: 10px">Template</a> <a href="/tags/throttle/" style="font-size: 10px">Throttle</a> <a href="/tags/timing/" style="font-size: 10px">Timing</a> <a href="/tags/tools/" style="font-size: 12.5px">Tools</a> <a href="/tags/variable-object/" style="font-size: 10px">Variable object</a> <a href="/tags/visualizations/" style="font-size: 10px">Visualizations</a> <a href="/tags/when/" style="font-size: 12.5px">When</a> <a href="/tags/delete/" style="font-size: 10px">delete</a> <a href="/tags/execution-context/" style="font-size: 10px">execution context</a> <a href="/tags/fetch/" style="font-size: 10px">fetch</a> <a href="/tags/function/" style="font-size: 10px">function</a> <a href="/tags/nodejs/" style="font-size: 10px">nodejs</a> <a href="/tags/nodemon/" style="font-size: 10px">nodemon</a> <a href="/tags/npm/" style="font-size: 10px">npm</a> <a href="/tags/nvm/" style="font-size: 10px">nvm</a> <a href="/tags/performance/" style="font-size: 10px">performance</a> <a href="/tags/prebrowsing/" style="font-size: 10px">prebrowsing</a> <a href="/tags/prefetching/" style="font-size: 10px">prefetching</a> <a href="/tags/preloading/" style="font-size: 10px">preloading</a> <a href="/tags/tabindex/" style="font-size: 10px">tabindex</a> <a href="/tags/this/" style="font-size: 10px">this</a> <a href="/tags/ui-router/" style="font-size: 14.17px">ui-router</a></div></div><div class="widget"><h3 class="widget-title">最新文章</h3><div class="widget-content"><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/01/18/debouncing-throttling-explained-examples/">实例解析防抖和节流函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/08/quick-tip-multiple-versions-node-nvm/">使用 nvm 管理不同版本的 node 与 npm</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/08/15-ways-to-write-self-documenting-javascript/">如何编写更加自解释的代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/high-performance-animations/">使用 FLIP 来提高 Web 动画的性能</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/28/styling-broken-images/">定制图片加载失败时的样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/26/delivering-octicons-with-svg/">使用 SVG 输出 Octicon</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/18/how-to-use-npm-as-a-build-tool/">如何将 npm 作为构建工具使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/what-you-can-do-with-gists-on-github/">任何人都可以使用到的 Gist 服务</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/prefetching-preloading-prebrowsing/">前端性能优化 - 资源预加载</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/es6-in-depth-the-future/">深入解析 ES6：未来展望</a></li></ul></div></div></aside><aside id="topic-wrap" class="toc-wrap f-right"><h3 class="toc-wrap-title">内容</h3><div class="toc-tree"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#战况"><span class="toc-number">1.</span> <span class="toc-text">战况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#神鹰的攻击力"><span class="toc-number">2.</span> <span class="toc-text">神鹰的攻击力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#猪猪偷走了什么"><span class="toc-number">3.</span> <span class="toc-text">猪猪偷走了什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#grunt"><span class="toc-number">4.</span> <span class="toc-text">Grunt</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#开始使用"><span class="toc-number">4.1.</span> <span class="toc-text">开始使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#gruntfilejs"><span class="toc-number">4.1.1.</span> <span class="toc-text">Gruntfile.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#packagejson"><span class="toc-number">4.1.2.</span> <span class="toc-text">package.json</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grunt-插件"><span class="toc-number">4.2.</span> <span class="toc-text">Grunt 插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jquery-的-gruntfile"><span class="toc-number">4.3.</span> <span class="toc-text">jQuery 的 Gruntfile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#modernizr-的-gruntfile"><span class="toc-number">4.4.</span> <span class="toc-text">Modernizr 的 Gruntfile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grunt-资源"><span class="toc-number">4.5.</span> <span class="toc-text">Grunt 资源</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#twitter-bower"><span class="toc-number">5.</span> <span class="toc-text">Twitter Bower</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#bower-资源"><span class="toc-number">5.0.1.</span> <span class="toc-text">Bower 资源</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#yeoman"><span class="toc-number">6.</span> <span class="toc-text">Yeoman</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进攻"><span class="toc-number">7.</span> <span class="toc-text">进攻</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结论"><span class="toc-number">8.</span> <span class="toc-text">结论</span></a></li></div><div class="toc-progress"></div></aside></div><footer id="footer" class="inner"><span class="copyright">© 2017 bubkoo</span><span class="theme">@<a href="https://github.com/bubkoo/hexo-theme-formula" target="_blank">formula</a></span></footer><img id="go2top" src="/images/top_arrow.png" alt="go2top"><script charset="utf-8" src="/js/lib/jquery-2.1.3.min.js"></script><script charset="utf-8" src="/js/lib/jquery.imagesloaded.min.js"></script><script charset="utf-8" src="/fancybox/jquery.fancybox.pack.js"></script><script charset="utf-8" src="/js/lib/sea.js"></script><script charset="utf-8" src="/js/main.js"></script><script id="redundancy3">var duoshuoQuery = { short_name: 'bubkoo' };
+(function () {
+  var ds = document.createElement('script');
+
+  ds.type    = 'text/javascript';
+  ds.async   = true;
+  ds.src     = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+
+  (document.getElementsByTagName('head')[0]
+  || document.getElementsByTagName('body')[0]).appendChild(ds);
+
+  ds.parentNode.removeChild(ds);
+
+  var script = document.getElementById('redundancy3');
+  script && script.parentNode.removeChild(script);
+})();</script></body></html>

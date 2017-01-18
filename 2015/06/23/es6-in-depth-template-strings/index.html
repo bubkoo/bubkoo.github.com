@@ -1,0 +1,121 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>深入解析 ES6：模板字符串 | bubkoo</title><meta name="author" content="bubkoo"><meta name="description" content="在 ES6 中引入了一种新的字符串字面量 – 模板字符串，除了使用反引号 (`) 表示，它们看上去和普通的字符串没有什么区别。在最简单的情况下，他们就是普通的字符串：
+1context.fillText(`Ceci n'est pas une chaîne.`, x, y);
+之所以被称为模板字符串，是因为模板字符串为 JS 引入了简单的字符串插值特性，也就是说，可以方便优雅地将 JS 的值插入到字符串中。"><meta name="viewport" content="width=device-width,initial-scale=1"><meta property="og:title" content="深入解析 ES6：模板字符串"><meta property="og:site_name" content="bubkoo"><link href="/favicon.ico" rel="icon" type="image/x-ico"><link href="/atom.xml" rel="alternate" title="bubkoo" type="application/atom+xml"><link href="/css/style.css" rel="stylesheet" type="text/css" charset="utf-8"><link href="/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" charset="utf-8"><script id="google_analytics">(function (window, document, src, ga) {
+
+  window['GoogleAnalyticsObject'] = ga;
+
+  if (!window[ga]) {
+    window[ga] = function () {
+      (window[ga].q = window[ga].q || []).push(arguments);
+    };
+  }
+
+  window[ga].l = 1 * new Date();
+
+  var thisTag = document.getElementById('google_analytics');
+  var script  = document.createElement('script');
+
+  script.async = true;
+  script.src   = src;
+
+  thisTag.parentNode.insertBefore(script, thisTag);
+
+  setTimeout(function () {
+    script.parentNode.removeChild(script);
+    thisTag.parentNode.removeChild(thisTag);
+  }, 100);
+
+})(window, document, 'https://www.google-analytics.com/analytics.js', 'ga');
+
+ga('create', 'UA-78428859-2', 'auto');
+ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
+(function () {
+  var script  = document.createElement('script');
+  var thisTag = document.getElementById('baidu_tongji');
+
+  script.src = '//hm.baidu.com/hm.js?49a1665c33b011585a2a629fdbed5b61';
+
+  thisTag.parentNode.insertBefore(script, thisTag);
+
+  setTimeout(function () {
+    script.parentNode.removeChild(script);
+    thisTag.parentNode.removeChild(thisTag);
+  }, 100);
+})();</script><!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script>__start__ = window.performance && performance.timing ? performance.timing.navigationStart : Date.now();</script></head><body><header id="header" hoot="default" hoot-rate="1" class="inner"><div class="f-left"><a href="/" class="site-title">bubkoo</a></div><nav class="f-right"><ul class="site-nav"><li><a href="/">&lt;&gt;</a></li><li><a href="/archives">Archives</a></li><li><a href="https://github.com/bubkoo">Github</a></li></ul></nav></header><div id="container" class="inner"><div id="main"><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon icon-black"></span><h1 class="article-header-title">深入解析 ES6：模板字符串</h1><time datetime="2015-06-22T20:16:48.000Z" itemprop="datePublished" class="article-header-time"><span class="day">23</span><span class="month">2015年06月</span></time></header><section class="article-content"><p>在 ES6 中引入了一种新的字符串字面量 – 模板字符串，除了使用反引号 (`) 表示，它们看上去和普通的字符串没有什么区别。在最简单的情况下，他们就是普通的字符串：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">context.fillText(<span class="string">`Ceci n'est pas une chaîne.`</span>, x, y);</div></pre></td></tr></table></figure>
+<p>之所以被称为模板字符串，是因为模板字符串为 JS 引入了简单的字符串插值特性，也就是说，可以方便优雅地将 JS 的值插入到字符串中。</p>
+<a id="more"></a>
+<p>很多地方可以用到模板字符串，看下面这个不起眼的错误提示消息：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">authorize</span>(<span class="params">user, action</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (!user.hasPrivilege(action)) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(</div><div class="line">      <span class="string">`User <span class="subst">$&#123;user.name&#125;</span> is not authorized to do <span class="subst">$&#123;action&#125;</span>.`</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面代码中，<code>${user.name}</code> 和 <code>${action}</code> 被称为<em>模板占位符</em>，JavaScript 将把 <code>user.name</code> 和 <code>action</code> 的值分别插到对应的位置上，然后生成像这样 “User jorendorff is not authorized to do hockey.” 的字符串。</p>
+<p>现在，我们看到了一个比 <code>+</code> 运算符更优雅的语法，下面是一些你期待的特性：</p>
+<ul>
+<li>模板占位符可以是任何 JavaScript 表达式，所以函数调用和四则运算等都是合法的。（甚至你还可以在一个模板字符串中嵌套另一个模板字符串。）</li>
+<li>如果一个值不是字符串，它将被转换为字符串。例如，如果 <code>action</code> 是一个对象，那么该对象的 <code>.toString()</code> 将被调用，来将其转换为字符串。</li>
+<li>如果你想在模板字符串中使用反引号，你需要使用反斜杠 <code>\</code> 将其转义。</li>
+<li><p>同样地，如果想在模板字符串中输出 <code>${</code>，也需要使用反斜杠将其转义：<code>\${</code> 或 <code>$\{</code>。</p>
+</li>
+<li><p>模板字符串可以跨越多行：</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#warning"</span>).html(<span class="string">`</span></div><div class="line">  &lt;h1&gt;Watch out!&lt;/h1&gt;</div><div class="line">  &lt;p&gt;Unauthorized hockeying can result in penalties</div><div class="line">  of up to <span class="subst">$&#123;maxPenalty&#125;</span> minutes.&lt;/p&gt;</div><div class="line">`);</div></pre></td></tr></table></figure>
+<ul>
+<li>模板字符串中所有的空格、换行和缩进，都将被原样输出到结果字符串中。</li>
+</ul>
+<p>下面我们来看看模板字符串<strong>做不到的事情</strong>：</p>
+<ul>
+<li>不会自动转义特殊字符，为了避免<a href="http://www.techrepublic.com/blog/it-security/what-is-cross-site-scripting/" target="_blank" rel="external">跨站脚本漏洞</a>，你还是需要小心对待不可信的数据，这一点上与普通字符串一样。</li>
+<li>不能与国际化库配合使用，不处理特殊语言格式的数字、日期等。</li>
+<li>不是模板引擎（比如 <a href="https://mustache.github.io/" target="_blank" rel="external">Mustache</a> 或 <a href="https://mozilla.github.io/nunjucks/" target="_blank" rel="external">Nunjucks</a>）的替代品。模板字符串没有处理循环的语法 – 不能通过一个数组构建出一个表格（table）。</li>
+</ul>
+<p>为了解决这些限制，ES6 为开发者和库设计者提供了另一种模板字符串 – <em>标签模板</em>。</p>
+<p>标签模板的语法很简单，只需要在开始的反引号前引入一个标签。看第一个例子：<code>SaferHTML</code>，我们要使用这个标签模板来解决上述的第一个限制：自动转义特殊字符。</p>
+<p>需要注意的是，<code>SaferHTML</code> 方法并不是 ES6 标准库提供的，我们需要自己来实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> message =</div><div class="line">  SaferHTML<span class="string">`&lt;p&gt;<span class="subst">$&#123;bonk.sender&#125;</span> has sent you a bonk.&lt;/p&gt;`</span>;</div></pre></td></tr></table></figure>
+<p>这里的 <code>SaferHTML</code> 标签是单个标识符，标签也可以是属性，比如 <code>SaferHTML.escape</code>，甚至还可以是方法调用：<code>SaferHTML.escape({unicodeControlCharacters: false})</code>。准确地说，任何 ES6 的<a href="https://people.mozilla.org/~jorendorff/es6-draft.html#sec-left-hand-side-expressions" target="_blank" rel="external">成员表达式或调用表达式</a>都可以作为标签。</p>
+<p>可以看出，模板字符串仅仅是字符串连接的语法糖，而标签模板确是一个完全不同的东西：函数调用。</p>
+<p>所以，上面代码等价于：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> message =</div><div class="line">  SaferHTML(templateData, bonk.sender);</div></pre></td></tr></table></figure>
+<p>其中 <code>templateData</code> 是一个不可变的字符串数组，由 JS 引擎基于源模板字符串生成，这里的数组含有两个元素，因为模板字符串被占位符分隔后含有两个字符串，因此，<code>templateData</code> 将是这样： <code>Object.freeze([&quot;&lt;p&gt;&quot;, &quot; has sent you a bonk.&lt;/p&gt;&quot;]</code></p>
+<p>（事实上，<code>templateData</code> 上还有另一个属性：<code>templateData.raw</code>，本文并深入不讨论该属性。该属性的值也是一个数组，包含了标签模板中所有的字符串部分，但字符串中包含了转义序列，看上去更像源代码中的字符串，比如 <code>\n</code>。ES6 的内置标签 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/raw" target="_blank" rel="external"><code>String.raw</code></a> 将使用这些字符串。）</p>
+<p>这就使得 <code>SaferHTML</code> 方法可以随意解析这两个字符串，存在 N 中替换方式。</p>
+<p>在继续阅读钱，你可能在苦苦思索如何实现 <code>SaferHTML</code> 方法。</p>
+<p>下面是一种实现（<a href="https://gist.github.com/jorendorff/1a17f69dbfaafa2304f0" target="_blank" rel="external">gist</a>）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SaferHTML</span>(<span class="params">templateData</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> s = templateData[<span class="number">0</span>];</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; <span class="built_in">arguments</span>.length; i++) &#123;</div><div class="line">    <span class="keyword">var</span> arg = <span class="built_in">String</span>(<span class="built_in">arguments</span>[i]);</div><div class="line"></div><div class="line">    <span class="comment">// Escape special characters in the substitution.</span></div><div class="line">    s += arg.replace(<span class="regexp">/&amp;/g</span>, <span class="string">"&amp;amp;"</span>)</div><div class="line">            .replace(<span class="regexp">/&lt;/g</span>, <span class="string">"&amp;lt;"</span>)</div><div class="line">            .replace(<span class="regexp">/&gt;/g</span>, <span class="string">"&amp;gt;"</span>);</div><div class="line"></div><div class="line">    <span class="comment">// Don't escape special characters in the template.</span></div><div class="line">    s += templateData[i];</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> s;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>有了上面的方法，即使使用一个恶意的用户名，用户也是安全的。</p>
+<p>一个简单的例子并不足以说明标签模板的灵活性，让我们重温一下上面列举的模板字符串的限制，看看我们还可以做些什么。</p>
+<ul>
+<li><p>模板字符串不会自动转义特殊字符，但是我们可以通过标签模板来解决这个问题，事实上我们还可以将 <code>SaferHTML</code> 这个方法写的更好。</p>
+<p>从安全角度来看，这个 <code>SaferHTML</code> 非常脆弱。在 HTML 中，不同的地方需要用不同的方式去转义，<code>SaferHTML</code> 并没有做到。稍加思考，我们就可以实现一个更加灵活的 <code>SaferHTML</code> 方法，能够将 <code>templateData</code> 中的任何一个 HTML 转义，知道哪个占位符是纯 HTML；哪个是元素的属性，从而需要对 <code>&#39;</code> 和 <code>&quot;</code> 转义；哪个是 URL 的 query 字符串，从而需要用 URL 的 escaping 方法，而不是 HTML 的 escaping；等等。</p>
+<p>这似乎有些牵强，因为 HTML 转义效率比较低。辛运是的，标签模板的字符串是保持不变的，<code>SaferHTML</code> 可以缓存已经转义过的字符串，从而提高效率。</p>
+</li>
+<li><p>模板字符串并没有内置的国际化特性，但通过标签模板，我们可以添加该特性。Jack Hsu 的<a href="http://jaysoo.ca/2014/03/20/i18n-with-es6-template-strings/" target="_blank" rel="external">文章</a>详细介绍了实现过程，看下面例子：</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">i18n<span class="string">`Hello <span class="subst">$&#123;name&#125;</span>, you have <span class="subst">$&#123;amount&#125;</span>:c(CAD) in your bank account.`</span></div><div class="line"><span class="comment">// =&gt; Hallo Bob, Sie haben 1.234,56 $CA auf Ihrem Bankkonto.</span></div></pre></td></tr></table></figure>
+<p>  上面例子中的 <code>name</code> 和 <code>amount</code> 很好理解，将被 JS 引擎替换为对应的字符串，但是还有一个没有见过的占位符：<code>:c(CAD)</code>，这将被 <code>i18n</code> 标签处理，从 <code>i18n</code> 的文档可知：<code>:c(CAD)</code> 表示 <code>amount</code> 是加拿大美元货币值。</p>
+<ul>
+<li>模板字符串不能替代 Mustache 和 Nunjucks 这类模板引擎，部分原因在于模板字符串不支持循环和条件语句。我们可以编写一个标签来实现这类功能：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Purely hypothetical template language based on</span></div><div class="line"><span class="comment">// ES6 tagged templates.</span></div><div class="line"><span class="keyword">var</span> libraryHtml = hashTemplate<span class="string">`</span></div><div class="line">  &lt;ul&gt;</div><div class="line">    #for book in <span class="subst">$&#123;myBooks&#125;</span></div><div class="line">      &lt;li&gt;&lt;i&gt;#&#123;book.title&#125;&lt;/i&gt; by #&#123;book.author&#125;&lt;/li&gt;</div><div class="line">    #end</div><div class="line">  &lt;/ul&gt;</div><div class="line">`;</div></pre></td></tr></table></figure>
+<p>灵活性还不止于此，需要注意的是，标签函数的参数不会自动转换为字符串，参数可以是任何类型，返回值也一样。标签模板甚至可以不需要字符串，你可以使用自定义标签来创建正则表达式、DOM 树、图片、代表整个异步进程的 Promise、JS 数据结构、GL 着色器…</p>
+<p><strong>标签模板允许库设计者创建强大的领域特定语言</strong>。这些语言可能看上去并不像 JS，但他们可以无缝嵌入到 JS 中，并且可以与语言的其余部分进行交互。顺便说一下，我还没有在其他语言中见过类似的特性，我不知道这个特性讲给我们带来些什么，但各种可能性还是非常令人兴奋的。</p>
+<p class="j-quote">参考原文：<a href="https://hacks.mozilla.org/2015/05/es6-in-depth-template-strings-2/" target="_blank" rel="external">ES6 In Depth: Template strings</a><br>原文作者：<a href="https://hacks.mozilla.org/author/jorendorffmozillacom/" target="_blank" rel="external">Jason Orendorff</a><br>原文日期：2015-05-14 16:41</p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/es6/" title="ES6">ES6</a></div></footer></div><nav class="article-nav clearfix"><a href="/2015/06/25/css-methodologies/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">介绍几个 CSS 方法论</span></a><a href="/2015/06/20/es6-in-depth-generators/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">深入解析 ES6：Generator</span></a></nav></article><section id="article-comment" class="article-comment"><div data-thread-key="http://bubkoo.com/2015/06/23/es6-in-depth-template-strings/" data-title="深入解析 ES6：模板字符串" data-url="http://bubkoo.com/2015/06/23/es6-in-depth-template-strings/" class="ds-thread"></div></section></div><aside id="sidebar" role="sidebar"><div class="widget tagcloud"><h3 class="widget-title">标签</h3><div class="widget-content"><a href="/tags/aop/" style="font-size: 10px">AOP</a> <a href="/tags/algorithm/" style="font-size: 18.33px">Algorithm</a> <a href="/tags/analysis/" style="font-size: 10px">Analysis</a> <a href="/tags/angularjs/" style="font-size: 15px">AngularJS</a> <a href="/tags/animation/" style="font-size: 10px">Animation</a> <a href="/tags/architecture/" style="font-size: 16.67px">Architecture</a> <a href="/tags/archives/" style="font-size: 10.83px">Archives</a> <a href="/tags/async/" style="font-size: 12.5px">Async</a> <a href="/tags/backbone/" style="font-size: 10px">Backbone</a> <a href="/tags/browsers/" style="font-size: 10px">Browsers</a> <a href="/tags/css/" style="font-size: 12.5px">CSS</a> <a href="/tags/css3/" style="font-size: 10px">CSS3</a> <a href="/tags/closure/" style="font-size: 10.83px">Closure</a> <a href="/tags/closures/" style="font-size: 10px">Closures</a> <a href="/tags/cookies/" style="font-size: 10px">Cookies</a> <a href="/tags/cross-domain/" style="font-size: 10px">Cross Domain</a> <a href="/tags/custom-elements/" style="font-size: 10.83px">Custom Elements</a> <a href="/tags/d3/" style="font-size: 10px">D3</a> <a href="/tags/debounce/" style="font-size: 10px">Debounce</a> <a href="/tags/debug/" style="font-size: 10.83px">Debug</a> <a href="/tags/dependency/" style="font-size: 10px">Dependency</a> <a href="/tags/document/" style="font-size: 10px">Document</a> <a href="/tags/ecma-262-3/" style="font-size: 15.83px">ECMA-262-3</a> <a href="/tags/ecmascript/" style="font-size: 15.83px">ECMAScript</a> <a href="/tags/es6/" style="font-size: 20px">ES6</a> <a href="/tags/errors/" style="font-size: 10px">Errors</a> <a href="/tags/essential/" style="font-size: 10px">Essential</a> <a href="/tags/evaluation-strategy/" style="font-size: 10px">Evaluation strategy</a> <a href="/tags/event/" style="font-size: 10px">Event</a> <a href="/tags/exceptions/" style="font-size: 10px">Exceptions</a> <a href="/tags/express/" style="font-size: 10px">Express</a> <a href="/tags/flip/" style="font-size: 10px">FLIP</a> <a href="/tags/flexbox/" style="font-size: 10px">Flexbox</a> <a href="/tags/funarg/" style="font-size: 10px">Funarg</a> <a href="/tags/gist/" style="font-size: 10px">Gist</a> <a href="/tags/github/" style="font-size: 10px">Github</a> <a href="/tags/guide/" style="font-size: 10px">Guide</a> <a href="/tags/html/" style="font-size: 10px">HTML</a> <a href="/tags/http/" style="font-size: 10px">HTTP</a> <a href="/tags/hexo/" style="font-size: 10.83px">Hexo</a> <a href="/tags/ie/" style="font-size: 10px">IE</a> <a href="/tags/iife/" style="font-size: 10px">IIFE</a> <a href="/tags/jshint/" style="font-size: 10px">JSHint</a> <a href="/tags/javascript/" style="font-size: 19.17px">JavaScript</a> <a href="/tags/leak/" style="font-size: 10px">Leak</a> <a href="/tags/linting/" style="font-size: 10px">Linting</a> <a href="/tags/mvc/" style="font-size: 10px">MVC</a> <a href="/tags/methodology/" style="font-size: 10px">Methodology</a> <a href="/tags/mock/" style="font-size: 10px">Mock</a> <a href="/tags/modular/" style="font-size: 10px">Modular</a> <a href="/tags/mongodb/" style="font-size: 10px">MongoDB</a> <a href="/tags/oop/" style="font-size: 10.83px">OOP</a> <a href="/tags/partial-application/" style="font-size: 10px">Partial Application</a> <a href="/tags/pattern/" style="font-size: 10px">Pattern</a> <a href="/tags/patterns/" style="font-size: 10px">Patterns</a> <a href="/tags/performance/" style="font-size: 14.17px">Performance</a> <a href="/tags/promise/" style="font-size: 13.33px">Promise</a> <a href="/tags/prototype/" style="font-size: 11.67px">Prototype</a> <a href="/tags/quality/" style="font-size: 10px">Quality</a> <a href="/tags/quiz/" style="font-size: 10px">Quiz</a> <a href="/tags/regex/" style="font-size: 10px">Regex</a> <a href="/tags/requirejs/" style="font-size: 10px">RequireJS</a> <a href="/tags/sass/" style="font-size: 10px">SASS</a> <a href="/tags/svg/" style="font-size: 10px">SVG</a> <a href="/tags/scope/" style="font-size: 10.83px">Scope</a> <a href="/tags/shapes/" style="font-size: 10px">Shapes</a> <a href="/tags/shuffle/" style="font-size: 10px">Shuffle</a> <a href="/tags/sort/" style="font-size: 17.5px">Sort</a> <a href="/tags/source-map/" style="font-size: 10.83px">Source Map</a> <a href="/tags/styling/" style="font-size: 10px">Styling</a> <a href="/tags/sublime-text/" style="font-size: 10px">Sublime Text</a> <a href="/tags/template/" style="font-size: 10px">Template</a> <a href="/tags/throttle/" style="font-size: 10px">Throttle</a> <a href="/tags/timing/" style="font-size: 10px">Timing</a> <a href="/tags/tools/" style="font-size: 12.5px">Tools</a> <a href="/tags/variable-object/" style="font-size: 10px">Variable object</a> <a href="/tags/visualizations/" style="font-size: 10px">Visualizations</a> <a href="/tags/when/" style="font-size: 12.5px">When</a> <a href="/tags/delete/" style="font-size: 10px">delete</a> <a href="/tags/execution-context/" style="font-size: 10px">execution context</a> <a href="/tags/fetch/" style="font-size: 10px">fetch</a> <a href="/tags/function/" style="font-size: 10px">function</a> <a href="/tags/nodejs/" style="font-size: 10px">nodejs</a> <a href="/tags/nodemon/" style="font-size: 10px">nodemon</a> <a href="/tags/npm/" style="font-size: 10px">npm</a> <a href="/tags/nvm/" style="font-size: 10px">nvm</a> <a href="/tags/performance/" style="font-size: 10px">performance</a> <a href="/tags/prebrowsing/" style="font-size: 10px">prebrowsing</a> <a href="/tags/prefetching/" style="font-size: 10px">prefetching</a> <a href="/tags/preloading/" style="font-size: 10px">preloading</a> <a href="/tags/tabindex/" style="font-size: 10px">tabindex</a> <a href="/tags/this/" style="font-size: 10px">this</a> <a href="/tags/ui-router/" style="font-size: 14.17px">ui-router</a></div></div><div class="widget"><h3 class="widget-title">最新文章</h3><div class="widget-content"><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/01/18/debouncing-throttling-explained-examples/">实例解析防抖和节流函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/08/quick-tip-multiple-versions-node-nvm/">使用 nvm 管理不同版本的 node 与 npm</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/08/15-ways-to-write-self-documenting-javascript/">如何编写更加自解释的代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/high-performance-animations/">使用 FLIP 来提高 Web 动画的性能</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/28/styling-broken-images/">定制图片加载失败时的样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/26/delivering-octicons-with-svg/">使用 SVG 输出 Octicon</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/18/how-to-use-npm-as-a-build-tool/">如何将 npm 作为构建工具使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/what-you-can-do-with-gists-on-github/">任何人都可以使用到的 Gist 服务</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/prefetching-preloading-prebrowsing/">前端性能优化 - 资源预加载</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/es6-in-depth-the-future/">深入解析 ES6：未来展望</a></li></ul></div></div></aside><aside id="topic-wrap" class="toc-wrap f-right"><h3 class="toc-wrap-title">内容</h3><div class="toc-tree"></div><div class="toc-progress"></div></aside></div><footer id="footer" class="inner"><span class="copyright">© 2017 bubkoo</span><span class="theme">@<a href="https://github.com/bubkoo/hexo-theme-formula" target="_blank">formula</a></span></footer><img id="go2top" src="/images/top_arrow.png" alt="go2top"><script charset="utf-8" src="/js/lib/jquery-2.1.3.min.js"></script><script charset="utf-8" src="/js/lib/jquery.imagesloaded.min.js"></script><script charset="utf-8" src="/fancybox/jquery.fancybox.pack.js"></script><script charset="utf-8" src="/js/lib/sea.js"></script><script charset="utf-8" src="/js/main.js"></script><script id="redundancy3">var duoshuoQuery = { short_name: 'bubkoo' };
+(function () {
+  var ds = document.createElement('script');
+
+  ds.type    = 'text/javascript';
+  ds.async   = true;
+  ds.src     = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+
+  (document.getElementsByTagName('head')[0]
+  || document.getElementsByTagName('body')[0]).appendChild(ds);
+
+  ds.parentNode.removeChild(ds);
+
+  var script = document.getElementById('redundancy3');
+  script && script.parentNode.removeChild(script);
+})();</script></body></html>

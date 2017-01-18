@@ -1,0 +1,172 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>AngualrJS 使用笔记 | bubkoo</title><meta name="author" content="bubkoo"><meta name="description" content="元旦放假一天，由于太宅，于是有了新年第一个产出。主题来源于这一周在项目中使用 AngularJS 所遇到的问题，在此做一个使用笔记，以加深对 AngularJS 的理解。本人文笔不行，如文章被有幸浏览到，还请各位童鞋多多提意见。
+AugularJS 简单介绍AngularJS 由 Google 倾力打造的前端 JavaScript 工具。这里只说它是“工具”，没说它是完整的“框架”，是因为它并不是定位于去完成一套框架要做的事。更重要的，是它给我们提供了一种新的应用组织与开发方式。与其他许多模版系统最大的不同在于，他直接扩展了现有的 HTML 架构，透过声明式语言 (Directives Syntax)直接赋予 HTML 新的功能，让许多 AngularJS 自定义的 HTML 属性自然而然地融入 HTML 之中，并且赋予其意义。这是大多数模版系统不敢做的尝试。
+另外，在其他模版系统当中，都会实作所谓的模板引擎(Template Engine)，它们通常都通过模版字符串与数据进行连接，生成最终的 HTML 字符串，并将结果通过innerHTML属性插入 DOM 树中。这意味着任何数据发生改变时，都需要重新将数据、模版合并成字符串，然后当作innerHTML插入 DOM 树中，所以存在一些从字符串转换成 HTML 的隐性成本。但是 AngularJS 是与众不同的，AngularJS 通过自身的编译引擎将 HTML 和自定义的 HTML 语法(Directives)，解析成 DOM 结构之后，AngularJS 会直接将原生的 DOM 当作网页片段模板，然后直接对 DOM 进行操作，大幅减少了转换成本，当然绑定效率可见比其他模板要高很多。
+没有银弹，与其他所有的模版系统一样，这个世界没有银弹，不会有任何一套框架可以解决所有问题，AngularJS 也不例外。所以，要能理解 AngularJS 所擅长与不擅长的领域，可以有助于你评估与理解是否要采用 AngularJS 当作你未来的开发框架。"><meta name="viewport" content="width=device-width,initial-scale=1"><meta property="og:title" content="AngualrJS 使用笔记"><meta property="og:site_name" content="bubkoo"><link href="/favicon.ico" rel="icon" type="image/x-ico"><link href="/atom.xml" rel="alternate" title="bubkoo" type="application/atom+xml"><link href="/css/style.css" rel="stylesheet" type="text/css" charset="utf-8"><link href="/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" charset="utf-8"><script id="google_analytics">(function (window, document, src, ga) {
+
+  window['GoogleAnalyticsObject'] = ga;
+
+  if (!window[ga]) {
+    window[ga] = function () {
+      (window[ga].q = window[ga].q || []).push(arguments);
+    };
+  }
+
+  window[ga].l = 1 * new Date();
+
+  var thisTag = document.getElementById('google_analytics');
+  var script  = document.createElement('script');
+
+  script.async = true;
+  script.src   = src;
+
+  thisTag.parentNode.insertBefore(script, thisTag);
+
+  setTimeout(function () {
+    script.parentNode.removeChild(script);
+    thisTag.parentNode.removeChild(thisTag);
+  }, 100);
+
+})(window, document, 'https://www.google-analytics.com/analytics.js', 'ga');
+
+ga('create', 'UA-78428859-2', 'auto');
+ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
+(function () {
+  var script  = document.createElement('script');
+  var thisTag = document.getElementById('baidu_tongji');
+
+  script.src = '//hm.baidu.com/hm.js?49a1665c33b011585a2a629fdbed5b61';
+
+  thisTag.parentNode.insertBefore(script, thisTag);
+
+  setTimeout(function () {
+    script.parentNode.removeChild(script);
+    thisTag.parentNode.removeChild(thisTag);
+  }, 100);
+})();</script><!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script>__start__ = window.performance && performance.timing ? performance.timing.navigationStart : Date.now();</script></head><body><header id="header" hoot="default" hoot-rate="1" class="inner"><div class="f-left"><a href="/" class="site-title">bubkoo</a></div><nav class="f-right"><ul class="site-nav"><li><a href="/">&lt;&gt;</a></li><li><a href="/archives">Archives</a></li><li><a href="https://github.com/bubkoo">Github</a></li></ul></nav></header><div id="container" class="inner"><div id="main"><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon icon-black"></span><h1 class="article-header-title">AngualrJS 使用笔记</h1><time datetime="2014-01-01T06:05:13.000Z" itemprop="datePublished" class="article-header-time"><span class="day">01</span><span class="month">2014年01月</span></time></header><section class="article-content"><p>元旦放假一天，由于太宅，于是有了新年第一个产出。主题来源于这一周在项目中使用 <a href="http://angularjs.org/" target="_blank" rel="external">AngularJS</a> 所遇到的问题，在此做一个使用笔记，以加深对 <a href="http://angularjs.org/" target="_blank" rel="external">AngularJS</a> 的理解。本人文笔不行，如文章被有幸浏览到，还请各位童鞋多多提意见。</p>
+<h2 id="augularjs-简单介绍"><a href="#AugularJS-简单介绍" class="headerlink" title="AugularJS 简单介绍"></a>AugularJS 简单介绍</h2><p><a href="http://angularjs.org/" target="_blank" rel="external">AngularJS</a> 由 Google 倾力打造的前端 JavaScript 工具。这里只说它是“工具”，没说它是完整的“框架”，是因为它并不是定位于去完成一套框架要做的事。更重要的，是它给我们提供了一种新的应用组织与开发方式。与其他许多模版系统最大的不同在于，他直接扩展了现有的 HTML 架构，透过声明式语言 (Directives Syntax)直接赋予 HTML 新的功能，让许多 <a href="http://angularjs.org/" target="_blank" rel="external">AngularJS</a> 自定义的 HTML 属性自然而然地融入 HTML 之中，并且赋予其意义。这是大多数模版系统不敢做的尝试。</p>
+<p>另外，在其他模版系统当中，都会实作所谓的模板引擎(Template Engine)，它们通常都通过模版字符串与数据进行连接，生成最终的 HTML 字符串，并将结果通过<code>innerHTML</code>属性插入 DOM 树中。这意味着任何数据发生改变时，都需要重新将数据、模版合并成字符串，然后当作<code>innerHTML</code>插入 DOM 树中，所以存在一些从字符串转换成 HTML 的隐性成本。但是 <a href="http://angularjs.org/" target="_blank" rel="external">AngularJS</a> 是与众不同的，<a href="http://angularjs.org/" target="_blank" rel="external">AngularJS</a> 通过自身的编译引擎将 HTML 和自定义的 HTML 语法(Directives)，解析成 DOM 结构之后，<a href="http://angularjs.org/" target="_blank" rel="external">AngularJS</a> 会直接将原生的 DOM 当作网页片段模板，然后直接对 DOM 进行操作，大幅减少了转换成本，当然绑定效率可见比其他模板要高很多。</p>
+<p><strong>没有银弹</strong>，与其他所有的模版系统一样，这个世界没有银弹，不会有任何一套框架可以解决所有问题，<a href="http://angularjs.org/" target="_blank" rel="external">AngularJS</a> 也不例外。所以，要能理解 <a href="http://angularjs.org/" target="_blank" rel="external">AngularJS</a> 所擅长与不擅长的领域，可以有助于你评估与理解是否要采用 <a href="http://angularjs.org/" target="_blank" rel="external">AngularJS</a> 当作你未来的开发框架。<a id="more"></a></p>
+<p>下面是我学习过程中收集的一些比较不错的文章，排序不分先后，有需要的童鞋可以通过这些文章快速学习。</p>
+<ul>
+<li><a href="http://angularjs.org/" target="_blank" rel="external">AngularJS 官网</a></li>
+<li><a href="http://angularjs.cn/tag/AngularJS" target="_blank" rel="external">AngularJS 中文社区</a></li>
+<li><a href="http://www.gbin1.com/technology/javascript/20120717-AugularJS-features/" target="_blank" rel="external">AngularJS 的五个超酷特性</a></li>
+<li><a href="http://developer.51cto.com/art/201302/380661.htm" target="_blank" rel="external">现在就开始使用 AngularJS 的三个重要原因</a></li>
+<li><a href="http://www.csdn.net/article/2013-10-08/2817118-AngularJS-Framework-Google" target="_blank" rel="external">专访 AngularJS 框架创始人 Misko Hevery：让 Web 开发更便捷</a></li>
+<li><a href="http://www.zhihu.com/question/21497720" target="_blank" rel="external">知乎专栏使用 AngularJS 框架有什么经验心得？</a></li>
+<li><a href="http://www.cnblogs.com/lcllao/archive/2012/10/18/2728787.html" target="_blank" rel="external">Angular Developer Guide 中文翻译系列</a></li>
+<li><a href="http://zouyesheng.com/angular.html" target="_blank" rel="external">AngularJS 学习笔记</a></li>
+<li><a href="http://damoqiongqiu.iteye.com/category/287942" target="_blank" rel="external">大漠穷秋的 AngularJS 系列文章</a></li>
+<li><a href="http://www.cnblogs.com/whitewolf/category/404298.html" target="_blank" rel="external">破狼的 AngularJS 系列文章</a></li>
+<li><a href="http://ngot.iteye.com/category/291820" target="_blank" rel="external">ngot AngularJS 系列文章</a></li>
+<li><a href="http://blog.fens.me/series-angular/" target="_blank" rel="external">AngularJS 体验式编程系列文章</a></li>
+</ul>
+<p>废话了这么多，接下来还是进入本文主题，看看我在使用过程中遇到过哪些问题。</p>
+<h2 id="angularjs-项目的目录结构"><a href="#AngularJS-项目的目录结构" class="headerlink" title="AngularJS 项目的目录结构"></a>AngularJS 项目的目录结构</h2><p>怎样组织代码文件和目录？这恐怕是初学者一开始就会遇到的问题。下面推荐两种目录划分方式，开发者可以根据项目复杂程度选择采取一种。</p>
+<p><strong>按业务逻辑划分</strong>，就像下面这样：</p>
+<ul>
+<li>controllers/<ul>
+<li>LoginController.js</li>
+<li>RegistrationController.js</li>
+<li>ProductDetailController.js</li>
+<li>SearchResultsController.js</li>
+</ul>
+</li>
+<li>directives.js</li>
+<li>filters.js</li>
+<li>models/<ul>
+<li>CartModel.js</li>
+<li>ProductModel.js</li>
+<li>SearchResultsModel.js</li>
+<li>UserModel.js</li>
+</ul>
+</li>
+<li>services/<ul>
+<li>CartService.js</li>
+<li>UserService.js</li>
+<li>ProductService.js</li>
+</ul>
+</li>
+</ul>
+<p>这种结构把不同的业务功能拆分为独立的文件，条理清晰，<strong>适用于项目较简单的应用</strong>。一旦项目复杂度较高，controllers, models, servers 三个目录下的文件数量就会随着项目复杂度增加we增加，想要找到对应模块的代码文件比较麻烦，如果项目比较复杂推荐采用下面的方式来划分目录结构。</p>
+<p><strong>按功能模块划分</strong>，就像下面这样：</p>
+<ul>
+<li>cart/<ul>
+<li>CartModel.js</li>
+<li>CartService.js</li>
+</ul>
+</li>
+<li>common/<ul>
+<li>directives.js</li>
+<li>filters.js</li>
+</ul>
+</li>
+<li>product/<ul>
+<li>search/<ul>
+<li>SearchResultsController.js</li>
+<li>SearchResultsModel.js  </li>
+</ul>
+</li>
+<li>ProductDetailController.js</li>
+<li>ProductModel.js</li>
+<li>ProductService.js</li>
+</ul>
+</li>
+<li>user/<ul>
+<li>LoginController.js</li>
+<li>RegistrationController.js</li>
+<li>UserModel.js</li>
+<li>UserService.js</li>
+</ul>
+</li>
+</ul>
+<p>另外有一个 AngularJS 应用开发的官方入门项目 <a href="https://github.com/angular/angular-seed" target="_blank" rel="external">angular-seed</a>，推荐只作为练习使用，为了不误导大家，其目录结构就不在此列举出来，有需要的同学可以自行<a href="https://github.com/angular/angular-seed" target="_blank" rel="external">下载</a>学习。</p>
+<h2 id="angularjs-中使用-httpjsonp"><a href="#AngularJs-中使用-http-jsonp" class="headerlink" title="AngularJs 中使用 $http.jsonp"></a>AngularJs 中使用 $http.jsonp</h2><p>在开发过程中使用到了 jsonp，问题出现于，之前用 jQuery 的 ajax 方法，换成 AngularJs 的 $http.jsonp 方法后，拿不到数据，打开 Console 一看发现 Angular 抛出异常了。</p>
+<p>jQuery 使用 jsonp 的方法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">jQuery.ajax(&#123;</div><div class="line">    <span class="attr">url</span>: <span class="string">'http://'</span> + config.hostname + <span class="string">':'</span> + config.port + <span class="string">'/trace/app?callback=?'</span>,</div><div class="line">    <span class="attr">dataType</span>: <span class="string">'jsonp'</span>,</div><div class="line">    <span class="attr">global</span>: <span class="literal">false</span>,</div><div class="line">    <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>换成 AngularJs 的 $http.jsonp 的代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$http.jsonp(<span class="string">'http://'</span> + config.hostname + <span class="string">':'</span> + config.port + <span class="string">'/trace/apps?callback=?'</span>)</div><div class="line">    .success(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line"></div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<p>好的，现在打开页面，页面上什么数据都没有获取到，这是什么原因呢？</p>
+<p>好吧，打开强大的 Google 找到如下几篇文章：</p>
+<ul>
+<li><a href="http://docs.angularjs.org/api/ng.$http#methods_jsonp" target="_blank" rel="external">官方文档中的 $http.jsonp</a></li>
+<li><a href="http://stackoverflow.com/questions/12066002/parsing-jsonp-http-jsonp-response-in-angular-js" target="_blank" rel="external">parsing JSONP $http.jsonp() response in angular.js</a></li>
+<li><a href="http://xunmengsj.iteye.com/blog/1881008" target="_blank" rel="external">详解Jquery和AngularJs中jsonp解决跨域问题</a></li>
+</ul>
+<p>最后解决问题，总计如下：</p>
+<ol>
+<li>url中必须指定callback和回调函数名，函数名为JSON_CALLBACK时，才会调用success回调函数，JSON_CALLBACK<strong>必须全为大写</strong>。</li>
+<li>也可以指定其它回调函数，但必须是定义在window下的全局函数。</li>
+<li>当callback为JSON_CALLBACK时，只会调用success，即使window中有JSON_CALLBACK函数，也不会调用该函数。</li>
+</ol>
+<p>所以，修改后的代码是：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$http.jsonp(<span class="string">'http://'</span> + config.hostname + <span class="string">':'</span> + config.port + <span class="string">'/trace/apps?callback=JSON_CALLBACK'</span>)</div><div class="line">    .success(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line"></div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<h2 id="文章推荐"><a href="#文章推荐" class="headerlink" title="文章推荐"></a>文章推荐</h2><ul>
+<li><a href="http://www.cnblogs.com/whitewolf/archive/2013/03/24/2979344.html" target="_blank" rel="external">Angularjs开发一些经验总结</a></li>
+<li><a href="http://www.lovelucy.info/angularjs-best-practices.html" target="_blank" rel="external">AngularJS 最佳实践</a></li>
+<li><a href="http://damoqiongqiu.iteye.com/blog/1971204" target="_blank" rel="external">AngularJS：何时应该使用Directive、Controller、Service？</a></li>
+<li><a href="http://damoqiongqiu.iteye.com/blog/1917971" target="_blank" rel="external">《AngularJS》5个实例详解Directive（指令）机制</a></li>
+<li><a href="http://angularjs.cn/A00T" target="_blank" rel="external">如何使用AngularJS构建大型Web应用</a></li>
+<li><a href="http://angularjs.cn/A08q" target="_blank" rel="external">AngularJs项目实战01：模块划分和目录组织</a></li>
+<li><a href="http://angularjs.cn/A0d9" target="_blank" rel="external">AngularJs项目实战02：前端的页面分解与组装</a></li>
+<li><a href="http://angularjs.cn/A0fG" target="_blank" rel="external">angularJs项目实战03：angularjs与其他类库的协作</a></li>
+<li><a href="http://angularjs.cn/A0gy" target="_blank" rel="external">AngularJs项目实战04：angularjs的性能问题</a></li>
+</ul></section><footer class="article-footer clearfix"><div class="tags"><a href="/tags/angularjs/" title="AngularJS">AngularJS</a> <a href="/tags/mvc/" title="MVC">MVC</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/01/01/angular/ui-router/guide/state-manager/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">学习 ui-router - 管理状态</span></a><a href="/2013/12/16/hexo-issure/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">关于 Hexo 的若干问题</span></a></nav></article><section id="article-comment" class="article-comment"><div data-thread-key="http://bubkoo.com/2014/01/01/angular/AngualrJS-notes/" data-title="AngualrJS 使用笔记" data-url="http://bubkoo.com/2014/01/01/angular/AngualrJS-notes/" class="ds-thread"></div></section></div><aside id="sidebar" role="sidebar"><div class="widget tagcloud"><h3 class="widget-title">标签</h3><div class="widget-content"><a href="/tags/aop/" style="font-size: 10px">AOP</a> <a href="/tags/algorithm/" style="font-size: 18.33px">Algorithm</a> <a href="/tags/analysis/" style="font-size: 10px">Analysis</a> <a href="/tags/angularjs/" style="font-size: 15px">AngularJS</a> <a href="/tags/animation/" style="font-size: 10px">Animation</a> <a href="/tags/architecture/" style="font-size: 16.67px">Architecture</a> <a href="/tags/archives/" style="font-size: 10.83px">Archives</a> <a href="/tags/async/" style="font-size: 12.5px">Async</a> <a href="/tags/backbone/" style="font-size: 10px">Backbone</a> <a href="/tags/browsers/" style="font-size: 10px">Browsers</a> <a href="/tags/css/" style="font-size: 12.5px">CSS</a> <a href="/tags/css3/" style="font-size: 10px">CSS3</a> <a href="/tags/closure/" style="font-size: 10.83px">Closure</a> <a href="/tags/closures/" style="font-size: 10px">Closures</a> <a href="/tags/cookies/" style="font-size: 10px">Cookies</a> <a href="/tags/cross-domain/" style="font-size: 10px">Cross Domain</a> <a href="/tags/custom-elements/" style="font-size: 10.83px">Custom Elements</a> <a href="/tags/d3/" style="font-size: 10px">D3</a> <a href="/tags/debounce/" style="font-size: 10px">Debounce</a> <a href="/tags/debug/" style="font-size: 10.83px">Debug</a> <a href="/tags/dependency/" style="font-size: 10px">Dependency</a> <a href="/tags/document/" style="font-size: 10px">Document</a> <a href="/tags/ecma-262-3/" style="font-size: 15.83px">ECMA-262-3</a> <a href="/tags/ecmascript/" style="font-size: 15.83px">ECMAScript</a> <a href="/tags/es6/" style="font-size: 20px">ES6</a> <a href="/tags/errors/" style="font-size: 10px">Errors</a> <a href="/tags/essential/" style="font-size: 10px">Essential</a> <a href="/tags/evaluation-strategy/" style="font-size: 10px">Evaluation strategy</a> <a href="/tags/event/" style="font-size: 10px">Event</a> <a href="/tags/exceptions/" style="font-size: 10px">Exceptions</a> <a href="/tags/express/" style="font-size: 10px">Express</a> <a href="/tags/flip/" style="font-size: 10px">FLIP</a> <a href="/tags/flexbox/" style="font-size: 10px">Flexbox</a> <a href="/tags/funarg/" style="font-size: 10px">Funarg</a> <a href="/tags/gist/" style="font-size: 10px">Gist</a> <a href="/tags/github/" style="font-size: 10px">Github</a> <a href="/tags/guide/" style="font-size: 10px">Guide</a> <a href="/tags/html/" style="font-size: 10px">HTML</a> <a href="/tags/http/" style="font-size: 10px">HTTP</a> <a href="/tags/hexo/" style="font-size: 10.83px">Hexo</a> <a href="/tags/ie/" style="font-size: 10px">IE</a> <a href="/tags/iife/" style="font-size: 10px">IIFE</a> <a href="/tags/jshint/" style="font-size: 10px">JSHint</a> <a href="/tags/javascript/" style="font-size: 19.17px">JavaScript</a> <a href="/tags/leak/" style="font-size: 10px">Leak</a> <a href="/tags/linting/" style="font-size: 10px">Linting</a> <a href="/tags/mvc/" style="font-size: 10px">MVC</a> <a href="/tags/methodology/" style="font-size: 10px">Methodology</a> <a href="/tags/mock/" style="font-size: 10px">Mock</a> <a href="/tags/modular/" style="font-size: 10px">Modular</a> <a href="/tags/mongodb/" style="font-size: 10px">MongoDB</a> <a href="/tags/oop/" style="font-size: 10.83px">OOP</a> <a href="/tags/partial-application/" style="font-size: 10px">Partial Application</a> <a href="/tags/pattern/" style="font-size: 10px">Pattern</a> <a href="/tags/patterns/" style="font-size: 10px">Patterns</a> <a href="/tags/performance/" style="font-size: 14.17px">Performance</a> <a href="/tags/promise/" style="font-size: 13.33px">Promise</a> <a href="/tags/prototype/" style="font-size: 11.67px">Prototype</a> <a href="/tags/quality/" style="font-size: 10px">Quality</a> <a href="/tags/quiz/" style="font-size: 10px">Quiz</a> <a href="/tags/regex/" style="font-size: 10px">Regex</a> <a href="/tags/requirejs/" style="font-size: 10px">RequireJS</a> <a href="/tags/sass/" style="font-size: 10px">SASS</a> <a href="/tags/svg/" style="font-size: 10px">SVG</a> <a href="/tags/scope/" style="font-size: 10.83px">Scope</a> <a href="/tags/shapes/" style="font-size: 10px">Shapes</a> <a href="/tags/shuffle/" style="font-size: 10px">Shuffle</a> <a href="/tags/sort/" style="font-size: 17.5px">Sort</a> <a href="/tags/source-map/" style="font-size: 10.83px">Source Map</a> <a href="/tags/styling/" style="font-size: 10px">Styling</a> <a href="/tags/sublime-text/" style="font-size: 10px">Sublime Text</a> <a href="/tags/template/" style="font-size: 10px">Template</a> <a href="/tags/throttle/" style="font-size: 10px">Throttle</a> <a href="/tags/timing/" style="font-size: 10px">Timing</a> <a href="/tags/tools/" style="font-size: 12.5px">Tools</a> <a href="/tags/variable-object/" style="font-size: 10px">Variable object</a> <a href="/tags/visualizations/" style="font-size: 10px">Visualizations</a> <a href="/tags/when/" style="font-size: 12.5px">When</a> <a href="/tags/delete/" style="font-size: 10px">delete</a> <a href="/tags/execution-context/" style="font-size: 10px">execution context</a> <a href="/tags/fetch/" style="font-size: 10px">fetch</a> <a href="/tags/function/" style="font-size: 10px">function</a> <a href="/tags/nodejs/" style="font-size: 10px">nodejs</a> <a href="/tags/nodemon/" style="font-size: 10px">nodemon</a> <a href="/tags/npm/" style="font-size: 10px">npm</a> <a href="/tags/nvm/" style="font-size: 10px">nvm</a> <a href="/tags/performance/" style="font-size: 10px">performance</a> <a href="/tags/prebrowsing/" style="font-size: 10px">prebrowsing</a> <a href="/tags/prefetching/" style="font-size: 10px">prefetching</a> <a href="/tags/preloading/" style="font-size: 10px">preloading</a> <a href="/tags/tabindex/" style="font-size: 10px">tabindex</a> <a href="/tags/this/" style="font-size: 10px">this</a> <a href="/tags/ui-router/" style="font-size: 14.17px">ui-router</a></div></div><div class="widget"><h3 class="widget-title">最新文章</h3><div class="widget-content"><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/01/18/debouncing-throttling-explained-examples/">实例解析防抖和节流函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/08/quick-tip-multiple-versions-node-nvm/">使用 nvm 管理不同版本的 node 与 npm</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/08/15-ways-to-write-self-documenting-javascript/">如何编写更加自解释的代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/high-performance-animations/">使用 FLIP 来提高 Web 动画的性能</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/28/styling-broken-images/">定制图片加载失败时的样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/26/delivering-octicons-with-svg/">使用 SVG 输出 Octicon</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/18/how-to-use-npm-as-a-build-tool/">如何将 npm 作为构建工具使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/what-you-can-do-with-gists-on-github/">任何人都可以使用到的 Gist 服务</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/prefetching-preloading-prebrowsing/">前端性能优化 - 资源预加载</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/es6-in-depth-the-future/">深入解析 ES6：未来展望</a></li></ul></div></div></aside><aside id="topic-wrap" class="toc-wrap f-right"><h3 class="toc-wrap-title">内容</h3><div class="toc-tree"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#augularjs-简单介绍"><span class="toc-number">1.</span> <span class="toc-text">AugularJS 简单介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#angularjs-项目的目录结构"><span class="toc-number">2.</span> <span class="toc-text">AngularJS 项目的目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#angularjs-中使用-httpjsonp"><span class="toc-number">3.</span> <span class="toc-text">AngularJs 中使用 $http.jsonp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文章推荐"><span class="toc-number">4.</span> <span class="toc-text">文章推荐</span></a></li></ol></div><div class="toc-progress"></div></aside></div><footer id="footer" class="inner"><span class="copyright">© 2017 bubkoo</span><span class="theme">@<a href="https://github.com/bubkoo/hexo-theme-formula" target="_blank">formula</a></span></footer><img id="go2top" src="/images/top_arrow.png" alt="go2top"><script charset="utf-8" src="/js/lib/jquery-2.1.3.min.js"></script><script charset="utf-8" src="/js/lib/jquery.imagesloaded.min.js"></script><script charset="utf-8" src="/fancybox/jquery.fancybox.pack.js"></script><script charset="utf-8" src="/js/lib/sea.js"></script><script charset="utf-8" src="/js/main.js"></script><script id="redundancy3">var duoshuoQuery = { short_name: 'bubkoo' };
+(function () {
+  var ds = document.createElement('script');
+
+  ds.type    = 'text/javascript';
+  ds.async   = true;
+  ds.src     = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+
+  (document.getElementsByTagName('head')[0]
+  || document.getElementsByTagName('body')[0]).appendChild(ds);
+
+  ds.parentNode.removeChild(ds);
+
+  var script = document.getElementById('redundancy3');
+  script && script.parentNode.removeChild(script);
+})();</script></body></html>

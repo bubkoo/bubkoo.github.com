@@ -1,0 +1,158 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>白色小鸟 - 代码质量和代码分析 | bubkoo</title><meta name="author" content="bubkoo"><meta name="description" content="介绍一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）
+小鸟们最终能取得胜利吗？它们会战胜那些满身培根味的敌人吗？让我们一起来揭示 JavaScript 之愤怒的小鸟系列的另一个扣人心弦的章节！
+
+阅读本系列的介绍文章，查看所有小鸟以及它们的进攻力量。
+
+战况
+红色大鸟 - 立即调用的函数表达式
+蓝色小鸟 - 事件
+黄色小鸟 - 模块化、依赖管理、性能优化
+黑色小鸟 - 前端分层架构
+
+白色小鸟的攻击力
+本篇文章我将介绍白色小鸟，它看似没有什么攻击力，但当它们拿出严格的代码风格和质量检查时，小猪们都惊呆了。渐渐的，小鸟们将一个接一个地夺回属于他们的东西。"><meta name="viewport" content="width=device-width,initial-scale=1"><meta property="og:title" content="白色小鸟 - 代码质量和代码分析"><meta property="og:site_name" content="bubkoo"><link href="/favicon.ico" rel="icon" type="image/x-ico"><link href="/atom.xml" rel="alternate" title="bubkoo" type="application/atom+xml"><link href="/css/style.css" rel="stylesheet" type="text/css" charset="utf-8"><link href="/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" charset="utf-8"><script id="google_analytics">(function (window, document, src, ga) {
+
+  window['GoogleAnalyticsObject'] = ga;
+
+  if (!window[ga]) {
+    window[ga] = function () {
+      (window[ga].q = window[ga].q || []).push(arguments);
+    };
+  }
+
+  window[ga].l = 1 * new Date();
+
+  var thisTag = document.getElementById('google_analytics');
+  var script  = document.createElement('script');
+
+  script.async = true;
+  script.src   = src;
+
+  thisTag.parentNode.insertBefore(script, thisTag);
+
+  setTimeout(function () {
+    script.parentNode.removeChild(script);
+    thisTag.parentNode.removeChild(thisTag);
+  }, 100);
+
+})(window, document, 'https://www.google-analytics.com/analytics.js', 'ga');
+
+ga('create', 'UA-78428859-2', 'auto');
+ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
+(function () {
+  var script  = document.createElement('script');
+  var thisTag = document.getElementById('baidu_tongji');
+
+  script.src = '//hm.baidu.com/hm.js?49a1665c33b011585a2a629fdbed5b61';
+
+  thisTag.parentNode.insertBefore(script, thisTag);
+
+  setTimeout(function () {
+    script.parentNode.removeChild(script);
+    thisTag.parentNode.removeChild(thisTag);
+  }, 100);
+})();</script><!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script>__start__ = window.performance && performance.timing ? performance.timing.navigationStart : Date.now();</script></head><body><header id="header" hoot="default" hoot-rate="1" class="inner"><div class="f-left"><a href="/" class="site-title">bubkoo</a></div><nav class="f-right"><ul class="site-nav"><li><a href="/">&lt;&gt;</a></li><li><a href="/archives">Archives</a></li><li><a href="https://github.com/bubkoo">Github</a></li></ul></nav></header><div id="container" class="inner"><div id="main"><article class="article post"><div class="article-wrap"><header class="article-header"><span class="article-header-icon icon-black"></span><h1 class="article-header-title">白色小鸟 - 代码质量和代码分析</h1><time datetime="2014-04-14T09:11:47.000Z" itemprop="datePublished" class="article-header-time"><span class="day">14</span><span class="month">2014年04月</span></time></header><section class="article-content"><p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-white-bird-linting.jpg" alt=""></p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
+<p>小鸟们最终能取得胜利吗？它们会战胜那些满身培根味的敌人吗？让我们一起来揭示 JavaScript 之愤怒的小鸟系列的另一个扣人心弦的章节！</p>
+<blockquote>
+<p>阅读本系列的<a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-series/">介绍文章</a>，查看所有小鸟以及它们的进攻力量。</p>
+</blockquote>
+<h2 id="战况"><a href="#战况" class="headerlink" title="战况"></a>战况</h2><ul>
+<li><a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-red-bird-iife/">红色大鸟 - 立即调用的函数表达式</a></li>
+<li><a href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-blue-bird-events/">蓝色小鸟 - 事件</a></li>
+<li><a href="http://bubkoo.com/2014/03/29/angry-birds-of-javascript-yellow-bird-requirejs/">黄色小鸟 - 模块化、依赖管理、性能优化</a></li>
+<li><a href="http://bubkoo.com/2014/03/29/angry-birds-of-javascript-black-bird-backbone/">黑色小鸟 - 前端分层架构</a></li>
+</ul>
+<h2 id="白色小鸟的攻击力"><a href="#白色小鸟的攻击力" class="headerlink" title="白色小鸟的攻击力"></a>白色小鸟的攻击力</h2><p><img src="http://bubkoo.qiniudn.com/angry-birds-white-bird.png" alt="white bird"></p>
+<p>本篇文章我将介绍白色小鸟，它看似没有什么攻击力，但当它们拿出严格的代码风格和质量检查时，小猪们都惊呆了。渐渐的，小鸟们将一个接一个地夺回属于他们的东西。</p>
+<a id="more"></a>
+<h2 id="小猪偷走了什么"><a href="#小猪偷走了什么" class="headerlink" title="小猪偷走了什么"></a>小猪偷走了什么</h2><p>小鸟们尝试学习用一种不同的方式编写代码，有的是自学，有的则是去计算机科学相关的大学学习。即使这群小鸟中有大量经验丰富和才华横溢之辈，当它们聚在一起来开发一个大型应用时就会酿成一场灾难，它们都认为自己的编码标准才是正确的方式，这就会导致了一些问题。一天，一只白色小鸟走过来，并建议他们遵循一个通用的编码风格，此外，还带来了一些工具，来帮助他们形成统一的标准和解决冲突，并提前关注一些潜在的问题。</p>
+<p>不幸的是，在小猪的进攻过程中，它们的代码规范文档和代码质量工具被偷走了。现在，一只白色小鸟接到任务去夺回来，它将使用不可抗拒的代码质量的威力，来夺回属于它们的东西。</p>
+<h2 id="javascript-编码规范"><a href="#JavaScript-编码规范" class="headerlink" title="JavaScript 编码规范"></a>JavaScript 编码规范</h2><p>目前有许多编码规范可供选择，最重要的是选择其中一个并坚持遵循这个规范。如果你在一个团队中，他们也应该同意一些规范，如果你们不能达成一致，那么选择一个最接近的规范，并允许一些例外。</p>
+<p>这样做你将发现…</p>
+<ul>
+<li>开发人员将更快理解团队中其他人写的代码</li>
+<li>代码库合并不会那么可怕</li>
+<li>拥有确实能够减少缺陷的标准</li>
+<li>代码看上去更加统一</li>
+<li>关于谁才是正确的分歧将减少</li>
+<li>…还有哪些呢？等着你来发现…</li>
+</ul>
+<p>这里列举了一些我知道的代码规范：</p>
+<ul>
+<li>Douglas Crockford’s <a href="http://javascript.crockford.com/code.html" target="_blank" rel="external">Code Conventions for the JavaScript Programming Language</a></li>
+<li>Rich Waldron’s (<a href="http://twitter.com/rwaldron" target="_blank" rel="external">@rwaldron</a>) <a href="https://github.com/rwldrn/idiomatic.js" target="_blank" rel="external">Idiomatic.js - Principles of Writing Consistent, Idiomatic JavaScript</a> ← Recommended</li>
+<li>jQuery’s <a href="http://contribute.jquery.org/style-guide/js/?rdfrom=http%3A%2F%2Fdocs.jquery.com%2Fmw%2Findex.php%3Ftitle%3DJQuery_Core_Style_Guidelines%26redirect%3Dno" target="_blank" rel="external">JavaScript Style Guide</a> ← Recommended</li>
+<li>Google’s <a href="http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml" target="_blank" rel="external">JavaScript Style Guide</a></li>
+</ul>
+<p>Addy Osmani (<a href="http://twitter.com/addyosmani" target="_blank" rel="external">@addyosmani</a>) 有一篇写的很好的文章 <a href="http://addyosmani.com/blog/javascript-style-guides-and-beautifiers/" target="_blank" rel="external">JavaScript Style Guides And Beautifiers</a>，深入解释了各种代码风格，并用实例演示了如果遵循上面提到的这些代码风格标准。</p>
+<h2 id="javascript-代码检查"><a href="#JavaScript-代码检查" class="headerlink" title="JavaScript 代码检查"></a>JavaScript 代码检查</h2><p>代码检查工具可以帮助你找到代码错误和潜在的问题，通常还能帮助你实施代码规范，无论你选择以上代码规范的哪一种。</p>
+<p>有几种代码检查工具可供选择，但是我最喜欢 Anton Kovalyov (<a href="http://twitter.com/valueof" target="_blank" rel="external">@valueof</a>) 创建的 <a href="http://jshint.com/" target="_blank" rel="external">JSHint</a>。JSHint 是社区共同努力的结果，前身是广受欢迎的 JSLint 库。我见证了这个项目成长过程，JSHint 包含很多选项，你可以选择开启或禁用，最后找到最适合你的团队的配置。</p>
+<p>JSHint 可以执行的标准检查包括…</p>
+<ul>
+<li>使用 <code>===</code> 代替 <code>==</code> </li>
+<li>使用没有被预先定义的变量</li>
+<li>声明从未被使用的变量</li>
+<li>在循环内部声明函数</li>
+<li>还有更多选项…</li>
+</ul>
+<p>完整的选项列表请参阅 <a href="http://jshint.com/docs/" target="_blank" rel="external">JSHint 文档</a>。</p>
+<p>我很喜欢最近增加的一些选项：</p>
+<ul>
+<li><code>maxcomplexity</code> - 最大循环复杂度（参见后面引用的维基百科）</li>
+<li><code>maxstatements</code> - 函数允许的语句条数最大值</li>
+<li><code>maxparams</code> - 函数中允许的变量数最大值</li>
+<li><code>maxdepth</code> - 函数允许的最大深度</li>
+<li><code>maxlen</code> - 单行代码的最大长度</li>
+</ul>
+<blockquote>
+<p>“最大循环复杂度是一段代码中线性独立路径数” – <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity" target="_blank" rel="external">http://en.wikipedia.org/wiki/Cyclomatic_complexity</a></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*jshint maxparams:3, maxdepth:2, maxstatements:5, maxcomplexity:3, maxlen:80 */</span></div><div class="line"><span class="comment">/*global console:false */</span></div><div class="line"> </div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"> undefined </span>) </span>&#123;</div><div class="line"><span class="meta">    "use strict"</span>;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"> arg1, arg2, arg3, arg4 </span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log( <span class="string">"too many parameters!"</span> );</div><div class="line">        <span class="keyword">if</span> ( arg1 === <span class="number">1</span> ) &#123;</div><div class="line">            <span class="built_in">console</span>.log( arg1 );</div><div class="line">            <span class="keyword">if</span> ( arg2 === <span class="number">2</span> ) &#123;</div><div class="line">                <span class="built_in">console</span>.log( arg2 );</div><div class="line">                <span class="keyword">if</span>( arg3 === <span class="number">3</span> ) &#123;</div><div class="line">                    <span class="built_in">console</span>.log( <span class="string">"too much nesting!"</span> ); <span class="built_in">console</span>.log( arg3 ); <span class="built_in">console</span>.log( arg4 );</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">console</span>.log( <span class="string">"too many statements!"</span> );</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    test1( <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span> );</div><div class="line">&#125;());</div></pre></td></tr></table></figure>
+<p>用 JSHint 对上述代码片段进行检查之后，生成如下错误：</p>
+<p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-white-bird-linting-error.png" alt=""></p>
+<p>辛运的是，你不需要每次都在 JSHint 的网站来检查你的代码，可以将 JSHint 集成到代码编辑器中：</p>
+<ul>
+<li>VIM Plugin (<a href="https://github.com/walm/jshint.vim" target="_blank" rel="external">jshint.vim</a>)</li>
+<li>Sublime Text 2 Extension (<a href="https://github.com/Kronuz/SublimeLinter" target="_blank" rel="external">Sublime Linter</a>)</li>
+<li>TextMate Bundle (<a href="http://fgnass.posterous.com/jslint-in-textmate" target="_blank" rel="external">JSHint TextMate Bundle</a>)</li>
+<li>Visual Studio <a href="http://vswebessentials.com/" target="_blank" rel="external">Web Essentials</a></li>
+<li>Eclipse IDE (<a href="http://github.eclipsesource.com/jshint-eclipse/" target="_blank" rel="external">JSHint Integration</a>)</li>
+</ul>
+<blockquote>
+<p>在神鹰一文中，我们将讨论如何在命令行中使用 JSHint，已经如何实现自动化。</p>
+</blockquote>
+<h2 id="javascript-代码分析"><a href="#JavaScript-代码分析" class="headerlink" title="JavaScript 代码分析"></a>JavaScript 代码分析</h2><p>代码检查很不错，但是有时我们希望得到我们代码的全局概览，然后再深入分析代码的某些部分。</p>
+<p>辛运的是，<a href="https://github.com/jsoverson/plato" target="_blank" rel="external">Plato</a> 这个工具可以分析你的代码，并提供一个可视化的报表，通过报表你可以知道应用的复杂度。这个工具需要在 Node 环境下执行，可以通过 <code>npm install plato -g</code> 命令来安装。</p>
+<p>安装 Plato 之后，可以在命令行中运行 <code>plato -r -d report myDirectory</code>，这将递归分析 <code>myDirectory</code> 文件夹中的代码，并将分析结果导出到 <code>report</code> 文件夹中。</p>
+<p>如果你使用 Plato 对 jQuery 源码进行分析，将得到类似下面的报告。正如你所见，代码行数随着时间减少，这个非常好，并且可维护性还不错，然后用柱状图详细列出了每个JavaScript 文件的可维护性。再往下的柱状图列出了每个文件的代码行数、每个文件的预计错误数，以及每个文件的 JSLint 错误数。</p>
+<p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-white-bird-javaScript-analysis.png" alt="JavaScript Analysis"></p>
+<p>如果深入分析某个文件，你将看到下面的报告。这份报告最棒的地方是用一种容易理解的方式展示了每个函数的复杂度和代码行数。通过该工具标识出的关注点，你可以快速定位到文件的不同部分进行审查。</p>
+<p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-white-bird-javaScript-analysis-details.png" alt="JavaScript Analysis"></p>
+<p>你可以到 Plato 的 GitHub 上查看上面的 <a href="http://jsoverson.github.com/plato/examples/jquery/" target="_blank" rel="external">jQuery 报告</a>。</p>
+<h2 id="进攻"><a href="#进攻" class="headerlink" title="进攻"></a>进攻</h2><p>下面是一个用 <a href="http://incompl.github.com/boxbox/" target="_blank" rel="external">boxbox</a> 构建的简易版 Angry Birds，boxbox 是一个用于 <a href="https://code.google.com/p/box2dweb/" target="_blank" rel="external">box2dweb</a> 的物理学框架，由 <a href="http://bocoup.com/" target="_blank" rel="external">Bocoup</a> 的 <a href="http://twitter.com/_gsmith" target="_blank" rel="external">Greg Smith</a> 编写。</p>
+<blockquote>
+<p>按下空格键来发射白色小鸟，你也可以使用方向键。</p>
+</blockquote>
+<p><img src="http://bubkoo.qiniudn.com/angry-birds-white-bird-attack.png" alt=""></p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>前端 web 应用很容易就变得复杂，如果开发人员不能达成共识，项目就很可能会分崩离析，尤其是在大型项目中。有一个统一的代码标准，并借助一些工具来帮助我们找到潜在的问题，将大大有助于项目的成功。</p>
+<p>还有很多其他的前端架构技术也被猪偷走了。接下来，另一只愤怒的小鸟将继续复仇！Dun, dun, daaaaaaa!</p>
+<p class="j-quote">原文：<a href="http://www.elijahmanor.com/angry-birds-of-javascript-white-bird-linting/" target="_blank" rel="external">Angry Birds of JavaScript- White Bird: Linting</a></p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/architecture/" title="Architecture">Architecture</a> <a href="/tags/linting/" title="Linting">Linting</a> <a href="/tags/analysis/" title="Analysis">Analysis</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/04/17/angry-birds-of-javascript-green-bird-mocking/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">绿色小鸟 - 模拟请求和模拟数据</span></a><a href="/2014/03/29/angry-birds-of-javascript-black-bird-backbone/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">黑色小鸟 - 前端分层架构</span></a></nav></article><section id="article-comment" class="article-comment"><div data-thread-key="http://bubkoo.com/2014/04/14/angry-birds-of-javascript-white-bird-linting/" data-title="白色小鸟 - 代码质量和代码分析" data-url="http://bubkoo.com/2014/04/14/angry-birds-of-javascript-white-bird-linting/" class="ds-thread"></div></section></div><aside id="sidebar" role="sidebar"><div class="widget tagcloud"><h3 class="widget-title">标签</h3><div class="widget-content"><a href="/tags/aop/" style="font-size: 10px">AOP</a> <a href="/tags/algorithm/" style="font-size: 18.33px">Algorithm</a> <a href="/tags/analysis/" style="font-size: 10px">Analysis</a> <a href="/tags/angularjs/" style="font-size: 15px">AngularJS</a> <a href="/tags/animation/" style="font-size: 10px">Animation</a> <a href="/tags/architecture/" style="font-size: 16.67px">Architecture</a> <a href="/tags/archives/" style="font-size: 10.83px">Archives</a> <a href="/tags/async/" style="font-size: 12.5px">Async</a> <a href="/tags/backbone/" style="font-size: 10px">Backbone</a> <a href="/tags/browsers/" style="font-size: 10px">Browsers</a> <a href="/tags/css/" style="font-size: 12.5px">CSS</a> <a href="/tags/css3/" style="font-size: 10px">CSS3</a> <a href="/tags/closure/" style="font-size: 10.83px">Closure</a> <a href="/tags/closures/" style="font-size: 10px">Closures</a> <a href="/tags/cookies/" style="font-size: 10px">Cookies</a> <a href="/tags/cross-domain/" style="font-size: 10px">Cross Domain</a> <a href="/tags/custom-elements/" style="font-size: 10.83px">Custom Elements</a> <a href="/tags/d3/" style="font-size: 10px">D3</a> <a href="/tags/debounce/" style="font-size: 10px">Debounce</a> <a href="/tags/debug/" style="font-size: 10.83px">Debug</a> <a href="/tags/dependency/" style="font-size: 10px">Dependency</a> <a href="/tags/document/" style="font-size: 10px">Document</a> <a href="/tags/ecma-262-3/" style="font-size: 15.83px">ECMA-262-3</a> <a href="/tags/ecmascript/" style="font-size: 15.83px">ECMAScript</a> <a href="/tags/es6/" style="font-size: 20px">ES6</a> <a href="/tags/errors/" style="font-size: 10px">Errors</a> <a href="/tags/essential/" style="font-size: 10px">Essential</a> <a href="/tags/evaluation-strategy/" style="font-size: 10px">Evaluation strategy</a> <a href="/tags/event/" style="font-size: 10px">Event</a> <a href="/tags/exceptions/" style="font-size: 10px">Exceptions</a> <a href="/tags/express/" style="font-size: 10px">Express</a> <a href="/tags/flip/" style="font-size: 10px">FLIP</a> <a href="/tags/flexbox/" style="font-size: 10px">Flexbox</a> <a href="/tags/funarg/" style="font-size: 10px">Funarg</a> <a href="/tags/gist/" style="font-size: 10px">Gist</a> <a href="/tags/github/" style="font-size: 10px">Github</a> <a href="/tags/guide/" style="font-size: 10px">Guide</a> <a href="/tags/html/" style="font-size: 10px">HTML</a> <a href="/tags/http/" style="font-size: 10px">HTTP</a> <a href="/tags/hexo/" style="font-size: 10.83px">Hexo</a> <a href="/tags/ie/" style="font-size: 10px">IE</a> <a href="/tags/iife/" style="font-size: 10px">IIFE</a> <a href="/tags/jshint/" style="font-size: 10px">JSHint</a> <a href="/tags/javascript/" style="font-size: 19.17px">JavaScript</a> <a href="/tags/leak/" style="font-size: 10px">Leak</a> <a href="/tags/linting/" style="font-size: 10px">Linting</a> <a href="/tags/mvc/" style="font-size: 10px">MVC</a> <a href="/tags/methodology/" style="font-size: 10px">Methodology</a> <a href="/tags/mock/" style="font-size: 10px">Mock</a> <a href="/tags/modular/" style="font-size: 10px">Modular</a> <a href="/tags/mongodb/" style="font-size: 10px">MongoDB</a> <a href="/tags/oop/" style="font-size: 10.83px">OOP</a> <a href="/tags/partial-application/" style="font-size: 10px">Partial Application</a> <a href="/tags/pattern/" style="font-size: 10px">Pattern</a> <a href="/tags/patterns/" style="font-size: 10px">Patterns</a> <a href="/tags/performance/" style="font-size: 14.17px">Performance</a> <a href="/tags/promise/" style="font-size: 13.33px">Promise</a> <a href="/tags/prototype/" style="font-size: 11.67px">Prototype</a> <a href="/tags/quality/" style="font-size: 10px">Quality</a> <a href="/tags/quiz/" style="font-size: 10px">Quiz</a> <a href="/tags/regex/" style="font-size: 10px">Regex</a> <a href="/tags/requirejs/" style="font-size: 10px">RequireJS</a> <a href="/tags/sass/" style="font-size: 10px">SASS</a> <a href="/tags/svg/" style="font-size: 10px">SVG</a> <a href="/tags/scope/" style="font-size: 10.83px">Scope</a> <a href="/tags/shapes/" style="font-size: 10px">Shapes</a> <a href="/tags/shuffle/" style="font-size: 10px">Shuffle</a> <a href="/tags/sort/" style="font-size: 17.5px">Sort</a> <a href="/tags/source-map/" style="font-size: 10.83px">Source Map</a> <a href="/tags/styling/" style="font-size: 10px">Styling</a> <a href="/tags/sublime-text/" style="font-size: 10px">Sublime Text</a> <a href="/tags/template/" style="font-size: 10px">Template</a> <a href="/tags/throttle/" style="font-size: 10px">Throttle</a> <a href="/tags/timing/" style="font-size: 10px">Timing</a> <a href="/tags/tools/" style="font-size: 12.5px">Tools</a> <a href="/tags/variable-object/" style="font-size: 10px">Variable object</a> <a href="/tags/visualizations/" style="font-size: 10px">Visualizations</a> <a href="/tags/when/" style="font-size: 12.5px">When</a> <a href="/tags/delete/" style="font-size: 10px">delete</a> <a href="/tags/execution-context/" style="font-size: 10px">execution context</a> <a href="/tags/fetch/" style="font-size: 10px">fetch</a> <a href="/tags/function/" style="font-size: 10px">function</a> <a href="/tags/nodejs/" style="font-size: 10px">nodejs</a> <a href="/tags/nodemon/" style="font-size: 10px">nodemon</a> <a href="/tags/npm/" style="font-size: 10px">npm</a> <a href="/tags/nvm/" style="font-size: 10px">nvm</a> <a href="/tags/performance/" style="font-size: 10px">performance</a> <a href="/tags/prebrowsing/" style="font-size: 10px">prebrowsing</a> <a href="/tags/prefetching/" style="font-size: 10px">prefetching</a> <a href="/tags/preloading/" style="font-size: 10px">preloading</a> <a href="/tags/tabindex/" style="font-size: 10px">tabindex</a> <a href="/tags/this/" style="font-size: 10px">this</a> <a href="/tags/ui-router/" style="font-size: 14.17px">ui-router</a></div></div><div class="widget"><h3 class="widget-title">最新文章</h3><div class="widget-content"><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/01/18/debouncing-throttling-explained-examples/">实例解析防抖和节流函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/08/quick-tip-multiple-versions-node-nvm/">使用 nvm 管理不同版本的 node 与 npm</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/08/15-ways-to-write-self-documenting-javascript/">如何编写更加自解释的代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/high-performance-animations/">使用 FLIP 来提高 Web 动画的性能</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/28/styling-broken-images/">定制图片加载失败时的样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/26/delivering-octicons-with-svg/">使用 SVG 输出 Octicon</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/18/how-to-use-npm-as-a-build-tool/">如何将 npm 作为构建工具使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/what-you-can-do-with-gists-on-github/">任何人都可以使用到的 Gist 服务</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/prefetching-preloading-prebrowsing/">前端性能优化 - 资源预加载</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/es6-in-depth-the-future/">深入解析 ES6：未来展望</a></li></ul></div></div></aside><aside id="topic-wrap" class="toc-wrap f-right"><h3 class="toc-wrap-title">内容</h3><div class="toc-tree"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#战况"><span class="toc-number">2.</span> <span class="toc-text">战况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#白色小鸟的攻击力"><span class="toc-number">3.</span> <span class="toc-text">白色小鸟的攻击力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小猪偷走了什么"><span class="toc-number">4.</span> <span class="toc-text">小猪偷走了什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#javascript-编码规范"><span class="toc-number">5.</span> <span class="toc-text">JavaScript 编码规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#javascript-代码检查"><span class="toc-number">6.</span> <span class="toc-text">JavaScript 代码检查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#javascript-代码分析"><span class="toc-number">7.</span> <span class="toc-text">JavaScript 代码分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进攻"><span class="toc-number">8.</span> <span class="toc-text">进攻</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结论"><span class="toc-number">9.</span> <span class="toc-text">结论</span></a></li></ol></div><div class="toc-progress"></div></aside></div><footer id="footer" class="inner"><span class="copyright">© 2017 bubkoo</span><span class="theme">@<a href="https://github.com/bubkoo/hexo-theme-formula" target="_blank">formula</a></span></footer><img id="go2top" src="/images/top_arrow.png" alt="go2top"><script charset="utf-8" src="/js/lib/jquery-2.1.3.min.js"></script><script charset="utf-8" src="/js/lib/jquery.imagesloaded.min.js"></script><script charset="utf-8" src="/fancybox/jquery.fancybox.pack.js"></script><script charset="utf-8" src="/js/lib/sea.js"></script><script charset="utf-8" src="/js/main.js"></script><script id="redundancy3">var duoshuoQuery = { short_name: 'bubkoo' };
+(function () {
+  var ds = document.createElement('script');
+
+  ds.type    = 'text/javascript';
+  ds.async   = true;
+  ds.src     = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+
+  (document.getElementsByTagName('head')[0]
+  || document.getElementsByTagName('body')[0]).appendChild(ds);
+
+  ds.parentNode.removeChild(ds);
+
+  var script = document.getElementById('redundancy3');
+  script && script.parentNode.removeChild(script);
+})();</script></body></html>
