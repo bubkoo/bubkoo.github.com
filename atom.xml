@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://bubkoo.com/"/>
-  <updated>2017-01-18T07:52:45.000Z</updated>
+  <updated>2017-01-18T15:52:45.000Z</updated>
   <id>http://bubkoo.com/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <title>实例解析防抖和节流函数</title>
     <link href="http://bubkoo.com/2017/01/18/debouncing-throttling-explained-examples/"/>
     <id>http://bubkoo.com/2017/01/18/debouncing-throttling-explained-examples/</id>
-    <published>2017-01-18T07:52:45.000Z</published>
-    <updated>2017-01-18T07:52:45.000Z</updated>
+    <published>2017-01-18T15:52:45.000Z</published>
+    <updated>2017-01-18T15:52:45.000Z</updated>
     
     <content type="html"><![CDATA[<p>防抖（<strong>Debounce</strong>）和节流（<strong>Throttle</strong>）都是用来控制某个函数在一定时间内执行多少次的技巧，两者即相似又不同。</p>
 <p>我们无法直接控制 DOM 事件触发频率，但我们可以在事件绑定和函数执行之间加一个控制层，所以当我们绑定 DOM 事件的时候，加上防抖或节流的函数变得特别有用。</p>
@@ -53,7 +53,7 @@
 <iframe src="//codepen.io/dcorb/embed/eJLMxa?height=607&theme-id=1&slug-hash=eJLMxa&default-tab=result&user=dcorb" scrolling="no" frameborder="0" width="100%" height="607" allowtransparency="true"></iframe>
 
 <h2 id="使用-debounce-和-throttle-以及常见的坑"><a href="#使用-debounce-和-throttle-以及常见的坑" class="headerlink" title="使用 debounce 和 throttle 以及常见的坑"></a>使用 debounce 和 throttle 以及常见的坑</h2><p>自己造一个 debounce/throttle 的轮子看起来很诱人，或者随便找个博文复制过来。我是建议直接使用 underscore 或 lodash 。如果仅需要 <code>_.debounce</code> 或 <code>_.throttle</code> 方法，可以使用 lodash 的自定义构建工具，生成一个 <code>2KB</code> 的压缩库。使用以下的简单命令即可：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm i -g lodash-cli</div><div class="line">lodash-cli include=debounce,throttle</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm i -g lodash-cli</div><div class="line">lodash-cli include=debounce,throttle</div></pre></td></tr></table></figure>
 <p>常见的坑是，不止一次地调用 <code>_.debounce</code> 方法：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 错误</span></div><div class="line">$(<span class="built_in">window</span>).on(<span class="string">'scroll'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">   _.debounce(doSomething, <span class="number">300</span>); </div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 正确</span></div><div class="line">$(<span class="built_in">window</span>).on(<span class="string">'scroll'</span>, _.debounce(doSomething, <span class="number">200</span>));</div></pre></td></tr></table></figure>
 <p>取消执行：</p>
@@ -102,8 +102,8 @@
     <title>使用 nvm 管理不同版本的 node 与 npm</title>
     <link href="http://bubkoo.com/2017/01/08/quick-tip-multiple-versions-node-nvm/"/>
     <id>http://bubkoo.com/2017/01/08/quick-tip-multiple-versions-node-nvm/</id>
-    <published>2017-01-08T15:19:39.000Z</published>
-    <updated>2017-01-08T15:19:39.000Z</updated>
+    <published>2017-01-08T23:19:39.000Z</published>
+    <updated>2017-01-08T23:19:39.000Z</updated>
     
     <content type="html"><![CDATA[<p>在我们的日常开发中经常会遇到这种情况：手上有好几个项目，每个项目的需求不同，进而不同项目必须依赖不同版的 NodeJS 运行环境。如果没有一个合适的工具，这个问题将非常棘手。</p>
 <p><a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm</a> 应运而生，nvm 是 Mac 下的 node 管理工具，有点类似管理 Ruby 的 rvm，如果需要管理 Windows 下的 node，官方推荐使用 <a href="https://github.com/hakobera/nvmw" target="_blank" rel="external">nvmw</a> 或 <a href="https://github.com/coreybutler/nvm-windows" target="_blank" rel="external">nvm-windows</a>。不过，nvm-windows 并不是 nvm 的简单移植，他们也没有任何关系。但下面介绍的所有命令，都可以在 nvm-windows 中运行。</p>
@@ -123,57 +123,57 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">sudo rm /usr/local/bin/npm</div><div class="line">sudo rm /usr/local/share/man/man1/node.1</div><div class="line">sudo rm /usr/local/lib/dtrace/node.d</div><div class="line">sudo rm -rf ~/.npm</div><div class="line">sudo rm -rf ~/.node-gyp</div><div class="line">sudo rm /opt/local/bin/node</div><div class="line">sudo rm /opt/local/include/node</div><div class="line">sudo rm -rf /opt/local/lib/node_modules</div></pre></td></tr></table></figure>
 <h2 id="windows-安装"><a href="#Windows-安装" class="headerlink" title="Windows 安装"></a>Windows 安装</h2><p>首先最重要的是：一定要卸载已安装的 NodeJS，否则会发生冲突。然后下载 <a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank" rel="external">nvm-windows</a> 最新安装包，直接安装即可。</p>
 <h2 id="os-xlinux-安装"><a href="#OS-X-Linux-安装" class="headerlink" title="OS X/Linux 安装"></a>OS X/Linux 安装</h2><p>与 Windows 不同，我们并不一定要先卸载原有的 NodeJS。当然我们推荐还是先卸载掉比较好。另外，你还需要 C++ 编译器，Linux 发行版一般不用担心，像 Ubuntu 都可以直接用 <code>build-essential</code> 套件，OS X 的话，可以用 <code>X-Code</code> 的命令行工具。运行这个命令即可：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xcode-select --install</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xcode-select --install</div></pre></td></tr></table></figure>
 <p>在 Linux 中：（如果是 Debian 发行版）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install build-essential</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install build-essential</div></pre></td></tr></table></figure>
 <p>然后我们可以使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash</div></pre></td></tr></table></figure>
 <p>或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash</div></pre></td></tr></table></figure>
 <p>从远程下载 <code>install.sh</code> 脚本并执行。注意这个版本年数字 <code>v0.33.0</code> 会随着项目开发而变化。随时通过<a href="https://github.com/creationix/nvm#install-script" target="_blank" rel="external">官方最新安装命令</a>来检查最新安装版本是有好处的。</p>
 <h2 id="安装多版本-nodenpm"><a href="#安装多版本-node-npm" class="headerlink" title="安装多版本 node/npm"></a>安装多版本 node/npm</h2><p>例如，我们要安装4.2.2版本，可以用如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm install 4.2.2</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm install 4.2.2</div></pre></td></tr></table></figure>
 <p>nvm 遵守<a href="http://semver.org/lang/zh-CN/" target="_blank" rel="external">语义化版本</a>命名规则。例如，你想安装最新的 <code>4.2</code> 系列的最新的一个版本的话，可以运行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm install 4.2</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm install 4.2</div></pre></td></tr></table></figure>
 <p>nvm 会寻找 <code>4.2.x</code> 中最高的版本来安装。</p>
 <p>你可以通过以下命令来列出远程服务器上所有的可用版本：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm ls-remote</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm ls-remote</div></pre></td></tr></table></figure>
 <p>Windows 的话，就是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm ls available</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm ls available</div></pre></td></tr></table></figure>
 <h2 id="在不同版本间切换"><a href="#在不同版本间切换" class="headerlink" title="在不同版本间切换"></a>在不同版本间切换</h2><p>每当我们安装了一个新版本 Node 后，全局环境会自动把这个新版本设置为默认。</p>
 <p>nvm 提供了 <code>nvm use</code> 命令。这个命令的使用方法和 <code>install</code> 命令类似。</p>
 <p>例如，切换到 <code>4.2.2</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm use 4.2.2</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm use 4.2.2</div></pre></td></tr></table></figure>
 <p>切换到最新的 `4.2.x``：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm use 4.2</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm use 4.2</div></pre></td></tr></table></figure>
 <p>切换到 iojs：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm use iojs-v3.2.0</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm use iojs-v3.2.0</div></pre></td></tr></table></figure>
 <p>切换到最新版：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm use node</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm use node</div></pre></td></tr></table></figure>
 <p>每次执行切换的时候，系统都会把 node 的可执行文件链接放到特定版本的文件上。</p>
 <p>我们还可以用 nvm 给不同的版本号设置别名：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm alias awesome-version 4.2.2</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm alias awesome-version 4.2.2</div></pre></td></tr></table></figure>
 <p>我们给 <code>4.2.2</code> 这个版本号起了一个名字叫做 <code>awesome-version</code>，然后我们可以运行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm use awesome-version</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm use awesome-version</div></pre></td></tr></table></figure>
 <p>下面这个命令可以取消别名：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm unalias awesome-version</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm unalias awesome-version</div></pre></td></tr></table></figure>
 <p>另外，你还可以设置 <code>default</code> 这个特殊别名：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm alias default node</div></pre></td></tr></table></figure>
-<h2 id="列出已安装实例"><a href="#列出已安装实例" class="headerlink" title="列出已安装实例"></a>列出已安装实例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm ls</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm alias default node</div></pre></td></tr></table></figure>
+<h2 id="列出已安装实例"><a href="#列出已安装实例" class="headerlink" title="列出已安装实例"></a>列出已安装实例</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm ls</div></pre></td></tr></table></figure>
 <p><img src="http://bubkoo.qiniudn.com/images/nvm-ls.png" alt="nvm ls"></p>
 <p>上面绿色箭头是当前正在使用的版本，下面列出的还有设置过的别名。</p>
 <h2 id="在项目中使用不同版本的-node"><a href="#在项目中使用不同版本的-Node" class="headerlink" title="在项目中使用不同版本的 Node"></a>在项目中使用不同版本的 Node</h2><p>我们可以通过创建项目目录中的 <code>.nvmrc</code> 文件来指定要使用的 Node 版本。之后在项目目录中执行 <code>nvm use</code> 即可。<code>.nvmrc</code> 文件内容只需要遵守上文提到的语义化版本规则即可。另外还有个工具叫做 <a href="https://github.com/wbyoung/avn" target="_blank" rel="external">avn</a>，可以自动化这个过程。</p>
 <h2 id="在多环境中npm该如何使用呢"><a href="#在多环境中，npm该如何使用呢？" class="headerlink" title="在多环境中，npm该如何使用呢？"></a>在多环境中，npm该如何使用呢？</h2><p>每个版本的 Node 都会自带一个不同版本的 npm，可以用 <code>npm -v</code> 来查看 npm 的版本。全局安装的 npm 包并不会在不同的 Node 环境中共享，因为这会引起兼容问题。它们被放在了不同版本的目录下，例如 <code>~/.nvm/versions/node/&lt;version&gt;/lib/node_modules&lt;/version&gt;</code> 这样的目录。这刚好也省去我们在 Linux 中使用 <code>sudo</code> 的功夫了。因为这是用户的主文件夹，并不会引起权限问题。</p>
 <p>但问题来了，我们安装过的 npm 包，都要重新再装一次？幸运的是，我们有个办法来解决我们的问题，运行下面这个命令，可以从特定版本导入到我们将要安装的新版本 Node：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm install v5.0.0 --reinstall-packages-from=4.2</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm install v5.0.0 --reinstall-packages-from=4.2</div></pre></td></tr></table></figure>
 <h2 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h2><p>直接运行特定版本的 Node</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm run 4.2.2 --version</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm run 4.2.2 --version</div></pre></td></tr></table></figure>
 <p>在当前终端的子进程中运行特定版本的 Node</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm exec 4.2.2 node --version</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm exec 4.2.2 node --version</div></pre></td></tr></table></figure>
 <p>确认某个版本Node的路径</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm which 4.2.2</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm which 4.2.2</div></pre></td></tr></table></figure>
 <p>安装 Node 的其他实现，例如 iojs（一个基于 ES6 的 Node 实现，现在已经和 Node 合并）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm install iojs-v3.2.0</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm install iojs-v3.2.0</div></pre></td></tr></table></figure>
 <p>快捷命令：</p>
 <ul>
 <li><code>nvm install node</code> 安装最新版 Node</li>
@@ -205,8 +205,8 @@
     <title>如何编写更加自解释的代码</title>
     <link href="http://bubkoo.com/2016/09/08/15-ways-to-write-self-documenting-javascript/"/>
     <id>http://bubkoo.com/2016/09/08/15-ways-to-write-self-documenting-javascript/</id>
-    <published>2016-09-08T13:20:28.000Z</published>
-    <updated>2016-09-08T13:20:28.000Z</updated>
+    <published>2016-09-08T21:20:28.000Z</published>
+    <updated>2016-09-08T21:20:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>当你发现代码中的某些注释完全无用时你会怎么办？</p>
 <p>我们经常会犯一个错误：当我们更新代码时，却忘记更新相应的注释。不友好的注释并不会影响代码的执行，但使我们的调试和阅读带来极大困扰，注释描述的是一种逻辑，而代码确是另外一种，结果会浪费我们大量时间来搞懂这段代码的意思，更糟糕的是这样的注释很可能误导我们。</p>
@@ -327,8 +327,8 @@
     <title>使用 FLIP 来提高 Web 动画的性能</title>
     <link href="http://bubkoo.com/2016/03/31/high-performance-animations/"/>
     <id>http://bubkoo.com/2016/03/31/high-performance-animations/</id>
-    <published>2016-03-31T09:48:03.000Z</published>
-    <updated>2016-03-31T09:48:03.000Z</updated>
+    <published>2016-03-31T17:48:03.000Z</published>
+    <updated>2016-03-31T17:48:03.000Z</updated>
     
     <content type="html"><![CDATA[<p>CSS 动画已经存在很多年了，使用恰当可以很好地提高网站的用户体验，也正是由于其容易使用，就很可能出现性能低下的动画，从而降低了整个页面的运行效率。回想一下：你曾经是否使用过 CSS 来改变元素的宽度、高度或绝对位置？如果回答是肯定的，就意味着你触发了性能低下的重排或重绘计算，在某些情况下甚至可能导致<a href="http://jankfree.org/" target="_blank" rel="external">页面闪烁</a>。</p>
 <p>什么样的情况会导致页面闪烁呢？现代浏览器根据设备的刷新率来刷新页面中的内容，对大多数设备而言，屏幕以 <code>60</code> 次每秒的频率刷新，即 <code>60HZ</code>。如果在屏幕上出现了某些运动，如滚动、过渡或动画，浏览器应该每秒刷新 <code>60</code> 帧，如果某些帧花费的时间太长，进而导致浏览器的刷新频率跟不上设备的刷新频率（跳帧现象），就会出现页面闪烁。<strong>所以在 Web 应用中运行的动画都应该保持在 <code>60FPS</code> 下</strong>。</p>
@@ -402,8 +402,8 @@
     <title>定制图片加载失败时的样式</title>
     <link href="http://bubkoo.com/2016/03/28/styling-broken-images/"/>
     <id>http://bubkoo.com/2016/03/28/styling-broken-images/</id>
-    <published>2016-03-28T02:36:09.000Z</published>
-    <updated>2016-03-28T02:36:09.000Z</updated>
+    <published>2016-03-28T10:36:09.000Z</published>
+    <updated>2016-03-28T10:36:09.000Z</updated>
     
     <content type="html"><![CDATA[<div class="hexo-insert-code"><img src="http://bubkoo.com/broken.jpg" alt="图片加载失败，默认样式有木有很丑陋？" class="no-fancy"></div>
 <style type="text/css">.no-fancy{
@@ -585,8 +585,8 @@
     <title>使用 SVG 输出 Octicon</title>
     <link href="http://bubkoo.com/2016/03/26/delivering-octicons-with-svg/"/>
     <id>http://bubkoo.com/2016/03/26/delivering-octicons-with-svg/</id>
-    <published>2016-03-25T16:08:32.000Z</published>
-    <updated>2016-03-25T16:08:32.000Z</updated>
+    <published>2016-03-26T00:08:32.000Z</published>
+    <updated>2016-03-26T00:08:32.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="github.com">GitHub</a> 不再使用字体来输出图标了。我们把代码中所有的 <a href="http://octicons.github.com/" target="_blank" rel="external">Octicon</a> 替换成了 SVG 版本。虽然这些改动并不那么明显，但马上你就能体会到 SVG 图标的优点。</p>
 <p><img src="http://bubkoo.qiniudn.com/images/svg-vs-iconfont.png" alt="左侧放大后的字体版本和右侧清晰的 SVG 版本"></p>
@@ -652,8 +652,8 @@
     <title>如何将 npm 作为构建工具使用</title>
     <link href="http://bubkoo.com/2016/03/18/how-to-use-npm-as-a-build-tool/"/>
     <id>http://bubkoo.com/2016/03/18/how-to-use-npm-as-a-build-tool/</id>
-    <published>2016-03-18T07:54:37.000Z</published>
-    <updated>2016-03-18T07:54:37.000Z</updated>
+    <published>2016-03-18T15:54:37.000Z</published>
+    <updated>2016-03-18T15:54:37.000Z</updated>
     
     <content type="html"><![CDATA[<p>上个月，我在这篇文章<a href="http://blog.keithcirkel.co.uk/why-we-should-stop-using-grunt/" target="_blank" rel="external">《为什么要停止使用 Grunt 和 Gulp》</a>中建议大家使用 npm 作为替代方案，npm 的 <code>scripts</code> <a href="https://www.npmjs.org/doc/misc/npm-scripts.html" target="_blank" rel="external">配置</a>可以实现这些构建工具的所有功能，而且更简洁、更优雅和较少的模块依赖和维护开销。本文第一稿大概有 6000 字，深入讲解了如何将 npm 作为替代方案，但那篇文章主要在表达我的观点，而不是作为一篇教程。然而，读者的反馈却很强烈，许多读者告诉我 npm 并不能完全实现这些构建工具提供的特性，甚至有的读者直接给我一个 <code>Gruntfile</code>，然后反问我：“怎么用 npm 来实现这样的构建方案”？所以我决定进一步更新本文，将其作为一个新手入门教程，主要分享如何使用 npm 来完成一些常见的构建任务。</p>
 <p>npm 是一个很好的工具，提供了一些奇特的功能，也是 NodeJS 的核心，包括我在内的很多人每天都在使用 npm，事实上在我的 Bash 历史记录中，npm 的使用频率仅次于 git。npm 更新也很快，旨在使 npm 成为一个强大的模块管理工具。而且，npm 有一个功能子集，可以通过运行一些任务来维护模块的生命周期，换句话说，它也是一个强大的构建工具。</p>
@@ -773,8 +773,8 @@
     <title>任何人都可以使用到的 Gist 服务</title>
     <link href="http://bubkoo.com/2016/02/24/what-you-can-do-with-gists-on-github/"/>
     <id>http://bubkoo.com/2016/02/24/what-you-can-do-with-gists-on-github/</id>
-    <published>2016-02-24T02:22:25.000Z</published>
-    <updated>2016-02-24T02:22:25.000Z</updated>
+    <published>2016-02-24T10:22:25.000Z</published>
+    <updated>2016-02-24T10:22:25.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://github.com/" target="_blank" rel="external">Github</a> 作为代码分享平台在开发者中非常流行。此平台托管了包括游戏、书籍以至于字体在内的一千两百多万个开源项目（现在更多），这使其成为互联网上最大的代码库。Github 还提供另一个非常有用的功能，这就是 <a href="https://gist.github.com/" target="_blank" rel="external">Gist</a>。开发人员常常使用 Gist 记录他们的代码片段，但是 Gist 不仅仅是为极客和码农开发的，每个人都可以用到它。如果您听说过类似 Pastebin 或 Pastie 这样的 Web 应用的话，那您就可以看到它们和 Gist 很像，但是 Gist 比它们要更优雅，因为这些免费应用一般含有广告，而且带有很多其他杂七杂八的功能。</p>
 <p>如果您不是极客您也可以按照如下方式使用Gist：</p>
@@ -820,8 +820,8 @@
     <title>前端性能优化 - 资源预加载</title>
     <link href="http://bubkoo.com/2015/11/19/prefetching-preloading-prebrowsing/"/>
     <id>http://bubkoo.com/2015/11/19/prefetching-preloading-prebrowsing/</id>
-    <published>2015-11-18T16:29:36.000Z</published>
-    <updated>2015-11-18T16:29:36.000Z</updated>
+    <published>2015-11-19T00:29:36.000Z</published>
+    <updated>2015-11-19T00:29:36.000Z</updated>
     
     <content type="html"><![CDATA[<p>当提到前端性能优化时，我们首先会联想到文件的合并、压缩，文件缓存和开启服务器端的 gzip 压缩等，这使得页面加载更快，用户可以尽快使用我们的 Web 应用来达到他们的目标。</p>
 <p>资源预加载是另一个性能优化技术，我们可以使用该技术来预先告知浏览器某些资源可能在将来会被使用到。</p>
@@ -917,8 +917,8 @@
     <title>深入解析 ES6：未来展望</title>
     <link href="http://bubkoo.com/2015/11/18/es6-in-depth-the-future/"/>
     <id>http://bubkoo.com/2015/11/18/es6-in-depth-the-future/</id>
-    <published>2015-11-17T18:33:43.000Z</published>
-    <updated>2015-11-17T18:33:43.000Z</updated>
+    <published>2015-11-18T02:33:43.000Z</published>
+    <updated>2015-11-18T02:33:43.000Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a>
 <p class="j-quote">参考原文：<a href="https://hacks.mozilla.org/2015/08/es6-in-depth-the-future/" target="_blank" rel="external">ES6 In Depth: The Future</a><br>原文作者：<a href="https://hacks.mozilla.org/author/jorendorffmozillacom/" target="_blank" rel="external">Jason Orendorff</a><br>原文日期：2015-08-21</p>]]></content>
@@ -941,8 +941,8 @@
     <title>深入解析 ES6：Modules</title>
     <link href="http://bubkoo.com/2015/11/18/es6-in-depth-modules/"/>
     <id>http://bubkoo.com/2015/11/18/es6-in-depth-modules/</id>
-    <published>2015-11-17T18:32:42.000Z</published>
-    <updated>2015-11-17T18:32:42.000Z</updated>
+    <published>2015-11-18T02:32:42.000Z</published>
+    <updated>2015-11-18T02:32:42.000Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a>
 <p class="j-quote">参考原文：<a href="https://hacks.mozilla.org/2015/08/es6-in-depth-modules/" target="_blank" rel="external">ES6 In Depth: Modules</a><br>原文作者：<a href="https://hacks.mozilla.org/author/jorendorffmozillacom/" target="_blank" rel="external">Jason Orendorff</a><br>原文日期：2015-08-14</p>]]></content>
@@ -965,8 +965,8 @@
     <title>深入解析 ES6：Subclassing</title>
     <link href="http://bubkoo.com/2015/11/18/es6-in-depth-subclassing/"/>
     <id>http://bubkoo.com/2015/11/18/es6-in-depth-subclassing/</id>
-    <published>2015-11-17T18:31:37.000Z</published>
-    <updated>2015-11-17T18:31:37.000Z</updated>
+    <published>2015-11-18T02:31:37.000Z</published>
+    <updated>2015-11-18T02:31:37.000Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a>
 <p class="j-quote">参考原文：<a href="https://hacks.mozilla.org/2015/08/es6-in-depth-subclassing/" target="_blank" rel="external">ES6 In Depth: Subclassing</a><br>原文作者：<a href="https://hacks.mozilla.org/author/jorendorffmozillacom/" target="_blank" rel="external">Jason Orendorff</a><br>原文日期：2015-08-07</p>]]></content>
@@ -989,8 +989,8 @@
     <title>深入解析 ES6：let 和 const</title>
     <link href="http://bubkoo.com/2015/11/18/es6-in-depth-let-and-const/"/>
     <id>http://bubkoo.com/2015/11/18/es6-in-depth-let-and-const/</id>
-    <published>2015-11-17T18:30:27.000Z</published>
-    <updated>2015-11-17T18:30:27.000Z</updated>
+    <published>2015-11-18T02:30:27.000Z</published>
+    <updated>2015-11-18T02:30:27.000Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a>
 <p class="j-quote">参考原文：<a href="https://hacks.mozilla.org/2015/07/es6-in-depth-let-and-const/" target="_blank" rel="external">ES6 In Depth: let and const</a><br>原文作者：<a href="https://hacks.mozilla.org/author/jorendorffmozillacom/" target="_blank" rel="external">Jason Orendorff</a><br>原文日期：2015-07-31</p>]]></content>
@@ -1013,8 +1013,8 @@
     <title>深入解析 ES6：Classes</title>
     <link href="http://bubkoo.com/2015/11/18/es6-in-depth-classes/"/>
     <id>http://bubkoo.com/2015/11/18/es6-in-depth-classes/</id>
-    <published>2015-11-17T18:29:20.000Z</published>
-    <updated>2015-11-17T18:29:20.000Z</updated>
+    <published>2015-11-18T02:29:20.000Z</published>
+    <updated>2015-11-18T02:29:20.000Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a>
 <p class="j-quote">参考原文：<a href="https://hacks.mozilla.org/2015/07/es6-in-depth-classes/" target="_blank" rel="external">ES6 In Depth: Classes</a><br>原文作者：<a href="https://hacks.mozilla.org/author/jorendorffmozillacom/" target="_blank" rel="external">Jason Orendorff</a><br>原文日期：2015-07-22</p>]]></content>
@@ -1037,8 +1037,8 @@
     <title>深入解析 ES6：Proxies</title>
     <link href="http://bubkoo.com/2015/11/18/es6-in-depth-proxies-and-reflect/"/>
     <id>http://bubkoo.com/2015/11/18/es6-in-depth-proxies-and-reflect/</id>
-    <published>2015-11-17T18:28:04.000Z</published>
-    <updated>2015-11-17T18:28:04.000Z</updated>
+    <published>2015-11-18T02:28:04.000Z</published>
+    <updated>2015-11-18T02:28:04.000Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a>
 <p class="j-quote">参考原文：<a href="https://hacks.mozilla.org/2015/07/es6-in-depth-proxies-and-reflect/" target="_blank" rel="external">ES6 In Depth: Proxies</a><br>原文作者：<a href="https://hacks.mozilla.org/author/jorendorffmozillacom/" target="_blank" rel="external">Jason Orendorff</a><br>原文日期：2015-07-17</p>]]></content>
@@ -1061,8 +1061,8 @@
     <title>深入解析 ES6：Generators</title>
     <link href="http://bubkoo.com/2015/11/18/es6-in-depth-generators-continued/"/>
     <id>http://bubkoo.com/2015/11/18/es6-in-depth-generators-continued/</id>
-    <published>2015-11-17T18:24:52.000Z</published>
-    <updated>2015-11-17T18:24:52.000Z</updated>
+    <published>2015-11-18T02:24:52.000Z</published>
+    <updated>2015-11-18T02:24:52.000Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a>
 <p class="j-quote">参考原文：<a href="https://hacks.mozilla.org/2015/07/es6-in-depth-generators-continued/" target="_blank" rel="external">ES6 In Depth: Generators, continued</a><br>原文作者：<a href="https://hacks.mozilla.org/author/jorendorffmozillacom/" target="_blank" rel="external">Jason Orendorff</a><br>原文日期：2015-07-09</p>]]></content>
@@ -1085,8 +1085,8 @@
     <title>深入解析 ES6：Collections</title>
     <link href="http://bubkoo.com/2015/10/09/es6-in-depth-collections/"/>
     <id>http://bubkoo.com/2015/10/09/es6-in-depth-collections/</id>
-    <published>2015-10-09T09:02:10.000Z</published>
-    <updated>2015-10-09T09:02:10.000Z</updated>
+    <published>2015-10-09T17:02:10.000Z</published>
+    <updated>2015-10-09T17:02:10.000Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a>
 <p class="j-quote">参考原文：<a href="https://hacks.mozilla.org/2015/06/es6-in-depth-collections/" target="_blank" rel="external">ES6 In Depth: Collections</a><br>原文作者：<a href="https://hacks.mozilla.org/author/jorendorffmozillacom/" target="_blank" rel="external">Jason Orendorff</a><br>原文日期：2015-06-19</p>]]></content>
@@ -1109,8 +1109,8 @@
     <title>深入解析 ES6：使用 Babel 和 Broccoli</title>
     <link href="http://bubkoo.com/2015/08/15/es6-in-depth-babel-and-broccoli/"/>
     <id>http://bubkoo.com/2015/08/15/es6-in-depth-babel-and-broccoli/</id>
-    <published>2015-08-15T05:12:38.000Z</published>
-    <updated>2015-08-15T05:12:38.000Z</updated>
+    <published>2015-08-15T13:12:38.000Z</published>
+    <updated>2015-08-15T13:12:38.000Z</updated>
     
     <content type="html"><![CDATA[<p>ES6 才刚被标准化，人们就在开始谈论 ES7 将提供哪些闪亮的新特性了。作为 Web 开发人员，我们更想知道如何使用这些新特性。在之前的文章中，作者鼓励我们在一些工具的帮助下开始使用 ES6：</p>
 <blockquote>
@@ -1126,7 +1126,7 @@
 <p>得到的代码是老式的 JavaScript 语法，可以在任何浏览器中运行。</p>
 <p>transpiler 的内部工作原理相当复杂，超出了本文的讨论范围。这里我们仅仅将 transpiler 作为一个黑盒来处理我们的代码，正如你会开车，但并不需要知道发动机的工作原理一样。</p>
 <h2 id="babel-实践"><a href="#Babel-实践" class="headerlink" title="Babel 实践"></a>Babel 实践</h2><p>使用 Babel 有几种不同的方式。Babel 提供了一个命令行工具，你可以在终端中使用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">babel script.js --out-file script-compiled.js</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">babel script.js --out-file script-compiled.js</div></pre></td></tr></table></figure>
 <p>还有一个浏览器端库。首先，将 Babel 嵌入到页面中，然后将你的 ES6 代码放在 <code>type</code> 属性值为 <code>text/babel</code> 的 <code>script</code> 标签中：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"node_modules/babel-core/browser.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/babel"</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="comment">// Your ES6 code</span></div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>上面两种方式实用性不强，当代码变得庞大，我们就会开始将代码分割到不同文件或文件夹中。这时，我们就需要一个构建工具，并将 Babel 集成到我们的构建流程中。</p>
@@ -1212,8 +1212,8 @@
     <title>深入解析 ES6：Symbol</title>
     <link href="http://bubkoo.com/2015/07/24/es6-in-depth-symbols/"/>
     <id>http://bubkoo.com/2015/07/24/es6-in-depth-symbols/</id>
-    <published>2015-07-23T17:39:57.000Z</published>
-    <updated>2015-07-23T17:39:57.000Z</updated>
+    <published>2015-07-24T01:39:57.000Z</published>
+    <updated>2015-07-24T01:39:57.000Z</updated>
     
     <content type="html"><![CDATA[<p>Symbol 是什么？</p>
 <p>Symbols 不是图标，也不是指在代码中可以使用小图片：</p>
@@ -1317,8 +1317,8 @@
     <title>在 Web 开发中生成几何图形的几种方式</title>
     <link href="http://bubkoo.com/2015/07/22/working-with-shapes-in-web-design/"/>
     <id>http://bubkoo.com/2015/07/22/working-with-shapes-in-web-design/</id>
-    <published>2015-07-22T07:16:15.000Z</published>
-    <updated>2015-07-22T07:16:15.000Z</updated>
+    <published>2015-07-22T15:16:15.000Z</published>
+    <updated>2015-07-22T15:16:15.000Z</updated>
     
     <content type="html"><![CDATA[<p>当我们在进行 Web 开发时，很多时候都是在有意或无意地创建一些矩形，深究一下，到底有多少中方式来得到一个几何图形呢？本文将简单介绍几种生成圆形、三角形和多边形的方式，并分析每种方式的优缺点。</p>
 <p>下面是可能使用到的方式：</p>
@@ -1531,8 +1531,8 @@
     <title>深入解析 ES6：箭头函数</title>
     <link href="http://bubkoo.com/2015/06/28/es6-in-depth-arrow-functions/"/>
     <id>http://bubkoo.com/2015/06/28/es6-in-depth-arrow-functions/</id>
-    <published>2015-06-28T15:36:05.000Z</published>
-    <updated>2015-06-28T15:36:05.000Z</updated>
+    <published>2015-06-28T23:36:05.000Z</published>
+    <updated>2015-06-28T23:36:05.000Z</updated>
     
     <content type="html"><![CDATA[<p>从一开始箭头就是 JavaScript 的一部分，在第一个 JavaScript 中就建议将内联的脚本代码包裹在 HTML 的注释中，这可以防止那些不支持 JavaScript 的浏览器错误滴将你的代码显示为明文。你也许写过下面这样的代码：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">"javascript"</span>&gt;</span><span class="xml"></span></div><div class="line"><span class="comment">&lt;!--</span></div><div class="line">    document.bgColor = "brown";  // red</div><div class="line">// --&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -1630,8 +1630,8 @@
     <title>深入解析 ES6：解构赋值</title>
     <link href="http://bubkoo.com/2015/06/28/es6-in-depth-destructuring/"/>
     <id>http://bubkoo.com/2015/06/28/es6-in-depth-destructuring/</id>
-    <published>2015-06-28T09:36:05.000Z</published>
-    <updated>2015-06-28T09:36:05.000Z</updated>
+    <published>2015-06-28T17:36:05.000Z</published>
+    <updated>2015-06-28T17:36:05.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="什么是解构赋值"><a href="#什么是解构赋值？" class="headerlink" title="什么是解构赋值？"></a>什么是解构赋值？</h2><p>解构赋值允许你使用类似数组或对象字面量的语法将数组和对象的属性值赋给一系列变量。这个语法非常简洁，而且比传统的属性访问更加清晰。</p>
 <p>在不使用解构赋值的情况下，访问数组的前三项：</p>
@@ -1722,8 +1722,8 @@
     <title>深入解析 ES6：Rest 参数和参数默认值</title>
     <link href="http://bubkoo.com/2015/06/27/es6-in-depth-rest-parameters-and-defaults/"/>
     <id>http://bubkoo.com/2015/06/27/es6-in-depth-rest-parameters-and-defaults/</id>
-    <published>2015-06-27T09:36:05.000Z</published>
-    <updated>2015-06-27T09:36:05.000Z</updated>
+    <published>2015-06-27T17:36:05.000Z</published>
+    <updated>2015-06-27T17:36:05.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文将讨论使 JavaScript 函数更有表现力的两个特性：Rest 参数和参数默认值。</p>
 <h2 id="rest-参数"><a href="#Rest-参数" class="headerlink" title="Rest 参数"></a>Rest 参数</h2><p>通常，我们需要创建一个可变参数的函数，可变参数是指函数可以接受任意数量的参数。例如，<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/concat" target="_blank" rel="external"><code>String.prototype.concat</code></a> 可以接受任何数量的字符串作为参数。使用 Rest 参数，ES6 为我们提供一种新的方式来创建可变参数的函数。</p>
@@ -1782,8 +1782,8 @@
     <title>介绍几个 CSS 方法论</title>
     <link href="http://bubkoo.com/2015/06/25/css-methodologies/"/>
     <id>http://bubkoo.com/2015/06/25/css-methodologies/</id>
-    <published>2015-06-25T02:52:08.000Z</published>
-    <updated>2015-06-25T02:52:08.000Z</updated>
+    <published>2015-06-25T10:52:08.000Z</published>
+    <updated>2015-06-25T10:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>在大型、复杂和快速迭代的系统中，CSS 将非常难以维护。原因之一就是 CSS 没有作用域的概念，每个 CSS 都是全局的，这意味着对 CSS 的任何修改就可能导致一些 UI 的级联改变。</p>
 <p>CSS 的扩展语言 – <a href="http://sixrevisions.com/elsewhere-on-the-web/the-best-css-preprocessors-right-now/" target="_blank" rel="external">CSS 预处理器</a>，比如 Sass、Less 和 Stylus，使我们编写 CSS 更加容易，但在我看来，这些 CSS 的扩展语言并没有真正解决可扩展性问题。</p>
@@ -1994,8 +1994,8 @@
     <title>深入解析 ES6：模板字符串</title>
     <link href="http://bubkoo.com/2015/06/23/es6-in-depth-template-strings/"/>
     <id>http://bubkoo.com/2015/06/23/es6-in-depth-template-strings/</id>
-    <published>2015-06-22T20:16:48.000Z</published>
-    <updated>2015-06-22T20:16:48.000Z</updated>
+    <published>2015-06-23T04:16:48.000Z</published>
+    <updated>2015-06-23T04:16:48.000Z</updated>
     
     <content type="html"><![CDATA[<p>在 ES6 中引入了一种新的字符串字面量 – 模板字符串，除了使用反引号 (`) 表示，它们看上去和普通的字符串没有什么区别。在最简单的情况下，他们就是普通的字符串：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">context.fillText(<span class="string">`Ceci n'est pas une chaîne.`</span>, x, y);</div></pre></td></tr></table></figure>
@@ -2077,8 +2077,8 @@
     <title>深入解析 ES6：Generator</title>
     <link href="http://bubkoo.com/2015/06/20/es6-in-depth-generators/"/>
     <id>http://bubkoo.com/2015/06/20/es6-in-depth-generators/</id>
-    <published>2015-06-20T09:35:22.000Z</published>
-    <updated>2015-06-20T09:35:22.000Z</updated>
+    <published>2015-06-20T17:35:22.000Z</published>
+    <updated>2015-06-20T17:35:22.000Z</updated>
     
     <content type="html"><![CDATA[<p>今天讨论的新特性让我非常兴奋，因为这个特性是 ES6 中最神奇的特性。</p>
 <p>这里的“神奇”意味着什么呢？对于初学者来说，该特性与以往的 JS 完全不同，甚至有些晦涩难懂。从某种意义上说，它完全改变了这门语言的通常行为，这不是“神奇”是什么呢。</p>
@@ -2180,8 +2180,8 @@
     <title>深入解析 ES6：Iterator 和 for-of 循环</title>
     <link href="http://bubkoo.com/2015/06/15/es6-in-depth-iterators-and-the-for-of-loop/"/>
     <id>http://bubkoo.com/2015/06/15/es6-in-depth-iterators-and-the-for-of-loop/</id>
-    <published>2015-06-14T18:28:29.000Z</published>
-    <updated>2015-06-14T18:28:29.000Z</updated>
+    <published>2015-06-15T02:28:29.000Z</published>
+    <updated>2015-06-15T02:28:29.000Z</updated>
     
     <content type="html"><![CDATA[<p>如何遍历一个数组的元素？在 20 年前，当 JavaScript 出现时，你也许会这样做：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> index = <span class="number">0</span>; index &lt; myArray.length; index++) &#123;</div><div class="line">  <span class="built_in">console</span>.log(myArray[index]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -2278,8 +2278,8 @@
     <title>深入解析 ES6：简介</title>
     <link href="http://bubkoo.com/2015/06/14/es6-in-depth-an-introduction/"/>
     <id>http://bubkoo.com/2015/06/14/es6-in-depth-an-introduction/</id>
-    <published>2015-06-14T03:40:52.000Z</published>
-    <updated>2015-06-14T03:40:52.000Z</updated>
+    <published>2015-06-14T11:40:52.000Z</published>
+    <updated>2015-06-14T11:40:52.000Z</updated>
     
     <content type="html"><![CDATA[<p>欢迎来到深入解析 ES6 系列，本系列将探讨 JavaScript 即将面世的新版本 – ECMAScript 6。ES6 包含许多新特性，这使得 JavaScript 语言更强大和更具表现力，接下来的每周我们将逐一揭开 ES6 的神秘面纱。在开始之前，我们值得花几分钟时间来谈谈什么是 ES6 或者你期待它是什么样的。</p>
 <a id="more"></a>
@@ -2326,8 +2326,8 @@
     <title>几个必备的 JavaScript 函数</title>
     <link href="http://bubkoo.com/2015/06/10/7-essential-javascript-functions/"/>
     <id>http://bubkoo.com/2015/06/10/7-essential-javascript-functions/</id>
-    <published>2015-06-10T03:40:13.000Z</published>
-    <updated>2015-06-10T03:40:13.000Z</updated>
+    <published>2015-06-10T11:40:13.000Z</published>
+    <updated>2015-06-10T11:40:13.000Z</updated>
     
     <content type="html"><![CDATA[<p>参考原文：<a href="http://davidwalsh.name/essential-javascript-functions" target="_blank" rel="external">7 Essential JavaScript Functions</a> 以下是意译。</p>
 <p>早期，由于浏览器厂商对 JavaScript 实现不同，我们通常需要一些简单的函数来实现某些边缘特性，甚至某些基本特性，比如 <code>addEventListener</code> 和 <code>attachEvent</code>。现在，虽然时代进步了，但仍有一些函数需要开发者掌握，以便于性能优化和快速开发。</p>
@@ -2380,8 +2380,8 @@
     <title>fetch API 简介</title>
     <link href="http://bubkoo.com/2015/05/08/introduction-to-fetch/"/>
     <id>http://bubkoo.com/2015/05/08/introduction-to-fetch/</id>
-    <published>2015-05-08T03:39:23.000Z</published>
-    <updated>2015-05-08T03:39:23.000Z</updated>
+    <published>2015-05-08T11:39:23.000Z</published>
+    <updated>2015-05-08T11:39:23.000Z</updated>
     
     <content type="html"><![CDATA[<p>十多年来，我们一直使用 XMLHttpRequest（XHR）来发送异步请求，XHR 很实用，但并不是一个设计优良的 API，在设计上并不符合职责分离原则，输入、输出以及状态都杂糅在同一对象中，并用事件机制来跟踪状态变化。并且，基于事件的模型与最近流行的 Promise 和 generator 异步编程模型不太友好。</p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" target="_blank" rel="external">Fetch API</a> 旨在修正上述缺陷，它提供了与 HTTP 语义相同的 JS 语法，简单来说，它引入了 <code>fetch()</code> 这个实用的方法来获取网络资源。</p>
@@ -2515,8 +2515,8 @@
     <title>弹性盒模型指南</title>
     <link href="http://bubkoo.com/2015/04/17/a-visual-guide-to-css3-flexbox-properties/"/>
     <id>http://bubkoo.com/2015/04/17/a-visual-guide-to-css3-flexbox-properties/</id>
-    <published>2015-04-17T05:10:40.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2015-04-17T13:10:40.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>Flexbox 布局是 CSS3 中一种新的布局模型，被称为<a href="http://www.w3.org/TR/css-flexbox/" target="_blank" rel="external">弹性盒模型</a>。该模型是为了改进容器中内容的对齐、方向和排序方式，即使是动态，甚至是未知大小的容器。弹性盒模型的主要特点是，可以在不同屏幕尺寸下以最佳的方式，修改其子项的高度或宽度来填充容器的可用空间。</p>
 <p>许多设计师和开发人员认为这种布局使用起来更加简单，弹性盒模型的使元素的定位更加简单，从而某些复杂的布局可以用更少的代码来实现，进而简化了开发过程。Flexbox 布局算法是基于方向的，这与基于垂直和水平的 block 和 inline 布局不同。弹性盒模型可用于小应用或组建的布局，然而对于大型应用应该使用 <a href="http://www.w3.org/TR/css-grid/" target="_blank" rel="external">Grid 布局</a>。</p>
@@ -2695,8 +2695,8 @@
     <title>JavaScript 规范（ES6）</title>
     <link href="http://bubkoo.com/2015/04/05/javascript-style-guide/"/>
     <id>http://bubkoo.com/2015/04/05/javascript-style-guide/</id>
-    <published>2015-04-05T12:26:37.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2015-04-05T20:26:37.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>Airbnb 的 <a href="https://github.com/airbnb/javascript/blob/master/README.md" target="_blank" rel="external">ES5 规范</a>写的非常好，现在添加了 ES6 的部分。</p>
 <p>另外<a href="http://www.ruanyifeng.com/" target="_blank" rel="external">阮一峰老师</a>的 <a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ECMAScript 6 入门</a>值得参考。</p>
@@ -3263,8 +3263,8 @@
     <title>创建自定义元素的最佳实践</title>
     <link href="http://bubkoo.com/2015/02/02/best-practice-for-creating-custom-elements/"/>
     <id>http://bubkoo.com/2015/02/02/best-practice-for-creating-custom-elements/</id>
-    <published>2015-02-02T03:23:14.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2015-02-02T11:23:14.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>越来越多的文章和讨论都是关于什么是 web 组件，什么是自定义元素，它们有什么好处以及如何使用它们，这些概念也逐渐进入开发人员的视野。如果你还不知道创建自定义元素的概念，请参考阅读<a href="http://www.smashingmagazine.com/2014/03/04/introduction-to-custom-elements/" target="_blank" rel="external">详细介绍自定义元素</a>。</p>
 <p>尽管这些新概念还没有在开发中大量使用，我认为是时候讨论一下使用它们的最佳实践。本文将通过对比分析两种创建自定义元素方法的优缺点，最后得出创建自定义元素的最佳实践。</p>
@@ -3317,8 +3317,8 @@
     <title>自定义元素：在 HTML 中定义新元素</title>
     <link href="http://bubkoo.com/2015/02/02/create-custom-elements/"/>
     <id>http://bubkoo.com/2015/02/02/create-custom-elements/</id>
-    <published>2015-02-01T16:35:35.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2015-02-02T00:35:35.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>现在的 web 严重缺乏表现力。你只要瞧一眼“现代”的 web 应用，比如 GMail，就会明白了：</p>
 <p><img src="http://bubkoo.qiniudn.com/gmail-dom.png" alt="现代 web 应用：使用 div 堆砌而成"></p>
@@ -3529,8 +3529,8 @@
     <title>说说 tabindex 的那些事儿</title>
     <link href="http://bubkoo.com/2015/02/01/using-the-tabindex-attribute/"/>
     <id>http://bubkoo.com/2015/02/01/using-the-tabindex-attribute/</id>
-    <published>2015-02-01T09:04:07.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2015-02-01T17:04:07.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="http://www.w3.org/html/wg/drafts/html/master/editing.html#attr-tabindex" target="_blank" rel="external">tabindex</a> 属性用于管理键盘焦点，决定元素是否能被选中，以及按下 <code>tab</code> 键过程中被选中的顺序，使用得当能够极大的提高应用的易用性，然而，不恰当地使用时可以键盘用户对应用的可用性。到底如何使用？设置为 <code>0</code> 会有什么效果？设置为 <code>-1</code> 会有什么效果？本文将为你揭晓。</p>
 <a id="more"></a>
@@ -3577,8 +3577,8 @@
     <title>理解和解决 IE 内存泄露问题</title>
     <link href="http://bubkoo.com/2015/01/31/understanding-and-solving-internet-explorer-leak-patterns/"/>
     <id>http://bubkoo.com/2015/01/31/understanding-and-solving-internet-explorer-leak-patterns/</id>
-    <published>2015-01-30T16:04:06.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2015-01-31T00:04:06.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>在过去，内存泄漏并没有为 Web 开发人员带来巨大的问题。页面保持着相对简单，并且在页面之间的跳转时可以释放内存资源，即便还存在内存泄露，那也是小到可以被忽略。</p>
 <p>现在，新的 Web 应用达到更高的水准，页面可能运行数小时而不跳转，通过 Web 服务动态检索和更新页面。JavaScript 语言特性也被发挥到极致，通过复杂的事件绑定、面向对象和闭包等特性构成了整个 Web 应用。面对这些变化，内存泄露问题变得越来越突出，尤其是之前那些通过刷新（导航）隐藏的内存泄露问题。</p>
@@ -3642,8 +3642,8 @@
     <title>如何修复那些奇怪的 JavaScript 错误</title>
     <link href="http://bubkoo.com/2015/01/25/Strange-JavaScript-Errors-and-How-to-Fix-Them/"/>
     <id>http://bubkoo.com/2015/01/25/Strange-JavaScript-Errors-and-How-to-Fix-Them/</id>
-    <published>2015-01-25T13:47:02.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2015-01-25T21:47:02.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>调试 JavaScript 也许是一场噩梦：一些错误非常难理解，并且给出的错误行号并不是总是很有帮助。如果有一个列表，列举这些错误的意思和如何修复它们，将对我们非常有帮助。</p>
 <p>本文列举了 JavaScript 中一些奇怪的错误。对于相同的错误不同的浏览器可能给出不同的提示，所以分别给出了不同的例子。</p>
@@ -3775,25 +3775,25 @@
     <title>在 Express 开发中使用 nodemon</title>
     <link href="http://bubkoo.com/2014/12/02/use-nodemon-with-node-applications/"/>
     <id>http://bubkoo.com/2014/12/02/use-nodemon-with-node-applications/</id>
-    <published>2014-12-01T19:28:38.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-12-02T03:28:38.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://camo.githubusercontent.com/fd1ea21338ceeef34920e44e97d099f3c47a78c3/687474703a2f2f6e6f64656d6f6e2e696f2f6e6f64656d6f6e2e737667" alt="nodemon"></p>
 <p><a href="http://nodemon.io/" target="_blank" rel="external">nodemon</a> 是一款非常实用的工具，用来监控 NodeJS 源代码的任何变化和自动重启你的服务器，这样我们只需要刷新页面就能看到你的改动。这里还有个一个工具 <a href="http://supervisord.org/" target="_blank" rel="external">supervisor</a> 也能实现同样的功能，但相比起来 nodemon 更加灵活轻量，内存占用更少。</p>
 <a id="more"></a>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>使用 npm 将 nodemon 安装到全局：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g nodemon</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g nodemon</div></pre></td></tr></table></figure>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>nodemon 会将你输入的启动命令包裹起来，所以你可以使用任何可以使用的启动参数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodemon [your node app]</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodemon [your node app]</div></pre></td></tr></table></figure>
 <p>使用 <code>-h</code> 或者 <code>--help</code> 来查看完整的帮助：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodemon -h</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodemon -h</div></pre></td></tr></table></figure>
 <p>使用 nodemon 非常简单，如果我们的应用接受 host 和 port 两个参数，那么我们可以这样来启动我们的应用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodemon ./server.js localhost 8080</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodemon ./server.js localhost 8080</div></pre></td></tr></table></figure>
 <p>nodemon 同样能监视和运行 <a href="http://jashkenas.github.com/coffee-script/" target="_blank" rel="external">coffee-script</a> 应用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodemon server.coffee</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodemon server.coffee</div></pre></td></tr></table></figure>
 <p>如果没有指定启动脚本，nodemon 将检查 <code>package.json</code> 文件，并运行 <code>main</code> 属性指定的文件，如果没有发现 <code>main</code> 属性，nodemon 将检查 <code>scripts.start</code> 属性指定的启动命令。因此如果同时指定了 <code>mian</code> 和 <code>scripts.start</code> 属性，那么 nodemon 将使用 <code>main</code> 属性指定的文件作为启动脚本。</p>
 <p>你也可以传递 debug 标志给 nodemon：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodemon --debug ./server.js 80</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodemon --debug ./server.js 80</div></pre></td></tr></table></figure>
 <h2 id="手动重启"><a href="#手动重启" class="headerlink" title="手动重启"></a>手动重启</h2><p>当 nodemon 运行时，如果你想手动重启你的应用，除了可以停止并重启 nodemon 之外，你还可以简单滴敲入 <code>rs</code> 并回车，然后 nodemon 将重启你的服务。</p>
 <h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>nodemon 支持本地和全局配置文件。配置文件名为 <code>nodemon.json</code>，可以将其放在当前工作目录或者你的 <code>home</code> 目录。</p>
 <p>配置文件可以接受任何命令行中支持的参数，启动 nodemon 时命令行中的参数将覆盖配置文件的设置，一个配置文件示例如下：</p>
@@ -3830,8 +3830,8 @@
     <title>Partial Application in JavaScript</title>
     <link href="http://bubkoo.com/2014/11/13/Partial-Application-in-JavaScript/"/>
     <id>http://bubkoo.com/2014/11/13/Partial-Application-in-JavaScript/</id>
-    <published>2014-11-13T02:32:45.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-11-13T10:32:45.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><a href="http://en.wikipedia.org/wiki/Partial_application" target="_blank" rel="external">Partial Application</a>？不要被字面意思误解，这里要说的并不是 Application，而是 JavaScript 中的 <code>function</code>。可以这样来描述 Partial Application，一个接受多个参数的函数，预先给该函数绑定一些参数，并返回一个新的函数来接受剩下未绑定的参数。貌似有点像柯里化(currying)函数，但不尽然。</p>
 <p>典型的柯里化函数定义如下：</p>
@@ -3886,8 +3886,8 @@
     <title>认识 D3 数据绑定的魔法</title>
     <link href="http://bubkoo.com/2014/10/24/thinking-about-D3-s-data-bingding/"/>
     <id>http://bubkoo.com/2014/10/24/thinking-about-D3-s-data-bingding/</id>
-    <published>2014-10-24T09:19:30.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-10-24T17:19:30.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>如果用 <a href="http://d3js.org/" target="_blank" rel="external">D3</a> 来构建一个简单的散点图，我们需要创建一些<a href="http://www.w3.org/TR/SVG/shapes.html#CircleElement" target="_blank" rel="external">圆点（circle）</a>来展示你的数据。当你发现 D3 并没有提供内置的方法来同时创建多个 DOM 元素时，也许你会感到惊讶，但是，等等，<a href="https://www.destroyallsoftware.com/talks/wat" target="_blank" rel="external">为什么呢</a>？</p>
 <a id="more"></a>
@@ -4034,8 +4034,8 @@ circle {
     <title>ECMA-262-3 详解 第八章 求值策略</title>
     <link href="http://bubkoo.com/2014/07/13/ecma-262-3-in-detail-chapter-8-evaluation-strategy/"/>
     <id>http://bubkoo.com/2014/07/13/ecma-262-3-in-detail-chapter-8-evaluation-strategy/</id>
-    <published>2014-07-13T15:22:39.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-07-13T23:22:39.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>此文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-8-evaluation-strategy/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 8. Evaluation strategy</a>.</p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本文将讨论在 ECMAScript 中向函数传递参数的策略。</p>
@@ -4138,8 +4138,8 @@ circle {
     <title>ECMA-262-3 详解 第七章 面向对象(二)：ECMAScript 实现</title>
     <link href="http://bubkoo.com/2014/06/22/ecma-262-3-in-detail-chapter-7-2-oop-ecmascript-implementation/"/>
     <id>http://bubkoo.com/2014/06/22/ecma-262-3-in-detail-chapter-7-2-oop-ecmascript-implementation/</id>
-    <published>2014-06-22T10:57:22.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-06-22T18:57:22.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>此文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-7-2-oop-ecmascript-implementation/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 7.2. OOP: ECMAScript implementation</a>.</p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>这一章的第二部分是关于 EMCAScript 中的面向对象编程。在第一部分中我们讨论了 OOP 的基本理论并勾画出和 ECMAScript 的相似之处。在阅读第二部分之前，如果有必要，我还是建议首先阅读这一章的<a href="http://bubkoo.com/2014/06/21/ecma-262-3-in-detail-chapter-7-1-oop-the-general-theory/">第一部分 概论</a>，因为后面将会用到其中的一些术语。</p>
@@ -4449,8 +4449,8 @@ circle {
     <title>ECMA-262-3 详解 第七章 面向对象(一)：概论</title>
     <link href="http://bubkoo.com/2014/06/21/ecma-262-3-in-detail-chapter-7-1-oop-the-general-theory/"/>
     <id>http://bubkoo.com/2014/06/21/ecma-262-3-in-detail-chapter-7-1-oop-the-general-theory/</id>
-    <published>2014-06-21T10:57:22.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-06-21T18:57:22.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>此文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-7-1-oop-general-theory/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 7.1. OOP: The general theory</a>.</p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本文主要讨论 ECMAScript 中面向对象编程。之前已经有大量的文章讨论过该话题了，但本文与那些文章不同，本文主要从理论方面来解析其内部原理。重点讨论对象创建算法，对象之间的关系（包含最基本的关系 – 继承）是如何形成的，并给出了明确的定义（我希望这可以消除一些文章中对于 JavaScript 中 OOP 的疑虑和混乱）。</p>
@@ -4641,8 +4641,8 @@ circle {
     <title>ECMA-262-3 详解 第六章 闭包</title>
     <link href="http://bubkoo.com/2014/06/15/ecma-262-3-in-detail-chapter-6-closures/"/>
     <id>http://bubkoo.com/2014/06/15/ecma-262-3-in-detail-chapter-6-closures/</id>
-    <published>2014-06-15T13:56:23.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-06-15T21:56:23.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的文章 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-5-functions/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 6. Closures</a>.</p>
 <p>其中大部分参考了 <a href="http://zh.blog.goddyzhao.me/" target="_blank" rel="external">goddyzhao</a> 的<a href="http://zh.blog.goddyzhao.me/post/11311499651/closures" target="_blank" rel="external">翻译</a>。</p>
@@ -4793,8 +4793,8 @@ circle {
     <title>ECMA-262-3 详解 第五章 函数</title>
     <link href="http://bubkoo.com/2014/06/12/ecma-262-3-in-detail-chapter-5-functions/"/>
     <id>http://bubkoo.com/2014/06/12/ecma-262-3-in-detail-chapter-5-functions/</id>
-    <published>2014-06-12T13:56:23.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-06-12T21:56:23.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的文章 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-5-functions/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 5. Functions</a>.</p>
 <p>其中大部分参考了 <a href="http://zh.blog.goddyzhao.me/" target="_blank" rel="external">goddyzhao</a> 的<a href="http://zh.blog.goddyzhao.me/post/11273713920/functions#_=_" target="_blank" rel="external">翻译</a>。</p>
@@ -4979,8 +4979,8 @@ circle {
     <title>ECMA-262-3 详解 第四章 作用域链</title>
     <link href="http://bubkoo.com/2014/06/01/ecma-262-3-in-detail-chapter-4-scope-chain/"/>
     <id>http://bubkoo.com/2014/06/01/ecma-262-3-in-detail-chapter-4-scope-chain/</id>
-    <published>2014-06-01T13:56:23.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-06-01T21:56:23.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的文章 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-4-scope-chain/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 4. Scope chain</a>.</p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>通过<a href="http://bubkoo.com/2014/05/31/ecma-262-3-in-detail-chapter-2-variable-object/">第二章 变量对象</a>的学习我们知道，执行上下文的数据（变量、函数声明、函数形参）都是以属性的方式储存在变量对象中。</p>
@@ -5127,8 +5127,8 @@ circle {
     <title>ECMA-262-3 详解 第三章 This</title>
     <link href="http://bubkoo.com/2014/06/01/ecma-262-3-in-detail-chapter-3-this/"/>
     <id>http://bubkoo.com/2014/06/01/ecma-262-3-in-detail-chapter-3-this/</id>
-    <published>2014-06-01T01:56:23.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-06-01T09:56:23.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的文章 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-3-this/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 3. This.</a></p>
 <p>翻译过程参考了现有的中文翻译，学习 ECMAScript 是一个非常抽象的过程，因为很多概念都是通过抽象的方式来解释的，作者尝试尽量用一些简单的方式并使用了一些具体图表，来使我们的学习曲线稍微平稳一点。</p>
@@ -5220,8 +5220,8 @@ circle {
     <title>ECMA-262-3 详解 第二章 变量对象</title>
     <link href="http://bubkoo.com/2014/05/31/ecma-262-3-in-detail-chapter-2-variable-object/"/>
     <id>http://bubkoo.com/2014/05/31/ecma-262-3-in-detail-chapter-2-variable-object/</id>
-    <published>2014-05-31T12:56:23.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-05-31T20:56:23.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的文章 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-2-variable-object/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 2. Variable object.</a></p>
 <p>参考了一些译文，作为自己学习 ECMAScript 的一点积累。</p>
@@ -5380,8 +5380,8 @@ circle {
     <title>ECMA-262-3 详解 第一章 执行上下文</title>
     <link href="http://bubkoo.com/2014/05/28/ecma-262-3-in-detail-chapter-1-execution-contexts/"/>
     <id>http://bubkoo.com/2014/05/28/ecma-262-3-in-detail-chapter-1-execution-contexts/</id>
-    <published>2014-05-28T08:56:23.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-05-28T16:56:23.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-1-execution-contexts/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 1. Execution Contexts.</a></p>
 <p>参阅了已有的中文翻译，以此来加深对 ECMAScript 的理解。</p>
@@ -5452,8 +5452,8 @@ circle {
     <title>JavaScript 核心</title>
     <link href="http://bubkoo.com/2014/05/20/javascript-the-core/"/>
     <id>http://bubkoo.com/2014/05/20/javascript-the-core/</id>
-    <published>2014-05-20T08:54:01.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-05-20T16:54:01.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>此文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的 <a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/" target="_blank" rel="external">JavaScript. The core.</a>.</p>
 <p>本文是<a href="http://dmitrysoshnikov.com/tag/ecma-262-3/" target="_blank" rel="external">详解 ECMA-262-3 系列</a>的概述和总结。每个部分都包含对应章节的连接，所以你可以阅读它们以获得更深入的了解。</p>
@@ -5620,8 +5620,8 @@ circle {
     <title>面向切面编程（AOP）简介</title>
     <link href="http://bubkoo.com/2014/05/08/intro-to-aspect-oriented-programming/"/>
     <id>http://bubkoo.com/2014/05/08/intro-to-aspect-oriented-programming/</id>
-    <published>2014-05-08T08:30:37.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-05-08T16:30:37.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>原文连接：<a href="http://know.cujojs.com/tutorials/aop/intro-to-aspect-oriented-programming" target="_blank" rel="external">Intro to Aspect Oriented Programming</a></p>
 <p>本文简单地介绍了 AOP 的原理，以及 AOP 与其他方式的异同，并没有涉及太多的复杂逻辑，另外推荐下面两篇文章，这些文章中都间接或直接提及了 AOP：</p>
@@ -5699,8 +5699,8 @@ circle {
     <title>前端跨域通信解决方案</title>
     <link href="http://bubkoo.com/2014/04/22/improve-cross-domain-communication-with-client-side-solutions/"/>
     <id>http://bubkoo.com/2014/04/22/improve-cross-domain-communication-with-client-side-solutions/</id>
-    <published>2014-04-22T09:45:48.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-04-22T17:45:48.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>此类文章在社区中一抓一大把，但为什么还要来翻译这篇文章呢？最主要的原因是本章的配图太好了，一看就懂，扯远了。。</p>
 <p>原文：<a href="http://www.ibm.com/developerworks/library/wa-crossdomaincomm/" target="_blank" rel="external">Improve cross-domain communication with client-side solutions</a></p>
@@ -5799,8 +5799,8 @@ circle {
     <title>大型 JavaScript 架构中的设计模式</title>
     <link href="http://bubkoo.com/2014/04/21/patterns-for-large-scale-javascript-application-architecture/"/>
     <id>http://bubkoo.com/2014/04/21/patterns-for-large-scale-javascript-application-architecture/</id>
-    <published>2014-04-21T14:57:24.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-04-21T22:57:24.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>我们今天要讨论的主题是，大型 JavaScript 应用中一些有效的设计模式。本文基于我最近发布在 LondonJS 上同名演讲，灵感则来自于 Nicholas Zakas <a href="http://yuilibrary.com/theater/nicholas-zakas/zakas-architecture/" target="_blank" rel="external">之前的研究成果</a>。</p>
 <h2 id="我是谁以及我为什么要撰写这个主题"><a href="#我是谁以及我为什么要撰写这个主题？" class="headerlink" title="我是谁以及我为什么要撰写这个主题？"></a>我是谁以及我为什么要撰写这个主题？</h2><p>我目前是 AOL 的一名 JavaScript 和 UI 开发人员，负责规划和编写下一代面向用户的应用的前端架构。这些应用不仅复杂，而且需要一种可扩展和高复用的架构，我的职责之一就是确保这类应用中的设计模式尽可能是可持续的。</p>
@@ -6049,8 +6049,8 @@ circle {
     <title>HTTP cookies 详解</title>
     <link href="http://bubkoo.com/2014/04/21/http-cookies-explained/"/>
     <id>http://bubkoo.com/2014/04/21/http-cookies-explained/</id>
-    <published>2014-04-21T07:08:49.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-04-21T15:08:49.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>HTTP cookies，通常称之为“cookie”，已经存在很长时间了，但是仍然没有被充分理解。首要问题是存在许多误解，认为 cookie 是后门程序或病毒，却忽视了其工作原理。第二个问题是，对于 cookie 的操作缺少统一的接口。尽管存在这些问题，cookie 仍旧在 Web 开发中扮演者重要的角色，以至于如果没有出现相应的代替品就消失的话，我们许多喜欢的 Web 应用将变的不可用。</p>
 <h2 id="cookie-的起源"><a href="#cookie-的起源" class="headerlink" title="cookie 的起源"></a>cookie 的起源</h2><p>早期的 Web 应用面临的最大问题之一就是如何维持状态。简言之，服务器无法知道两个请求是否来自于同一个浏览器。当时，最简单的办法就是在请求的页面中插入一个 token，然后在下次请求时将这个 token 返回至服务器。这需要在页面的 form 表单中插入一个包含 token 的隐藏域，或者将 token 放在 URL 的 query 字符串中来传递。这两种方法都需要手动操作，而且极易出错。</p>
@@ -6145,8 +6145,8 @@ circle {
     <title>神鹰 - 自动化</title>
     <link href="http://bubkoo.com/2014/04/20/angry-birds-of-javascript-mighty-eagle-automation/"/>
     <id>http://bubkoo.com/2014/04/20/angry-birds-of-javascript-mighty-eagle-automation/</id>
-    <published>2014-04-20T13:40:10.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-04-20T21:40:10.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-mighty-eagle-automation.png" alt=""></p>
 <p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
@@ -6279,8 +6279,8 @@ circle {
     <title>大兄弟 - 设计模式</title>
     <link href="http://bubkoo.com/2014/04/19/angry-birds-of-javascript-big-brother-bird-patterns/"/>
     <id>http://bubkoo.com/2014/04/19/angry-birds-of-javascript-big-brother-bird-patterns/</id>
-    <published>2014-04-18T16:39:52.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-04-19T00:39:52.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-big-brother-bird-patterns.jpg" alt=""></p>
 <p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
@@ -6407,8 +6407,8 @@ circle {
     <title>橙色小鸟 - 模板系统</title>
     <link href="http://bubkoo.com/2014/04/18/angry-birds-of-javascript-orange-bird-templating/"/>
     <id>http://bubkoo.com/2014/04/18/angry-birds-of-javascript-orange-bird-templating/</id>
-    <published>2014-04-18T13:39:35.000Z</published>
-    <updated>2014-04-18T13:39:35.000Z</updated>
+    <published>2014-04-18T21:39:35.000Z</published>
+    <updated>2014-04-18T21:39:35.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-orange-bird-templating.jpg" alt=""></p>
 <p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
@@ -6548,8 +6548,8 @@ circle {
     <title>绿色小鸟 - 模拟请求和模拟数据</title>
     <link href="http://bubkoo.com/2014/04/17/angry-birds-of-javascript-green-bird-mocking/"/>
     <id>http://bubkoo.com/2014/04/17/angry-birds-of-javascript-green-bird-mocking/</id>
-    <published>2014-04-17T13:39:20.000Z</published>
-    <updated>2014-04-17T13:39:20.000Z</updated>
+    <published>2014-04-17T21:39:20.000Z</published>
+    <updated>2014-04-17T21:39:20.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-green-bird-mocking.png" alt=""></p>
 <p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
@@ -6635,8 +6635,8 @@ circle {
     <title>白色小鸟 - 代码质量和代码分析</title>
     <link href="http://bubkoo.com/2014/04/14/angry-birds-of-javascript-white-bird-linting/"/>
     <id>http://bubkoo.com/2014/04/14/angry-birds-of-javascript-white-bird-linting/</id>
-    <published>2014-04-14T09:11:47.000Z</published>
-    <updated>2014-04-14T09:11:47.000Z</updated>
+    <published>2014-04-14T17:11:47.000Z</published>
+    <updated>2014-04-14T17:11:47.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-white-bird-linting.jpg" alt=""></p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
@@ -6760,8 +6760,8 @@ circle {
     <title>黑色小鸟 - 前端分层架构</title>
     <link href="http://bubkoo.com/2014/03/29/angry-birds-of-javascript-black-bird-backbone/"/>
     <id>http://bubkoo.com/2014/03/29/angry-birds-of-javascript-black-bird-backbone/</id>
-    <published>2014-03-29T07:28:40.000Z</published>
-    <updated>2014-03-29T07:28:40.000Z</updated>
+    <published>2014-03-29T15:28:40.000Z</published>
+    <updated>2014-03-29T15:28:40.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-black-bird-backbone.jpg" alt=""></p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
@@ -6883,8 +6883,8 @@ circle {
     <title>黄色小鸟 - 模块化、依赖管理、性能优化</title>
     <link href="http://bubkoo.com/2014/03/29/angry-birds-of-javascript-yellow-bird-requirejs/"/>
     <id>http://bubkoo.com/2014/03/29/angry-birds-of-javascript-yellow-bird-requirejs/</id>
-    <published>2014-03-28T16:01:16.000Z</published>
-    <updated>2014-03-28T16:01:16.000Z</updated>
+    <published>2014-03-29T00:01:16.000Z</published>
+    <updated>2014-03-29T00:01:16.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-yellow-bird-requirejs.png" alt=""></p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
@@ -6974,8 +6974,8 @@ circle {
     <title>蓝色小鸟 - 事件</title>
     <link href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-blue-bird-events/"/>
     <id>http://bubkoo.com/2014/03/28/angry-birds-of-javascript-blue-bird-events/</id>
-    <published>2014-03-28T13:35:58.000Z</published>
-    <updated>2014-03-28T13:35:58.000Z</updated>
+    <published>2014-03-28T21:35:58.000Z</published>
+    <updated>2014-03-28T21:35:58.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-blue-bird-events.png" alt=""></p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
@@ -7068,8 +7068,8 @@ circle {
     <title>红色大鸟 - 立即调用的函数表达式</title>
     <link href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-red-bird-iife/"/>
     <id>http://bubkoo.com/2014/03/28/angry-birds-of-javascript-red-bird-iife/</id>
-    <published>2014-03-28T04:23:29.000Z</published>
-    <updated>2014-03-28T04:23:29.000Z</updated>
+    <published>2014-03-28T12:23:29.000Z</published>
+    <updated>2014-03-28T12:23:29.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-red-bird-iife.png" alt=""></p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来，一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
@@ -7156,8 +7156,8 @@ circle {
     <title>愤怒的小鸟与 JavaScript 系列</title>
     <link href="http://bubkoo.com/2014/03/28/angry-birds-of-javascript-series/"/>
     <id>http://bubkoo.com/2014/03/28/angry-birds-of-javascript-series/</id>
-    <published>2014-03-28T02:52:45.000Z</published>
-    <updated>2014-03-28T02:52:45.000Z</updated>
+    <published>2014-03-28T10:52:45.000Z</published>
+    <updated>2014-03-28T10:52:45.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-series.jpg" alt="OlechkaDesign.com"></p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来，一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
@@ -7225,8 +7225,8 @@ circle {
     <title>Promises 和异步编程</title>
     <link href="http://bubkoo.com/2014/03/25/promises-and-async-programming/"/>
     <id>http://bubkoo.com/2014/03/25/promises-and-async-programming/</id>
-    <published>2014-03-25T00:36:57.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-03-25T08:36:57.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>在 JavaScript 中处理异步和回调就是家常便饭，我们通常会面对这样一些问题：</p>
 <ol>
@@ -7290,8 +7290,8 @@ circle {
     <title>凌乱的异步编程</title>
     <link href="http://bubkoo.com/2014/03/25/async-programming-is-messy/"/>
     <id>http://bubkoo.com/2014/03/25/async-programming-is-messy/</id>
-    <published>2014-03-24T23:14:35.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-03-25T07:14:35.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-异常和-trycatch"><a href="#1-异常和-try-catch" class="headerlink" title="1. 异常和 try/catch"></a>1. 异常和 try/catch</h2><p>当执行可能失败的操作时，采用异常机制和 try/catch 是一种直观的方式，这样我们就可以从异常中恢复，或将异常抛出，异常沿着调用堆栈到达调用者，调用者可以处理该异常或将其继续抛出。</p>
 <p>看一个简单的例子：</p>
@@ -7343,8 +7343,8 @@ circle {
     <title>用 Promises 简化异步编程</title>
     <link href="http://bubkoo.com/2014/03/25/simplifying-async-with-promises/"/>
     <id>http://bubkoo.com/2014/03/25/simplifying-async-with-promises/</id>
-    <published>2014-03-24T20:45:32.000Z</published>
-    <updated>2014-03-24T16:45:32.000Z</updated>
+    <published>2014-03-25T04:45:32.000Z</published>
+    <updated>2014-03-25T00:45:32.000Z</updated>
     
     <content type="html"><![CDATA[<p>在<a href="../async-programming-is-messy">凌乱的异步编程</a>一文中，我们见识了用回调处理异步调用的尴尬局面，即使是一组简单的函数调用。</p>
 <p>快速回顾一下，看看我们最初的代码，使用回调函数时的凌乱结果，以及我们为了回到正途而想要解决的几个问题：</p>
@@ -7432,8 +7432,8 @@ circle {
     <title>用 Promises 控制异步错误处理</title>
     <link href="http://bubkoo.com/2014/03/25/mastering-async-error-handling-with-promises/"/>
     <id>http://bubkoo.com/2014/03/25/mastering-async-error-handling-with-promises/</id>
-    <published>2014-03-24T18:32:37.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-03-25T02:32:37.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>正如我们在<a href="http://bubkoo.com/2014/03/25/async-programming-is-messy/">凌乱的异步编程</a>一文中看到的那样，基于回调函数的异步代码的错误处理也很快变得混乱起来，丢失了许多同步代码具有的优秀品质，使我们更难定位到错误原因。在<a href="http://bubkoo.com/2014/03/25/simplifying-async-with-promises/">用 Promises 简化异步编程</a>一文中，我们介绍了 Promises，看到了它如何使我们回到“调用 - 返回”编程模型，允许异步错误像同步错误那样沿着调用堆栈向上传播，并提供一种更清晰方法来管理异步，特别是在处理错误时。</p>
 <h2 id="1-trycatchfinally"><a href="#1-Try-catch-finally" class="headerlink" title="1. Try/catch/finally"></a>1. Try/catch/finally</h2><p>在同步代码中，try/catch/finally 提供了一种简单友好但非常强大的惯用语法来执行任务、处理错误，并且总是确保稍后可以执行清理。</p>
@@ -7556,8 +7556,8 @@ circle {
     <title>JavaScript Promises 教程</title>
     <link href="http://bubkoo.com/2014/03/22/javascript-promises/"/>
     <id>http://bubkoo.com/2014/03/22/javascript-promises/</id>
-    <published>2014-03-22T15:57:12.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-03-22T23:57:12.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>童鞋们，请准备好迎接 Web 开发历史上一个重大时刻。。。</p>
 <p>[鼓声响起]</p>
@@ -7818,8 +7818,8 @@ circle {
     <title>看看这些题目你会多少？</title>
     <link href="http://bubkoo.com/2014/03/20/some-javascript-quiz-from-perfectionkills/"/>
     <id>http://bubkoo.com/2014/03/20/some-javascript-quiz-from-perfectionkills/</id>
-    <published>2014-03-20T02:20:47.000Z</published>
-    <updated>2014-03-20T02:20:47.000Z</updated>
+    <published>2014-03-20T10:20:47.000Z</published>
+    <updated>2014-03-20T10:20:47.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近在 <a href="http://perfectionkills.com/javascript-quiz/" target="_blank" rel="external">perfectionkills</a> 上看到几道 JavaScript 题目，这里拿来分享一下，下面列举出来了题目，你可以在这里做题，答案解析可以<a href="http://www.cnblogs.com/aaronjs/archive/2013/07/05/3172112.html" target="_blank" rel="external">到这里</a>找到。</p>
 <p><img src="http://bubkoo.qiniudn.com/some-javascript-quiz-from-perfectionkills.jpg" alt=""></p>
@@ -7971,8 +7971,8 @@ circle {
     <title>理解正则表达式的全局匹配</title>
     <link href="http://bubkoo.com/2014/03/19/understanding-the-flag-g-of-JavaScript&#39;s-regular-expressions/"/>
     <id>http://bubkoo.com/2014/03/19/understanding-the-flag-g-of-JavaScript&#39;s-regular-expressions/</id>
-    <published>2014-03-19T11:22:18.000Z</published>
-    <updated>2014-03-19T11:22:18.000Z</updated>
+    <published>2014-03-19T19:22:18.000Z</published>
+    <updated>2014-03-19T19:22:18.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文讨论何时以及如何使用正则表达式全局匹配（/g），以及使用全局匹配可能会遇到的一些坑。</p>
 <p><img src="http://bubkoo.qiniudn.com/regex-with-global-flag-in-javascript.png" alt="你真的懂全局匹配吗？"></p>
@@ -8045,8 +8045,8 @@ circle {
     <title>理解 JavaScript 中的原型</title>
     <link href="http://bubkoo.com/2014/03/12/prototypes-in-javascript/"/>
     <id>http://bubkoo.com/2014/03/12/prototypes-in-javascript/</id>
-    <published>2014-03-12T02:26:25.000Z</published>
-    <updated>2014-03-12T02:26:25.000Z</updated>
+    <published>2014-03-12T10:26:25.000Z</published>
+    <updated>2014-03-12T10:26:25.000Z</updated>
     
     <content type="html"><![CDATA[<p>当你在JavaScript中定义一个函数，它有一些预定义的属性，其中之一就是令人迷惑的原型。本文将详细解释什么是原型，以及为什么要在项目中使用它。</p>
 <p><img src="http://bubkoo.qiniudn.com/prototypes-in-javascript.jpg" alt=""></p>
@@ -8129,8 +8129,8 @@ circle {
     <title>解释 JavaScript 的作用域和闭包</title>
     <link href="http://bubkoo.com/2014/03/10/explaining-javascript-scope-and-closures/"/>
     <id>http://bubkoo.com/2014/03/10/explaining-javascript-scope-and-closures/</id>
-    <published>2014-03-10T12:39:23.000Z</published>
-    <updated>2014-03-10T12:39:23.000Z</updated>
+    <published>2014-03-10T20:39:23.000Z</published>
+    <updated>2014-03-10T20:39:23.000Z</updated>
     
     <content type="html"><![CDATA[<p>面试或被面试时基本都会涉及到这个最原始的 JavaScript 基础问题，试想一下您有没有在某些时候向别人解释这些概念时，把自己给绕进去了；网络上偶遇一篇英文文章，细读之后觉得有参考价值，文章不长，就顺手翻译了一下，希望某些同学可以用的上。</p>
 <p>原文文中的 Scope 翻译成中文是“<strong>变量作用域</strong>”，译文某些地方直接简称为“<strong>作用域</strong>” ，Closure 翻译后是“闭包”。<a href="http://robertnyman.com/" target="_blank" rel="external">Rebort Nyman</a> 的原文是 <a href="http://robertnyman.com/2008/10/09/explaining-javascript-scope-and-closures/" target="_blank" rel="external">Explaining JavaScript Scope And Closures</a>，某些不清楚的地方可以直接参考原文。</p>
@@ -8204,8 +8204,8 @@ circle {
     <title>学习使用 Timing API</title>
     <link href="http://bubkoo.com/2014/03/01/learning-and-using-the-user-timing-api/"/>
     <id>http://bubkoo.com/2014/03/01/learning-and-using-the-user-timing-api/</id>
-    <published>2014-03-01T15:53:16.000Z</published>
-    <updated>2014-03-01T15:53:16.000Z</updated>
+    <published>2014-03-01T23:53:16.000Z</published>
+    <updated>2014-03-01T23:53:16.000Z</updated>
     
     <content type="html"><![CDATA[<p>高性能的 Web 应用是获得伟大用户体验的关键。随着 Web 应用越来越复杂，要想建立吸引人的用户体验，了解性能的影响是至关重要的。在过去的几年中，浏览器中也新增了许多 API 来帮助我们分析网络性能、页面加载时间等。但这些并没有给出详尽的足够灵活的方式，来帮助我们分析具体是什么降低了我们网站的性能。<a href="http://www.w3.org/TR/user-timing/" target="_blank" rel="external">User Timing API</a> 提供了一套机制来帮助我们测量我们的应用，从而找到应用中耗时的部分。在本文中，我将介绍这个 API 并提供一些如何使用它的例子。</p>
 <h2 id="你不能优化那些不能被测量的东西"><a href="#你不能优化那些不能被测量的东西" class="headerlink" title="你不能优化那些不能被测量的东西"></a>你不能优化那些不能被测量的东西</h2><p>给运行缓慢的应用提速的第一步是，找到应用中耗时的部位。要想找到这些烫手山药，最理想的方式就是对 JavaScript 代码进行区域性的运行时间测量，这是寻找如何提高网站性能的第一步。幸运的是，可以在代码的不同部位去调用 <a href="http://www.w3.org/TR/user-timing/" target="_blank" rel="external">User Timing API</a>，提取到时间的详细数据，来帮助你进行性能优化。</p>
@@ -8281,8 +8281,8 @@ circle {
     <title>JSHint 选项列表</title>
     <link href="http://bubkoo.com/2014/02/22/JSHint-options/"/>
     <id>http://bubkoo.com/2014/02/22/JSHint-options/</id>
-    <published>2014-02-21T16:22:44.000Z</published>
-    <updated>2015-07-30T15:22:04.000Z</updated>
+    <published>2014-02-22T00:22:44.000Z</published>
+    <updated>2017-04-25T01:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://bubkoo.qiniudn.com/jshint-dark.png" alt="JSHint"></p>
 <p>有时候会查找 <a href="http://jshint.com/" target="_blank" rel="external">JSHint</a> 某些选项的具体含义，针对项目需求开启或关闭某些选项，所以从<a href="https://github.com/basecss/jshint-doc-cn" target="_blank" rel="external">这里</a>转载了 JSHint 选项列表的中文翻译，供不时之需。</p>
@@ -8402,8 +8402,8 @@ circle {
     <title>使用 Developer Tools 进行 JavaScript 性能分析</title>
     <link href="http://bubkoo.com/2014/02/19/javascript-profiling-chrome-developer-tools/"/>
     <id>http://bubkoo.com/2014/02/19/javascript-profiling-chrome-developer-tools/</id>
-    <published>2014-02-18T17:13:32.000Z</published>
-    <updated>2014-02-18T17:13:32.000Z</updated>
+    <published>2014-02-19T01:13:32.000Z</published>
+    <updated>2014-02-19T01:13:32.000Z</updated>
     
     <content type="html"><![CDATA[<p>原文链接：<a href="http://coding.smashingmagazine.com/2012/06/12/javascript-profiling-chrome-developer-tools/" target="_blank" rel="external">JavaScript Profiling With The Chrome Developer Tools</a></p>
 <p>现在，让我们来让你的网站跑得更快，网站性能通常包括两个方面：页面加载速度和脚本执行速度，有很多方法可以让网站加载更快，例如，压缩文件和 CND 等，但是要让脚本执行更快就得靠开发人员自己了。</p>
@@ -8502,8 +8502,8 @@ circle {
     <title>【译】Javascript 基准测试</title>
     <link href="http://bubkoo.com/2014/02/18/bulletproof-javascript-benchmarks/"/>
     <id>http://bubkoo.com/2014/02/18/bulletproof-javascript-benchmarks/</id>
-    <published>2014-02-18T12:51:29.000Z</published>
-    <updated>2014-02-18T12:51:29.000Z</updated>
+    <published>2014-02-18T20:51:29.000Z</published>
+    <updated>2014-02-18T20:51:29.000Z</updated>
     
     <content type="html"><![CDATA[<p>原文发表在 <a href="http://calendar.perfplanet.com/" target="_blank" rel="external">Performance Calendar</a> 上，作为其 2010 年系列文章的一部分。在<a href="http://bubkoo.com/2014/02/13/writing-fast-memory-efficient-javascript/">上一篇</a>翻译的文章中，作者推荐了这篇文章，译者阅读之后觉得有一定的价值，而且网络上没有这篇文章的中文翻译，权当学习就在此翻译成了中文，水平有限，如果有表达不恰当或者表达有误的地方，请直接在评论中指出。</p>
 <p>原文链接：<a href="http://calendar.perfplanet.com/2010/bulletproof-javascript-benchmarks/" target="_blank" rel="external">Bulletproof JavaScript benchmarks</a>，下面开始翻译正文。</p>
@@ -8566,8 +8566,8 @@ circle {
     <title>【译】编写快速、高效的 JavaScript</title>
     <link href="http://bubkoo.com/2014/02/13/writing-fast-memory-efficient-javascript/"/>
     <id>http://bubkoo.com/2014/02/13/writing-fast-memory-efficient-javascript/</id>
-    <published>2014-02-13T05:35:27.000Z</published>
-    <updated>2014-02-13T05:35:27.000Z</updated>
+    <published>2014-02-13T13:35:27.000Z</published>
+    <updated>2014-02-13T13:35:27.000Z</updated>
     
     <content type="html"><![CDATA[<p>原文连接：<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/" target="_blank" rel="external">Writing Fast, Memory-Efficient JavaScript</a> </p>
 <p>许多 JavaScript 引擎都是为了快速执行的大型 JavaScript 应用程序设计而特别设计，如 Google <a href="http://code.google.com/p/v8/" target="_blank" rel="external">V8</a> 引擎（正被 Chrome 和 <a href="http://nodejs.org/" target="_blank" rel="external">NodeJS</a> 使用）。在开发过程中，如果你关心内存使用情况和页面性能，你应该了解户浏览器的 JavaScript 引擎的内部运作原理。</p>
@@ -8800,8 +8800,8 @@ circle {
     <title>MongoDB 用户和身份验证</title>
     <link href="http://bubkoo.com/2014/02/07/mongodb-authentication/"/>
     <id>http://bubkoo.com/2014/02/07/mongodb-authentication/</id>
-    <published>2014-02-07T06:21:42.000Z</published>
-    <updated>2014-02-07T06:21:42.000Z</updated>
+    <published>2014-02-07T14:21:42.000Z</published>
+    <updated>2014-02-07T14:21:42.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="http://www.mongodb.org/" target="_blank" rel="external">MongoDB</a>是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的。这里推荐一个快速入门教程 - <a href="http://www.cnblogs.com/huangxincheng/category/355399.html" target="_blank" rel="external">8天学通 MongoDB</a>，写的很全面。这里讨论的是 MongoDB 的用户和身份验证。</p>
 <p>在默认情况下，MongoDB 不会进行身份验证，也没有账号，只要能连接上服务就可以对数据库进行各种操作，如果你在一个面向公众的服务器上使用它，那么这的确是一个问题。</p>
@@ -8895,8 +8895,8 @@ circle {
     <title>深入理解 JavaScript 中的 delete 操作符</title>
     <link href="http://bubkoo.com/2014/01/23/deep-in-delete/"/>
     <id>http://bubkoo.com/2014/01/23/deep-in-delete/</id>
-    <published>2014-01-23T08:26:07.000Z</published>
-    <updated>2014-01-23T08:26:07.000Z</updated>
+    <published>2014-01-23T16:26:07.000Z</published>
+    <updated>2014-01-23T16:26:07.000Z</updated>
     
     <content type="html"><![CDATA[<p>delete 操作符用于删除对象的属性。</p>
 <p>似乎很多同学（包括我）对 delete 操作符都是似是而非，为什么有的属性可以被删除，有的却不能被删除？为什么能够删除对象的属性却不能删除变量或函数？在 eval 和 <a href="https://developer.mozilla.org/en-US/docs/JavaScript/Strict_mode" target="_blank" rel="external">严格模式</a>下，delete 操作符又有哪些特性？等等。。</p>
@@ -9050,8 +9050,8 @@ circle {
     <title>【译】构建您自己的 AngularJS，第一部分：scopes 和 digest</title>
     <link href="http://bubkoo.com/2014/01/19/angular/make-your-own-angular-part-1-scopes-and-digest/"/>
     <id>http://bubkoo.com/2014/01/19/angular/make-your-own-angular-part-1-scopes-and-digest/</id>
-    <published>2014-01-19T13:26:18.000Z</published>
-    <updated>2014-01-19T13:26:18.000Z</updated>
+    <published>2014-01-19T21:26:18.000Z</published>
+    <updated>2014-01-19T21:26:18.000Z</updated>
     
     <content type="html"><![CDATA[<p>原文链接：<a href="http://teropa.info/blog/2013/11/03/make-your-own-angular-part-1-scopes-and-digest.html" target="_blank" rel="external">Make Your Own AngularJS, Part 1: Scopes And Digest</a></p>
 <p><img src="http://bubkoo.qiniudn.com/AngularJS-large.png" alt="AngularJS"></p>
@@ -9270,8 +9270,8 @@ circle {
     <title>常见排序算法【归档】</title>
     <link href="http://bubkoo.com/2014/01/17/sort-algorithm/archives/"/>
     <id>http://bubkoo.com/2014/01/17/sort-algorithm/archives/</id>
-    <published>2014-01-16T16:54:42.000Z</published>
-    <updated>2014-01-16T16:54:42.000Z</updated>
+    <published>2014-01-17T00:54:42.000Z</published>
+    <updated>2014-01-17T00:54:42.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近整理了一些常见的排序算法，资料基本上都来自网上，大部分参考了维基百科，分析了常见算法的原理，并举例分步说明，有的还给出了排序动画演示，但没有涉及算法复杂度等方面的概念，最后对每一种排序算法都给出了至少一种 JavaScript 的实现方法（因为我是做前端方面的，所以只给出了 JavaScript 代码）。</p>
 <p>由于自己能力和经验有限，难免出现某些纰漏和错误，欢迎指正。</p>
@@ -9311,8 +9311,8 @@ circle {
     <title>常见排序算法 - 基数排序 (Radix Sort)</title>
     <link href="http://bubkoo.com/2014/01/15/sort-algorithm/radix-sort/"/>
     <id>http://bubkoo.com/2014/01/15/sort-algorithm/radix-sort/</id>
-    <published>2014-01-15T14:38:55.000Z</published>
-    <updated>2014-01-15T14:38:55.000Z</updated>
+    <published>2014-01-15T22:38:55.000Z</published>
+    <updated>2014-01-15T22:38:55.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>基数排序 (Radix Sort) 是一种非比较型整数排序算法，其原理是将整数按位数切割成不同的数字，然后按每个位数分别比较。基数排序的发明可以追溯到 1887 年<a href="http://zh.wikipedia.org/wiki/%E8%B5%AB%E7%88%BE%E6%9B%BC%C2%B7%E4%BD%95%E6%A8%82%E7%A6%AE" target="_blank" rel="external">赫尔曼·何乐礼</a>在<a href="http://zh.wikipedia.org/w/index.php?title=%E6%89%93%E5%AD%94%E5%8D%A1%E7%89%87%E5%88%B6%E8%A1%A8%E6%9C%BA&amp;action=edit&amp;redlink=1" target="_blank" rel="external">打孔卡片制表机 (Tabulation Machine)</a>上的贡献。</p>
 <p>排序过程：将所有待比较数值（<strong>正整数</strong>）统一为同样的数位长度，数位较短的数前面补零。然后，从最低位开始，依次进行一次排序。这样从最低位排序一直到最高位排序完成以后, 数列就变成一个有序序列。</p>
@@ -9473,8 +9473,8 @@ circle {
     <title>常见排序算法 - 桶排序 (Bucket Sort)</title>
     <link href="http://bubkoo.com/2014/01/15/sort-algorithm/bucket-sort/"/>
     <id>http://bubkoo.com/2014/01/15/sort-algorithm/bucket-sort/</id>
-    <published>2014-01-15T14:27:51.000Z</published>
-    <updated>2014-01-15T14:27:51.000Z</updated>
+    <published>2014-01-15T22:27:51.000Z</published>
+    <updated>2014-01-15T22:27:51.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>桶排序 (Bucket sort)或所谓的<strong>箱排序</strong>的原理是将数组分到有限数量的桶子里，然后对每个桶子再分别排序（有可能再使用别的排序算法或是以递归方式继续使用桶排序进行排序），最后将各个桶中的数据有序的合并起来。</p>
 <p>排序过程：</p>
@@ -9526,8 +9526,8 @@ circle {
     <title>常见排序算法 - 猴子排序 (Bogo Sort)</title>
     <link href="http://bubkoo.com/2014/01/15/sort-algorithm/bogo-sort/"/>
     <id>http://bubkoo.com/2014/01/15/sort-algorithm/bogo-sort/</id>
-    <published>2014-01-15T14:04:22.000Z</published>
-    <updated>2014-01-15T14:04:22.000Z</updated>
+    <published>2014-01-15T22:04:22.000Z</published>
+    <updated>2014-01-15T22:04:22.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>猴子排序 (Bogo Sort) 是个既不实用又原始的排序算法，其原理等同将一堆卡片抛起，落在桌上后检查卡片是否已整齐排列好，若非就再抛一次。其名字源自 Quantum bogodynamics，又称 bozo sort、blort sort 或猴子排序（参见<a href="http://zh.wikipedia.org/wiki/%E7%84%A1%E9%99%90%E7%8C%B4%E5%AD%90%E5%AE%9A%E7%90%86" target="_blank" rel="external">无限猴子定理</a>）。并且在最坏的情况下所需时间是无限的。</p>
 <p>伪代码：</p>
@@ -9561,8 +9561,8 @@ circle {
     <title>常见排序算法 - 鸡尾酒排序 (Cocktail Sort/Shaker Sort)</title>
     <link href="http://bubkoo.com/2014/01/15/sort-algorithm/shaker-sort/"/>
     <id>http://bubkoo.com/2014/01/15/sort-algorithm/shaker-sort/</id>
-    <published>2014-01-15T12:50:02.000Z</published>
-    <updated>2014-01-15T12:50:02.000Z</updated>
+    <published>2014-01-15T20:50:02.000Z</published>
+    <updated>2014-01-15T20:50:02.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>为什么叫鸡尾酒排序？其实我也不知道，知道的小伙伴请告诉我。</p>
 <p>其实它还有很多<strong>奇怪</strong>的名称，比如双向冒泡排序 (Bidirectional Bubble Sort)、波浪排序 (Ripple Sort)、摇曳排序 (Shuffle Sort)、飞梭排序 (Shuttle Sort) 和欢乐时光排序 (Happy Hour Sort)。本文中就以鸡尾酒排序来称呼它。</p>
@@ -9632,8 +9632,8 @@ circle {
     <title>常见排序算法 - 归并排序 (Merge Sort)</title>
     <link href="http://bubkoo.com/2014/01/15/sort-algorithm/merge-sort/"/>
     <id>http://bubkoo.com/2014/01/15/sort-algorithm/merge-sort/</id>
-    <published>2014-01-14T18:32:28.000Z</published>
-    <updated>2014-01-14T18:32:28.000Z</updated>
+    <published>2014-01-15T02:32:28.000Z</published>
+    <updated>2014-01-15T02:32:28.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>归并排序（Merge Sort，台湾译作：合并排序）是建立在归并操作上的一种有效的排序算法。该算法是采用<a href="http://zh.wikipedia.org/wiki/%E5%88%86%E6%B2%BB%E6%B3%95" target="_blank" rel="external">分治法</a>（Divide and Conquer）的一个非常典型的应用。</p>
 <p>归并操作(Merge)，也叫归并算法，指的是将两个已经排序的序列合并成一个序列的操作。归并排序算法依赖归并操作。归并排序有多路归并排序、两路归并排序 , 可用于内排序，也可以用于外排序。这里仅对内排序的两路归并方法进行讨论。 </p>
@@ -9692,8 +9692,8 @@ circle {
     <title>常见排序算法 - 希尔排序 (Shell Sort)</title>
     <link href="http://bubkoo.com/2014/01/15/sort-algorithm/shell-sort/"/>
     <id>http://bubkoo.com/2014/01/15/sort-algorithm/shell-sort/</id>
-    <published>2014-01-14T16:54:59.000Z</published>
-    <updated>2014-01-14T16:54:59.000Z</updated>
+    <published>2014-01-15T00:54:59.000Z</published>
+    <updated>2014-01-15T00:54:59.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>希尔排序算法是按其设计者希尔（Donald Shell）的名字命名，该算法由1959年公布，是插入排序的一种更高效的改进版本。它的作法不是每次一个元素挨一个元素的比较。而是初期选用大跨步（增量较大）间隔比较，使记录跳跃式接近它的排序位置；然后增量缩小；最后增量为 1 ，这样记录移动次数大大减少，提高了排序效率。希尔排序对增量序列的选择没有严格规定。</p>
 <p>希尔排序是基于插入排序的以下两点性质而提出改进方法的：</p>
@@ -9760,8 +9760,8 @@ circle {
     <title>常见排序算法 - 插入排序 (Insertion Sort)</title>
     <link href="http://bubkoo.com/2014/01/14/sort-algorithm/insertion-sort/"/>
     <id>http://bubkoo.com/2014/01/14/sort-algorithm/insertion-sort/</id>
-    <published>2014-01-14T08:53:07.000Z</published>
-    <updated>2014-01-14T08:53:07.000Z</updated>
+    <published>2014-01-14T16:53:07.000Z</published>
+    <updated>2014-01-14T16:53:07.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>设有一组关键字｛K<sub>1</sub>， K<sub>2</sub>，…， K<sub>n</sub>｝；排序开始就认为 K<sub>1</sub> 是一个有序序列；让 K<sub>2</sub> 插入上述表长为 1 的有序序列，使之成为一个表长为 2 的有序序列；然后让 K<sub>3</sub> 插入上述表长为 2 的有序序列，使之成为一个表长为 3 的有序序列；依次类推，最后让 K<sub>n</sub> 插入上述表长为 n-1 的有序序列，得一个表长为 n 的有序序列。</p>
 <p>具体算法描述如下：</p>
@@ -9827,8 +9827,8 @@ circle {
     <title>常见排序算法 - 堆排序 (Heap Sort)</title>
     <link href="http://bubkoo.com/2014/01/14/sort-algorithm/heap-sort/"/>
     <id>http://bubkoo.com/2014/01/14/sort-algorithm/heap-sort/</id>
-    <published>2014-01-14T02:42:50.000Z</published>
-    <updated>2014-01-14T02:42:50.000Z</updated>
+    <published>2014-01-14T10:42:50.000Z</published>
+    <updated>2014-01-14T10:42:50.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>先上一张堆排序动画演示图片：</p>
 <p><img src="http://bubkoo.qiniudn.com/Sorting_heapsort_anim.gif" alt="图片来自维基百科"></p>
@@ -9948,8 +9948,8 @@ circle {
     <title>常见排序算法 - 选择排序 (Selection Sort)</title>
     <link href="http://bubkoo.com/2014/01/13/sort-algorithm/selection-sort/"/>
     <id>http://bubkoo.com/2014/01/13/sort-algorithm/selection-sort/</id>
-    <published>2014-01-13T05:37:21.000Z</published>
-    <updated>2014-01-13T05:37:21.000Z</updated>
+    <published>2014-01-13T13:37:21.000Z</published>
+    <updated>2014-01-13T13:37:21.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>选择排序（Selection Sort）是一种简单直观的排序算法。它的工作原理如下，首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。</p>
 <p>选择排序的主要优点与数据移动有关。如果某个元素位于正确的最终位置上，则它不会被移动。选择排序每次交换一对元素，它们当中至少有一个将被移到其最终位置上，因此对n个元素的序列进行排序总共进行至多n-1次交换。在所有的完全依靠交换去移动元素的排序方法中，选择排序属于非常好的一种。</p>
@@ -10001,8 +10001,8 @@ circle {
     <title>常见排序算法 - 快速排序 (Quick Sort)</title>
     <link href="http://bubkoo.com/2014/01/12/sort-algorithm/quick-sort/"/>
     <id>http://bubkoo.com/2014/01/12/sort-algorithm/quick-sort/</id>
-    <published>2014-01-12T12:55:42.000Z</published>
-    <updated>2014-01-12T12:55:42.000Z</updated>
+    <published>2014-01-12T20:55:42.000Z</published>
+    <updated>2014-01-12T20:55:42.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>快速排序是图灵奖得主<a href="http://zh.wikipedia.org/wiki/%E6%9D%B1%E5%B0%BC%C2%B7%E9%9C%8D%E7%88%BE" target="_blank" rel="external"> C. R. A. Hoare</a> 于 1960 年提出的一种划分交换排序。它采用了一种分治的策略，通常称其为<a href="http://en.wikipedia.org/wiki/Quicksort" target="_blank" rel="external">分治法(Divide-and-ConquerMethod)</a>。</p>
 <p><img src="http://bubkoo.qiniudn.com/C.R.A.Hoare.jpg" alt="C. R. A. Hoare"></p>
@@ -10104,8 +10104,8 @@ circle {
     <title>常见排序算法 - 冒泡排序 (Bubble Sort)</title>
     <link href="http://bubkoo.com/2014/01/12/sort-algorithm/bubble-sort/"/>
     <id>http://bubkoo.com/2014/01/12/sort-algorithm/bubble-sort/</id>
-    <published>2014-01-12T12:00:16.000Z</published>
-    <updated>2014-01-12T12:00:16.000Z</updated>
+    <published>2014-01-12T20:00:16.000Z</published>
+    <updated>2014-01-12T20:00:16.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>冒泡排序（Bubble Sort，台湾译为：泡沫排序或气泡排序）是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。</p>
 <p>冒泡排序算法的流程如下：</p>
@@ -10163,8 +10163,8 @@ circle {
     <title>JavaScript 随机打乱数组 - 洗牌算法</title>
     <link href="http://bubkoo.com/2014/01/12/sort-algorithm/array-shuffle/"/>
     <id>http://bubkoo.com/2014/01/12/sort-algorithm/array-shuffle/</id>
-    <published>2014-01-12T11:38:36.000Z</published>
-    <updated>2014-01-12T11:38:36.000Z</updated>
+    <published>2014-01-12T19:38:36.000Z</published>
+    <updated>2014-01-12T19:38:36.000Z</updated>
     
     <content type="html"><![CDATA[<p>在学习排序算法的时候，经常要用到随机数组，于是就写了一个生成随机数组的方法。算法来自网络，只是修改成了 JavaScript 版本。</p>
 <p>基本原理是洗牌算法，首先从所有元素中随机选取一个与第一个元素进行交换，然后在第二个之后选择一个元素与第二个交换，直到最后一个元素。这样能确保每个元素在每个位置的概率都是1/n。</p>
@@ -10191,8 +10191,8 @@ circle {
     <title>浏览器背后的故事 - 浏览器内部工作原理</title>
     <link href="http://bubkoo.com/2014/01/06/how-browsers-work-behind-the-scenes-of-modern-web-browsers/"/>
     <id>http://bubkoo.com/2014/01/06/how-browsers-work-behind-the-scenes-of-modern-web-browsers/</id>
-    <published>2014-01-06T12:04:21.000Z</published>
-    <updated>2014-01-07T12:04:21.000Z</updated>
+    <published>2014-01-06T20:04:21.000Z</published>
+    <updated>2014-01-07T20:04:21.000Z</updated>
     
     <content type="html"><![CDATA[<p>原文链接：<a href="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/" target="_blank" rel="external">How Browsers Work: Behind the scenes of modern web browsers</a><br>原文日期：2011年8月5日</p>
 <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>这是一篇全面介绍基于 Webkit 和 Gecko 内核浏览器内部原理的入门文章，是以色列开发人员 <a href="http://www.html5rocks.com/profiles/#taligarsiel" target="_blank" rel="external">Tali Garsiel</a> 大量研究的成果。在过去的几年中，她查阅了所有公开发布的关于浏览器内部机制的数据（请参见<a href="#resources">参考资料</a>），并花了很多时间来研读网络浏览器的源代码。她这样写道：</p>
@@ -10431,7 +10431,7 @@ circle {
 <p>Firefox 将呈现树中的元素称为“框架”。Webkit 使用的术语是呈现器或呈现对象。</p>
 <p>呈现器知道如何布局并将自身及其子元素绘制出来。 </p>
 <p>Webkits RenderObject 类是所有呈现器的基类，其定义如下：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> RenderObject&#123;</div><div class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">layout</span><span class="params">()</span></span>;</div><div class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">paint</span><span class="params">(PaintInfo)</span></span>;</div><div class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> rect <span class="title">repaintRect</span><span class="params">()</span></span>;</div><div class="line">  Node* node;  <span class="comment">//the DOM node</span></div><div class="line">  RenderStyle* style;  <span class="comment">// the computed style</span></div><div class="line">  RenderLayer* containgLayer; <span class="comment">//the containing z-index layer</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RenderObject</span>&#123;</span></div><div class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">layout</span><span class="params">()</span></span>;</div><div class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">paint</span><span class="params">(PaintInfo)</span></span>;</div><div class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> rect <span class="title">repaintRect</span><span class="params">()</span></span>;</div><div class="line">  Node* node;  <span class="comment">//the DOM node</span></div><div class="line">  RenderStyle* style;  <span class="comment">// the computed style</span></div><div class="line">  RenderLayer* containgLayer; <span class="comment">//the containing z-index layer</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>每一个呈现器都代表了一个矩形的区域，通常对应于相关节点的 CSS 框，这一点在 CSS2 规范中有所描述。它包含诸如宽度、高度和位置等几何信息。</p>
 <p>框的类型会受到与节点相关的“display”样式属性的影响（请参阅<a href="">样式计算</a>章节）。下面这段 Webkit 代码描述了根据 display 属性的不同，针对同一个 DOM 节点应创建什么类型的呈现器。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">RenderObject* RenderObject::createObject(Node* node, RenderStyle* style)</div><div class="line">&#123;</div><div class="line">    Document* doc = node-&gt;document();</div><div class="line">    RenderArena* arena = doc-&gt;renderArena();</div><div class="line">    ...</div><div class="line">    RenderObject* o = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">switch</span> (style-&gt;display()) &#123;</div><div class="line">        <span class="keyword">case</span> NONE:</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> INLINE:</div><div class="line">            o = <span class="keyword">new</span> (arena) RenderInline(node);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> BLOCK:</div><div class="line">            o = <span class="keyword">new</span> (arena) RenderBlock(node);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> INLINE_BLOCK:</div><div class="line">            o = <span class="keyword">new</span> (arena) RenderBlock(node);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> LIST_ITEM:</div><div class="line">            o = <span class="keyword">new</span> (arena) RenderListItem(node);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">       ...</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> o;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -10634,7 +10634,7 @@ circle {
 <p><img src="http://bubkoo.qiniudn.com/CSS2%20box%20model.jpg" alt="图 18 CSS2 框模型"></p>
 <p>每一个节点都会生成 0..n 个这样的框。 </p>
 <p>所有元素都有一个“display”属性，决定了它们所对应生成的框类型。示例：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">block  - generates a block box.</div><div class="line"><span class="keyword">inline</span> - generates one or more <span class="keyword">inline</span> boxes.</div><div class="line">none - no box is generated.</div></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">block  - generates a block box.</div><div class="line"><span class="keyword">inline</span> - generates one <span class="keyword">or</span> more <span class="keyword">inline</span> boxes.</div><div class="line">none - no box is generated.</div></pre></td></tr></table></figure>
 <p>默认值是 inline，但是浏览器样式表设置了其他默认值。例如，“div”元素的 display 属性默认值是 block。</p>
 <p>您可以在这里找到默认样式表示例：<a href="http://www.w3.org/TR/CSS2/sample.html" target="_blank" rel="external">www.w3.org/TR/CSS2/sample.html</a></p>
 <h3 id="定位方案"><a href="#定位方案" class="headerlink" title="定位方案"></a>定位方案</h3><p>有三种定位方案：</p>
@@ -10743,8 +10743,8 @@ circle {
     <title>Generate and Debug with Source Map</title>
     <link href="http://bubkoo.com/2014/01/06/generate-and-debug-with-source-map/"/>
     <id>http://bubkoo.com/2014/01/06/generate-and-debug-with-source-map/</id>
-    <published>2014-01-06T12:00:05.000Z</published>
-    <updated>2014-01-06T12:00:10.000Z</updated>
+    <published>2014-01-06T20:00:05.000Z</published>
+    <updated>2014-01-06T20:00:10.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="http://bubkoo.com/2014/01/05/source-map/introduction-to-javascript-source-maps/">上一篇文章</a>简单介绍了 Source Map，接下来我们来看看如何利用各种工具来生成 Source Map。</p>
 <h2 id="什么是-source-map"><a href="#什么是-Source-Map？" class="headerlink" title="什么是 Source Map？"></a>什么是 Source Map？</h2><blockquote>
@@ -10936,8 +10936,8 @@ circle {
     <title>JavaScript Source Map 介绍</title>
     <link href="http://bubkoo.com/2014/01/05/introduction-to-javascript-source-maps/"/>
     <id>http://bubkoo.com/2014/01/05/introduction-to-javascript-source-maps/</id>
-    <published>2014-01-05T08:56:36.000Z</published>
-    <updated>2014-01-05T08:56:39.000Z</updated>
+    <published>2014-01-05T16:56:36.000Z</published>
+    <updated>2014-01-05T16:56:39.000Z</updated>
     
     <content type="html"><![CDATA[<p>翻译自：<a href="http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/?redirect_from_locale=zh" target="_blank" rel="external">Introduction to JavaScript Source Maps</a></p>
 <p>水平有限，有表达错误和不准确的地方，可以在回复中直接指出来，英语水平高的同学可以直接看上面的原文。</p>
@@ -11074,8 +11074,8 @@ circle {
     <title>那些年我使用过的 Sublime Text 3 插件</title>
     <link href="http://bubkoo.com/2014/01/04/sublime-text-3-plugins/"/>
     <id>http://bubkoo.com/2014/01/04/sublime-text-3-plugins/</id>
-    <published>2014-01-04T10:56:32.000Z</published>
-    <updated>2014-01-04T10:56:32.000Z</updated>
+    <published>2014-01-04T18:56:32.000Z</published>
+    <updated>2014-01-04T18:56:32.000Z</updated>
     
     <content type="html"><![CDATA[<p>其实，我最开始接触到的是 Sublime Text 2，被其轻量、简洁以及漂亮的配色所瞬间征服，后来升级为 <a href="http://www.sublimetext.com/" target="_blank" rel="external">Sublime Text 3</a>，使用过程中有一些需要设置的地方，还有一些常用插件的安装和设置技巧等，有时候会忘记某些设置方法或者快捷键，然后不得不上网查。恰逢周末，其中的一些东西记录下来，一方面加深自己的印象，同时方便查阅。</p>
 <p><img src="http://bubkoo.qiniudn.com/sublime-text-2-logo.jpg" alt=""><br><a id="more"></a></p>
@@ -11160,8 +11160,8 @@ circle {
     <title>HTML/CSS 速写神器：Emmet</title>
     <link href="http://bubkoo.com/2014/01/04/emmet-a-toolkit-for-improving-html-css-workflow/"/>
     <id>http://bubkoo.com/2014/01/04/emmet-a-toolkit-for-improving-html-css-workflow/</id>
-    <published>2014-01-04T05:21:12.000Z</published>
-    <updated>2014-01-04T05:21:16.000Z</updated>
+    <published>2014-01-04T13:21:12.000Z</published>
+    <updated>2014-01-04T13:21:16.000Z</updated>
     
     <content type="html"><![CDATA[<p>在前端开发的过程中，一个最繁琐的工作就是写 HTML、CSS 代码。数量繁多的标签、属性、尖括号、标签闭合等，让前端们甚是苦恼。于是，我向大家推荐 <a href="http://emmet.io/" target="_blank" rel="external">Emmet</a>，它提供了一套非常简单的语法规则，书写起来非常爽快，然后只需要敲一个快捷键就立刻生成对应的 HTML 或 CSS 代码，极大提高了代码书写效率。</p>
 <a id="more"></a>
@@ -11395,8 +11395,8 @@ circle {
     <title>修改 Hexo 源码实现默认主题的 CSS 文件自动压缩</title>
     <link href="http://bubkoo.com/2014/01/03/compress-hexo&#39;s-default-css/"/>
     <id>http://bubkoo.com/2014/01/03/compress-hexo&#39;s-default-css/</id>
-    <published>2014-01-02T19:18:03.000Z</published>
-    <updated>2014-01-02T19:18:03.000Z</updated>
+    <published>2014-01-03T03:18:03.000Z</published>
+    <updated>2014-01-03T03:18:03.000Z</updated>
     
     <content type="html"><![CDATA[<p>开始使用 <a href="http://zespia.tw/hexo/?utm_source=feedly" target="_blank" rel="external">HEXO</a> 时就发现默认主题 <strong>light</strong> 的 <strong>style.css</strong> 文件是没有经过压缩的，虽然文件本身不大，对博客加载速度不会有太大影响，但是作为喜欢折腾的程序猿，同时为了提升自身博客那么一点点的完美性，一直想去解决这个问题，由于工作比较忙，这个就一直压在心里，直到昨天写完博客，又开始折腾起来。下面记录了具体的修改方式，有需要的同学可以试试。</p>
 <p>PS：本博的主题是基于默认主题稍作修改后的样式。</p>
@@ -11435,8 +11435,8 @@ circle {
     <title>学习 ui-router 系列文章索引</title>
     <link href="http://bubkoo.com/2014/01/02/angular/ui-router/guide/index/"/>
     <id>http://bubkoo.com/2014/01/02/angular/ui-router/guide/index/</id>
-    <published>2014-01-01T19:00:12.000Z</published>
-    <updated>2014-01-01T19:00:12.000Z</updated>
+    <published>2014-01-02T03:00:12.000Z</published>
+    <updated>2014-01-02T03:00:12.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="http://angular-ui.github.io/" target="_blank" rel="external">Angular-Ui</a> 对于 <a href="http://angularjs.org/" target="_blank" rel="external">AngularJS</a> 开发者来说是一个非常重要的工具，其中 <a href="https://github.com/angular-ui/ui-router" target="_blank" rel="external">UI-Router</a> 又是重中之重。<a href="https://github.com/angular-ui/ui-router" target="_blank" rel="external">UI-Router</a> 插件提供了“嵌套作用域等规则”等有用的特性，对于复杂项目开发非常实用，最近在项目中开始使用 <a href="https://github.com/angular-ui/ui-router" target="_blank" rel="external">UI-Router</a> ，于是决定好好把它学习一遍，这些文章都来源于 <a href="https://github.com/angular-ui/ui-router/wiki" target="_blank" rel="external">UI-Router 的 github</a>，由于能力有限，有些地方没有看懂，另外还有一些地方只能意译出来，希望大家在参观的过程中指出其中的错误。</p>
 <ol>
@@ -11474,8 +11474,8 @@ circle {
     <title>学习 ui-router - 组件</title>
     <link href="http://bubkoo.com/2014/01/02/angular/ui-router/guide/the-components/"/>
     <id>http://bubkoo.com/2014/01/02/angular/ui-router/guide/the-components/</id>
-    <published>2014-01-01T18:32:32.000Z</published>
-    <updated>2014-01-01T18:32:32.000Z</updated>
+    <published>2014-01-02T02:32:32.000Z</published>
+    <updated>2014-01-02T02:32:32.000Z</updated>
     
     <content type="html"><![CDATA[<p>参考原文：<a href="https://github.com/angular-ui/ui-router/wiki/The-Components" target="_blank" rel="external">https://github.com/angular-ui/ui-router/wiki/The-Components</a></p>
 <ul>
@@ -11518,8 +11518,8 @@ circle {
     <title>学习 ui-router - 路由控制</title>
     <link href="http://bubkoo.com/2014/01/02/angular/ui-router/guide/url-routing/"/>
     <id>http://bubkoo.com/2014/01/02/angular/ui-router/guide/url-routing/</id>
-    <published>2014-01-01T16:39:20.000Z</published>
-    <updated>2014-01-01T16:39:20.000Z</updated>
+    <published>2014-01-02T00:39:20.000Z</published>
+    <updated>2014-01-02T00:39:20.000Z</updated>
     
     <content type="html"><![CDATA[<p>参考原文：<a href="https://github.com/angular-ui/ui-router/wiki/URL-Routing" target="_blank" rel="external">https://github.com/angular-ui/ui-router/wiki/URL-Routing</a></p>
 <p>在你的应用中大多数状态都有与其相关联的 url，路由控制不是设计完成 state 之后的事后想法，而是开始开发时就应该考虑的问题。</p>
@@ -11628,8 +11628,8 @@ circle {
     <title>学习 ui-router - 多个命名的视图</title>
     <link href="http://bubkoo.com/2014/01/01/angular/ui-router/guide/multiple-named-views/"/>
     <id>http://bubkoo.com/2014/01/01/angular/ui-router/guide/multiple-named-views/</id>
-    <published>2014-01-01T15:01:44.000Z</published>
-    <updated>2014-01-01T15:01:44.000Z</updated>
+    <published>2014-01-01T23:01:44.000Z</published>
+    <updated>2014-01-01T23:01:44.000Z</updated>
     
     <content type="html"><![CDATA[<p>参考原文：<a href="https://github.com/angular-ui/ui-router/wiki/Multiple-Named-Views" target="_blank" rel="external">https://github.com/angular-ui/ui-router/wiki/Multiple-Named-Views</a></p>
 <p>可以给<code>ui-view</code>指定名称，这样一个模板中就可以有多个<code>ui-view</code>。假设您有一个应用，需要动态填充<code>graph</code>、<code>table data</code>和<code>filters</code>，像下面这样：</p>
@@ -11675,8 +11675,8 @@ circle {
     <title>学习 ui-router - 状态嵌套和视图嵌套</title>
     <link href="http://bubkoo.com/2014/01/01/angular/ui-router/guide/nested-states%20&amp;%20nested-views/"/>
     <id>http://bubkoo.com/2014/01/01/angular/ui-router/guide/nested-states &amp; nested-views/</id>
-    <published>2014-01-01T12:55:08.000Z</published>
-    <updated>2014-01-01T12:55:08.000Z</updated>
+    <published>2014-01-01T20:55:08.000Z</published>
+    <updated>2014-01-01T20:55:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>参考原文：<a href="https://github.com/angular-ui/ui-router/wiki/Nested-States-%26-Nested-Views" target="_blank" rel="external">https://github.com/angular-ui/ui-router/wiki/Nested-States-%26-Nested-Views</a></p>
 <h2 id="状态嵌套的方法"><a href="#状态嵌套的方法" class="headerlink" title="状态嵌套的方法"></a>状态嵌套的方法</h2><p>状态可以相互嵌套。有三个嵌套的方法：</p>
@@ -11754,8 +11754,8 @@ circle {
     <title>学习 ui-router - 管理状态</title>
     <link href="http://bubkoo.com/2014/01/01/angular/ui-router/guide/state-manager/"/>
     <id>http://bubkoo.com/2014/01/01/angular/ui-router/guide/state-manager/</id>
-    <published>2014-01-01T08:31:40.000Z</published>
-    <updated>2014-01-01T08:31:40.000Z</updated>
+    <published>2014-01-01T16:31:40.000Z</published>
+    <updated>2014-01-01T16:31:40.000Z</updated>
     
     <content type="html"><![CDATA[<p>参考原文：<a href="https://github.com/angular-ui/ui-router/wiki" target="_blank" rel="external">https://github.com/angular-ui/ui-router/wiki</a></p>
 <p>ui-router 的工作原理非常类似于 Angular 的路由控制器，但它只关注状态。</p>
@@ -11868,8 +11868,8 @@ circle {
     <title>AngualrJS 使用笔记</title>
     <link href="http://bubkoo.com/2014/01/01/angular/AngualrJS-notes/"/>
     <id>http://bubkoo.com/2014/01/01/angular/AngualrJS-notes/</id>
-    <published>2014-01-01T06:05:13.000Z</published>
-    <updated>2014-01-01T06:05:19.000Z</updated>
+    <published>2014-01-01T14:05:13.000Z</published>
+    <updated>2014-01-01T14:05:19.000Z</updated>
     
     <content type="html"><![CDATA[<p>元旦放假一天，由于太宅，于是有了新年第一个产出。主题来源于这一周在项目中使用 <a href="http://angularjs.org/" target="_blank" rel="external">AngularJS</a> 所遇到的问题，在此做一个使用笔记，以加深对 <a href="http://angularjs.org/" target="_blank" rel="external">AngularJS</a> 的理解。本人文笔不行，如文章被有幸浏览到，还请各位童鞋多多提意见。</p>
 <h2 id="augularjs-简单介绍"><a href="#AugularJS-简单介绍" class="headerlink" title="AugularJS 简单介绍"></a>AugularJS 简单介绍</h2><p><a href="http://angularjs.org/" target="_blank" rel="external">AngularJS</a> 由 Google 倾力打造的前端 JavaScript 工具。这里只说它是“工具”，没说它是完整的“框架”，是因为它并不是定位于去完成一套框架要做的事。更重要的，是它给我们提供了一种新的应用组织与开发方式。与其他许多模版系统最大的不同在于，他直接扩展了现有的 HTML 架构，透过声明式语言 (Directives Syntax)直接赋予 HTML 新的功能，让许多 <a href="http://angularjs.org/" target="_blank" rel="external">AngularJS</a> 自定义的 HTML 属性自然而然地融入 HTML 之中，并且赋予其意义。这是大多数模版系统不敢做的尝试。</p>
@@ -12002,8 +12002,8 @@ circle {
     <title>关于 Hexo 的若干问题</title>
     <link href="http://bubkoo.com/2013/12/16/hexo-issure/"/>
     <id>http://bubkoo.com/2013/12/16/hexo-issure/</id>
-    <published>2013-12-16T11:02:24.000Z</published>
-    <updated>2013-12-17T03:58:24.000Z</updated>
+    <published>2013-12-16T19:02:24.000Z</published>
+    <updated>2013-12-17T11:58:24.000Z</updated>
     
     <content type="html"><![CDATA[<p>这几天折腾了一下<a href="http://zespia.tw/hexo/" target="_blank" rel="external">Hexo</a>，遇到一些问题，解决方案大都来自Google和<a href="http://zespia.tw/hexo/docs/" target="_blank" rel="external">Hexo官方文档</a>，现在把这些问题汇总在这里，并附上解决方案，或者抛出自己遇到的问题，渴求解决方案。</p>
 <p>后续会陆续更新我在使用过程中遇到的问题和使用心得。</p>
@@ -12033,20 +12033,20 @@ circle {
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.prev_next</span></div><div class="line">  <span class="selector-tag">margin</span> 1<span class="selector-tag">em</span> 0</div><div class="line">  <span class="selector-tag">clear</span> <span class="selector-tag">both</span></div><div class="line">  <span class="selector-tag">overflow</span> <span class="selector-tag">hidden</span></div><div class="line">  <span class="selector-tag">a</span></div><div class="line">    <span class="selector-tag">display</span> <span class="selector-tag">block</span></div><div class="line">    <span class="selector-tag">float</span> <span class="selector-tag">left</span></div><div class="line">    <span class="selector-tag">width</span> 50%</div><div class="line">    <span class="selector-tag">background</span> <span class="selector-id">#dbdbdb</span></div><div class="line">    <span class="selector-tag">text-align</span> <span class="selector-tag">center</span></div><div class="line">    <span class="selector-tag">padding</span> 0<span class="selector-class">.4em</span> 0</div><div class="line">    <span class="selector-tag">color</span> <span class="selector-id">#1ba1e2</span></div><div class="line">    <span class="selector-tag">transition</span> <span class="selector-tag">background</span> <span class="selector-class">.45s</span> <span class="selector-tag">color</span> <span class="selector-class">.45s</span></div><div class="line">    &amp;<span class="selector-pseudo">:hover</span></div><div class="line">      <span class="selector-tag">color</span> <span class="selector-id">#fafafa</span></div><div class="line">      <span class="selector-tag">background</span> <span class="selector-id">#717171</span></div><div class="line">    &amp;<span class="selector-class">.prev</span><span class="selector-pseudo">::before</span></div><div class="line">      <span class="selector-tag">content</span> "上一篇："</div><div class="line">      <span class="selector-tag">padding-right</span> 0<span class="selector-class">.5em</span></div><div class="line">    &amp;<span class="selector-class">.next</span><span class="selector-pseudo">::before</span></div><div class="line">      <span class="selector-tag">content</span> "下一篇："</div><div class="line">      <span class="selector-tag">padding-right</span> 0<span class="selector-class">.5em</span></div></pre></td></tr></table></figure>
 <h2 id="给博客和文章添加keywords"><a href="#给博客和文章添加keywords" class="headerlink" title="给博客和文章添加keywords"></a>给博客和文章添加keywords</h2><p>默认情况下博客和文章是没有关键字的，可以安装如下方法修改。</p>
 <p>首先，在博客配置文件<code>/Hexo/_config.yml</code>中添加<code>keywords:</code>字段，关键字以英文<code>,</code>分割，如下:</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Site</span></div><div class="line"><span class="attr">title:</span> typeof this  <span class="comment">#站点名</span></div><div class="line"><span class="attr">subtitle:</span>    <span class="comment"># 副标题</span></div><div class="line"><span class="attr">description:</span> <span class="comment"># 站点描述，搜索引擎</span></div><div class="line"><span class="attr">author:</span> typeof</div><div class="line"><span class="attr">email:</span> JeffreyPee@<span class="number">163.</span>com</div><div class="line"><span class="attr">language:</span> zh-CN</div><div class="line"><span class="attr">keywords:</span> Web,前端,JavaScript,html5,css3 <span class="comment"># 博客关键字</span></div></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Site</span></div><div class="line"><span class="attr">title:</span> <span class="string">typeof</span> <span class="string">this</span>  <span class="comment">#站点名</span></div><div class="line"><span class="attr">subtitle:</span>    <span class="comment"># 副标题</span></div><div class="line"><span class="attr">description:</span> <span class="comment"># 站点描述，搜索引擎</span></div><div class="line"><span class="attr">author:</span> <span class="string">typeof</span></div><div class="line"><span class="attr">email:</span> <span class="string">JeffreyPee@163.com</span></div><div class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></div><div class="line"><span class="attr">keywords:</span> <span class="string">Web,前端,JavaScript,html5,css3</span> <span class="comment"># 博客关键字</span></div></pre></td></tr></table></figure>
 <p>然后，修改模板文件，我用的是light模板，修改<code>/themes/light/layout/_partial/head.ejs</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#删除下面这行</div><div class="line">&lt;% if (page.keywords)&#123; %&gt;&lt;meta name=&quot;keywords&quot; content=&quot;&lt;%= page.keywords %&gt;&quot;&gt;&lt;% &#125; %&gt;</div><div class="line">#增加以下内容</div><div class="line">&lt;% if (page.keywords)&#123; %&gt;</div><div class="line">&lt;meta name=&quot;keywords&quot; content=&quot;&lt;%= page.keywords %&gt;,&lt;%= config.keywords %&gt;&quot;&gt;</div><div class="line">&lt;% &#125; else if (config.keywords)&#123; %&gt;</div><div class="line">&lt;meta name=&quot;keywords&quot; content=&quot;&lt;%= config.keywords %&gt;&quot;&gt;</div><div class="line">&lt;%&#125; %&gt;</div></pre></td></tr></table></figure>
 <p>简单说明一下：如果页面有关键字，则用页面的关键字加上配置文件里面的关键字，如果没有关键字，则用配置文件的关键字。</p>
 <p>要给文章添加关键字，只需要在文章里面加入<code>keywords:</code>即可。也可以直接修改创建文章的模板<code>/scaffolds/post.md</code>，在最下面添加<code>keywords:</code>，如下：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="attr">title:</span> &#123;&#123; title &#125;&#125;</div><div class="line"><span class="attr">date:</span> &#123;&#123; date &#125;&#125;</div><div class="line"><span class="attr">updated:</span> &#123;&#123; date &#125;&#125;</div><div class="line"><span class="attr">tags:</span></div><div class="line"><span class="attr">categories:</span></div><div class="line"><span class="attr">keywords:</span></div><div class="line"><span class="meta">---</span></div></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="attr">title:</span> <span class="string">&#123;&#123;</span> <span class="string">title</span> <span class="string">&#125;&#125;</span></div><div class="line"><span class="attr">date:</span> <span class="string">&#123;&#123;</span> <span class="string">date</span> <span class="string">&#125;&#125;</span></div><div class="line"><span class="attr">updated:</span> <span class="string">&#123;&#123;</span> <span class="string">date</span> <span class="string">&#125;&#125;</span></div><div class="line"><span class="attr">tags:</span></div><div class="line"><span class="attr">categories:</span></div><div class="line"><span class="attr">keywords:</span></div><div class="line"><span class="meta">---</span></div></pre></td></tr></table></figure>
 <h2 id="添加自定义widget"><a href="#添加自定义widget" class="headerlink" title="添加自定义widget"></a>添加自定义widget</h2><p>添加widget的方法很简单，首先在<code>/themes/light/layout/_widget/</code>文件夹中创建widget文件<code>your_widget.ejs</code>，然后在主题配置文件中加载你的widget，下面通过创建一个友情链的widget来看看具体操作。</p>
 <p>友情链接包含<code>连接名称</code>和<code>连接地址</code>两个属性，看到有的<a href="http://zipperary.com/2013/05/30/hexo-guide-4/" target="_blank" rel="external">教程中</a>把友情连接直接静态地写在widget中，修改起来不方便，所以要借助主题配置文件<code>_config.yml</code>和Hexo提供的访问配置文件的对象<code>theme</code>。</p>
 <p>首先，在<code>/themes/flight/_config.yml</code>文件中添加如下节。</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attr">blogrolls:</span> <span class="comment">#友情链接</span></div><div class="line"><span class="attr">  - Hexo:</span> http://zespia.tw/hexo/</div><div class="line"><span class="bullet">  -</span> Hexo Document: http://zespia.tw/hexo/docs/</div><div class="line"><span class="attr">  - github:</span> https://github.com/</div><div class="line"><span class="attr">  - jQuery:</span> http://jquery.com/</div></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attr">blogrolls:</span> <span class="comment">#友情链接</span></div><div class="line"><span class="attr">  - Hexo:</span> <span class="attr">http://zespia.tw/hexo/</span></div><div class="line"><span class="bullet">  -</span> <span class="string">Hexo</span> <span class="attr">Document:</span> <span class="attr">http://zespia.tw/hexo/docs/</span></div><div class="line"><span class="attr">  - github:</span> <span class="attr">https://github.com/</span></div><div class="line"><span class="attr">  - jQuery:</span> <span class="attr">http://jquery.com/</span></div></pre></td></tr></table></figure>
 <p>然后，在<code>/themes/light/layout/_widget/</code>文件夹中创建友情连接widget文件<code>blogroll.ejs</code>，内容可以这样：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;% if (theme.blogrolls &amp;&amp; theme.blogrolls.length &gt; 0) &#123; %&gt;</div><div class="line">&lt;div class=&quot;widget tag&quot;&gt;</div><div class="line">  &lt;h3 class=&quot;title&quot;&gt;&lt;%= __(&apos;blogroll&apos;) %&gt;&lt;/h3&gt;</div><div class="line">  &lt;ul class=&quot;entry&quot;&gt;</div><div class="line">  &lt;% theme.blogrolls.forEach(function(item)&#123; %&gt;</div><div class="line">    &lt;%</div><div class="line">      var description, linkURL</div><div class="line">      for (var tmp in item) &#123;</div><div class="line">        description = tmp;</div><div class="line">        linkURL = item[tmp];</div><div class="line">      &#125;</div><div class="line">    %&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;&lt;%- linkURL %&gt;&quot; target=&quot;_blank&quot;&gt;&lt;%= description %&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">  &lt;% &#125;); %&gt;</div><div class="line">  &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;% &#125; %&gt;</div></pre></td></tr></table></figure>
 <p>最后，修改主题配置文件<code>/themes/flight/_config.yml</code>，在<code>widgets</code>下增加<code>blogroll</code>。如下：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attr">widgets:</span></div><div class="line"><span class="bullet">  -</span> category</div><div class="line"><span class="bullet">  -</span> tag</div><div class="line"><span class="bullet">  -</span> recent_posts</div><div class="line"><span class="bullet">  -</span> blogroll</div></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attr">widgets:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">category</span></div><div class="line"><span class="bullet">  -</span> <span class="string">tag</span></div><div class="line"><span class="bullet">  -</span> <span class="string">recent_posts</span></div><div class="line"><span class="bullet">  -</span> <span class="string">blogroll</span></div></pre></td></tr></table></figure>
 <p>友情连接widget就创建好了，<code>hexo server</code>，在本地<code>http://localhost:4000/</code>查看效果吧！同样，我们可以使用此方法添加<code>个人说明</code>，<code>微博秀</code>等widget。</p>
 <h2 id="添加最新评论widget"><a href="#添加最新评论widget" class="headerlink" title="添加最新评论widget"></a>添加最新评论widget</h2><p>首先需要声明的是本屌用的是多说评论系统，所以最新评论widget也是利用多说提供的API来实现，上一节已经分享了怎么创建自定义的widget，现在我们按照上面的方法来一步一步实现该widget。</p>
 <p>在<code>/themes/light/layout/_widget/</code>文件夹下创建最新评论小挂件<code>recent_comments.ejs</code>，内容如下：</p>

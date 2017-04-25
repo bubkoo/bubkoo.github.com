@@ -2,786 +2,779 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://bubkoo.com/2014/03/25/mastering-async-error-handling-with-promises/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://bubkoo.com/demo/markdown-extra-syntax-for-hexo/index.html</loc>
     
-    <lastmod>2017-01-18T11:16:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2017/01/18/debouncing-throttling-explained-examples/</loc>
-    
-    <lastmod>2017-01-18T07:52:45.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2017/01/08/quick-tip-multiple-versions-node-nvm/</loc>
-    
-    <lastmod>2017-01-08T15:19:39.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2016/09/08/15-ways-to-write-self-documenting-javascript/</loc>
-    
-    <lastmod>2016-09-08T13:20:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2016/03/31/high-performance-animations/</loc>
-    
-    <lastmod>2016-03-31T09:48:03.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2016/03/28/styling-broken-images/</loc>
-    
-    <lastmod>2016-03-28T02:36:09.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/about/index.html</loc>
-    
-    <lastmod>2016-03-27T17:20:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2016/03/26/delivering-octicons-with-svg/</loc>
-    
-    <lastmod>2016-03-25T16:08:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2016/03/18/how-to-use-npm-as-a-build-tool/</loc>
-    
-    <lastmod>2016-03-18T07:54:37.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2016/02/24/what-you-can-do-with-gists-on-github/</loc>
-    
-    <lastmod>2016-02-24T02:22:25.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2015/11/19/prefetching-preloading-prebrowsing/</loc>
-    
-    <lastmod>2015-11-18T16:29:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2015/11/18/es6-in-depth-the-future/</loc>
-    
-    <lastmod>2015-11-17T18:33:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2015/11/18/es6-in-depth-modules/</loc>
-    
-    <lastmod>2015-11-17T18:32:42.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2015/11/18/es6-in-depth-subclassing/</loc>
-    
-    <lastmod>2015-11-17T18:31:37.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2015/11/18/es6-in-depth-let-and-const/</loc>
-    
-    <lastmod>2015-11-17T18:30:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2015/11/18/es6-in-depth-classes/</loc>
-    
-    <lastmod>2015-11-17T18:29:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2015/11/18/es6-in-depth-proxies-and-reflect/</loc>
-    
-    <lastmod>2015-11-17T18:28:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2015/11/18/es6-in-depth-generators-continued/</loc>
-    
-    <lastmod>2015-11-17T18:24:52.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2015/10/09/es6-in-depth-collections/</loc>
-    
-    <lastmod>2015-10-09T09:02:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2015/08/15/es6-in-depth-babel-and-broccoli/</loc>
-    
-    <lastmod>2015-08-15T05:12:38.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2014/04/21/http-cookies-explained/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/11/13/Partial-Application-in-JavaScript/</loc>
     
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2014/03/25/promises-and-async-programming/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2014/04/20/angry-birds-of-javascript-mighty-eagle-automation/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2014/05/28/ecma-262-3-in-detail-chapter-1-execution-contexts/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/404.html</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2014/05/31/ecma-262-3-in-detail-chapter-2-variable-object/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2014/06/01/ecma-262-3-in-detail-chapter-3-this/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2014/06/01/ecma-262-3-in-detail-chapter-4-scope-chain/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2014/06/12/ecma-262-3-in-detail-chapter-5-functions/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2014/07/13/ecma-262-3-in-detail-chapter-8-evaluation-strategy/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2014/06/15/ecma-262-3-in-detail-chapter-6-closures/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2014/06/21/ecma-262-3-in-detail-chapter-7-1-oop-the-general-theory/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2014/05/20/javascript-the-core/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2014/06/22/ecma-262-3-in-detail-chapter-7-2-oop-ecmascript-implementation/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2014/03/25/mastering-async-error-handling-with-promises/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2015/04/05/javascript-style-guide/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2014/04/19/angry-birds-of-javascript-big-brother-bird-patterns/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2014/12/02/use-nodemon-with-node-applications/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2015/02/01/using-the-tabindex-attribute/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2015/01/31/understanding-and-solving-internet-explorer-leak-patterns/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2014/03/22/javascript-promises/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2014/05/08/intro-to-aspect-oriented-programming/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2014/10/24/thinking-about-D3-s-data-bingding/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2015/01/25/Strange-JavaScript-Errors-and-How-to-Fix-Them/</loc>
     
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2015/04/17/a-visual-guide-to-css3-flexbox-properties/</loc>
     
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://bubkoo.com/2014/03/25/async-programming-is-messy/</loc>
+    <loc>http://bubkoo.com/2014/04/19/angry-birds-of-javascript-big-brother-bird-patterns/</loc>
     
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2015/02/02/best-practice-for-creating-custom-elements/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2014/02/22/JSHint-options/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2014/04/21/patterns-for-large-scale-javascript-application-architecture/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/2015/02/02/create-custom-elements/</loc>
-    
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/04/22/improve-cross-domain-communication-with-client-side-solutions/</loc>
     
-    <lastmod>2015-07-30T15:22:04.000Z</lastmod>
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/404.html</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2015/02/01/using-the-tabindex-attribute/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2014/04/20/angry-birds-of-javascript-mighty-eagle-automation/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2014/12/02/use-nodemon-with-node-applications/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2015/01/31/understanding-and-solving-internet-explorer-leak-patterns/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2014/10/24/thinking-about-D3-s-data-bingding/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2014/05/08/intro-to-aspect-oriented-programming/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2014/03/25/promises-and-async-programming/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2014/03/25/async-programming-is-messy/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2015/02/02/best-practice-for-creating-custom-elements/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2014/04/21/patterns-for-large-scale-javascript-application-architecture/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2014/02/22/JSHint-options/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2015/02/02/create-custom-elements/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2014/05/20/javascript-the-core/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2014/07/13/ecma-262-3-in-detail-chapter-8-evaluation-strategy/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2014/03/22/javascript-promises/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2015/04/05/javascript-style-guide/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2014/05/28/ecma-262-3-in-detail-chapter-1-execution-contexts/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2014/05/31/ecma-262-3-in-detail-chapter-2-variable-object/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2014/06/01/ecma-262-3-in-detail-chapter-3-this/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2014/06/01/ecma-262-3-in-detail-chapter-4-scope-chain/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2014/06/12/ecma-262-3-in-detail-chapter-5-functions/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2014/06/15/ecma-262-3-in-detail-chapter-6-closures/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2014/06/21/ecma-262-3-in-detail-chapter-7-1-oop-the-general-theory/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2014/06/22/ecma-262-3-in-detail-chapter-7-2-oop-ecmascript-implementation/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2014/04/21/http-cookies-explained/</loc>
+    
+    <lastmod>2017-04-25T01:13:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/demo/hexo-filter-flowchart/index.html</loc>
+    
+    <lastmod>2017-04-24T15:59:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2017/01/18/debouncing-throttling-explained-examples/</loc>
+    
+    <lastmod>2017-01-18T15:52:45.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2017/01/08/quick-tip-multiple-versions-node-nvm/</loc>
+    
+    <lastmod>2017-01-08T23:19:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2016/09/08/15-ways-to-write-self-documenting-javascript/</loc>
+    
+    <lastmod>2016-09-08T21:20:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2016/03/31/high-performance-animations/</loc>
+    
+    <lastmod>2016-03-31T17:48:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2016/03/28/styling-broken-images/</loc>
+    
+    <lastmod>2016-03-28T10:36:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2016/03/26/delivering-octicons-with-svg/</loc>
+    
+    <lastmod>2016-03-26T00:08:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2016/03/18/how-to-use-npm-as-a-build-tool/</loc>
+    
+    <lastmod>2016-03-18T15:54:37.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2016/02/24/what-you-can-do-with-gists-on-github/</loc>
+    
+    <lastmod>2016-02-24T10:22:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2015/11/19/prefetching-preloading-prebrowsing/</loc>
+    
+    <lastmod>2015-11-19T00:29:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2015/11/18/es6-in-depth-the-future/</loc>
+    
+    <lastmod>2015-11-18T02:33:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2015/11/18/es6-in-depth-modules/</loc>
+    
+    <lastmod>2015-11-18T02:32:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2015/11/18/es6-in-depth-subclassing/</loc>
+    
+    <lastmod>2015-11-18T02:31:37.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2015/11/18/es6-in-depth-let-and-const/</loc>
+    
+    <lastmod>2015-11-18T02:30:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2015/11/18/es6-in-depth-classes/</loc>
+    
+    <lastmod>2015-11-18T02:29:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2015/11/18/es6-in-depth-proxies-and-reflect/</loc>
+    
+    <lastmod>2015-11-18T02:28:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2015/11/18/es6-in-depth-generators-continued/</loc>
+    
+    <lastmod>2015-11-18T02:24:52.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2015/10/09/es6-in-depth-collections/</loc>
+    
+    <lastmod>2015-10-09T17:02:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bubkoo.com/2015/08/15/es6-in-depth-babel-and-broccoli/</loc>
+    
+    <lastmod>2015-08-15T13:12:38.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2015/07/24/es6-in-depth-symbols/</loc>
     
-    <lastmod>2015-07-23T17:39:57.000Z</lastmod>
+    <lastmod>2015-07-24T01:39:57.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2015/07/22/working-with-shapes-in-web-design/</loc>
     
-    <lastmod>2015-07-22T07:16:15.000Z</lastmod>
+    <lastmod>2015-07-22T15:16:15.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2015/06/28/es6-in-depth-arrow-functions/</loc>
     
-    <lastmod>2015-06-28T15:36:05.000Z</lastmod>
+    <lastmod>2015-06-28T23:36:05.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2015/06/28/es6-in-depth-destructuring/</loc>
     
-    <lastmod>2015-06-28T09:36:05.000Z</lastmod>
+    <lastmod>2015-06-28T17:36:05.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2015/06/27/es6-in-depth-rest-parameters-and-defaults/</loc>
     
-    <lastmod>2015-06-27T09:36:05.000Z</lastmod>
+    <lastmod>2015-06-27T17:36:05.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2015/06/25/css-methodologies/</loc>
     
-    <lastmod>2015-06-25T02:52:08.000Z</lastmod>
+    <lastmod>2015-06-25T10:52:08.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2015/06/23/es6-in-depth-template-strings/</loc>
     
-    <lastmod>2015-06-22T20:16:48.000Z</lastmod>
+    <lastmod>2015-06-23T04:16:48.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2015/06/20/es6-in-depth-generators/</loc>
     
-    <lastmod>2015-06-20T09:35:22.000Z</lastmod>
+    <lastmod>2015-06-20T17:35:22.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2015/06/15/es6-in-depth-iterators-and-the-for-of-loop/</loc>
     
-    <lastmod>2015-06-14T18:28:29.000Z</lastmod>
+    <lastmod>2015-06-15T02:28:29.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2015/06/14/es6-in-depth-an-introduction/</loc>
     
-    <lastmod>2015-06-14T03:40:52.000Z</lastmod>
+    <lastmod>2015-06-14T11:40:52.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2015/06/10/7-essential-javascript-functions/</loc>
     
-    <lastmod>2015-06-10T03:40:13.000Z</lastmod>
+    <lastmod>2015-06-10T11:40:13.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2015/05/08/introduction-to-fetch/</loc>
     
-    <lastmod>2015-05-08T03:39:23.000Z</lastmod>
+    <lastmod>2015-05-08T11:39:23.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/04/18/angry-birds-of-javascript-orange-bird-templating/</loc>
     
-    <lastmod>2014-04-18T13:39:35.000Z</lastmod>
+    <lastmod>2014-04-18T21:39:35.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/04/17/angry-birds-of-javascript-green-bird-mocking/</loc>
     
-    <lastmod>2014-04-17T13:39:20.000Z</lastmod>
+    <lastmod>2014-04-17T21:39:20.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/04/14/angry-birds-of-javascript-white-bird-linting/</loc>
     
-    <lastmod>2014-04-14T09:11:47.000Z</lastmod>
+    <lastmod>2014-04-14T17:11:47.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/03/29/angry-birds-of-javascript-black-bird-backbone/</loc>
     
-    <lastmod>2014-03-29T07:28:40.000Z</lastmod>
+    <lastmod>2014-03-29T15:28:40.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/03/29/angry-birds-of-javascript-yellow-bird-requirejs/</loc>
     
-    <lastmod>2014-03-28T16:01:16.000Z</lastmod>
+    <lastmod>2014-03-29T00:01:16.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/03/28/angry-birds-of-javascript-blue-bird-events/</loc>
     
-    <lastmod>2014-03-28T13:35:58.000Z</lastmod>
+    <lastmod>2014-03-28T21:35:58.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/03/28/angry-birds-of-javascript-red-bird-iife/</loc>
     
-    <lastmod>2014-03-28T04:23:29.000Z</lastmod>
+    <lastmod>2014-03-28T12:23:29.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/03/28/angry-birds-of-javascript-series/</loc>
     
-    <lastmod>2014-03-28T02:52:45.000Z</lastmod>
+    <lastmod>2014-03-28T10:52:45.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/03/25/simplifying-async-with-promises/</loc>
     
-    <lastmod>2014-03-24T16:45:32.000Z</lastmod>
+    <lastmod>2014-03-25T00:45:32.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/03/20/some-javascript-quiz-from-perfectionkills/</loc>
     
-    <lastmod>2014-03-20T02:20:47.000Z</lastmod>
+    <lastmod>2014-03-20T10:20:47.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/03/19/understanding-the-flag-g-of-JavaScript's-regular-expressions/</loc>
     
-    <lastmod>2014-03-19T11:22:18.000Z</lastmod>
+    <lastmod>2014-03-19T19:22:18.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/03/12/prototypes-in-javascript/</loc>
     
-    <lastmod>2014-03-12T02:26:25.000Z</lastmod>
+    <lastmod>2014-03-12T10:26:25.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/03/10/explaining-javascript-scope-and-closures/</loc>
     
-    <lastmod>2014-03-10T12:39:23.000Z</lastmod>
+    <lastmod>2014-03-10T20:39:23.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/03/01/learning-and-using-the-user-timing-api/</loc>
     
-    <lastmod>2014-03-01T15:53:16.000Z</lastmod>
+    <lastmod>2014-03-01T23:53:16.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/02/19/javascript-profiling-chrome-developer-tools/</loc>
     
-    <lastmod>2014-02-18T17:13:32.000Z</lastmod>
+    <lastmod>2014-02-19T01:13:32.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/02/18/bulletproof-javascript-benchmarks/</loc>
     
-    <lastmod>2014-02-18T12:51:29.000Z</lastmod>
+    <lastmod>2014-02-18T20:51:29.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/02/13/writing-fast-memory-efficient-javascript/</loc>
     
-    <lastmod>2014-02-13T05:35:27.000Z</lastmod>
+    <lastmod>2014-02-13T13:35:27.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/02/07/mongodb-authentication/</loc>
     
-    <lastmod>2014-02-07T06:21:42.000Z</lastmod>
+    <lastmod>2014-02-07T14:21:42.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/23/deep-in-delete/</loc>
     
-    <lastmod>2014-01-23T08:26:07.000Z</lastmod>
+    <lastmod>2014-01-23T16:26:07.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/19/angular/make-your-own-angular-part-1-scopes-and-digest/</loc>
     
-    <lastmod>2014-01-19T13:26:18.000Z</lastmod>
+    <lastmod>2014-01-19T21:26:18.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/17/sort-algorithm/archives/</loc>
     
-    <lastmod>2014-01-16T16:54:42.000Z</lastmod>
+    <lastmod>2014-01-17T00:54:42.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/15/sort-algorithm/radix-sort/</loc>
     
-    <lastmod>2014-01-15T14:38:55.000Z</lastmod>
+    <lastmod>2014-01-15T22:38:55.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/15/sort-algorithm/bucket-sort/</loc>
     
-    <lastmod>2014-01-15T14:27:51.000Z</lastmod>
+    <lastmod>2014-01-15T22:27:51.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/15/sort-algorithm/bogo-sort/</loc>
     
-    <lastmod>2014-01-15T14:04:22.000Z</lastmod>
+    <lastmod>2014-01-15T22:04:22.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/15/sort-algorithm/shaker-sort/</loc>
     
-    <lastmod>2014-01-15T12:50:02.000Z</lastmod>
+    <lastmod>2014-01-15T20:50:02.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/15/sort-algorithm/merge-sort/</loc>
     
-    <lastmod>2014-01-14T18:32:28.000Z</lastmod>
+    <lastmod>2014-01-15T02:32:28.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/15/sort-algorithm/shell-sort/</loc>
     
-    <lastmod>2014-01-14T16:54:59.000Z</lastmod>
+    <lastmod>2014-01-15T00:54:59.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/14/sort-algorithm/insertion-sort/</loc>
     
-    <lastmod>2014-01-14T08:53:07.000Z</lastmod>
+    <lastmod>2014-01-14T16:53:07.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/14/sort-algorithm/heap-sort/</loc>
     
-    <lastmod>2014-01-14T02:42:50.000Z</lastmod>
+    <lastmod>2014-01-14T10:42:50.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/13/sort-algorithm/selection-sort/</loc>
     
-    <lastmod>2014-01-13T05:37:21.000Z</lastmod>
+    <lastmod>2014-01-13T13:37:21.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/12/sort-algorithm/quick-sort/</loc>
     
-    <lastmod>2014-01-12T12:55:42.000Z</lastmod>
+    <lastmod>2014-01-12T20:55:42.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/12/sort-algorithm/bubble-sort/</loc>
     
-    <lastmod>2014-01-12T12:00:16.000Z</lastmod>
+    <lastmod>2014-01-12T20:00:16.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/12/sort-algorithm/array-shuffle/</loc>
     
-    <lastmod>2014-01-12T11:38:36.000Z</lastmod>
+    <lastmod>2014-01-12T19:38:36.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/06/how-browsers-work-behind-the-scenes-of-modern-web-browsers/</loc>
     
-    <lastmod>2014-01-07T12:04:21.000Z</lastmod>
+    <lastmod>2014-01-07T20:04:21.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/06/generate-and-debug-with-source-map/</loc>
     
-    <lastmod>2014-01-06T12:00:10.000Z</lastmod>
+    <lastmod>2014-01-06T20:00:10.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/05/introduction-to-javascript-source-maps/</loc>
     
-    <lastmod>2014-01-05T08:56:39.000Z</lastmod>
+    <lastmod>2014-01-05T16:56:39.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/04/sublime-text-3-plugins/</loc>
     
-    <lastmod>2014-01-04T10:56:32.000Z</lastmod>
+    <lastmod>2014-01-04T18:56:32.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/04/emmet-a-toolkit-for-improving-html-css-workflow/</loc>
     
-    <lastmod>2014-01-04T05:21:16.000Z</lastmod>
+    <lastmod>2014-01-04T13:21:16.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/03/compress-hexo's-default-css/</loc>
     
-    <lastmod>2014-01-02T19:18:03.000Z</lastmod>
+    <lastmod>2014-01-03T03:18:03.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/02/angular/ui-router/guide/index/</loc>
     
-    <lastmod>2014-01-01T19:00:12.000Z</lastmod>
+    <lastmod>2014-01-02T03:00:12.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/02/angular/ui-router/guide/the-components/</loc>
     
-    <lastmod>2014-01-01T18:32:32.000Z</lastmod>
+    <lastmod>2014-01-02T02:32:32.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/02/angular/ui-router/guide/url-routing/</loc>
     
-    <lastmod>2014-01-01T16:39:20.000Z</lastmod>
+    <lastmod>2014-01-02T00:39:20.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/01/angular/ui-router/guide/multiple-named-views/</loc>
     
-    <lastmod>2014-01-01T15:01:44.000Z</lastmod>
+    <lastmod>2014-01-01T23:01:44.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/01/angular/ui-router/guide/nested-states%20&%20nested-views/</loc>
     
-    <lastmod>2014-01-01T12:55:08.000Z</lastmod>
+    <lastmod>2014-01-01T20:55:08.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/01/angular/ui-router/guide/state-manager/</loc>
     
-    <lastmod>2014-01-01T08:31:40.000Z</lastmod>
+    <lastmod>2014-01-01T16:31:40.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2014/01/01/angular/AngualrJS-notes/</loc>
     
-    <lastmod>2014-01-01T06:05:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bubkoo.com/resume/index.html</loc>
-    
-    <lastmod>2013-12-17T10:37:44.000Z</lastmod>
+    <lastmod>2014-01-01T14:05:19.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://bubkoo.com/2013/12/16/hexo-issure/</loc>
     
-    <lastmod>2013-12-17T03:58:24.000Z</lastmod>
+    <lastmod>2013-12-17T11:58:24.000Z</lastmod>
     
   </url>
   
