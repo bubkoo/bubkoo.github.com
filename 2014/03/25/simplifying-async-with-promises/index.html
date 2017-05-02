@@ -104,7 +104,43 @@ ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
 <p>所以，Promises 一方面可以作为回调函数注册的标准 API，同时也为如何以及何时调用回调函数和处理异常提供了标准的、可预测的行为。</p>
 <h2 id="6-怎么处理-trycatchfinally"><a href="#6-怎么处理-try-catch-finally" class="headerlink" title="6. 怎么处理 try/catch/finally"></a>6. 怎么处理 try/catch/finally</h2><p>现在，我们已经回到了“调用 - 返回”编程模型，并从函数签名中移除了回调函数，我们还需要一种方式来处理失败的情况。理想情况下，我们希望使用 try/catch/finally，或者是至少在外观和行为上与它相似，并且在面对异步时可以正常工作。</p>
 <p>在<a href="../mastering-async-error-handling-with-promises">用 Promises 控制异步错误处理</a>一文中，我们将把拼图的最后一块填到位，看看如何用 Promises 模仿 try/catch/finally。</p>
-<p class="j-quote">原文：<a href="http://know.cujojs.com/tutorials/async/simplifying-async-with-promises" target="_blank" rel="external">Simplifying Async with Promises</a></p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/async/" title="Async">Async</a> <a href="/tags/promise/" title="Promise">Promise</a> <a href="/tags/when/" title="When">When</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/03/25/async-programming-is-messy/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">凌乱的异步编程</span></a><a href="/2014/03/25/mastering-async-error-handling-with-promises/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">用 Promises 控制异步错误处理</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
+<p class="j-quote">原文：<a href="http://know.cujojs.com/tutorials/async/simplifying-async-with-promises" target="_blank" rel="external">Simplifying Async with Promises</a></p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/async/" title="Async">Async</a> <a href="/tags/promise/" title="Promise">Promise</a> <a href="/tags/when/" title="When">When</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/03/25/async-programming-is-messy/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">凌乱的异步编程</span></a><a href="/2014/03/25/mastering-async-error-handling-with-promises/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">用 Promises 控制异步错误处理</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><style>.gitment-root-container{
+  margin: 40px 0;
+}
+.gitment-container {
+  font-size: 12px;
+}
+.gitment-comment-main, .gitment-editor-main{
+  background-color: #fff;
+}
+.gitment-footer-container{
+  color: #999;
+}
+.gitment-comment-main,
+.gitment-editor-main{
+  background: #fff;
+}
+a.gitment-footer-project-link,
+a.gitment-footer-project-link:visited,
+a.gitment-editor-login-link,
+a.gitment-editor-login-link:visited {
+  color: #1ba1e2;
+  opacity: .3;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+a.gitment-footer-project-link:hover,
+a.gitment-editor-login-link:hover{
+  opacity: 1;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}</style><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
   owner: 'bubkoo',
   repo:  'bubkoo.github.com',
   oauth: {

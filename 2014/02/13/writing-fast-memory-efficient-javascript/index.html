@@ -255,7 +255,43 @@ ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
 <p><img src="http://bubkoo.qiniudn.com/barometer.jpg" alt=""></p>
 <p>谨记关注优化，但为了便利也可以舍弃一些很小的优化。例如，有些开发者选择 <code>forEach</code> 和 <code>Object.keys</code> 代替 <code>for</code> 和 <code>for..in</code> 循环，尽管这会更慢但使用起来更方便。要保持清醒的头脑，知道什么优化是需要的，什么优化是不需要的。</p>
 <p>同时注意，虽然 JavaScript 引擎越来越快，但下一个真正的瓶颈是 DOM。回流和重绘的减少也是重要的，所以必要时再去操作 DOM。还有就是要关注网络，HTTP 请求是珍贵的，特别是移动终端上，因此要使用 HTTP 的缓存去减少资源的加载。</p>
-<p>记住以上这几点，你就已经获取了本文的大部分信息，希望对你有所帮助！</p></section><footer class="article-footer clearfix"><div class="tags"><a href="/tags/performance/" title="Performance">Performance</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/02/18/bulletproof-javascript-benchmarks/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">【译】Javascript 基准测试</span></a><a href="/2014/02/07/mongodb-authentication/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">MongoDB 用户和身份验证</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
+<p>记住以上这几点，你就已经获取了本文的大部分信息，希望对你有所帮助！</p></section><footer class="article-footer clearfix"><div class="tags"><a href="/tags/performance/" title="Performance">Performance</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/02/18/bulletproof-javascript-benchmarks/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">【译】Javascript 基准测试</span></a><a href="/2014/02/07/mongodb-authentication/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">MongoDB 用户和身份验证</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><style>.gitment-root-container{
+  margin: 40px 0;
+}
+.gitment-container {
+  font-size: 12px;
+}
+.gitment-comment-main, .gitment-editor-main{
+  background-color: #fff;
+}
+.gitment-footer-container{
+  color: #999;
+}
+.gitment-comment-main,
+.gitment-editor-main{
+  background: #fff;
+}
+a.gitment-footer-project-link,
+a.gitment-footer-project-link:visited,
+a.gitment-editor-login-link,
+a.gitment-editor-login-link:visited {
+  color: #1ba1e2;
+  opacity: .3;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+a.gitment-footer-project-link:hover,
+a.gitment-editor-login-link:hover{
+  opacity: 1;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}</style><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
   owner: 'bubkoo',
   repo:  'bubkoo.github.com',
   oauth: {

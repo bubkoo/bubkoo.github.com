@@ -85,7 +85,43 @@ ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
 <h3 id="统计学意义"><a href="#统计学意义" class="headerlink" title="统计学意义"></a>统计学意义</h3><p>大多数基准测试产生的结果没都有统计学意义，John Resig 在他的文章（<a href="http://ejohn.org/blog/javascript-benchmark-quality/" target="_blank" rel="external">JavaScript benchmark quality</a>）中讨论过这个问题。总之，有必要考虑每个结果的误差幅度，并尽可能减少。使用更大的样本量，并沉着等待测试完成，有助于减少误差幅度。</p>
 <h3 id="跨浏览器测试"><a href="#跨浏览器测试" class="headerlink" title="跨浏览器测试"></a>跨浏览器测试</h3><p>如果你想在不同的浏览器下运行基准测试并得到可靠的结果，一定要在真正的浏览器环境中进行测试。不要信任 IE 的兼容模式 - 这些都<a href="http://jsperf.com/join-concat#comments" target="_blank" rel="external">不同于实际的浏览器版本</a>。</p>
 <p>同时，请注意这一事实，IE（IE8 及其以下）将脚本的最大指令数限制为 500 万，而不是像其他浏览器一样，限制一个脚本的执行时间。在现代的硬件环境下，一个密集型 CPU 可以在半秒内触发这个脚本，如果你有一个相当快的系统，在 IE 中你可能会遇到“脚本警告”对话框，在这种情况下，最好的解决方案是修改您的 Windows 注册表，增加指令的数量。幸运的是，微软提供了一个简单的方法来做这个，所有你需要做的就是运行一个简单的“修复”向导，更好的是，在 IE9 中删除了这个愚蠢的限制。</p>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>不管您只是运行一些基准测试，还是编写自己的测试套件，甚至是编写您自己的基准测试库，都比您在本文中看到的要复杂得多。Benchmark.js 和 jsPerf <a href="https://github.com/mathiasbynens/benchmark.js/commits/master" target="_blank" rel="external">每周更新一次</a>，伴随着 bug 的修复、新的特性和一些提高测试结果的准确性的小技巧。如果您只想在当前流行的浏览器下做一些基准测试，那就不要重复造轮子。。。</p></section><footer class="article-footer clearfix"><div class="tags"><a href="/tags/performance/" title="Performance">Performance</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/02/19/javascript-profiling-chrome-developer-tools/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">使用 Developer Tools 进行 JavaScript 性能分析</span></a><a href="/2014/02/13/writing-fast-memory-efficient-javascript/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">【译】编写快速、高效的 JavaScript</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>不管您只是运行一些基准测试，还是编写自己的测试套件，甚至是编写您自己的基准测试库，都比您在本文中看到的要复杂得多。Benchmark.js 和 jsPerf <a href="https://github.com/mathiasbynens/benchmark.js/commits/master" target="_blank" rel="external">每周更新一次</a>，伴随着 bug 的修复、新的特性和一些提高测试结果的准确性的小技巧。如果您只想在当前流行的浏览器下做一些基准测试，那就不要重复造轮子。。。</p></section><footer class="article-footer clearfix"><div class="tags"><a href="/tags/performance/" title="Performance">Performance</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/02/19/javascript-profiling-chrome-developer-tools/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">使用 Developer Tools 进行 JavaScript 性能分析</span></a><a href="/2014/02/13/writing-fast-memory-efficient-javascript/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">【译】编写快速、高效的 JavaScript</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><style>.gitment-root-container{
+  margin: 40px 0;
+}
+.gitment-container {
+  font-size: 12px;
+}
+.gitment-comment-main, .gitment-editor-main{
+  background-color: #fff;
+}
+.gitment-footer-container{
+  color: #999;
+}
+.gitment-comment-main,
+.gitment-editor-main{
+  background: #fff;
+}
+a.gitment-footer-project-link,
+a.gitment-footer-project-link:visited,
+a.gitment-editor-login-link,
+a.gitment-editor-login-link:visited {
+  color: #1ba1e2;
+  opacity: .3;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+a.gitment-footer-project-link:hover,
+a.gitment-editor-login-link:hover{
+  opacity: 1;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}</style><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
   owner: 'bubkoo',
   repo:  'bubkoo.github.com',
   oauth: {

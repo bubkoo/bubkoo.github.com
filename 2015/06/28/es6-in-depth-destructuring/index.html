@@ -111,7 +111,43 @@ ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
 <h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>我们看到，解构赋值在很多场景下都很实用。在 Mozilla，我们已经有很多经验。Lars Hansen 在 10 年前就向 Opera 引入了解构赋值，Brendan Eich 在稍微晚点也给 Firefox 添加了支持，最早出现在 Firefox 2 中。因此，解构赋值已经渗透到我们每天对 JS 的使用中，悄悄地使我们的代码更简短、整洁。</p>
 <p>几周之前，我说过 ES6 将改变我们的编码方式。这些简单地改进，可以在几分钟内就掌握使用，这些改进正是我们需要的。总的来说，它们最终将影响我们日常的每项工作，是一种革命式进化。</p>
 <p>开发版的 Chrome 已经支持解构赋值，毋庸置疑，其他浏览器在不久将来也会陆续支持。如果现在你想使用该特性，你可以使用 <a href="http://babeljs.io/" target="_blank" rel="external">Babel</a> 或 <a href="https://github.com/google/traceur-compiler#what-is-traceur" target="_blank" rel="external">Traceur</a> 这两个编译器。</p>
-<p class="j-quote">参考原文：<a href="https://hacks.mozilla.org/2015/05/es6-in-depth-destructuring/" target="_blank" rel="external">ES6 In Depth: Destructuring</a><br>原文作者：<a href="https://hacks.mozilla.org/author/jorendorffmozillacom/" target="_blank" rel="external">Jason Orendorff</a><br>原文日期：2015-05-28 16:12</p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/es6/" title="ES6">ES6</a></div></footer></div><nav class="article-nav clearfix"><a href="/2015/06/28/es6-in-depth-arrow-functions/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">深入解析 ES6：箭头函数</span></a><a href="/2015/06/27/es6-in-depth-rest-parameters-and-defaults/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">深入解析 ES6：Rest 参数和参数默认值</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
+<p class="j-quote">参考原文：<a href="https://hacks.mozilla.org/2015/05/es6-in-depth-destructuring/" target="_blank" rel="external">ES6 In Depth: Destructuring</a><br>原文作者：<a href="https://hacks.mozilla.org/author/jorendorffmozillacom/" target="_blank" rel="external">Jason Orendorff</a><br>原文日期：2015-05-28 16:12</p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/es6/" title="ES6">ES6</a></div></footer></div><nav class="article-nav clearfix"><a href="/2015/06/28/es6-in-depth-arrow-functions/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">深入解析 ES6：箭头函数</span></a><a href="/2015/06/27/es6-in-depth-rest-parameters-and-defaults/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">深入解析 ES6：Rest 参数和参数默认值</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><style>.gitment-root-container{
+  margin: 40px 0;
+}
+.gitment-container {
+  font-size: 12px;
+}
+.gitment-comment-main, .gitment-editor-main{
+  background-color: #fff;
+}
+.gitment-footer-container{
+  color: #999;
+}
+.gitment-comment-main,
+.gitment-editor-main{
+  background: #fff;
+}
+a.gitment-footer-project-link,
+a.gitment-footer-project-link:visited,
+a.gitment-editor-login-link,
+a.gitment-editor-login-link:visited {
+  color: #1ba1e2;
+  opacity: .3;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+a.gitment-footer-project-link:hover,
+a.gitment-editor-login-link:hover{
+  opacity: 1;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}</style><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
   owner: 'bubkoo',
   repo:  'bubkoo.github.com',
   oauth: {

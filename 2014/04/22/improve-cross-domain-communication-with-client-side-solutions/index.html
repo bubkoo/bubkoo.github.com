@@ -119,7 +119,43 @@ ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">http:<span class="comment">//www.otherapp.com/index.html</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">postMessage</span>(<span class="params">msg</span>)</span>&#123;</div><div class="line">     <span class="keyword">var</span> targetWindow = parent.window;</div><div class="line">      targetWindow.postMessage(msg,<span class="string">"*"</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleReceive</span>(<span class="params">msg</span>)</span>&#123;</div><div class="line"> <span class="keyword">var</span> object = dojo.fromJson(msg);</div><div class="line"> <span class="keyword">if</span>(object.status == “ok”)&#123;</div><div class="line">	<span class="comment">//continue to do other things</span></div><div class="line">	……</div><div class="line"> &#125;<span class="keyword">else</span>&#123;</div><div class="line">	<span class="comment">//retry sending msg</span></div><div class="line">	……</div><div class="line"> &#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"message"</span>, handleReceive, <span class="literal">false</span>);</div><div class="line"><span class="built_in">window</span>.onLoad = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    postMessage(<span class="string">"already loaded"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>父窗口监听了消息事件，当消息到达时，它首先检查消息是否是来 <code>www.otherapp.com</code>，如果是就发送一个反馈消息。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">http:<span class="comment">//www.myapp.com/index.html</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleReceive</span>(<span class="params">event</span>)</span>&#123; </div><div class="line">    <span class="keyword">if</span>(event.origin != <span class="string">"http://www.otherapp.com"</span>)</div><div class="line">        <span class="keyword">return</span>; </div><div class="line">     <span class="comment">//process data</span></div><div class="line">     ……</div><div class="line">     <span class="keyword">var</span> otherAppFrame = <span class="built_in">document</span>.getElementById(“otherApp”) </div><div class="line">     otherAppFrame.postMessage(“&#123;<span class="attr">status</span>:’ok’&#125;”,”http:<span class="comment">//www.otherapp.com”);</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"message"</span>, handleReceive, <span class="literal">false</span>);</div></pre></td></tr></table></figure>
-<p>上面的代码可以运行在 Firefox 3+、IE8 以上、Google Chrome 2、Opera 9+ 和 Safari 4 上。如果你的页面不想收到任何消息，就不要添加消息监听，进而忽略所有消息。</p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/cross-domain/" title="Cross Domain">Cross Domain</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/05/08/intro-to-aspect-oriented-programming/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">面向切面编程（AOP）简介</span></a><a href="/2014/04/21/patterns-for-large-scale-javascript-application-architecture/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">大型 JavaScript 架构中的设计模式</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
+<p>上面的代码可以运行在 Firefox 3+、IE8 以上、Google Chrome 2、Opera 9+ 和 Safari 4 上。如果你的页面不想收到任何消息，就不要添加消息监听，进而忽略所有消息。</p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/cross-domain/" title="Cross Domain">Cross Domain</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/05/08/intro-to-aspect-oriented-programming/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">面向切面编程（AOP）简介</span></a><a href="/2014/04/21/patterns-for-large-scale-javascript-application-architecture/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">大型 JavaScript 架构中的设计模式</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><style>.gitment-root-container{
+  margin: 40px 0;
+}
+.gitment-container {
+  font-size: 12px;
+}
+.gitment-comment-main, .gitment-editor-main{
+  background-color: #fff;
+}
+.gitment-footer-container{
+  color: #999;
+}
+.gitment-comment-main,
+.gitment-editor-main{
+  background: #fff;
+}
+a.gitment-footer-project-link,
+a.gitment-footer-project-link:visited,
+a.gitment-editor-login-link,
+a.gitment-editor-login-link:visited {
+  color: #1ba1e2;
+  opacity: .3;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+a.gitment-footer-project-link:hover,
+a.gitment-editor-login-link:hover{
+  opacity: 1;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}</style><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
   owner: 'bubkoo',
   repo:  'bubkoo.github.com',
   oauth: {

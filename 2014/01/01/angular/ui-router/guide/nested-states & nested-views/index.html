@@ -97,7 +97,43 @@ ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">$stateProvider</div><div class="line">    .state(<span class="string">'contacts'</span>, &#123;</div><div class="line">        <span class="attr">abstract</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">url</span>: <span class="string">'/contacts'</span>,</div><div class="line">        <span class="attr">templateUrl</span>: <span class="string">'contacts.html'</span>,</div><div class="line">        <span class="attr">controller</span>: <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</div><div class="line">            $scope.contacts = [&#123; <span class="attr">id</span>:<span class="number">0</span>, <span class="attr">name</span>: <span class="string">"Alice"</span> &#125;, &#123; <span class="attr">id</span>:<span class="number">1</span>, <span class="attr">name</span>: <span class="string">"Bob"</span> &#125;];</div><div class="line">        &#125;    		</div><div class="line">    &#125;)</div><div class="line">    .state(<span class="string">'contacts.list'</span>, &#123;</div><div class="line">        <span class="attr">url</span>: <span class="string">'/list'</span>,</div><div class="line">        <span class="attr">templateUrl</span>: <span class="string">'contacts.list.html'</span></div><div class="line">    &#125;)</div><div class="line">    .state(<span class="string">'contacts.detail'</span>, &#123;</div><div class="line">        <span class="attr">url</span>: <span class="string">'/:id'</span>,</div><div class="line">        <span class="attr">templateUrl</span>: <span class="string">'contacts.detail.html'</span>,</div><div class="line">        <span class="attr">controller</span>: <span class="function"><span class="keyword">function</span>(<span class="params">$scope, $stateParams</span>)</span>&#123;</div><div class="line">          $scope.person = $scope.contacts[$stateParams.id];</div><div class="line">        &#125;</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- contacts.html --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Contacts Page<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ui-view</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- contacts.list.html --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"person in contacts"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">ng-href</span>=<span class="string">"#/contacts/&#123;&#123;person.id&#125;&#125;"</span>&gt;</span>&#123;&#123;person.name&#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- contacts.detail.html --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123; person.name &#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div></pre></td></tr></table></figure></section><footer class="article-footer clearfix"><div class="tags"><a href="/tags/angularjs/" title="AngularJS">AngularJS</a> <a href="/tags/ui-router/" title="ui-router">ui-router</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/01/01/angular/ui-router/guide/multiple-named-views/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">学习 ui-router - 多个命名的视图</span></a><a href="/2014/01/01/angular/ui-router/guide/state-manager/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">学习 ui-router - 管理状态</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- contacts.detail.html --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123; person.name &#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div></pre></td></tr></table></figure></section><footer class="article-footer clearfix"><div class="tags"><a href="/tags/angularjs/" title="AngularJS">AngularJS</a> <a href="/tags/ui-router/" title="ui-router">ui-router</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/01/01/angular/ui-router/guide/multiple-named-views/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">学习 ui-router - 多个命名的视图</span></a><a href="/2014/01/01/angular/ui-router/guide/state-manager/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">学习 ui-router - 管理状态</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><style>.gitment-root-container{
+  margin: 40px 0;
+}
+.gitment-container {
+  font-size: 12px;
+}
+.gitment-comment-main, .gitment-editor-main{
+  background-color: #fff;
+}
+.gitment-footer-container{
+  color: #999;
+}
+.gitment-comment-main,
+.gitment-editor-main{
+  background: #fff;
+}
+a.gitment-footer-project-link,
+a.gitment-footer-project-link:visited,
+a.gitment-editor-login-link,
+a.gitment-editor-login-link:visited {
+  color: #1ba1e2;
+  opacity: .3;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+a.gitment-footer-project-link:hover,
+a.gitment-editor-login-link:hover{
+  opacity: 1;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}</style><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
   owner: 'bubkoo',
   repo:  'bubkoo.github.com',
   oauth: {

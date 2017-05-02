@@ -67,7 +67,43 @@ ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
 <p>ES6 改变了我们编写 JS 代码的方式。</p>
 <p>本系列将逐步展示 ES6 的这些新特性，并介绍如何使用这些新特性。</p>
 <p>我们将从一个典型的人们期待了数十年的“缺失功能”开始，所以，下周我们一起来看看 ES6 的迭代器（Iterator）和新的 <code>for-of</code> 循环。</p>
-<p class="j-quote">参考原文：<a href="https://hacks.mozilla.org/2015/04/es6-in-depth-an-introduction/" target="_blank" rel="external">ES6 In Depth: An Introduction</a><br>原文作者：<a href="https://hacks.mozilla.org/author/jorendorffmozillacom/" target="_blank" rel="external">Jason Orendorff</a><br>原文日期：2015-04-23 20:55</p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/es6/" title="ES6">ES6</a></div></footer></div><nav class="article-nav clearfix"><a href="/2015/06/15/es6-in-depth-iterators-and-the-for-of-loop/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">深入解析 ES6：Iterator 和 for-of 循环</span></a><a href="/2015/06/10/7-essential-javascript-functions/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">几个必备的 JavaScript 函数</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
+<p class="j-quote">参考原文：<a href="https://hacks.mozilla.org/2015/04/es6-in-depth-an-introduction/" target="_blank" rel="external">ES6 In Depth: An Introduction</a><br>原文作者：<a href="https://hacks.mozilla.org/author/jorendorffmozillacom/" target="_blank" rel="external">Jason Orendorff</a><br>原文日期：2015-04-23 20:55</p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/es6/" title="ES6">ES6</a></div></footer></div><nav class="article-nav clearfix"><a href="/2015/06/15/es6-in-depth-iterators-and-the-for-of-loop/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">深入解析 ES6：Iterator 和 for-of 循环</span></a><a href="/2015/06/10/7-essential-javascript-functions/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">几个必备的 JavaScript 函数</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><style>.gitment-root-container{
+  margin: 40px 0;
+}
+.gitment-container {
+  font-size: 12px;
+}
+.gitment-comment-main, .gitment-editor-main{
+  background-color: #fff;
+}
+.gitment-footer-container{
+  color: #999;
+}
+.gitment-comment-main,
+.gitment-editor-main{
+  background: #fff;
+}
+a.gitment-footer-project-link,
+a.gitment-footer-project-link:visited,
+a.gitment-editor-login-link,
+a.gitment-editor-login-link:visited {
+  color: #1ba1e2;
+  opacity: .3;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+a.gitment-footer-project-link:hover,
+a.gitment-editor-login-link:hover{
+  opacity: 1;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}</style><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
   owner: 'bubkoo',
   repo:  'bubkoo.github.com',
   oauth: {

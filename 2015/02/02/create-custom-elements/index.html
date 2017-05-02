@@ -231,7 +231,43 @@ ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
 <p>然而，很不幸，在它的提升过程、边界案例，以及末日般的复杂场景中，需要处理大量的时序问题。<element> 因此被迫搁置。2013 年 8 月，Dimitri Glazkov 在 <a href="http://lists.w3.org/Archives/Public/public-webapps/2013JulSep/0287.html" target="_blank" rel="external">public-webapps</a> 邮件组中宣告移除 <code>&lt;element&gt;</code>。</element></p>
 <p>值得注意的是，Polymer 实现了以 <code>&lt;polymer-element&gt;</code> 的形式声明式地注册元素。这是怎么做到的？它用的正是 <code>document.registerElement(&#39;polymer-element&#39;)</code> 以及我在从模板创建元素一节介绍的技术。</p>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>自定义元素为我们提供了一个工具，通过它我们可以扩展 HTML 的词汇，赋予它新的特性，并把不同的 web 平台连接在一起。结合其他新的基本平台，如 Shadow DOM 和 <code>&lt;template&gt;</code>，我们领略了 web 组件的宏伟蓝图。标记语言将再次变得很时髦！</p>
-<p>如果你对使用 web 组件感兴趣，建议你看看 <a href="http://polymer-project.org/" target="_blank" rel="external">Polymer</a>，就它已经够你玩的了。</p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/html-css/" title="HTML/CSS">HTML/CSS</a></div><div class="tags"><a href="/tags/custom-elements/" title="Custom Elements">Custom Elements</a></div></footer></div><nav class="article-nav clearfix"><a href="/2015/02/02/best-practice-for-creating-custom-elements/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">创建自定义元素的最佳实践</span></a><a href="/2015/02/01/using-the-tabindex-attribute/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">说说 tabindex 的那些事儿</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
+<p>如果你对使用 web 组件感兴趣，建议你看看 <a href="http://polymer-project.org/" target="_blank" rel="external">Polymer</a>，就它已经够你玩的了。</p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/html-css/" title="HTML/CSS">HTML/CSS</a></div><div class="tags"><a href="/tags/custom-elements/" title="Custom Elements">Custom Elements</a></div></footer></div><nav class="article-nav clearfix"><a href="/2015/02/02/best-practice-for-creating-custom-elements/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">创建自定义元素的最佳实践</span></a><a href="/2015/02/01/using-the-tabindex-attribute/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">说说 tabindex 的那些事儿</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><style>.gitment-root-container{
+  margin: 40px 0;
+}
+.gitment-container {
+  font-size: 12px;
+}
+.gitment-comment-main, .gitment-editor-main{
+  background-color: #fff;
+}
+.gitment-footer-container{
+  color: #999;
+}
+.gitment-comment-main,
+.gitment-editor-main{
+  background: #fff;
+}
+a.gitment-footer-project-link,
+a.gitment-footer-project-link:visited,
+a.gitment-editor-login-link,
+a.gitment-editor-login-link:visited {
+  color: #1ba1e2;
+  opacity: .3;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+a.gitment-footer-project-link:hover,
+a.gitment-editor-login-link:hover{
+  opacity: 1;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}</style><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
   owner: 'bubkoo',
   repo:  'bubkoo.github.com',
   oauth: {

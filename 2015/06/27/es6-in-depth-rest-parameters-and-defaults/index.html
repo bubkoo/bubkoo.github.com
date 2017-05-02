@@ -79,7 +79,43 @@ ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
 <h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><p>Firefox 15 以上的版本已经支持这两个新特性。然而，除此之外，还没有其他任何浏览器支持。最近，V8 的<a href="https://code.google.com/p/v8/issues/detail?id=2159" target="_blank" rel="external">实验环境添加了对 Rest 参数的支持</a>，而参数默认值还有一个 <a href="https://code.google.com/p/v8/issues/detail?id=2160" target="_blank" rel="external">issue</a>，JSC 也对 <a href="https://bugs.webkit.org/show_bug.cgi?id=38408" target="_blank" rel="external">Rest 参数</a>和<a href="https://bugs.webkit.org/show_bug.cgi?id=38409" target="_blank" rel="external">参数默认值</a>提了一些 issue。</p>
 <p> <a href="http://babeljs.io/" target="_blank" rel="external">Babel</a> 和 <a href="https://github.com/google/traceur-compiler#what-is-traceur" target="_blank" rel="external">Traceur</a> 这两个编译器都已经支持了参数默认值，所以你可以大胆使用。</p>
 <h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>尽管从技术层面上看，这两个新特性在并没有给函数引入新的行为，但它们可以使一些函数的声明更具表现力和可读性。</p>
-<p class="j-quote">参考原文：<a href="https://hacks.mozilla.org/2015/05/es6-in-depth-rest-parameters-and-defaults/" target="_blank" rel="external">ES6 In Depth: Rest parameters and defaults</a><br>原文作者：<a href="https://hacks.mozilla.org/author/jorendorffmozillacom/" target="_blank" rel="external">Jason Orendorff</a><br>原文日期：2015-05-21 13:32</p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/es6/" title="ES6">ES6</a></div></footer></div><nav class="article-nav clearfix"><a href="/2015/06/28/es6-in-depth-destructuring/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">深入解析 ES6：解构赋值</span></a><a href="/2015/06/25/css-methodologies/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">介绍几个 CSS 方法论</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
+<p class="j-quote">参考原文：<a href="https://hacks.mozilla.org/2015/05/es6-in-depth-rest-parameters-and-defaults/" target="_blank" rel="external">ES6 In Depth: Rest parameters and defaults</a><br>原文作者：<a href="https://hacks.mozilla.org/author/jorendorffmozillacom/" target="_blank" rel="external">Jason Orendorff</a><br>原文日期：2015-05-21 13:32</p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/es6/" title="ES6">ES6</a></div></footer></div><nav class="article-nav clearfix"><a href="/2015/06/28/es6-in-depth-destructuring/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">深入解析 ES6：解构赋值</span></a><a href="/2015/06/25/css-methodologies/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">介绍几个 CSS 方法论</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><style>.gitment-root-container{
+  margin: 40px 0;
+}
+.gitment-container {
+  font-size: 12px;
+}
+.gitment-comment-main, .gitment-editor-main{
+  background-color: #fff;
+}
+.gitment-footer-container{
+  color: #999;
+}
+.gitment-comment-main,
+.gitment-editor-main{
+  background: #fff;
+}
+a.gitment-footer-project-link,
+a.gitment-footer-project-link:visited,
+a.gitment-editor-login-link,
+a.gitment-editor-login-link:visited {
+  color: #1ba1e2;
+  opacity: .3;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+a.gitment-footer-project-link:hover,
+a.gitment-editor-login-link:hover{
+  opacity: 1;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}</style><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
   owner: 'bubkoo',
   repo:  'bubkoo.github.com',
   oauth: {

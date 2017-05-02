@@ -94,7 +94,43 @@ ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> items = <span class="built_in">window</span>.performance.getEntriesByType(<span class="string">'measure'</span>);</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; items.length(); ++i) &#123;</div><div class="line">  <span class="keyword">var</span> req = items[i];</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'XHR '</span> + req.name + <span class="string">' took '</span> + req.duration + <span class="string">'ms'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>User Timing API 提供了很多实用的方法，适用于 Web 应用的任何方面。通过在你的应用中设置大量的 API 调用来缩小热点范围，然后通过分析生成的时间数据，就可以清晰地知道时间被花费在了什么地方。但是，如果你的浏览器不支持这些 API 怎么办？没关系，<a href="https://gist.github.com/pmeenan/5902672" target="_blank" rel="external">这里</a>有一个强大的模拟 API，而且在 <a href="http://www.webpagetest.org/" target="_blank" rel="external">webpagetest.org</a> 应用的非常好。那么你还在等什么呢?立刻在你的应用中使用 User Timing API 吧，你将找到方法如何使你的应用运行的更快，然后你的用户将感激你为他们提供了更好的用户体验。</p>
 <p>英文原文：<a href="http://www.html5rocks.com/profiles/#alexdanilo" target="_blank" rel="external">Alex Danilo</a>，翻译：<a href="http://bubkoo.com/">布谷 bubkoo</a></p>
-<p>原文链接：<a href="http://www.html5rocks.com/en/tutorials/webperformance/usertiming/" target="_blank" rel="external">User Timing API</a></p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/performance/" title="Performance">Performance</a> <a href="/tags/timing/" title="Timing">Timing</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/03/10/explaining-javascript-scope-and-closures/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">解释 JavaScript 的作用域和闭包</span></a><a href="/2014/02/22/JSHint-options/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">JSHint 选项列表</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
+<p>原文链接：<a href="http://www.html5rocks.com/en/tutorials/webperformance/usertiming/" target="_blank" rel="external">User Timing API</a></p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/performance/" title="Performance">Performance</a> <a href="/tags/timing/" title="Timing">Timing</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/03/10/explaining-javascript-scope-and-closures/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">解释 JavaScript 的作用域和闭包</span></a><a href="/2014/02/22/JSHint-options/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">JSHint 选项列表</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><style>.gitment-root-container{
+  margin: 40px 0;
+}
+.gitment-container {
+  font-size: 12px;
+}
+.gitment-comment-main, .gitment-editor-main{
+  background-color: #fff;
+}
+.gitment-footer-container{
+  color: #999;
+}
+.gitment-comment-main,
+.gitment-editor-main{
+  background: #fff;
+}
+a.gitment-footer-project-link,
+a.gitment-footer-project-link:visited,
+a.gitment-editor-login-link,
+a.gitment-editor-login-link:visited {
+  color: #1ba1e2;
+  opacity: .3;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+a.gitment-footer-project-link:hover,
+a.gitment-editor-login-link:hover{
+  opacity: 1;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}</style><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
   owner: 'bubkoo',
   repo:  'bubkoo.github.com',
   oauth: {

@@ -185,7 +185,43 @@ ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在此我们完成了一个简短的概述。尽管看来不是那么简短，但是这些话题若要完整表述完毕，则需要一整本书。我们没有提及两个重要话题：函数（以及不同类型的函数之间的不同，比如函数声明与函数表达式）与 ECMAScript 的求值策略（evaluation strategy） 。这两个话题可以分别查阅本系列教程<a href="http://" target="_blank" rel="external">第五章 函数</a>与<a href="http://" target="_blank" rel="external">第八章 求值策略（evaluation strategy）</a>。</p>
 <p>如果你有留言，问题或者补充，我将会很乐意地在评论中讨论它们。</p>
 <p>祝学习ECMAScript好运！</p>
-<p class="j-dot"><strong>Written by:</strong> Dmitry A. Soshnikov<br><strong>Published on:</strong> 2010-09-02</p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/ecmascript/" title="ECMAScript">ECMAScript</a> <a href="/tags/ecma-262-3/" title="ECMA-262-3">ECMA-262-3</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/05/28/ecma-262-3-in-detail-chapter-1-execution-contexts/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">ECMA-262-3 详解 第一章 执行上下文</span></a><a href="/2014/05/08/intro-to-aspect-oriented-programming/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">面向切面编程（AOP）简介</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
+<p class="j-dot"><strong>Written by:</strong> Dmitry A. Soshnikov<br><strong>Published on:</strong> 2010-09-02</p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/ecmascript/" title="ECMAScript">ECMAScript</a> <a href="/tags/ecma-262-3/" title="ECMA-262-3">ECMA-262-3</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/05/28/ecma-262-3-in-detail-chapter-1-execution-contexts/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">ECMA-262-3 详解 第一章 执行上下文</span></a><a href="/2014/05/08/intro-to-aspect-oriented-programming/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">面向切面编程（AOP）简介</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><style>.gitment-root-container{
+  margin: 40px 0;
+}
+.gitment-container {
+  font-size: 12px;
+}
+.gitment-comment-main, .gitment-editor-main{
+  background-color: #fff;
+}
+.gitment-footer-container{
+  color: #999;
+}
+.gitment-comment-main,
+.gitment-editor-main{
+  background: #fff;
+}
+a.gitment-footer-project-link,
+a.gitment-footer-project-link:visited,
+a.gitment-editor-login-link,
+a.gitment-editor-login-link:visited {
+  color: #1ba1e2;
+  opacity: .3;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+a.gitment-footer-project-link:hover,
+a.gitment-editor-login-link:hover{
+  opacity: 1;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}</style><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
   owner: 'bubkoo',
   repo:  'bubkoo.github.com',
   oauth: {

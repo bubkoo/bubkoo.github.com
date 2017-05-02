@@ -115,7 +115,43 @@ ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
 <p>一旦设定这个标记，通过 <code>documen.coookie</code> 则不能再访问该 cookie。IE 同时更近一步并且不允许通过 <code>XMLHttpRequest</code> 的 <code>getAllResponseHeaders()</code> 或 <code>getResponseHeader()</code> 方法访问 cookie，然而其它浏览器则允许此行为。Firefox 在 3.0.6 中<a href="http://www.mozilla.org/security/announce/2009/mfsa2009-05.html" target="_blank" rel="external">修复了该漏洞</a>，然而仍旧有许多<a href="http://manicode.blogspot.com/2009/01/browser-httponly-support-update.html" target="_blank" rel="external">浏览器漏洞</a>存在，<a href="https://www.owasp.org/index.php/HTTPOnly#Browsers_Supporting_HTTPOnly" target="_blank" rel="external">complete browser support list</a> 列出了这些。</p>
 <p>你不能通过 JavaScript 设置 <code>HTTP-only</code>，因为你不能再通过 JavaScript 读取这些 cookie，这是情理之中的事情。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>为了高效的利用 cookie，仍旧有许多要了解和弄明白的东西。对于一项创建于十多年前但仍旧如最初实现的那样被使用至今的技术来说，这是件多不可思议的事。本篇只是提供了一些每个人都应该知道的关于浏览器 cookie 的基本指导，但无论如何，也不是一个完整的参考。对于今天的 Web 来说 cookie 仍旧起着非常重要的作用，并且不恰当的管理 cookie 会导致各种各样的问题，从最糟糕的用户体验到安全漏洞。我希望这篇手册能够激起一些关于 cookie 的不可思议的亮点。</p>
-<p class="j-quote">原文：<a href="http://www.nczonline.net/blog/2009/05/05/http-cookies-explained/" target="_blank" rel="external">HTTP cookies explained</a></p></section><footer class="article-footer clearfix"><div class="tags"><a href="/tags/cookies/" title="Cookies">Cookies</a> <a href="/tags/http/" title="HTTP">HTTP</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/04/21/patterns-for-large-scale-javascript-application-architecture/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">大型 JavaScript 架构中的设计模式</span></a><a href="/2014/04/20/angry-birds-of-javascript-mighty-eagle-automation/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">神鹰 - 自动化</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
+<p class="j-quote">原文：<a href="http://www.nczonline.net/blog/2009/05/05/http-cookies-explained/" target="_blank" rel="external">HTTP cookies explained</a></p></section><footer class="article-footer clearfix"><div class="tags"><a href="/tags/cookies/" title="Cookies">Cookies</a> <a href="/tags/http/" title="HTTP">HTTP</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/04/21/patterns-for-large-scale-javascript-application-architecture/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">大型 JavaScript 架构中的设计模式</span></a><a href="/2014/04/20/angry-birds-of-javascript-mighty-eagle-automation/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">神鹰 - 自动化</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><style>.gitment-root-container{
+  margin: 40px 0;
+}
+.gitment-container {
+  font-size: 12px;
+}
+.gitment-comment-main, .gitment-editor-main{
+  background-color: #fff;
+}
+.gitment-footer-container{
+  color: #999;
+}
+.gitment-comment-main,
+.gitment-editor-main{
+  background: #fff;
+}
+a.gitment-footer-project-link,
+a.gitment-footer-project-link:visited,
+a.gitment-editor-login-link,
+a.gitment-editor-login-link:visited {
+  color: #1ba1e2;
+  opacity: .3;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+a.gitment-footer-project-link:hover,
+a.gitment-editor-login-link:hover{
+  opacity: 1;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}</style><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
   owner: 'bubkoo',
   repo:  'bubkoo.github.com',
   oauth: {

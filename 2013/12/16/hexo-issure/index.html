@@ -100,7 +100,43 @@ ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
 <h2 id="添加最新评论widget"><a href="#添加最新评论widget" class="headerlink" title="添加最新评论widget"></a>添加最新评论widget</h2><p>首先需要声明的是本屌用的是多说评论系统，所以最新评论widget也是利用多说提供的API来实现，上一节已经分享了怎么创建自定义的widget，现在我们按照上面的方法来一步一步实现该widget。</p>
 <p>在<code>/themes/light/layout/_widget/</code>文件夹下创建最新评论小挂件<code>recent_comments.ejs</code>，内容如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;% if (theme.duoshuo)&#123; %&gt;</div><div class="line">&lt;div class=&quot;widget recent_comments&quot;&gt;</div><div class="line">  &lt;h3 class=&quot;title&quot;&gt;&lt;%= __(&apos;recent_comments&apos;) %&gt;&lt;/h3&gt;</div><div class="line">  &lt;ul class=&quot;entry ds-recent-comments&quot; data-num-items=&quot;5&quot; data-show-avatars=&quot;0&quot; data-show-title=&quot;1&quot; data-show-time=&quot;1&quot;&gt;&lt;/ul&gt;</div><div class="line">  &lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">  if(typeof duoshuoQuery === &apos;undefined&apos;)&#123;</div><div class="line">    var duoshuoQuery = &#123;short_name:&quot;&lt;%- theme.duoshuo %&gt;&quot;&#125;;</div><div class="line">    (function() &#123;</div><div class="line">      var ds = document.createElement(&apos;script&apos;);</div><div class="line">      ds.type = &apos;text/javascript&apos;;ds.async = true;</div><div class="line">      ds.src = &apos;http://static.duoshuo.com/embed.js&apos;;</div><div class="line">      ds.charset = &apos;UTF-8&apos;;</div><div class="line">      (document.getElementsByTagName(&apos;head&apos;)[0]</div><div class="line">      || document.getElementsByTagName(&apos;body&apos;)[0]).appendChild(ds);</div><div class="line">    &#125;)();</div><div class="line">  &#125;</div><div class="line">  &lt;/script&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;% &#125; %&gt;</div></pre></td></tr></table></figure>
-<p>简单说明，在每个页面中，如果使用多个多说控件，只需要添加一次多说js，所以这里有这样的判断<code>if(typeof duoshuoQuery===&#39;undefined&#39;)</code>，在需要用到多说的位置都加上这个判断，避免多次加载js文件；另外多说评论相关的参数：<code>data-num-items</code>显示的评论条数，<code>data-show-avatars</code>是否显示用户头像，<code>data-show-title</code>是否显示文章标题，<code>data-show-time</code>是否显示评论时间，具体参数说明可以参考多说<a href="http://dev.duoshuo.com/docs/4ff28d95552860f21f000010" target="_blank" rel="external">官方说明文档</a>，按照官方文档还可以添加多说<a href="http://dev.duoshuo.com/docs/4ff28d6f552860f21f00000c" target="_blank" rel="external">最近访客</a>小部件和<a href="http://dev.duoshuo.com/threads/5020f288e759c1107f00000c" target="_blank" rel="external">热评文章</a>小部件。</p></section><footer class="article-footer clearfix"><div class="tags"><a href="/tags/hexo/" title="Hexo">Hexo</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/01/01/angular/AngualrJS-notes/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">AngualrJS 使用笔记</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
+<p>简单说明，在每个页面中，如果使用多个多说控件，只需要添加一次多说js，所以这里有这样的判断<code>if(typeof duoshuoQuery===&#39;undefined&#39;)</code>，在需要用到多说的位置都加上这个判断，避免多次加载js文件；另外多说评论相关的参数：<code>data-num-items</code>显示的评论条数，<code>data-show-avatars</code>是否显示用户头像，<code>data-show-title</code>是否显示文章标题，<code>data-show-time</code>是否显示评论时间，具体参数说明可以参考多说<a href="http://dev.duoshuo.com/docs/4ff28d95552860f21f000010" target="_blank" rel="external">官方说明文档</a>，按照官方文档还可以添加多说<a href="http://dev.duoshuo.com/docs/4ff28d6f552860f21f00000c" target="_blank" rel="external">最近访客</a>小部件和<a href="http://dev.duoshuo.com/threads/5020f288e759c1107f00000c" target="_blank" rel="external">热评文章</a>小部件。</p></section><footer class="article-footer clearfix"><div class="tags"><a href="/tags/hexo/" title="Hexo">Hexo</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/01/01/angular/AngualrJS-notes/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">AngualrJS 使用笔记</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><style>.gitment-root-container{
+  margin: 40px 0;
+}
+.gitment-container {
+  font-size: 12px;
+}
+.gitment-comment-main, .gitment-editor-main{
+  background-color: #fff;
+}
+.gitment-footer-container{
+  color: #999;
+}
+.gitment-comment-main,
+.gitment-editor-main{
+  background: #fff;
+}
+a.gitment-footer-project-link,
+a.gitment-footer-project-link:visited,
+a.gitment-editor-login-link,
+a.gitment-editor-login-link:visited {
+  color: #1ba1e2;
+  opacity: .3;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+a.gitment-footer-project-link:hover,
+a.gitment-editor-login-link:hover{
+  opacity: 1;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}</style><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
   owner: 'bubkoo',
   repo:  'bubkoo.github.com',
   oauth: {

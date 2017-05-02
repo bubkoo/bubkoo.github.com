@@ -139,7 +139,43 @@ ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="keyword">async</span> = <span class="built_in">require</span>(<span class="string">'async'</span>);</div></pre></td></tr></table></figure>
 <p>我们可以直接将其声明为一个常量，使其意义更加清晰：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">async</span> = <span class="built_in">require</span>(<span class="string">'async'</span>);</div></pre></td></tr></table></figure>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>编写自解释的代码能够提高系统的可维护性，每一段注释都需要额外的维护精力，所以应该尽可能减少注释的数量。然而，自解释的代码并不能完全替代注释，有必要在适当的位置保留某些关键的注释，而且 API 文档也非常必要，除非你的代码库非常轻量级 – 开发人员可以直接阅读你的代码。</p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/document/" title="Document">Document</a> <a href="/tags/quality/" title="Quality">Quality</a></div></footer></div><nav class="article-nav clearfix"><a href="/2017/01/08/quick-tip-multiple-versions-node-nvm/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">使用 nvm 管理不同版本的 node 与 npm</span></a><a href="/2016/03/31/high-performance-animations/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">使用 FLIP 来提高 Web 动画的性能</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>编写自解释的代码能够提高系统的可维护性，每一段注释都需要额外的维护精力，所以应该尽可能减少注释的数量。然而，自解释的代码并不能完全替代注释，有必要在适当的位置保留某些关键的注释，而且 API 文档也非常必要，除非你的代码库非常轻量级 – 开发人员可以直接阅读你的代码。</p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/document/" title="Document">Document</a> <a href="/tags/quality/" title="Quality">Quality</a></div></footer></div><nav class="article-nav clearfix"><a href="/2017/01/08/quick-tip-multiple-versions-node-nvm/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">使用 nvm 管理不同版本的 node 与 npm</span></a><a href="/2016/03/31/high-performance-animations/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">使用 FLIP 来提高 Web 动画的性能</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><style>.gitment-root-container{
+  margin: 40px 0;
+}
+.gitment-container {
+  font-size: 12px;
+}
+.gitment-comment-main, .gitment-editor-main{
+  background-color: #fff;
+}
+.gitment-footer-container{
+  color: #999;
+}
+.gitment-comment-main,
+.gitment-editor-main{
+  background: #fff;
+}
+a.gitment-footer-project-link,
+a.gitment-footer-project-link:visited,
+a.gitment-editor-login-link,
+a.gitment-editor-login-link:visited {
+  color: #1ba1e2;
+  opacity: .3;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+a.gitment-footer-project-link:hover,
+a.gitment-editor-login-link:hover{
+  opacity: 1;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}</style><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
   owner: 'bubkoo',
   repo:  'bubkoo.github.com',
   oauth: {

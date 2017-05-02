@@ -267,7 +267,43 @@ ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
 <p>这样做你会发现，有时候很容易就可以让一个完整的模块运行在另一个项目中。需要说清楚的是，我完全同意对模块进行扩展或使用模块的部分功能，但是记住，在某些情况下，想要把这样的模块应用到其他项目会增加工作量。</p>
 <p><strong>Q: 我现在就想开始使用这种架构。是否有可供参考的样板代码？</strong><br>A: 如果时间允许的话，我打算为这篇文章发布一个样例程序，但目前你最好的选择是 Andrew Burgees 的超值教程 <a href="http://bit.ly/orGVOL" target="_blank" rel="external">Writing Modular JavaScript</a>（在推荐之前需要完全披露的是，这仅仅是一个推荐链接，收到的任何反馈都将有助于完善内容）。Andrew 的样例库包含一张屏幕截屏以及代码，覆盖了这篇文章的的大部分主要观点，但选择把外观称作“沙箱”，就像 Zakas。还有一些讨论是关于如何理想地在这样一个架构中实现 DOM 抽象库———类似于我对第二个问题的回答，Andrew 在实现选择器表达式查询时采用了一些有趣的模式，使得在大多数情况下，用短短几行代码就可以做到切换库。我并不是说它是正确的或最好的实现方式，但是它是一种可能，而且我个人也在使用它。</p>
 <p><strong>Q: 如果模块需要直接与核心通信，这么做可能吗？</strong><br>A: 正如 Zakas 之前暗示的，为什么模块不应该访问核心，这在技术上并没有问题，但这是最佳实践，比其他任何事情都重要。如果你想严格地坚持这种架构，你需要遵循定义的这些规则，或者选择一个更松散的结构，就像第一个问题的答案。</p>
-<p class="j-quote">参考原文：<a href="http://addyosmani.com/largescalejavascript/" target="_blank" rel="external">Patterns For Large-Scale JavaScript Application Architecture</a><br>原文作者：<a href="http://twitter.com/addyosmani" target="_blank" rel="external">Addy Osmani</a>.<br>技术评审：<a href="http://twitter.com/peolanha" target="_blank" rel="external">Andrée Hansson</a></p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/architecture/" title="Architecture">Architecture</a> <a href="/tags/patterns/" title="Patterns">Patterns</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/04/22/improve-cross-domain-communication-with-client-side-solutions/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">前端跨域通信解决方案</span></a><a href="/2014/04/21/http-cookies-explained/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">HTTP cookies 详解</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
+<p class="j-quote">参考原文：<a href="http://addyosmani.com/largescalejavascript/" target="_blank" rel="external">Patterns For Large-Scale JavaScript Application Architecture</a><br>原文作者：<a href="http://twitter.com/addyosmani" target="_blank" rel="external">Addy Osmani</a>.<br>技术评审：<a href="http://twitter.com/peolanha" target="_blank" rel="external">Andrée Hansson</a></p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/architecture/" title="Architecture">Architecture</a> <a href="/tags/patterns/" title="Patterns">Patterns</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/04/22/improve-cross-domain-communication-with-client-side-solutions/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">前端跨域通信解决方案</span></a><a href="/2014/04/21/http-cookies-explained/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">HTTP cookies 详解</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><style>.gitment-root-container{
+  margin: 40px 0;
+}
+.gitment-container {
+  font-size: 12px;
+}
+.gitment-comment-main, .gitment-editor-main{
+  background-color: #fff;
+}
+.gitment-footer-container{
+  color: #999;
+}
+.gitment-comment-main,
+.gitment-editor-main{
+  background: #fff;
+}
+a.gitment-footer-project-link,
+a.gitment-footer-project-link:visited,
+a.gitment-editor-login-link,
+a.gitment-editor-login-link:visited {
+  color: #1ba1e2;
+  opacity: .3;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+a.gitment-footer-project-link:hover,
+a.gitment-editor-login-link:hover{
+  opacity: 1;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}</style><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
   owner: 'bubkoo',
   repo:  'bubkoo.github.com',
   oauth: {

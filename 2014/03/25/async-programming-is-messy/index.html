@@ -68,7 +68,43 @@ ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
 </ol>
 <p>事实上我们可以做得更好。在 JavaScript 中，还有另一种异步编程模型，更接近于标准的“调用 - 返回”模型，非常类似于 try/catch/finally，并且不会强迫我们为大量的函数增加两个回调函数参数。</p>
 <p>下一步，我们将看看 <a href="../simplifying-async-with-promises">Promises</a>，以及它们如何使异步编程回归到更简单、更友好的模型。</p>
-<p></p><p class="j-quote">原文：<a href="http://know.cujojs.com/tutorials/async/async-programming-is-messy" target="_blank" rel="external">Async Programming is Messy</a></p><p></p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/async/" title="Async">Async</a> <a href="/tags/promise/" title="Promise">Promise</a> <a href="/tags/when/" title="When">When</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/03/25/promises-and-async-programming/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">Promises 和异步编程</span></a><a href="/2014/03/25/simplifying-async-with-promises/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">用 Promises 简化异步编程</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
+<p></p><p class="j-quote">原文：<a href="http://know.cujojs.com/tutorials/async/async-programming-is-messy" target="_blank" rel="external">Async Programming is Messy</a></p><p></p></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/async/" title="Async">Async</a> <a href="/tags/promise/" title="Promise">Promise</a> <a href="/tags/when/" title="When">When</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/03/25/promises-and-async-programming/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">Promises 和异步编程</span></a><a href="/2014/03/25/simplifying-async-with-promises/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">用 Promises 简化异步编程</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><style>.gitment-root-container{
+  margin: 40px 0;
+}
+.gitment-container {
+  font-size: 12px;
+}
+.gitment-comment-main, .gitment-editor-main{
+  background-color: #fff;
+}
+.gitment-footer-container{
+  color: #999;
+}
+.gitment-comment-main,
+.gitment-editor-main{
+  background: #fff;
+}
+a.gitment-footer-project-link,
+a.gitment-footer-project-link:visited,
+a.gitment-editor-login-link,
+a.gitment-editor-login-link:visited {
+  color: #1ba1e2;
+  opacity: .3;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+a.gitment-footer-project-link:hover,
+a.gitment-editor-login-link:hover{
+  opacity: 1;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}</style><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
   owner: 'bubkoo',
   repo:  'bubkoo.github.com',
   oauth: {

@@ -73,7 +73,43 @@ ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">matchesSelector</span>(<span class="params">el, selector</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> p = Element.prototype;</div><div class="line">    <span class="keyword">var</span> f = p.matches</div><div class="line">        || p.webkitMatchesSelector</div><div class="line">        || p.mozMatchesSelector</div><div class="line">        || p.msMatchesSelector</div><div class="line">        || <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> [].indexOf.call(<span class="built_in">document</span>.querySelectorAll(s), <span class="keyword">this</span>) !== <span class="number">-1</span>;</div><div class="line">        &#125;;</div><div class="line">    <span class="keyword">return</span> f.call(el, selector);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 使用</span></div><div class="line">matchesSelector(<span class="built_in">document</span>.getElementById(<span class="string">'myDiv'</span>), <span class="string">'div.someSelector[some-attribute=true]'</span>);</div></pre></td></tr></table></figure>
 <p><a href="http://davidwalsh.name/element-matches-selector" target="_blank" rel="external">深入阅读</a></p>
 <h2 id="生成随机数-random"><a href="#生成随机数-random" class="headerlink" title="生成随机数 random"></a>生成随机数 random</h2><p>在 <code>min</code> 和 <code>max</code> 之间生成一个随机数，如果 <code>integer</code> 为 <code>true</code> 那么将生成随机整数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">rand</span>(<span class="params">min, max, integer</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> r = <span class="built_in">Math</span>.random() * (max - min) + min; </div><div class="line">  <span class="keyword">return</span> integer ? r|<span class="number">0</span> : r;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(rand(<span class="number">2</span>,<span class="number">5</span>)); <span class="comment">// float random between 2 and 5 inclusive</span></div><div class="line"><span class="built_in">console</span>.log(rand(<span class="number">1</span>,<span class="number">100</span>,<span class="literal">true</span>)); <span class="comment">// integer random between 1 and 100</span></div></pre></td></tr></table></figure></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/essential/" title="Essential">Essential</a></div></footer></div><nav class="article-nav clearfix"><a href="/2015/06/14/es6-in-depth-an-introduction/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">深入解析 ES6：简介</span></a><a href="/2015/05/08/introduction-to-fetch/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">fetch API 简介</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">rand</span>(<span class="params">min, max, integer</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> r = <span class="built_in">Math</span>.random() * (max - min) + min; </div><div class="line">  <span class="keyword">return</span> integer ? r|<span class="number">0</span> : r;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(rand(<span class="number">2</span>,<span class="number">5</span>)); <span class="comment">// float random between 2 and 5 inclusive</span></div><div class="line"><span class="built_in">console</span>.log(rand(<span class="number">1</span>,<span class="number">100</span>,<span class="literal">true</span>)); <span class="comment">// integer random between 1 and 100</span></div></pre></td></tr></table></figure></section><footer class="article-footer clearfix"><div class="categories"><a href="/categories/javascript/" title="JavaScript">JavaScript</a></div><div class="tags"><a href="/tags/essential/" title="Essential">Essential</a></div></footer></div><nav class="article-nav clearfix"><a href="/2015/06/14/es6-in-depth-an-introduction/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">深入解析 ES6：简介</span></a><a href="/2015/05/08/introduction-to-fetch/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">fetch API 简介</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><style>.gitment-root-container{
+  margin: 40px 0;
+}
+.gitment-container {
+  font-size: 12px;
+}
+.gitment-comment-main, .gitment-editor-main{
+  background-color: #fff;
+}
+.gitment-footer-container{
+  color: #999;
+}
+.gitment-comment-main,
+.gitment-editor-main{
+  background: #fff;
+}
+a.gitment-footer-project-link,
+a.gitment-footer-project-link:visited,
+a.gitment-editor-login-link,
+a.gitment-editor-login-link:visited {
+  color: #1ba1e2;
+  opacity: .3;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+a.gitment-footer-project-link:hover,
+a.gitment-editor-login-link:hover{
+  opacity: 1;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}</style><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
   owner: 'bubkoo',
   repo:  'bubkoo.github.com',
   oauth: {

@@ -133,7 +133,43 @@ ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
 <ul>
 <li><strong>$viewContentLoaded</strong> - 当视图加载完成，DOM渲染完成之后触发，视图所在的<code>$scope</code>发出该事件。</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$scope.$on(<span class="string">'$viewContentLoading'</span>, </div><div class="line">$scope.$on(<span class="string">'$viewContentLoaded'</span>, </div><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123; ... &#125;);</div></pre></td></tr></table></figure></section><footer class="article-footer clearfix"><div class="tags"><a href="/tags/angularjs/" title="AngularJS">AngularJS</a> <a href="/tags/ui-router/" title="ui-router">ui-router</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/01/01/angular/ui-router/guide/nested-states &amp; nested-views/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">学习 ui-router - 状态嵌套和视图嵌套</span></a><a href="/2014/01/01/angular/AngualrJS-notes/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">AngualrJS 使用笔记</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$scope.$on(<span class="string">'$viewContentLoading'</span>, </div><div class="line">$scope.$on(<span class="string">'$viewContentLoaded'</span>, </div><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123; ... &#125;);</div></pre></td></tr></table></figure></section><footer class="article-footer clearfix"><div class="tags"><a href="/tags/angularjs/" title="AngularJS">AngularJS</a> <a href="/tags/ui-router/" title="ui-router">ui-router</a></div></footer></div><nav class="article-nav clearfix"><a href="/2014/01/01/angular/ui-router/guide/nested-states &amp; nested-views/" class="article-nav-link article-nav-newer"><strong class="article-nav-type">Newer</strong><span class="article-nav-title">学习 ui-router - 状态嵌套和视图嵌套</span></a><a href="/2014/01/01/angular/AngualrJS-notes/" class="article-nav-link article-nav-older"><strong class="article-nav-type">Older</strong><span class="article-nav-title">AngualrJS 使用笔记</span></a></nav></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><style>.gitment-root-container{
+  margin: 40px 0;
+}
+.gitment-container {
+  font-size: 12px;
+}
+.gitment-comment-main, .gitment-editor-main{
+  background-color: #fff;
+}
+.gitment-footer-container{
+  color: #999;
+}
+.gitment-comment-main,
+.gitment-editor-main{
+  background: #fff;
+}
+a.gitment-footer-project-link,
+a.gitment-footer-project-link:visited,
+a.gitment-editor-login-link,
+a.gitment-editor-login-link:visited {
+  color: #1ba1e2;
+  opacity: .3;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+a.gitment-footer-project-link:hover,
+a.gitment-editor-login-link:hover{
+  opacity: 1;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}</style><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var options = {
   owner: 'bubkoo',
   repo:  'bubkoo.github.com',
   oauth: {
