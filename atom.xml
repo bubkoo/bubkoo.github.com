@@ -188,7 +188,7 @@
     <summary type="html">
     
       &lt;p&gt;在我们的日常开发中经常会遇到这种情况：手上有好几个项目，每个项目的需求不同，进而不同项目必须依赖不同版的 NodeJS 运行环境。如果没有一个合适的工具，这个问题将非常棘手。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/creationix/nvm&quot;&gt;nvm&lt;/a&gt; 应运而生，nvm 是 Mac 下的 node 管理工具，有点类似管理 Ruby 的 rvm，如果需要管理 Windows 下的 node，官方推荐使用 &lt;a href=&quot;https://github.com/hakobera/nvmw&quot;&gt;nvmw&lt;/a&gt; 或 &lt;a href=&quot;https://github.com/coreybutler/nvm-windows&quot;&gt;nvm-windows&lt;/a&gt;。不过，nvm-windows 并不是 nvm 的简单移植，他们也没有任何关系。但下面介绍的所有命令，都可以在 nvm-windows 中运行。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/creationix/nvm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;nvm&lt;/a&gt; 应运而生，nvm 是 Mac 下的 node 管理工具，有点类似管理 Ruby 的 rvm，如果需要管理 Windows 下的 node，官方推荐使用 &lt;a href=&quot;https://github.com/hakobera/nvmw&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;nvmw&lt;/a&gt; 或 &lt;a href=&quot;https://github.com/coreybutler/nvm-windows&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;nvm-windows&lt;/a&gt;。不过，nvm-windows 并不是 nvm 的简单移植，他们也没有任何关系。但下面介绍的所有命令，都可以在 nvm-windows 中运行。&lt;/p&gt;
     
     </summary>
     
@@ -381,9 +381,9 @@
     
     <summary type="html">
     
-      &lt;p&gt;CSS 动画已经存在很多年了，使用恰当可以很好地提高网站的用户体验，也正是由于其容易使用，就很可能出现性能低下的动画，从而降低了整个页面的运行效率。回想一下：你曾经是否使用过 CSS 来改变元素的宽度、高度或绝对位置？如果回答是肯定的，就意味着你触发了性能低下的重排或重绘计算，在某些情况下甚至可能导致&lt;a href=&quot;http://jankfree.org/&quot;&gt;页面闪烁&lt;/a&gt;。&lt;/p&gt;
+      &lt;p&gt;CSS 动画已经存在很多年了，使用恰当可以很好地提高网站的用户体验，也正是由于其容易使用，就很可能出现性能低下的动画，从而降低了整个页面的运行效率。回想一下：你曾经是否使用过 CSS 来改变元素的宽度、高度或绝对位置？如果回答是肯定的，就意味着你触发了性能低下的重排或重绘计算，在某些情况下甚至可能导致&lt;a href=&quot;http://jankfree.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;页面闪烁&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;什么样的情况会导致页面闪烁呢？现代浏览器根据设备的刷新率来刷新页面中的内容，对大多数设备而言，屏幕以 &lt;code&gt;60&lt;/code&gt; 次每秒的频率刷新，即 &lt;code&gt;60HZ&lt;/code&gt;。如果在屏幕上出现了某些运动，如滚动、过渡或动画，浏览器应该每秒刷新 &lt;code&gt;60&lt;/code&gt; 帧，如果某些帧花费的时间太长，进而导致浏览器的刷新频率跟不上设备的刷新频率（跳帧现象），就会出现页面闪烁。&lt;strong&gt;所以在 Web 应用中运行的动画都应该保持在 &lt;code&gt;60FPS&lt;/code&gt; 下&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;为了生成流畅的动画，你需要让浏览器尽可能少地工作，最好的办法就是充分利用 GPU，并避免动画过程中触发页面重排或重绘。目前 Chrome，Firefox，Safari，Opera 和 IE11 都对 &lt;code&gt;transform&lt;/code&gt;（&lt;code&gt;translate&lt;/code&gt;，&lt;code&gt;rotate&lt;/code&gt; 和 &lt;code&gt;scale&lt;/code&gt;） 和 &lt;code&gt;opacity&lt;/code&gt; 进行硬件加速。&lt;strong&gt;所以我们应该尽量使用 &lt;code&gt;transform&lt;/code&gt; 和 &lt;code&gt;opacity&lt;/code&gt; 属性来实现我们的动画&lt;/strong&gt;，因为改变其他属性都可能导致页面&lt;a href=&quot;https://csstriggers.com/&quot;&gt;重排或重绘&lt;/a&gt;。&lt;strong&gt;还有最好在绝对定位的元素上使用动画&lt;/strong&gt;，因为这些元素位置的改变不会影响其他元素。只要严格遵循以上两条规则，就能确保在绝大多数情况下你的动画在 &lt;code&gt;60FPS&lt;/code&gt; 下运行。这还不是全部，下面将介绍一个新的技术方案，可以帮助你创建真正轻量级的动画。&lt;/p&gt;
+&lt;p&gt;为了生成流畅的动画，你需要让浏览器尽可能少地工作，最好的办法就是充分利用 GPU，并避免动画过程中触发页面重排或重绘。目前 Chrome，Firefox，Safari，Opera 和 IE11 都对 &lt;code&gt;transform&lt;/code&gt;（&lt;code&gt;translate&lt;/code&gt;，&lt;code&gt;rotate&lt;/code&gt; 和 &lt;code&gt;scale&lt;/code&gt;） 和 &lt;code&gt;opacity&lt;/code&gt; 进行硬件加速。&lt;strong&gt;所以我们应该尽量使用 &lt;code&gt;transform&lt;/code&gt; 和 &lt;code&gt;opacity&lt;/code&gt; 属性来实现我们的动画&lt;/strong&gt;，因为改变其他属性都可能导致页面&lt;a href=&quot;https://csstriggers.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;重排或重绘&lt;/a&gt;。&lt;strong&gt;还有最好在绝对定位的元素上使用动画&lt;/strong&gt;，因为这些元素位置的改变不会影响其他元素。只要严格遵循以上两条规则，就能确保在绝大多数情况下你的动画在 &lt;code&gt;60FPS&lt;/code&gt; 下运行。这还不是全部，下面将介绍一个新的技术方案，可以帮助你创建真正轻量级的动画。&lt;/p&gt;
     
     </summary>
     
@@ -635,7 +635,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;github.com&quot;&gt;GitHub&lt;/a&gt; 不再使用字体来输出图标了。我们把代码中所有的 &lt;a href=&quot;http://octicons.github.com/&quot;&gt;Octicon&lt;/a&gt; 替换成了 SVG 版本。虽然这些改动并不那么明显，但马上你就能体会到 SVG 图标的优点。&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;github.com&quot;&gt;GitHub&lt;/a&gt; 不再使用字体来输出图标了。我们把代码中所有的 &lt;a href=&quot;http://octicons.github.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Octicon&lt;/a&gt; 替换成了 SVG 版本。虽然这些改动并不那么明显，但马上你就能体会到 SVG 图标的优点。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://bubkoo.qiniudn.com/images/svg-vs-iconfont.png&quot; alt=&quot;左侧放大后的字体版本和右侧清晰的 SVG 版本&quot;&gt;&lt;/p&gt;
 &lt;p&gt;切换到 SVG 以后，图标会作为图片渲染而非文字，这使其在任何分辨率下都能很好地以各种像素值显示。&lt;/p&gt;
     
@@ -757,7 +757,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;上个月，我在这篇文章&lt;a href=&quot;http://blog.keithcirkel.co.uk/why-we-should-stop-using-grunt/&quot;&gt;《为什么要停止使用 Grunt 和 Gulp》&lt;/a&gt;中建议大家使用 npm 作为替代方案，npm 的 &lt;code&gt;scripts&lt;/code&gt; &lt;a href=&quot;https://www.npmjs.org/doc/misc/npm-scripts.html&quot;&gt;配置&lt;/a&gt;可以实现这些构建工具的所有功能，而且更简洁、更优雅和较少的模块依赖和维护开销。本文第一稿大概有 6000 字，深入讲解了如何将 npm 作为替代方案，但那篇文章主要在表达我的观点，而不是作为一篇教程。然而，读者的反馈却很强烈，许多读者告诉我 npm 并不能完全实现这些构建工具提供的特性，甚至有的读者直接给我一个 &lt;code&gt;Gruntfile&lt;/code&gt;，然后反问我：“怎么用 npm 来实现这样的构建方案”？所以我决定进一步更新本文，将其作为一个新手入门教程，主要分享如何使用 npm 来完成一些常见的构建任务。&lt;/p&gt;
+      &lt;p&gt;上个月，我在这篇文章&lt;a href=&quot;http://blog.keithcirkel.co.uk/why-we-should-stop-using-grunt/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《为什么要停止使用 Grunt 和 Gulp》&lt;/a&gt;中建议大家使用 npm 作为替代方案，npm 的 &lt;code&gt;scripts&lt;/code&gt; &lt;a href=&quot;https://www.npmjs.org/doc/misc/npm-scripts.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;配置&lt;/a&gt;可以实现这些构建工具的所有功能，而且更简洁、更优雅和较少的模块依赖和维护开销。本文第一稿大概有 6000 字，深入讲解了如何将 npm 作为替代方案，但那篇文章主要在表达我的观点，而不是作为一篇教程。然而，读者的反馈却很强烈，许多读者告诉我 npm 并不能完全实现这些构建工具提供的特性，甚至有的读者直接给我一个 &lt;code&gt;Gruntfile&lt;/code&gt;，然后反问我：“怎么用 npm 来实现这样的构建方案”？所以我决定进一步更新本文，将其作为一个新手入门教程，主要分享如何使用 npm 来完成一些常见的构建任务。&lt;/p&gt;
 &lt;p&gt;npm 是一个很好的工具，提供了一些奇特的功能，也是 NodeJS 的核心，包括我在内的很多人每天都在使用 npm，事实上在我的 Bash 历史记录中，npm 的使用频率仅次于 git。npm 更新也很快，旨在使 npm 成为一个强大的模块管理工具。而且，npm 有一个功能子集，可以通过运行一些任务来维护模块的生命周期，换句话说，它也是一个强大的构建工具。&lt;/p&gt;
     
     </summary>
@@ -802,7 +802,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;https://github.com/&quot;&gt;Github&lt;/a&gt; 作为代码分享平台在开发者中非常流行。此平台托管了包括游戏、书籍以至于字体在内的一千两百多万个开源项目（现在更多），这使其成为互联网上最大的代码库。Github 还提供另一个非常有用的功能，这就是 &lt;a href=&quot;https://gist.github.com/&quot;&gt;Gist&lt;/a&gt;。开发人员常常使用 Gist 记录他们的代码片段，但是 Gist 不仅仅是为极客和码农开发的，每个人都可以用到它。如果您听说过类似 Pastebin 或 Pastie 这样的 Web 应用的话，那您就可以看到它们和 Gist 很像，但是 Gist 比它们要更优雅，因为这些免费应用一般含有广告，而且带有很多其他杂七杂八的功能。&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;https://github.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github&lt;/a&gt; 作为代码分享平台在开发者中非常流行。此平台托管了包括游戏、书籍以至于字体在内的一千两百多万个开源项目（现在更多），这使其成为互联网上最大的代码库。Github 还提供另一个非常有用的功能，这就是 &lt;a href=&quot;https://gist.github.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Gist&lt;/a&gt;。开发人员常常使用 Gist 记录他们的代码片段，但是 Gist 不仅仅是为极客和码农开发的，每个人都可以用到它。如果您听说过类似 Pastebin 或 Pastie 这样的 Web 应用的话，那您就可以看到它们和 Gist 很像，但是 Gist 比它们要更优雅，因为这些免费应用一般含有广告，而且带有很多其他杂七杂八的功能。&lt;/p&gt;
 &lt;p&gt;如果您不是极客您也可以按照如下方式使用Gist：&lt;/p&gt;
     
     </summary>
@@ -892,7 +892,7 @@
     
       &lt;p&gt;当提到前端性能优化时，我们首先会联想到文件的合并、压缩，文件缓存和开启服务器端的 gzip 压缩等，这使得页面加载更快，用户可以尽快使用我们的 Web 应用来达到他们的目标。&lt;/p&gt;
 &lt;p&gt;资源预加载是另一个性能优化技术，我们可以使用该技术来预先告知浏览器某些资源可能在将来会被使用到。&lt;/p&gt;
-&lt;p&gt;引用 &lt;a href=&quot;https://twitter.com/patrickhamann&quot;&gt;Patrick Hamann&lt;/a&gt; 的&lt;a href=&quot;http://patrickhamann.com/workshops/performance/tasks/2_Critical_Path/2_3.html&quot;&gt;解释&lt;/a&gt;：&lt;/p&gt;
+&lt;p&gt;引用 &lt;a href=&quot;https://twitter.com/patrickhamann&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Patrick Hamann&lt;/a&gt; 的&lt;a href=&quot;http://patrickhamann.com/workshops/performance/tasks/2_Critical_Path/2_3.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;解释&lt;/a&gt;：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;预加载是浏览器对将来可能被使用资源的一种暗示，一些资源可以在当前页面使用到，一些可能在将来的某些页面中被使用。作为开发人员，我们比浏览器更加了解我们的应用，所以我们可以对我们的核心资源使用该技术。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1195,9 +1195,9 @@
     
       &lt;p&gt;ES6 才刚被标准化，人们就在开始谈论 ES7 将提供哪些闪亮的新特性了。作为 Web 开发人员，我们更想知道如何使用这些新特性。在之前的文章中，作者鼓励我们在一些工具的帮助下开始使用 ES6：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;如果你想使用这些新语法，你可以使用 &lt;a href=&quot;https://babeljs.io/&quot;&gt;Babel&lt;/a&gt; 或 Google 的 &lt;a href=&quot;https://github.com/google/traceur-compiler&quot;&gt;Traceur&lt;/a&gt; 将 ES6 代码转换为友好的 ES5 代码。&lt;/p&gt;
+&lt;p&gt;如果你想使用这些新语法，你可以使用 &lt;a href=&quot;https://babeljs.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Babel&lt;/a&gt; 或 Google 的 &lt;a href=&quot;https://github.com/google/traceur-compiler&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Traceur&lt;/a&gt; 将 ES6 代码转换为友好的 ES5 代码。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;本文的主题就是这些工具的使用，上面这些工具被统称为 &lt;em&gt;transpiler&lt;/em&gt;，transpiler 也被称为&lt;a href=&quot;https://en.wikipedia.org/wiki/Source-to-source_compiler&quot;&gt;源码到源码的编译器&lt;/a&gt;，用于在抽象级别进行编程语言之间的相互转换。使用 transpiler 可以让我们用 ES6 语法来编写代码，同时保证这些代码能在所有浏览器上运行。&lt;/p&gt;
+&lt;p&gt;本文的主题就是这些工具的使用，上面这些工具被统称为 &lt;em&gt;transpiler&lt;/em&gt;，transpiler 也被称为&lt;a href=&quot;https://en.wikipedia.org/wiki/Source-to-source_compiler&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;源码到源码的编译器&lt;/a&gt;，用于在抽象级别进行编程语言之间的相互转换。使用 transpiler 可以让我们用 ES6 语法来编写代码，同时保证这些代码能在所有浏览器上运行。&lt;/p&gt;
     
     </summary>
     
@@ -1505,15 +1505,15 @@
       &lt;p&gt;当我们在进行 Web 开发时，很多时候都是在有意或无意地创建一些矩形，深究一下，到底有多少中方式来得到一个几何图形呢？本文将简单介绍几种生成圆形、三角形和多边形的方式，并分析每种方式的优缺点。&lt;/p&gt;
 &lt;p&gt;下面是可能使用到的方式：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;https://css-tricks.com/working-with-shapes-in-web-design/#shapes-border-radius&quot;&gt;border-radius&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://css-tricks.com/working-with-shapes-in-web-design/#shapes-border&quot;&gt;border&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://css-tricks.com/working-with-shapes-in-web-design/#shapes-transform-rotate&quot;&gt;rotating shapes with transform&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://css-tricks.com/working-with-shapes-in-web-design/#shapes-pseudo-elem&quot;&gt;pseudo elements&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://css-tricks.com/working-with-shapes-in-web-design/#shapes-box-shadow&quot;&gt;box-shadow&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://css-tricks.com/working-with-shapes-in-web-design/#shapes-shape-outside&quot;&gt;wrapping text into shapes with shape-outside&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://css-tricks.com/working-with-shapes-in-web-design/#shapes-clip-path&quot;&gt;clip-path on an element&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://css-tricks.com/working-with-shapes-in-web-design/#shapes-svg-assets&quot;&gt;SVG assets&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://css-tricks.com/working-with-shapes-in-web-design/#shapes-canvas&quot;&gt;canvas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://css-tricks.com/working-with-shapes-in-web-design/#shapes-border-radius&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;border-radius&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://css-tricks.com/working-with-shapes-in-web-design/#shapes-border&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;border&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://css-tricks.com/working-with-shapes-in-web-design/#shapes-transform-rotate&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;rotating shapes with transform&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://css-tricks.com/working-with-shapes-in-web-design/#shapes-pseudo-elem&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;pseudo elements&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://css-tricks.com/working-with-shapes-in-web-design/#shapes-box-shadow&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;box-shadow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://css-tricks.com/working-with-shapes-in-web-design/#shapes-shape-outside&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;wrapping text into shapes with shape-outside&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://css-tricks.com/working-with-shapes-in-web-design/#shapes-clip-path&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;clip-path on an element&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://css-tricks.com/working-with-shapes-in-web-design/#shapes-svg-assets&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SVG assets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://css-tricks.com/working-with-shapes-in-web-design/#shapes-canvas&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;canvas&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
     
     </summary>
@@ -1615,7 +1615,7 @@
 &lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;language&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;javascript&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    document.bgColor = &quot;brown&quot;;  // red&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;// --&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;古老的浏览器将看到两个不被支持的标签和一段注释，只有支持 JavaScript 的新浏览器才会将其解析为 JavaScript 代码。&lt;/p&gt;
 &lt;p&gt;为了支持这个古怪的特性，浏览器的 JavaScript 引擎把 &lt;code&gt;&amp;lt;!--&lt;/code&gt; 作为一个单行注释的开始，这不是开玩笑的，这一直都是这门语言的一部分，并且至今还能用，不仅仅在 &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; 标签内的首行，而是在 JavaScript 代码的任何部位都可用，它甚至还能在 Node 中使用。&lt;/p&gt;
-&lt;p&gt;凑巧的是，这种风格的注释在 ES6 中首次&lt;a href=&quot;http://people.mozilla.org/~jorendorff/es6-draft.html#sec-html-like-comments&quot;&gt;被标准化&lt;/a&gt;。但这并不是我们将谈论的箭头。&lt;/p&gt;
+&lt;p&gt;凑巧的是，这种风格的注释在 ES6 中首次&lt;a href=&quot;http://people.mozilla.org/~jorendorff/es6-draft.html#sec-html-like-comments&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;被标准化&lt;/a&gt;。但这并不是我们将谈论的箭头。&lt;/p&gt;
     
     </summary>
     
@@ -1764,7 +1764,7 @@
     <summary type="html">
     
       &lt;p&gt;本文将讨论使 JavaScript 函数更有表现力的两个特性：Rest 参数和参数默认值。&lt;/p&gt;
-&lt;h2 id=&quot;Rest-参数&quot;&gt;&lt;a href=&quot;#Rest-参数&quot; class=&quot;headerlink&quot; title=&quot;Rest 参数&quot;&gt;&lt;/a&gt;Rest 参数&lt;/h2&gt;&lt;p&gt;通常，我们需要创建一个可变参数的函数，可变参数是指函数可以接受任意数量的参数。例如，&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/concat&quot;&gt;&lt;code&gt;String.prototype.concat&lt;/code&gt;&lt;/a&gt; 可以接受任何数量的字符串作为参数。使用 Rest 参数，ES6 为我们提供一种新的方式来创建可变参数的函数。&lt;/p&gt;
+&lt;h2 id=&quot;Rest-参数&quot;&gt;&lt;a href=&quot;#Rest-参数&quot; class=&quot;headerlink&quot; title=&quot;Rest 参数&quot;&gt;&lt;/a&gt;Rest 参数&lt;/h2&gt;&lt;p&gt;通常，我们需要创建一个可变参数的函数，可变参数是指函数可以接受任意数量的参数。例如，&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/concat&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;String.prototype.concat&lt;/code&gt;&lt;/a&gt; 可以接受任何数量的字符串作为参数。使用 Rest 参数，ES6 为我们提供一种新的方式来创建可变参数的函数。&lt;/p&gt;
 &lt;p&gt;我们来实现一个示例函数 &lt;code&gt;containsAll&lt;/code&gt;，用于检查一个字符串中是否包含某些子字符串。例如，&lt;code&gt;containsAll(&amp;quot;banana&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;nan&amp;quot;)&lt;/code&gt; 将返回&lt;code&gt;true&lt;/code&gt;，&lt;code&gt;containsAll(&amp;quot;banana&amp;quot;, &amp;quot;c&amp;quot;, &amp;quot;nan&amp;quot;)&lt;/code&gt; 将返回 &lt;code&gt;false&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;下面是传统的实现方式：&lt;/p&gt;
 &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;containsAll&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;haystack&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;; i &amp;lt; &lt;span class=&quot;built_in&quot;&gt;arguments&lt;/span&gt;.length; i++) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; needle = &lt;span class=&quot;built_in&quot;&gt;arguments&lt;/span&gt;[i];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (haystack.indexOf(needle) === &lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -1959,7 +1959,7 @@
     <summary type="html">
     
       &lt;p&gt;在大型、复杂和快速迭代的系统中，CSS 将非常难以维护。原因之一就是 CSS 没有作用域的概念，每个 CSS 都是全局的，这意味着对 CSS 的任何修改就可能导致一些 UI 的级联改变。&lt;/p&gt;
-&lt;p&gt;CSS 的扩展语言 – &lt;a href=&quot;http://sixrevisions.com/elsewhere-on-the-web/the-best-css-preprocessors-right-now/&quot;&gt;CSS 预处理器&lt;/a&gt;，比如 Sass、Less 和 Stylus，使我们编写 CSS 更加容易，但在我看来，这些 CSS 的扩展语言并没有真正解决可扩展性问题。&lt;/p&gt;
+&lt;p&gt;CSS 的扩展语言 – &lt;a href=&quot;http://sixrevisions.com/elsewhere-on-the-web/the-best-css-preprocessors-right-now/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CSS 预处理器&lt;/a&gt;，比如 Sass、Less 和 Stylus，使我们编写 CSS 更加容易，但在我看来，这些 CSS 的扩展语言并没有真正解决可扩展性问题。&lt;/p&gt;
 &lt;p&gt;在 CSS 支持作用域机制之前，我们需要一种机制，使我们的样式只与特定的 HTML 部分关联，这就是 CSS 方法论。本文将讨论如下的 CSS 方法论：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Object-Oriented CSS (OOCSS)&lt;/li&gt;
@@ -1969,7 +1969,7 @@
 &lt;li&gt;Systematic CSS&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;CSS 方法论是正式的，文档化的 CSS 编写方法，使我们能够将 CSS 作为一些小的独立的模块来开发和维护，而不是一个庞大的不可分割的一坨代码。采用一种 CSS 方法论 – 即便这是你自己创建的 – 它将使你在 Web 开发中更加得心应手。&lt;/p&gt;
-&lt;p&gt;相关文章：&lt;a href=&quot;http://sixrevisions.com/css/css-development-at-large-sites/&quot;&gt;CSS Development at Large-Scale Websites&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;相关文章：&lt;a href=&quot;http://sixrevisions.com/css/css-development-at-large-sites/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CSS Development at Large-Scale Websites&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;每个 CSS 方法论都为可扩展性和可维护性提供了一套解决方案，一个 CSS 方法论通常会定义：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;CSS 和 HTML 的最佳实践&lt;/li&gt;
@@ -2364,7 +2364,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;参考原文：&lt;a href=&quot;http://davidwalsh.name/essential-javascript-functions&quot;&gt;7 Essential JavaScript Functions&lt;/a&gt; 以下是意译。&lt;/p&gt;
+      &lt;p&gt;参考原文：&lt;a href=&quot;http://davidwalsh.name/essential-javascript-functions&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;7 Essential JavaScript Functions&lt;/a&gt; 以下是意译。&lt;/p&gt;
 &lt;p&gt;早期，由于浏览器厂商对 JavaScript 实现不同，我们通常需要一些简单的函数来实现某些边缘特性，甚至某些基本特性，比如 &lt;code&gt;addEventListener&lt;/code&gt; 和 &lt;code&gt;attachEvent&lt;/code&gt;。现在，虽然时代进步了，但仍有一些函数需要开发者掌握，以便于性能优化和快速开发。&lt;/p&gt;
     
     </summary>
@@ -2494,13 +2494,13 @@
     <summary type="html">
     
       &lt;p&gt;十多年来，我们一直使用 XMLHttpRequest（XHR）来发送异步请求，XHR 很实用，但并不是一个设计优良的 API，在设计上并不符合职责分离原则，输入、输出以及状态都杂糅在同一对象中，并用事件机制来跟踪状态变化。并且，基于事件的模型与最近流行的 Promise 和 generator 异步编程模型不太友好。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API&quot;&gt;Fetch API&lt;/a&gt; 旨在修正上述缺陷，它提供了与 HTTP 语义相同的 JS 语法，简单来说，它引入了 &lt;code&gt;fetch()&lt;/code&gt; 这个实用的方法来获取网络资源。&lt;/p&gt;
-&lt;p&gt;在 &lt;a href=&quot;https://fetch.spec.whatwg.org/&quot;&gt;Fetch 规范&lt;/a&gt;中对 API 进行了定义，它结合 ServiceWorkers，尝试做到如下优化：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Fetch API&lt;/a&gt; 旨在修正上述缺陷，它提供了与 HTTP 语义相同的 JS 语法，简单来说，它引入了 &lt;code&gt;fetch()&lt;/code&gt; 这个实用的方法来获取网络资源。&lt;/p&gt;
+&lt;p&gt;在 &lt;a href=&quot;https://fetch.spec.whatwg.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Fetch 规范&lt;/a&gt;中对 API 进行了定义，它结合 ServiceWorkers，尝试做到如下优化：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;改善离线体验&lt;/li&gt;
 &lt;li&gt;保持可扩展性&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;写这篇文章时，Fetch API 已被 Firefox 39（Nightly）以及 Chrome 42（dev）支持。在 github 上有相应的 &lt;a href=&quot;https://github.com/github/fetch&quot;&gt;polyfill&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;写这篇文章时，Fetch API 已被 Firefox 39（Nightly）以及 Chrome 42（dev）支持。在 github 上有相应的 &lt;a href=&quot;https://github.com/github/fetch&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;polyfill&lt;/a&gt;。&lt;/p&gt;
     
     </summary>
     
@@ -2516,7 +2516,7 @@
     <link href="http://bubkoo.com/2015/04/17/a-visual-guide-to-css3-flexbox-properties/"/>
     <id>http://bubkoo.com/2015/04/17/a-visual-guide-to-css3-flexbox-properties/</id>
     <published>2015-04-17T13:10:40.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>Flexbox 布局是 CSS3 中一种新的布局模型，被称为<a href="http://www.w3.org/TR/css-flexbox/" target="_blank" rel="external">弹性盒模型</a>。该模型是为了改进容器中内容的对齐、方向和排序方式，即使是动态，甚至是未知大小的容器。弹性盒模型的主要特点是，可以在不同屏幕尺寸下以最佳的方式，修改其子项的高度或宽度来填充容器的可用空间。</p>
 <p>许多设计师和开发人员认为这种布局使用起来更加简单，弹性盒模型的使元素的定位更加简单，从而某些复杂的布局可以用更少的代码来实现，进而简化了开发过程。Flexbox 布局算法是基于方向的，这与基于垂直和水平的 block 和 inline 布局不同。弹性盒模型可用于小应用或组建的布局，然而对于大型应用应该使用 <a href="http://www.w3.org/TR/css-grid/" target="_blank" rel="external">Grid 布局</a>。</p>
@@ -2676,8 +2676,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;Flexbox 布局是 CSS3 中一种新的布局模型，被称为&lt;a href=&quot;http://www.w3.org/TR/css-flexbox/&quot;&gt;弹性盒模型&lt;/a&gt;。该模型是为了改进容器中内容的对齐、方向和排序方式，即使是动态，甚至是未知大小的容器。弹性盒模型的主要特点是，可以在不同屏幕尺寸下以最佳的方式，修改其子项的高度或宽度来填充容器的可用空间。&lt;/p&gt;
-&lt;p&gt;许多设计师和开发人员认为这种布局使用起来更加简单，弹性盒模型的使元素的定位更加简单，从而某些复杂的布局可以用更少的代码来实现，进而简化了开发过程。Flexbox 布局算法是基于方向的，这与基于垂直和水平的 block 和 inline 布局不同。弹性盒模型可用于小应用或组建的布局，然而对于大型应用应该使用 &lt;a href=&quot;http://www.w3.org/TR/css-grid/&quot;&gt;Grid 布局&lt;/a&gt;。&lt;/p&gt;
+      &lt;p&gt;Flexbox 布局是 CSS3 中一种新的布局模型，被称为&lt;a href=&quot;http://www.w3.org/TR/css-flexbox/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;弹性盒模型&lt;/a&gt;。该模型是为了改进容器中内容的对齐、方向和排序方式，即使是动态，甚至是未知大小的容器。弹性盒模型的主要特点是，可以在不同屏幕尺寸下以最佳的方式，修改其子项的高度或宽度来填充容器的可用空间。&lt;/p&gt;
+&lt;p&gt;许多设计师和开发人员认为这种布局使用起来更加简单，弹性盒模型的使元素的定位更加简单，从而某些复杂的布局可以用更少的代码来实现，进而简化了开发过程。Flexbox 布局算法是基于方向的，这与基于垂直和水平的 block 和 inline 布局不同。弹性盒模型可用于小应用或组建的布局，然而对于大型应用应该使用 &lt;a href=&quot;http://www.w3.org/TR/css-grid/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Grid 布局&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;本文将用可视化的方式介绍 Flex 如何影响我们的布局。&lt;/p&gt;
     
     </summary>
@@ -2696,7 +2696,7 @@
     <link href="http://bubkoo.com/2015/04/05/javascript-style-guide/"/>
     <id>http://bubkoo.com/2015/04/05/javascript-style-guide/</id>
     <published>2015-04-05T20:26:37.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>Airbnb 的 <a href="https://github.com/airbnb/javascript/blob/master/README.md" target="_blank" rel="external">ES5 规范</a>写的非常好，现在添加了 ES6 的部分。</p>
 <p>另外<a href="http://www.ruanyifeng.com/" target="_blank" rel="external">阮一峰老师</a>的 <a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ECMAScript 6 入门</a>值得参考。</p>
@@ -3247,8 +3247,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;Airbnb 的 &lt;a href=&quot;https://github.com/airbnb/javascript/blob/master/README.md&quot;&gt;ES5 规范&lt;/a&gt;写的非常好，现在添加了 ES6 的部分。&lt;/p&gt;
-&lt;p&gt;另外&lt;a href=&quot;http://www.ruanyifeng.com/&quot;&gt;阮一峰老师&lt;/a&gt;的 &lt;a href=&quot;http://es6.ruanyifeng.com/&quot;&gt;ECMAScript 6 入门&lt;/a&gt;值得参考。&lt;/p&gt;
+      &lt;p&gt;Airbnb 的 &lt;a href=&quot;https://github.com/airbnb/javascript/blob/master/README.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ES5 规范&lt;/a&gt;写的非常好，现在添加了 ES6 的部分。&lt;/p&gt;
+&lt;p&gt;另外&lt;a href=&quot;http://www.ruanyifeng.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;阮一峰老师&lt;/a&gt;的 &lt;a href=&quot;http://es6.ruanyifeng.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ECMAScript 6 入门&lt;/a&gt;值得参考。&lt;/p&gt;
     
     </summary>
     
@@ -3264,7 +3264,7 @@
     <link href="http://bubkoo.com/2015/02/02/best-practice-for-creating-custom-elements/"/>
     <id>http://bubkoo.com/2015/02/02/best-practice-for-creating-custom-elements/</id>
     <published>2015-02-02T11:23:14.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>越来越多的文章和讨论都是关于什么是 web 组件，什么是自定义元素，它们有什么好处以及如何使用它们，这些概念也逐渐进入开发人员的视野。如果你还不知道创建自定义元素的概念，请参考阅读<a href="http://www.smashingmagazine.com/2014/03/04/introduction-to-custom-elements/" target="_blank" rel="external">详细介绍自定义元素</a>。</p>
 <p>尽管这些新概念还没有在开发中大量使用，我认为是时候讨论一下使用它们的最佳实践。本文将通过对比分析两种创建自定义元素方法的优缺点，最后得出创建自定义元素的最佳实践。</p>
@@ -3301,7 +3301,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;越来越多的文章和讨论都是关于什么是 web 组件，什么是自定义元素，它们有什么好处以及如何使用它们，这些概念也逐渐进入开发人员的视野。如果你还不知道创建自定义元素的概念，请参考阅读&lt;a href=&quot;http://www.smashingmagazine.com/2014/03/04/introduction-to-custom-elements/&quot;&gt;详细介绍自定义元素&lt;/a&gt;。&lt;/p&gt;
+      &lt;p&gt;越来越多的文章和讨论都是关于什么是 web 组件，什么是自定义元素，它们有什么好处以及如何使用它们，这些概念也逐渐进入开发人员的视野。如果你还不知道创建自定义元素的概念，请参考阅读&lt;a href=&quot;http://www.smashingmagazine.com/2014/03/04/introduction-to-custom-elements/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;详细介绍自定义元素&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;尽管这些新概念还没有在开发中大量使用，我认为是时候讨论一下使用它们的最佳实践。本文将通过对比分析两种创建自定义元素方法的优缺点，最后得出创建自定义元素的最佳实践。&lt;/p&gt;
     
     </summary>
@@ -3318,7 +3318,7 @@
     <link href="http://bubkoo.com/2015/02/02/create-custom-elements/"/>
     <id>http://bubkoo.com/2015/02/02/create-custom-elements/</id>
     <published>2015-02-02T00:35:35.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>现在的 web 严重缺乏表现力。你只要瞧一眼“现代”的 web 应用，比如 GMail，就会明白了：</p>
 <p><img src="http://bubkoo.qiniudn.com/gmail-dom.png" alt="现代 web 应用：使用 div 堆砌而成"></p>
@@ -3530,7 +3530,7 @@
     <link href="http://bubkoo.com/2015/02/01/using-the-tabindex-attribute/"/>
     <id>http://bubkoo.com/2015/02/01/using-the-tabindex-attribute/</id>
     <published>2015-02-01T17:04:07.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="http://www.w3.org/html/wg/drafts/html/master/editing.html#attr-tabindex" target="_blank" rel="external">tabindex</a> 属性用于管理键盘焦点，决定元素是否能被选中，以及按下 <code>tab</code> 键过程中被选中的顺序，使用得当能够极大的提高应用的易用性，然而，不恰当地使用时可以键盘用户对应用的可用性。到底如何使用？设置为 <code>0</code> 会有什么效果？设置为 <code>-1</code> 会有什么效果？本文将为你揭晓。</p>
 <a id="more"></a>
@@ -3562,7 +3562,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;http://www.w3.org/html/wg/drafts/html/master/editing.html#attr-tabindex&quot;&gt;tabindex&lt;/a&gt; 属性用于管理键盘焦点，决定元素是否能被选中，以及按下 &lt;code&gt;tab&lt;/code&gt; 键过程中被选中的顺序，使用得当能够极大的提高应用的易用性，然而，不恰当地使用时可以键盘用户对应用的可用性。到底如何使用？设置为 &lt;code&gt;0&lt;/code&gt; 会有什么效果？设置为 &lt;code&gt;-1&lt;/code&gt; 会有什么效果？本文将为你揭晓。&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;http://www.w3.org/html/wg/drafts/html/master/editing.html#attr-tabindex&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;tabindex&lt;/a&gt; 属性用于管理键盘焦点，决定元素是否能被选中，以及按下 &lt;code&gt;tab&lt;/code&gt; 键过程中被选中的顺序，使用得当能够极大的提高应用的易用性，然而，不恰当地使用时可以键盘用户对应用的可用性。到底如何使用？设置为 &lt;code&gt;0&lt;/code&gt; 会有什么效果？设置为 &lt;code&gt;-1&lt;/code&gt; 会有什么效果？本文将为你揭晓。&lt;/p&gt;
     
     </summary>
     
@@ -3578,7 +3578,7 @@
     <link href="http://bubkoo.com/2015/01/31/understanding-and-solving-internet-explorer-leak-patterns/"/>
     <id>http://bubkoo.com/2015/01/31/understanding-and-solving-internet-explorer-leak-patterns/</id>
     <published>2015-01-31T00:04:06.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>在过去，内存泄漏并没有为 Web 开发人员带来巨大的问题。页面保持着相对简单，并且在页面之间的跳转时可以释放内存资源，即便还存在内存泄露，那也是小到可以被忽略。</p>
 <p>现在，新的 Web 应用达到更高的水准，页面可能运行数小时而不跳转，通过 Web 服务动态检索和更新页面。JavaScript 语言特性也被发挥到极致，通过复杂的事件绑定、面向对象和闭包等特性构成了整个 Web 应用。面对这些变化，内存泄露问题变得越来越突出，尤其是之前那些通过刷新（导航）隐藏的内存泄露问题。</p>
@@ -3643,7 +3643,7 @@
     <link href="http://bubkoo.com/2015/01/25/Strange-JavaScript-Errors-and-How-to-Fix-Them/"/>
     <id>http://bubkoo.com/2015/01/25/Strange-JavaScript-Errors-and-How-to-Fix-Them/</id>
     <published>2015-01-25T21:47:02.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>调试 JavaScript 也许是一场噩梦：一些错误非常难理解，并且给出的错误行号并不是总是很有帮助。如果有一个列表，列举这些错误的意思和如何修复它们，将对我们非常有帮助。</p>
 <p>本文列举了 JavaScript 中一些奇怪的错误。对于相同的错误不同的浏览器可能给出不同的提示，所以分别给出了不同的例子。</p>
@@ -3776,7 +3776,7 @@
     <link href="http://bubkoo.com/2014/12/02/use-nodemon-with-node-applications/"/>
     <id>http://bubkoo.com/2014/12/02/use-nodemon-with-node-applications/</id>
     <published>2014-12-02T03:28:38.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://camo.githubusercontent.com/fd1ea21338ceeef34920e44e97d099f3c47a78c3/687474703a2f2f6e6f64656d6f6e2e696f2f6e6f64656d6f6e2e737667" alt="nodemon"></p>
 <p><a href="http://nodemon.io/" target="_blank" rel="external">nodemon</a> 是一款非常实用的工具，用来监控 NodeJS 源代码的任何变化和自动重启你的服务器，这样我们只需要刷新页面就能看到你的改动。这里还有个一个工具 <a href="http://supervisord.org/" target="_blank" rel="external">supervisor</a> 也能实现同样的功能，但相比起来 nodemon 更加灵活轻量，内存占用更少。</p>
@@ -3811,7 +3811,7 @@
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;https://camo.githubusercontent.com/fd1ea21338ceeef34920e44e97d099f3c47a78c3/687474703a2f2f6e6f64656d6f6e2e696f2f6e6f64656d6f6e2e737667&quot; alt=&quot;nodemon&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://nodemon.io/&quot;&gt;nodemon&lt;/a&gt; 是一款非常实用的工具，用来监控 NodeJS 源代码的任何变化和自动重启你的服务器，这样我们只需要刷新页面就能看到你的改动。这里还有个一个工具 &lt;a href=&quot;http://supervisord.org/&quot;&gt;supervisor&lt;/a&gt; 也能实现同样的功能，但相比起来 nodemon 更加灵活轻量，内存占用更少。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://nodemon.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;nodemon&lt;/a&gt; 是一款非常实用的工具，用来监控 NodeJS 源代码的任何变化和自动重启你的服务器，这样我们只需要刷新页面就能看到你的改动。这里还有个一个工具 &lt;a href=&quot;http://supervisord.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;supervisor&lt;/a&gt; 也能实现同样的功能，但相比起来 nodemon 更加灵活轻量，内存占用更少。&lt;/p&gt;
     
     </summary>
     
@@ -3831,7 +3831,7 @@
     <link href="http://bubkoo.com/2014/11/13/Partial-Application-in-JavaScript/"/>
     <id>http://bubkoo.com/2014/11/13/Partial-Application-in-JavaScript/</id>
     <published>2014-11-13T10:32:45.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><a href="http://en.wikipedia.org/wiki/Partial_application" target="_blank" rel="external">Partial Application</a>？不要被字面意思误解，这里要说的并不是 Application，而是 JavaScript 中的 <code>function</code>。可以这样来描述 Partial Application，一个接受多个参数的函数，预先给该函数绑定一些参数，并返回一个新的函数来接受剩下未绑定的参数。貌似有点像柯里化(currying)函数，但不尽然。</p>
 <p>典型的柯里化函数定义如下：</p>
@@ -3868,7 +3868,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Partial_application&quot;&gt;Partial Application&lt;/a&gt;？不要被字面意思误解，这里要说的并不是 Application，而是 JavaScript 中的 &lt;code&gt;function&lt;/code&gt;。可以这样来描述 Partial Application，一个接受多个参数的函数，预先给该函数绑定一些参数，并返回一个新的函数来接受剩下未绑定的参数。貌似有点像柯里化(currying)函数，但不尽然。&lt;/p&gt;
+      &lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Partial_application&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Partial Application&lt;/a&gt;？不要被字面意思误解，这里要说的并不是 Application，而是 JavaScript 中的 &lt;code&gt;function&lt;/code&gt;。可以这样来描述 Partial Application，一个接受多个参数的函数，预先给该函数绑定一些参数，并返回一个新的函数来接受剩下未绑定的参数。貌似有点像柯里化(currying)函数，但不尽然。&lt;/p&gt;
 &lt;p&gt;典型的柯里化函数定义如下：&lt;/p&gt;
 &lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;Function&lt;/span&gt;.prototype.curry = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; fn = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;, args = &lt;span class=&quot;built_in&quot;&gt;Array&lt;/span&gt;.prototype.slice.call(&lt;span class=&quot;built_in&quot;&gt;arguments&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; fn.apply(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;, args.concat(&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;Array&lt;/span&gt;.prototype.slice.call(&lt;span class=&quot;built_in&quot;&gt;arguments&lt;/span&gt;)));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;上面代码预先绑定函数参数列表左侧的参数到新返回的函数中，新函数接受右侧剩下的参数，相比起来 Partial Application 更加灵活。&lt;br&gt;
@@ -3887,7 +3887,7 @@
     <link href="http://bubkoo.com/2014/10/24/thinking-about-D3-s-data-bingding/"/>
     <id>http://bubkoo.com/2014/10/24/thinking-about-D3-s-data-bingding/</id>
     <published>2014-10-24T17:19:30.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>如果用 <a href="http://d3js.org/" target="_blank" rel="external">D3</a> 来构建一个简单的散点图，我们需要创建一些<a href="http://www.w3.org/TR/SVG/shapes.html#CircleElement" target="_blank" rel="external">圆点（circle）</a>来展示你的数据。当你发现 D3 并没有提供内置的方法来同时创建多个 DOM 元素时，也许你会感到惊讶，但是，等等，<a href="https://www.destroyallsoftware.com/talks/wat" target="_blank" rel="external">为什么呢</a>？</p>
 <a id="more"></a>
@@ -4017,7 +4017,7 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;如果用 &lt;a href=&quot;http://d3js.org/&quot;&gt;D3&lt;/a&gt; 来构建一个简单的散点图，我们需要创建一些&lt;a href=&quot;http://www.w3.org/TR/SVG/shapes.html#CircleElement&quot;&gt;圆点（circle）&lt;/a&gt;来展示你的数据。当你发现 D3 并没有提供内置的方法来同时创建多个 DOM 元素时，也许你会感到惊讶，但是，等等，&lt;a href=&quot;https://www.destroyallsoftware.com/talks/wat&quot;&gt;为什么呢&lt;/a&gt;？&lt;/p&gt;
+      &lt;p&gt;如果用 &lt;a href=&quot;http://d3js.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;D3&lt;/a&gt; 来构建一个简单的散点图，我们需要创建一些&lt;a href=&quot;http://www.w3.org/TR/SVG/shapes.html#CircleElement&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;圆点（circle）&lt;/a&gt;来展示你的数据。当你发现 D3 并没有提供内置的方法来同时创建多个 DOM 元素时，也许你会感到惊讶，但是，等等，&lt;a href=&quot;https://www.destroyallsoftware.com/talks/wat&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;为什么呢&lt;/a&gt;？&lt;/p&gt;
     
     </summary>
     
@@ -4035,7 +4035,7 @@ circle {
     <link href="http://bubkoo.com/2014/07/13/ecma-262-3-in-detail-chapter-8-evaluation-strategy/"/>
     <id>http://bubkoo.com/2014/07/13/ecma-262-3-in-detail-chapter-8-evaluation-strategy/</id>
     <published>2014-07-13T23:22:39.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>此文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-8-evaluation-strategy/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 8. Evaluation strategy</a>.</p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本文将讨论在 ECMAScript 中向函数传递参数的策略。</p>
@@ -4115,7 +4115,7 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;此文译自 &lt;a href=&quot;http://dmitrysoshnikov.com/&quot;&gt;Dmitry A. Soshnikov&lt;/a&gt; 的 &lt;a href=&quot;http://dmitrysoshnikov.com/ecmascript/chapter-8-evaluation-strategy/&quot;&gt;ECMA-262-3 in detail. Chapter 8. Evaluation strategy&lt;/a&gt;.&lt;/p&gt;
+      &lt;p&gt;此文译自 &lt;a href=&quot;http://dmitrysoshnikov.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Dmitry A. Soshnikov&lt;/a&gt; 的 &lt;a href=&quot;http://dmitrysoshnikov.com/ecmascript/chapter-8-evaluation-strategy/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ECMA-262-3 in detail. Chapter 8. Evaluation strategy&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;本文将讨论在 ECMAScript 中向函数传递参数的策略。&lt;/p&gt;
 &lt;p&gt;计算机科学里对这种策略一般称为“evaluation strategy”，即在编程语言中求解或计算某些表达式的值的一系列规则。将参数传递给函数是其中的一个案例。&lt;/p&gt;
 &lt;p&gt;写这篇文章的原因是因为论坛上有一些类似的讨论，大家都呼吁给出 ECMAScript 中参数传递策略的最精确的说明。本文给出了相应的定义，希望对大家有所帮助。&lt;/p&gt;
@@ -4139,7 +4139,7 @@ circle {
     <link href="http://bubkoo.com/2014/06/22/ecma-262-3-in-detail-chapter-7-2-oop-ecmascript-implementation/"/>
     <id>http://bubkoo.com/2014/06/22/ecma-262-3-in-detail-chapter-7-2-oop-ecmascript-implementation/</id>
     <published>2014-06-22T18:57:22.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>此文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-7-2-oop-ecmascript-implementation/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 7.2. OOP: ECMAScript implementation</a>.</p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>这一章的第二部分是关于 EMCAScript 中的面向对象编程。在第一部分中我们讨论了 OOP 的基本理论并勾画出和 ECMAScript 的相似之处。在阅读第二部分之前，如果有必要，我还是建议首先阅读这一章的<a href="http://bubkoo.com/2014/06/21/ecma-262-3-in-detail-chapter-7-1-oop-the-general-theory/">第一部分 概论</a>，因为后面将会用到其中的一些术语。</p>
@@ -4427,7 +4427,7 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;此文译自 &lt;a href=&quot;http://dmitrysoshnikov.com/&quot;&gt;Dmitry A. Soshnikov&lt;/a&gt; 的 &lt;a href=&quot;http://dmitrysoshnikov.com/ecmascript/chapter-7-2-oop-ecmascript-implementation/&quot;&gt;ECMA-262-3 in detail. Chapter 7.2. OOP: ECMAScript implementation&lt;/a&gt;.&lt;/p&gt;
+      &lt;p&gt;此文译自 &lt;a href=&quot;http://dmitrysoshnikov.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Dmitry A. Soshnikov&lt;/a&gt; 的 &lt;a href=&quot;http://dmitrysoshnikov.com/ecmascript/chapter-7-2-oop-ecmascript-implementation/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ECMA-262-3 in detail. Chapter 7.2. OOP: ECMAScript implementation&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;这一章的第二部分是关于 EMCAScript 中的面向对象编程。在第一部分中我们讨论了 OOP 的基本理论并勾画出和 ECMAScript 的相似之处。在阅读第二部分之前，如果有必要，我还是建议首先阅读这一章的&lt;a href=&quot;http://bubkoo.com/2014/06/21/ecma-262-3-in-detail-chapter-7-1-oop-the-general-theory/&quot;&gt;第一部分 概论&lt;/a&gt;，因为后面将会用到其中的一些术语。&lt;/p&gt;
     
     </summary>
@@ -4450,7 +4450,7 @@ circle {
     <link href="http://bubkoo.com/2014/06/21/ecma-262-3-in-detail-chapter-7-1-oop-the-general-theory/"/>
     <id>http://bubkoo.com/2014/06/21/ecma-262-3-in-detail-chapter-7-1-oop-the-general-theory/</id>
     <published>2014-06-21T18:57:22.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>此文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-7-1-oop-general-theory/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 7.1. OOP: The general theory</a>.</p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本文主要讨论 ECMAScript 中面向对象编程。之前已经有大量的文章讨论过该话题了，但本文与那些文章不同，本文主要从理论方面来解析其内部原理。重点讨论对象创建算法，对象之间的关系（包含最基本的关系 – 继承）是如何形成的，并给出了明确的定义（我希望这可以消除一些文章中对于 JavaScript 中 OOP 的疑虑和混乱）。</p>
@@ -4619,7 +4619,7 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;此文译自 &lt;a href=&quot;http://dmitrysoshnikov.com/&quot;&gt;Dmitry A. Soshnikov&lt;/a&gt; 的 &lt;a href=&quot;http://dmitrysoshnikov.com/ecmascript/chapter-7-1-oop-general-theory/&quot;&gt;ECMA-262-3 in detail. Chapter 7.1. OOP: The general theory&lt;/a&gt;.&lt;/p&gt;
+      &lt;p&gt;此文译自 &lt;a href=&quot;http://dmitrysoshnikov.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Dmitry A. Soshnikov&lt;/a&gt; 的 &lt;a href=&quot;http://dmitrysoshnikov.com/ecmascript/chapter-7-1-oop-general-theory/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ECMA-262-3 in detail. Chapter 7.1. OOP: The general theory&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;本文主要讨论 ECMAScript 中面向对象编程。之前已经有大量的文章讨论过该话题了，但本文与那些文章不同，本文主要从理论方面来解析其内部原理。重点讨论对象创建算法，对象之间的关系（包含最基本的关系 – 继承）是如何形成的，并给出了明确的定义（我希望这可以消除一些文章中对于 JavaScript 中 OOP 的疑虑和混乱）。&lt;/p&gt;
     
     </summary>
@@ -4642,7 +4642,7 @@ circle {
     <link href="http://bubkoo.com/2014/06/15/ecma-262-3-in-detail-chapter-6-closures/"/>
     <id>http://bubkoo.com/2014/06/15/ecma-262-3-in-detail-chapter-6-closures/</id>
     <published>2014-06-15T21:56:23.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的文章 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-5-functions/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 6. Closures</a>.</p>
 <p>其中大部分参考了 <a href="http://zh.blog.goddyzhao.me/" target="_blank" rel="external">goddyzhao</a> 的<a href="http://zh.blog.goddyzhao.me/post/11311499651/closures" target="_blank" rel="external">翻译</a>。</p>
@@ -4769,8 +4769,8 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;本文译自 &lt;a href=&quot;http://dmitrysoshnikov.com/&quot;&gt;Dmitry A. Soshnikov&lt;/a&gt; 的文章 &lt;a href=&quot;http://dmitrysoshnikov.com/ecmascript/chapter-5-functions/&quot;&gt;ECMA-262-3 in detail. Chapter 6. Closures&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;其中大部分参考了 &lt;a href=&quot;http://zh.blog.goddyzhao.me/&quot;&gt;goddyzhao&lt;/a&gt; 的&lt;a href=&quot;http://zh.blog.goddyzhao.me/post/11311499651/closures&quot;&gt;翻译&lt;/a&gt;。&lt;/p&gt;
+      &lt;p&gt;本文译自 &lt;a href=&quot;http://dmitrysoshnikov.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Dmitry A. Soshnikov&lt;/a&gt; 的文章 &lt;a href=&quot;http://dmitrysoshnikov.com/ecmascript/chapter-5-functions/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ECMA-262-3 in detail. Chapter 6. Closures&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;其中大部分参考了 &lt;a href=&quot;http://zh.blog.goddyzhao.me/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;goddyzhao&lt;/a&gt; 的&lt;a href=&quot;http://zh.blog.goddyzhao.me/post/11311499651/closures&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;翻译&lt;/a&gt;。&lt;/p&gt;
 &lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;本文将介绍在 JavaScript 中大家经常讨论的话题 – 闭包（Closure）。事实上，闭包是个老生常谈的话题了，管如此，这里还是要试着从理论角度来讨论下闭包，看看 ECMAScript 中的闭包内部究竟是如何工作的。&lt;/p&gt;
 &lt;p&gt;正如在此前文章中提到的，这些文章都是系列文章，相互之间都是有关联的。因此，为了更好的理解本文要介绍的内容， 建议先去阅读下&lt;a href=&quot;http://bubkoo.com/2014/06/01/ecma-262-3-in-detail-chapter-4-scope-chain/&quot;&gt;第四章 作用域链&lt;/a&gt;和&lt;a href=&quot;http://bubkoo.com/2014/05/31/ecma-262-3-in-detail-chapter-2-variable-object/&quot;&gt;第二章 变量对象&lt;/a&gt;。&lt;br&gt;
     
@@ -4794,7 +4794,7 @@ circle {
     <link href="http://bubkoo.com/2014/06/12/ecma-262-3-in-detail-chapter-5-functions/"/>
     <id>http://bubkoo.com/2014/06/12/ecma-262-3-in-detail-chapter-5-functions/</id>
     <published>2014-06-12T21:56:23.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的文章 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-5-functions/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 5. Functions</a>.</p>
 <p>其中大部分参考了 <a href="http://zh.blog.goddyzhao.me/" target="_blank" rel="external">goddyzhao</a> 的<a href="http://zh.blog.goddyzhao.me/post/11273713920/functions#_=_" target="_blank" rel="external">翻译</a>。</p>
@@ -4951,8 +4951,8 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;本文译自 &lt;a href=&quot;http://dmitrysoshnikov.com/&quot;&gt;Dmitry A. Soshnikov&lt;/a&gt; 的文章 &lt;a href=&quot;http://dmitrysoshnikov.com/ecmascript/chapter-5-functions/&quot;&gt;ECMA-262-3 in detail. Chapter 5. Functions&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;其中大部分参考了 &lt;a href=&quot;http://zh.blog.goddyzhao.me/&quot;&gt;goddyzhao&lt;/a&gt; 的&lt;a href=&quot;http://zh.blog.goddyzhao.me/post/11273713920/functions#_=_&quot;&gt;翻译&lt;/a&gt;。&lt;/p&gt;
+      &lt;p&gt;本文译自 &lt;a href=&quot;http://dmitrysoshnikov.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Dmitry A. Soshnikov&lt;/a&gt; 的文章 &lt;a href=&quot;http://dmitrysoshnikov.com/ecmascript/chapter-5-functions/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ECMA-262-3 in detail. Chapter 5. Functions&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;其中大部分参考了 &lt;a href=&quot;http://zh.blog.goddyzhao.me/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;goddyzhao&lt;/a&gt; 的&lt;a href=&quot;http://zh.blog.goddyzhao.me/post/11273713920/functions#_=_&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;翻译&lt;/a&gt;。&lt;/p&gt;
 &lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;本文将介绍 ECMAScript 中一个非常常见的对象 – 函数。我们将着重介绍函数都有哪些类型，不同类型的函数是如何影响上下文的变量对象的，以及每种类型的函数的作用域链中都包含什么，并回答诸如下面这样的问题：下面声明的函数有什么区别吗？（如果有，区别是什么）。&lt;/p&gt;
 &lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; foo = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  ...&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;上述方式创建的函数和如下方式创建的有什么不同？&lt;/p&gt;
@@ -4980,7 +4980,7 @@ circle {
     <link href="http://bubkoo.com/2014/06/01/ecma-262-3-in-detail-chapter-4-scope-chain/"/>
     <id>http://bubkoo.com/2014/06/01/ecma-262-3-in-detail-chapter-4-scope-chain/</id>
     <published>2014-06-01T21:56:23.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的文章 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-4-scope-chain/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 4. Scope chain</a>.</p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>通过<a href="http://bubkoo.com/2014/05/31/ecma-262-3-in-detail-chapter-2-variable-object/">第二章 变量对象</a>的学习我们知道，执行上下文的数据（变量、函数声明、函数形参）都是以属性的方式储存在变量对象中。</p>
@@ -5105,7 +5105,7 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;本文译自 &lt;a href=&quot;http://dmitrysoshnikov.com/&quot;&gt;Dmitry A. Soshnikov&lt;/a&gt; 的文章 &lt;a href=&quot;http://dmitrysoshnikov.com/ecmascript/chapter-4-scope-chain/&quot;&gt;ECMA-262-3 in detail. Chapter 4. Scope chain&lt;/a&gt;.&lt;/p&gt;
+      &lt;p&gt;本文译自 &lt;a href=&quot;http://dmitrysoshnikov.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Dmitry A. Soshnikov&lt;/a&gt; 的文章 &lt;a href=&quot;http://dmitrysoshnikov.com/ecmascript/chapter-4-scope-chain/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ECMA-262-3 in detail. Chapter 4. Scope chain&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;通过&lt;a href=&quot;http://bubkoo.com/2014/05/31/ecma-262-3-in-detail-chapter-2-variable-object/&quot;&gt;第二章 变量对象&lt;/a&gt;的学习我们知道，执行上下文的数据（变量、函数声明、函数形参）都是以属性的方式储存在变量对象中。&lt;/p&gt;
 &lt;p&gt;我们还知道，变量对象是在&lt;a href=&quot;http://bubkoo.com/2014/05/31/ecma-262-3-in-detail-chapter-2-variable-object/#i-4-1&quot;&gt;进入执行上下文阶段&lt;/a&gt;被创建和初始化，随后在&lt;a href=&quot;http://bubkoo.com/2014/05/31/ecma-262-3-in-detail-chapter-2-variable-object/#i-4-2&quot;&gt;执行代码阶段&lt;/a&gt;会对属性值进行更新。&lt;/p&gt;
 &lt;p&gt;本文将深入讨论与执行上下文密切相关的另外一个重要的概念 —— 作用域链（Scope Chain）。&lt;/p&gt;
@@ -5128,7 +5128,7 @@ circle {
     <link href="http://bubkoo.com/2014/06/01/ecma-262-3-in-detail-chapter-3-this/"/>
     <id>http://bubkoo.com/2014/06/01/ecma-262-3-in-detail-chapter-3-this/</id>
     <published>2014-06-01T09:56:23.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的文章 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-3-this/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 3. This.</a></p>
 <p>翻译过程参考了现有的中文翻译，学习 ECMAScript 是一个非常抽象的过程，因为很多概念都是通过抽象的方式来解释的，作者尝试尽量用一些简单的方式并使用了一些具体图表，来使我们的学习曲线稍微平稳一点。</p>
@@ -5196,7 +5196,7 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;本文译自 &lt;a href=&quot;http://dmitrysoshnikov.com/&quot;&gt;Dmitry A. Soshnikov&lt;/a&gt; 的文章 &lt;a href=&quot;http://dmitrysoshnikov.com/ecmascript/chapter-3-this/&quot;&gt;ECMA-262-3 in detail. Chapter 3. This.&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;本文译自 &lt;a href=&quot;http://dmitrysoshnikov.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Dmitry A. Soshnikov&lt;/a&gt; 的文章 &lt;a href=&quot;http://dmitrysoshnikov.com/ecmascript/chapter-3-this/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ECMA-262-3 in detail. Chapter 3. This.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;翻译过程参考了现有的中文翻译，学习 ECMAScript 是一个非常抽象的过程，因为很多概念都是通过抽象的方式来解释的，作者尝试尽量用一些简单的方式并使用了一些具体图表，来使我们的学习曲线稍微平稳一点。&lt;/p&gt;
 &lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;本文将讨论和&lt;a href=&quot;http://bubkoo.com/2014/05/28/ecma-262-3-in-detail-chapter-1-execution-contexts/&quot;&gt;执行上下&lt;/a&gt;文密切相关的更多细节 - &lt;code&gt;this&lt;/code&gt; 关键字。&lt;/p&gt;
 &lt;p&gt;实践证明，这个主题很难，在不同的执行上下文中确定 &lt;code&gt;this&lt;/code&gt; 的值经常会发生问题。&lt;/p&gt;
@@ -5221,7 +5221,7 @@ circle {
     <link href="http://bubkoo.com/2014/05/31/ecma-262-3-in-detail-chapter-2-variable-object/"/>
     <id>http://bubkoo.com/2014/05/31/ecma-262-3-in-detail-chapter-2-variable-object/</id>
     <published>2014-05-31T20:56:23.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的文章 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-2-variable-object/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 2. Variable object.</a></p>
 <p>参考了一些译文，作为自己学习 ECMAScript 的一点积累。</p>
@@ -5354,7 +5354,7 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;本文译自 &lt;a href=&quot;http://dmitrysoshnikov.com/&quot;&gt;Dmitry A. Soshnikov&lt;/a&gt; 的文章 &lt;a href=&quot;http://dmitrysoshnikov.com/ecmascript/chapter-2-variable-object/&quot;&gt;ECMA-262-3 in detail. Chapter 2. Variable object.&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;本文译自 &lt;a href=&quot;http://dmitrysoshnikov.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Dmitry A. Soshnikov&lt;/a&gt; 的文章 &lt;a href=&quot;http://dmitrysoshnikov.com/ecmascript/chapter-2-variable-object/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ECMA-262-3 in detail. Chapter 2. Variable object.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;参考了一些译文，作为自己学习 ECMAScript 的一点积累。&lt;/p&gt;
 &lt;h2 id=&quot;概要&quot;&gt;&lt;a href=&quot;#概要&quot; class=&quot;headerlink&quot; title=&quot;概要&quot;&gt;&lt;/a&gt;概要&lt;/h2&gt;&lt;p&gt;创建应用程序的时，总免不了要声明变量和函数。然而，解析器（interpreter）是如何以及从哪里找到这些数据（变量，函数）的，当我们引用一个变量时，在解析器内部又发生了什么？&lt;/p&gt;
 &lt;p&gt;许多 ECMAScript 程序员都知道变量与&lt;a href=&quot;http://bubkoo.com/2014/05/28/ecma-262-3-in-detail-chapter-1-execution-contexts/&quot;&gt;执行上下&lt;/a&gt;文密切相关：&lt;/p&gt;
@@ -5381,7 +5381,7 @@ circle {
     <link href="http://bubkoo.com/2014/05/28/ecma-262-3-in-detail-chapter-1-execution-contexts/"/>
     <id>http://bubkoo.com/2014/05/28/ecma-262-3-in-detail-chapter-1-execution-contexts/</id>
     <published>2014-05-28T16:56:23.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-1-execution-contexts/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 1. Execution Contexts.</a></p>
 <p>参阅了已有的中文翻译，以此来加深对 ECMAScript 的理解。</p>
@@ -5425,7 +5425,7 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;本文译自 &lt;a href=&quot;http://dmitrysoshnikov.com/&quot;&gt;Dmitry A. Soshnikov&lt;/a&gt; 的 &lt;a href=&quot;http://dmitrysoshnikov.com/ecmascript/chapter-1-execution-contexts/&quot;&gt;ECMA-262-3 in detail. Chapter 1. Execution Contexts.&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;本文译自 &lt;a href=&quot;http://dmitrysoshnikov.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Dmitry A. Soshnikov&lt;/a&gt; 的 &lt;a href=&quot;http://dmitrysoshnikov.com/ecmascript/chapter-1-execution-contexts/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ECMA-262-3 in detail. Chapter 1. Execution Contexts.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;参阅了已有的中文翻译，以此来加深对 ECMAScript 的理解。&lt;/p&gt;
 &lt;h2 id=&quot;概要&quot;&gt;&lt;a href=&quot;#概要&quot; class=&quot;headerlink&quot; title=&quot;概要&quot;&gt;&lt;/a&gt;概要&lt;/h2&gt;&lt;p&gt;本文将介绍 ECMAScript 的执行上下文以及与之相关的可执行代码的类型。&lt;/p&gt;
 &lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h2&gt;&lt;p&gt;每当控制器到达 ECMAScript 的可执行代码时，控制器就进入了一个执行上下文。&lt;/p&gt;
@@ -5453,7 +5453,7 @@ circle {
     <link href="http://bubkoo.com/2014/05/20/javascript-the-core/"/>
     <id>http://bubkoo.com/2014/05/20/javascript-the-core/</id>
     <published>2014-05-20T16:54:01.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>此文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的 <a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/" target="_blank" rel="external">JavaScript. The core.</a>.</p>
 <p>本文是<a href="http://dmitrysoshnikov.com/tag/ecma-262-3/" target="_blank" rel="external">详解 ECMA-262-3 系列</a>的概述和总结。每个部分都包含对应章节的连接，所以你可以阅读它们以获得更深入的了解。</p>
@@ -5600,8 +5600,8 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;此文译自 &lt;a href=&quot;http://dmitrysoshnikov.com/&quot;&gt;Dmitry A. Soshnikov&lt;/a&gt; 的 &lt;a href=&quot;http://dmitrysoshnikov.com/ecmascript/javascript-the-core/&quot;&gt;JavaScript. The core.&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;本文是&lt;a href=&quot;http://dmitrysoshnikov.com/tag/ecma-262-3/&quot;&gt;详解 ECMA-262-3 系列&lt;/a&gt;的概述和总结。每个部分都包含对应章节的连接，所以你可以阅读它们以获得更深入的了解。&lt;/p&gt;
+      &lt;p&gt;此文译自 &lt;a href=&quot;http://dmitrysoshnikov.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Dmitry A. Soshnikov&lt;/a&gt; 的 &lt;a href=&quot;http://dmitrysoshnikov.com/ecmascript/javascript-the-core/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JavaScript. The core.&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;本文是&lt;a href=&quot;http://dmitrysoshnikov.com/tag/ecma-262-3/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;详解 ECMA-262-3 系列&lt;/a&gt;的概述和总结。每个部分都包含对应章节的连接，所以你可以阅读它们以获得更深入的了解。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;目标阅读者&lt;/strong&gt;：有经验的程序员，专业人士。&lt;/p&gt;
 &lt;p&gt;我们从对象的概念开始，这是 ECMAScript 的根本。&lt;/p&gt;
     
@@ -5621,7 +5621,7 @@ circle {
     <link href="http://bubkoo.com/2014/05/08/intro-to-aspect-oriented-programming/"/>
     <id>http://bubkoo.com/2014/05/08/intro-to-aspect-oriented-programming/</id>
     <published>2014-05-08T16:30:37.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>原文连接：<a href="http://know.cujojs.com/tutorials/aop/intro-to-aspect-oriented-programming" target="_blank" rel="external">Intro to Aspect Oriented Programming</a></p>
 <p>本文简单地介绍了 AOP 的原理，以及 AOP 与其他方式的异同，并没有涉及太多的复杂逻辑，另外推荐下面两篇文章，这些文章中都间接或直接提及了 AOP：</p>
@@ -5677,11 +5677,11 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;原文连接：&lt;a href=&quot;http://know.cujojs.com/tutorials/aop/intro-to-aspect-oriented-programming&quot;&gt;Intro to Aspect Oriented Programming&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;原文连接：&lt;a href=&quot;http://know.cujojs.com/tutorials/aop/intro-to-aspect-oriented-programming&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Intro to Aspect Oriented Programming&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本文简单地介绍了 AOP 的原理，以及 AOP 与其他方式的异同，并没有涉及太多的复杂逻辑，另外推荐下面两篇文章，这些文章中都间接或直接提及了 AOP：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.alloyteam.com/2013/08/yong-aop-gai-shan-javascript-dai-ma/&quot;&gt;用 AOP 改善 JavaScript 代码&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.ibm.com/developerworks/cn/web/wa-lo-jshttp/index.html&quot;&gt;使用 JavaScript 拦截和跟踪浏览器中的 HTTP 请求&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.alloyteam.com/2013/08/yong-aop-gai-shan-javascript-dai-ma/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;用 AOP 改善 JavaScript 代码&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.ibm.com/developerworks/cn/web/wa-lo-jshttp/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;使用 JavaScript 拦截和跟踪浏览器中的 HTTP 请求&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;面向切面编程（AOP）是一种非侵入式扩充对象、方法和函数行为的技术。通过 AOP 可以从“外部”去增加一些行为，进而合并既有行为或修改既有行为。&lt;/p&gt;
 &lt;p&gt;虽然有很多技术可以用来增加和合并行为，例如继承、组合、委托，然而，在很多情况下，AOP 被证明是更灵活和更少侵入的方式，非常值得将其纳入我们的工具箱中。&lt;br&gt;
@@ -5700,7 +5700,7 @@ circle {
     <link href="http://bubkoo.com/2014/04/22/improve-cross-domain-communication-with-client-side-solutions/"/>
     <id>http://bubkoo.com/2014/04/22/improve-cross-domain-communication-with-client-side-solutions/</id>
     <published>2014-04-22T17:45:48.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>此类文章在社区中一抓一大把，但为什么还要来翻译这篇文章呢？最主要的原因是本章的配图太好了，一看就懂，扯远了。。</p>
 <p>原文：<a href="http://www.ibm.com/developerworks/library/wa-crossdomaincomm/" target="_blank" rel="external">Improve cross-domain communication with client-side solutions</a></p>
@@ -5768,7 +5768,7 @@ circle {
     <summary type="html">
     
       &lt;p&gt;此类文章在社区中一抓一大把，但为什么还要来翻译这篇文章呢？最主要的原因是本章的配图太好了，一看就懂，扯远了。。&lt;/p&gt;
-&lt;p&gt;原文：&lt;a href=&quot;http://www.ibm.com/developerworks/library/wa-crossdomaincomm/&quot;&gt;Improve cross-domain communication with client-side solutions&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;原文：&lt;a href=&quot;http://www.ibm.com/developerworks/library/wa-crossdomaincomm/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Improve cross-domain communication with client-side solutions&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;越来越多的网站需要相互协作。例如，一个在线房屋租赁网站需要谷歌地图的支持，以显示某个出租屋的位置。为了满足这种需求，出现了各种各样的聚合应用（mashup）。聚合应用是一种将来自不同供应商的数据或组件整合在一起，使其更有价值或更加可定制化的 Web 应用。聚合应用或协作能力，被认为是 Web 2.0 的一个重要组成部分&lt;/p&gt;
 &lt;p&gt;但是，要将异步 AJAX 和聚合应用结合在一起并不是那么容易，由于浏览器的安全限制，页面上不同组件之间的通信也难以做到。传统的解决方案是，在服务器上设置一个代理，但这种方式的伸缩性不大。在本文中，你可以了解到一些客户端的跨域通信和数据传输的解决方案。&lt;/p&gt;
 &lt;h2 id=&quot;安全限制&quot;&gt;&lt;a href=&quot;#安全限制&quot; class=&quot;headerlink&quot; title=&quot;安全限制&quot;&gt;&lt;/a&gt;安全限制&lt;/h2&gt;&lt;p&gt;同源策略（SOP）将阻止从一个源加载的脚本去操作另一个源的数据或方法，&lt;em&gt;同源&lt;/em&gt;要求脚本的域名、协议和端口都相同，你可能会误解同源策略，它不仅仅意味着站点 A 不允许从站点 B 获取信息，你需要知道在同源策略下能做什么和不能做什么。&lt;/p&gt;
@@ -5800,7 +5800,7 @@ circle {
     <link href="http://bubkoo.com/2014/04/21/patterns-for-large-scale-javascript-application-architecture/"/>
     <id>http://bubkoo.com/2014/04/21/patterns-for-large-scale-javascript-application-architecture/</id>
     <published>2014-04-21T22:57:24.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>我们今天要讨论的主题是，大型 JavaScript 应用中一些有效的设计模式。本文基于我最近发布在 LondonJS 上同名演讲，灵感则来自于 Nicholas Zakas <a href="http://yuilibrary.com/theater/nicholas-zakas/zakas-architecture/" target="_blank" rel="external">之前的研究成果</a>。</p>
 <h2 id="我是谁以及我为什么要撰写这个主题"><a href="#我是谁以及我为什么要撰写这个主题？" class="headerlink" title="我是谁以及我为什么要撰写这个主题？"></a>我是谁以及我为什么要撰写这个主题？</h2><p>我目前是 AOL 的一名 JavaScript 和 UI 开发人员，负责规划和编写下一代面向用户的应用的前端架构。这些应用不仅复杂，而且需要一种可扩展和高复用的架构，我的职责之一就是确保这类应用中的设计模式尽可能是可持续的。</p>
@@ -6021,9 +6021,9 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;我们今天要讨论的主题是，大型 JavaScript 应用中一些有效的设计模式。本文基于我最近发布在 LondonJS 上同名演讲，灵感则来自于 Nicholas Zakas &lt;a href=&quot;http://yuilibrary.com/theater/nicholas-zakas/zakas-architecture/&quot;&gt;之前的研究成果&lt;/a&gt;。&lt;/p&gt;
+      &lt;p&gt;我们今天要讨论的主题是，大型 JavaScript 应用中一些有效的设计模式。本文基于我最近发布在 LondonJS 上同名演讲，灵感则来自于 Nicholas Zakas &lt;a href=&quot;http://yuilibrary.com/theater/nicholas-zakas/zakas-architecture/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;之前的研究成果&lt;/a&gt;。&lt;/p&gt;
 &lt;h2 id=&quot;我是谁以及我为什么要撰写这个主题？&quot;&gt;&lt;a href=&quot;#我是谁以及我为什么要撰写这个主题？&quot; class=&quot;headerlink&quot; title=&quot;我是谁以及我为什么要撰写这个主题？&quot;&gt;&lt;/a&gt;我是谁以及我为什么要撰写这个主题？&lt;/h2&gt;&lt;p&gt;我目前是 AOL 的一名 JavaScript 和 UI 开发人员，负责规划和编写下一代面向用户的应用的前端架构。这些应用不仅复杂，而且需要一种可扩展和高复用的架构，我的职责之一就是确保这类应用中的设计模式尽可能是可持续的。&lt;/p&gt;
-&lt;p&gt;尽管在这个领域有许多比我知识渊博的专家，我也认为自己是设计模式的狂热者。先前，我基于 &lt;a href=&quot;http://wiki.creativecommons.org/Books&quot;&gt;Creative Commons&lt;/a&gt; 许可写了 &lt;a href=&quot;http://addyosmani.com/resources/essentialjsdesignpatterns/book/&quot;&gt;《Essential JavaScript Design Patterns》&lt;/a&gt; 一书，现在我正在为此书撰写更详尽的后续版本。&lt;/p&gt;
+&lt;p&gt;尽管在这个领域有许多比我知识渊博的专家，我也认为自己是设计模式的狂热者。先前，我基于 &lt;a href=&quot;http://wiki.creativecommons.org/Books&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Creative Commons&lt;/a&gt; 许可写了 &lt;a href=&quot;http://addyosmani.com/resources/essentialjsdesignpatterns/book/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《Essential JavaScript Design Patterns》&lt;/a&gt; 一书，现在我正在为此书撰写更详尽的后续版本。&lt;/p&gt;
 &lt;h2 id=&quot;140-个字的全文概述&quot;&gt;&lt;a href=&quot;#140-个字的全文概述&quot; class=&quot;headerlink&quot; title=&quot;140 个字的全文概述&quot;&gt;&lt;/a&gt;140 个字的全文概述&lt;/h2&gt;&lt;p&gt;如果你时间不够，下面是本文的概述，只有一条 tweet 的长度。&lt;/p&gt;
 &lt;p class=&quot;j-warning&quot;&gt;应用解耦。架构/模块，外观模式和中介模式。模块发布消息，中介管理发布/订阅，外观处理安全问题。&lt;/p&gt;
 
@@ -6050,7 +6050,7 @@ circle {
     <link href="http://bubkoo.com/2014/04/21/http-cookies-explained/"/>
     <id>http://bubkoo.com/2014/04/21/http-cookies-explained/</id>
     <published>2014-04-21T15:08:49.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>HTTP cookies，通常称之为“cookie”，已经存在很长时间了，但是仍然没有被充分理解。首要问题是存在许多误解，认为 cookie 是后门程序或病毒，却忽视了其工作原理。第二个问题是，对于 cookie 的操作缺少统一的接口。尽管存在这些问题，cookie 仍旧在 Web 开发中扮演者重要的角色，以至于如果没有出现相应的代替品就消失的话，我们许多喜欢的 Web 应用将变的不可用。</p>
 <h2 id="cookie-的起源"><a href="#cookie-的起源" class="headerlink" title="cookie 的起源"></a>cookie 的起源</h2><p>早期的 Web 应用面临的最大问题之一就是如何维持状态。简言之，服务器无法知道两个请求是否来自于同一个浏览器。当时，最简单的办法就是在请求的页面中插入一个 token，然后在下次请求时将这个 token 返回至服务器。这需要在页面的 form 表单中插入一个包含 token 的隐藏域，或者将 token 放在 URL 的 query 字符串中来传递。这两种方法都需要手动操作，而且极易出错。</p>
@@ -6130,7 +6130,7 @@ circle {
     
       &lt;p&gt;HTTP cookies，通常称之为“cookie”，已经存在很长时间了，但是仍然没有被充分理解。首要问题是存在许多误解，认为 cookie 是后门程序或病毒，却忽视了其工作原理。第二个问题是，对于 cookie 的操作缺少统一的接口。尽管存在这些问题，cookie 仍旧在 Web 开发中扮演者重要的角色，以至于如果没有出现相应的代替品就消失的话，我们许多喜欢的 Web 应用将变的不可用。&lt;/p&gt;
 &lt;h2 id=&quot;cookie-的起源&quot;&gt;&lt;a href=&quot;#cookie-的起源&quot; class=&quot;headerlink&quot; title=&quot;cookie 的起源&quot;&gt;&lt;/a&gt;cookie 的起源&lt;/h2&gt;&lt;p&gt;早期的 Web 应用面临的最大问题之一就是如何维持状态。简言之，服务器无法知道两个请求是否来自于同一个浏览器。当时，最简单的办法就是在请求的页面中插入一个 token，然后在下次请求时将这个 token 返回至服务器。这需要在页面的 form 表单中插入一个包含 token 的隐藏域，或者将 token 放在 URL 的 query 字符串中来传递。这两种方法都需要手动操作，而且极易出错。&lt;/p&gt;
-&lt;p&gt;当时网景通讯的一名员工 &lt;a href=&quot;http://en.wikipedia.org/wiki/Lou_Montulli&quot;&gt;Lou Montulli&lt;/a&gt;，在 1994 年将 “&lt;a href=&quot;http://en.wikipedia.org/wiki/Magic_cookie&quot;&gt;magic cookies&lt;/a&gt;” 的概念应用到 Web 通讯中。他试图解决 Web 的第一个购物车应用，现在购物车成了购物网站的支柱。他的&lt;a href=&quot;http://curl.haxx.se/rfc/cookie_spec.html&quot;&gt;原始说明文档&lt;/a&gt;提供了 cookie 工作原理的基本信息，该文档后来被作为规范纳入到 &lt;a href=&quot;http://tools.ietf.org/html/rfc2109&quot;&gt;RFC 2109&lt;/a&gt;（大多数浏览器的实现参考文档）中，最终被纳入到 &lt;a href=&quot;http://tools.ietf.org/html/rfc2965&quot;&gt;RFC 2965&lt;/a&gt; 中。Montulli 也被授予 cookie 的美国&lt;a href=&quot;http://v3.espacenet.com/publicationDetails/biblio?CC=US&amp;amp;NR=5774670&amp;amp;KC=&amp;amp;FT=E&quot;&gt;专利&lt;/a&gt;。网景浏览器在它的第一个版本中就开始支持 cookie，现在所有 Web 浏览器都支持 cookie。&lt;/p&gt;
+&lt;p&gt;当时网景通讯的一名员工 &lt;a href=&quot;http://en.wikipedia.org/wiki/Lou_Montulli&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Lou Montulli&lt;/a&gt;，在 1994 年将 “&lt;a href=&quot;http://en.wikipedia.org/wiki/Magic_cookie&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;magic cookies&lt;/a&gt;” 的概念应用到 Web 通讯中。他试图解决 Web 的第一个购物车应用，现在购物车成了购物网站的支柱。他的&lt;a href=&quot;http://curl.haxx.se/rfc/cookie_spec.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原始说明文档&lt;/a&gt;提供了 cookie 工作原理的基本信息，该文档后来被作为规范纳入到 &lt;a href=&quot;http://tools.ietf.org/html/rfc2109&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;RFC 2109&lt;/a&gt;（大多数浏览器的实现参考文档）中，最终被纳入到 &lt;a href=&quot;http://tools.ietf.org/html/rfc2965&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;RFC 2965&lt;/a&gt; 中。Montulli 也被授予 cookie 的美国&lt;a href=&quot;http://v3.espacenet.com/publicationDetails/biblio?CC=US&amp;amp;NR=5774670&amp;amp;KC=&amp;amp;FT=E&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;专利&lt;/a&gt;。网景浏览器在它的第一个版本中就开始支持 cookie，现在所有 Web 浏览器都支持 cookie。&lt;/p&gt;
     
     </summary>
     
@@ -6146,7 +6146,7 @@ circle {
     <link href="http://bubkoo.com/2014/04/20/angry-birds-of-javascript-mighty-eagle-automation/"/>
     <id>http://bubkoo.com/2014/04/20/angry-birds-of-javascript-mighty-eagle-automation/</id>
     <published>2014-04-20T21:40:10.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-mighty-eagle-automation.png" alt=""></p>
 <p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
@@ -6280,7 +6280,7 @@ circle {
     <link href="http://bubkoo.com/2014/04/19/angry-birds-of-javascript-big-brother-bird-patterns/"/>
     <id>http://bubkoo.com/2014/04/19/angry-birds-of-javascript-big-brother-bird-patterns/</id>
     <published>2014-04-19T00:39:52.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-big-brother-bird-patterns.jpg" alt=""></p>
 <p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
@@ -6951,7 +6951,7 @@ circle {
 &lt;li&gt;&lt;a href=&quot;http://bubkoo.com/2014/03/28/angry-birds-of-javascript-blue-bird-events/&quot;&gt;蓝色小鸟 - 事件&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;黄色小鸟的攻击力&quot;&gt;&lt;a href=&quot;#黄色小鸟的攻击力&quot; class=&quot;headerlink&quot; title=&quot;黄色小鸟的攻击力&quot;&gt;&lt;/a&gt;黄色小鸟的攻击力&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://bubkoo.qiniudn.com/angry-birds-yellow-bird.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;在这片文章中，我们将看看黄色小鸟，它使用 &lt;a href=&quot;http://requirejs.org/&quot;&gt;RequireJS&lt;/a&gt; 作为助推器，利用动态脚本加载来攻击那些讨厌的猪。慢慢的，小鸟们将一个接一个地夺回本属于他们的东西。&lt;/p&gt;
+&lt;p&gt;在这片文章中，我们将看看黄色小鸟，它使用 &lt;a href=&quot;http://requirejs.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;RequireJS&lt;/a&gt; 作为助推器，利用动态脚本加载来攻击那些讨厌的猪。慢慢的，小鸟们将一个接一个地夺回本属于他们的东西。&lt;/p&gt;
     
     </summary>
     
@@ -7226,7 +7226,7 @@ circle {
     <link href="http://bubkoo.com/2014/03/25/promises-and-async-programming/"/>
     <id>http://bubkoo.com/2014/03/25/promises-and-async-programming/</id>
     <published>2014-03-25T08:36:57.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>在 JavaScript 中处理异步和回调就是家常便饭，我们通常会面对这样一些问题：</p>
 <ol>
@@ -7263,7 +7263,7 @@ circle {
 &lt;p&gt;Programs are meant to be read by humans and only incidentally for computers to execute. 程序是给人读的，只是顺带让计算机执行一下。 ——《编写可维护的JavaScript》@Donald Knuth&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;当然，最常见也是最简单的处理方式就是，直接将回调函数或错误处理函数作为异步函数的参数，在异步函数返回时进行相应的调用，这种方式的缺陷估计大家心里或多或少都有点见解。难道就没有爽的编程模式？&lt;/p&gt;
-&lt;p&gt;这里分享了几篇文章，主要讲解了 JavaScript 中的 Promise 机制，以及如何使用它来改善我们的异步编程和回调问题。其中三篇参阅了 &lt;a href=&quot;http://nuysoft.com/2013/08/29/async-programming/&quot;&gt;http://nuysoft.com/2013/08/29/async-programming/&lt;/a&gt; ，另外一篇来自 &lt;a href=&quot;http://www.html5rocks.com/zh/tutorials/es6/promises/&quot;&gt;html5rocks 的 Promise 教程&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;这里分享了几篇文章，主要讲解了 JavaScript 中的 Promise 机制，以及如何使用它来改善我们的异步编程和回调问题。其中三篇参阅了 &lt;a href=&quot;http://nuysoft.com/2013/08/29/async-programming/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://nuysoft.com/2013/08/29/async-programming/&lt;/a&gt; ，另外一篇来自 &lt;a href=&quot;http://www.html5rocks.com/zh/tutorials/es6/promises/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;html5rocks 的 Promise 教程&lt;/a&gt;。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://bubkoo.com/2014/03/25/async-programming-is-messy/&quot;&gt;凌乱的异步编程&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://bubkoo.com/2014/03/25/simplifying-async-with-promises/&quot;&gt;用 Promises 简化异步编程&lt;/a&gt; &lt;/li&gt;
@@ -7291,7 +7291,7 @@ circle {
     <link href="http://bubkoo.com/2014/03/25/async-programming-is-messy/"/>
     <id>http://bubkoo.com/2014/03/25/async-programming-is-messy/</id>
     <published>2014-03-25T07:14:35.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-异常和-trycatch"><a href="#1-异常和-try-catch" class="headerlink" title="1. 异常和 try/catch"></a>1. 异常和 try/catch</h2><p>当执行可能失败的操作时，采用异常机制和 try/catch 是一种直观的方式，这样我们就可以从异常中恢复，或将异常抛出，异常沿着调用堆栈到达调用者，调用者可以处理该异常或将其继续抛出。</p>
 <p>看一个简单的例子：</p>
@@ -7412,8 +7412,8 @@ circle {
 &lt;/ol&gt;
 &lt;h2 id=&quot;1-Promises&quot;&gt;&lt;a href=&quot;#1-Promises&quot; class=&quot;headerlink&quot; title=&quot;1. Promises&quot;&gt;&lt;/a&gt;1. Promises&lt;/h2&gt;&lt;p&gt;一个 Promise（或者叫 Future, Delayed value, Deferred value）代表一个尚不可用的值，因为产生这个值的计算过程尚未完成。一个 Promise 是最终的成功结果或失败原因的占位符。&lt;/p&gt;
 &lt;p&gt;Promises 还提供了一个简单的 API（见下文），用于在结果完成或故障发生时获取通知。&lt;/p&gt;
-&lt;p&gt;Promises &lt;a href=&quot;http://en.wikipedia.org/wiki/Futures_and_promises&quot;&gt;不是一个新概念&lt;/a&gt;，已经在许多语言中被实现。一些 JavaScript 实现也已经有一段时间了，并且最近变得更加流行，因为我们开始构建更庞大、更复杂的系统，需要协调更多的异步任务。&lt;/p&gt;
-&lt;p&gt;（注意：虽然 Promise API 标准存在&lt;a href=&quot;http://wiki.commonjs.org/wiki/Promises&quot;&gt;多个提案&lt;/a&gt;，但是 &lt;a href=&quot;http://promises-aplus.github.io/promises-spec/&quot;&gt;Promises/A+&lt;/a&gt; 已经在多个主流框架中被实现，似乎正在成为事实上的标准。无论哪种提案，基本的概念是相同的：1) Promises 作为结果或错误的占位符；2) 提供了一种在结果完成或错误发生时的通知方式。）&lt;/p&gt;
+&lt;p&gt;Promises &lt;a href=&quot;http://en.wikipedia.org/wiki/Futures_and_promises&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;不是一个新概念&lt;/a&gt;，已经在许多语言中被实现。一些 JavaScript 实现也已经有一段时间了，并且最近变得更加流行，因为我们开始构建更庞大、更复杂的系统，需要协调更多的异步任务。&lt;/p&gt;
+&lt;p&gt;（注意：虽然 Promise API 标准存在&lt;a href=&quot;http://wiki.commonjs.org/wiki/Promises&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;多个提案&lt;/a&gt;，但是 &lt;a href=&quot;http://promises-aplus.github.io/promises-spec/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Promises/A+&lt;/a&gt; 已经在多个主流框架中被实现，似乎正在成为事实上的标准。无论哪种提案，基本的概念是相同的：1) Promises 作为结果或错误的占位符；2) 提供了一种在结果完成或错误发生时的通知方式。）&lt;/p&gt;
     
     </summary>
     
@@ -7433,7 +7433,7 @@ circle {
     <link href="http://bubkoo.com/2014/03/25/mastering-async-error-handling-with-promises/"/>
     <id>http://bubkoo.com/2014/03/25/mastering-async-error-handling-with-promises/</id>
     <published>2014-03-25T02:32:37.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>正如我们在<a href="http://bubkoo.com/2014/03/25/async-programming-is-messy/">凌乱的异步编程</a>一文中看到的那样，基于回调函数的异步代码的错误处理也很快变得混乱起来，丢失了许多同步代码具有的优秀品质，使我们更难定位到错误原因。在<a href="http://bubkoo.com/2014/03/25/simplifying-async-with-promises/">用 Promises 简化异步编程</a>一文中，我们介绍了 Promises，看到了它如何使我们回到“调用 - 返回”编程模型，允许异步错误像同步错误那样沿着调用堆栈向上传播，并提供一种更清晰方法来管理异步，特别是在处理错误时。</p>
 <h2 id="1-trycatchfinally"><a href="#1-Try-catch-finally" class="headerlink" title="1. Try/catch/finally"></a>1. Try/catch/finally</h2><p>在同步代码中，try/catch/finally 提供了一种简单友好但非常强大的惯用语法来执行任务、处理错误，并且总是确保稍后可以执行清理。</p>
@@ -7557,7 +7557,7 @@ circle {
     <link href="http://bubkoo.com/2014/03/22/javascript-promises/"/>
     <id>http://bubkoo.com/2014/03/22/javascript-promises/</id>
     <published>2014-03-22T23:57:12.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>童鞋们，请准备好迎接 Web 开发历史上一个重大时刻。。。</p>
 <p>[鼓声响起]</p>
@@ -7955,7 +7955,7 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;最近在 &lt;a href=&quot;http://perfectionkills.com/javascript-quiz/&quot;&gt;perfectionkills&lt;/a&gt; 上看到几道 JavaScript 题目，这里拿来分享一下，下面列举出来了题目，你可以在这里做题，答案解析可以&lt;a href=&quot;http://www.cnblogs.com/aaronjs/archive/2013/07/05/3172112.html&quot;&gt;到这里&lt;/a&gt;找到。&lt;/p&gt;
+      &lt;p&gt;最近在 &lt;a href=&quot;http://perfectionkills.com/javascript-quiz/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;perfectionkills&lt;/a&gt; 上看到几道 JavaScript 题目，这里拿来分享一下，下面列举出来了题目，你可以在这里做题，答案解析可以&lt;a href=&quot;http://www.cnblogs.com/aaronjs/archive/2013/07/05/3172112.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;到这里&lt;/a&gt;找到。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://bubkoo.qiniudn.com/some-javascript-quiz-from-perfectionkills.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
@@ -8184,7 +8184,7 @@ circle {
     <summary type="html">
     
       &lt;p&gt;面试或被面试时基本都会涉及到这个最原始的 JavaScript 基础问题，试想一下您有没有在某些时候向别人解释这些概念时，把自己给绕进去了；网络上偶遇一篇英文文章，细读之后觉得有参考价值，文章不长，就顺手翻译了一下，希望某些同学可以用的上。&lt;/p&gt;
-&lt;p&gt;原文文中的 Scope 翻译成中文是“&lt;strong&gt;变量作用域&lt;/strong&gt;”，译文某些地方直接简称为“&lt;strong&gt;作用域&lt;/strong&gt;” ，Closure 翻译后是“闭包”。&lt;a href=&quot;http://robertnyman.com/&quot;&gt;Rebort Nyman&lt;/a&gt; 的原文是 &lt;a href=&quot;http://robertnyman.com/2008/10/09/explaining-javascript-scope-and-closures/&quot;&gt;Explaining JavaScript Scope And Closures&lt;/a&gt;，某些不清楚的地方可以直接参考原文。&lt;/p&gt;
+&lt;p&gt;原文文中的 Scope 翻译成中文是“&lt;strong&gt;变量作用域&lt;/strong&gt;”，译文某些地方直接简称为“&lt;strong&gt;作用域&lt;/strong&gt;” ，Closure 翻译后是“闭包”。&lt;a href=&quot;http://robertnyman.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Rebort Nyman&lt;/a&gt; 的原文是 &lt;a href=&quot;http://robertnyman.com/2008/10/09/explaining-javascript-scope-and-closures/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Explaining JavaScript Scope And Closures&lt;/a&gt;，某些不清楚的地方可以直接参考原文。&lt;/p&gt;
 &lt;p&gt;以下是译文&lt;/p&gt;
 &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;很多文章或博客都在试着解释作用域和闭包，但大多数都没有解释的很清楚（crystal-clear）。此外，很多人想当然地认为每个人都有大约 15 种其他语言的开发经验，但依我的经验，大多数 JavaScript 开发人员是来自 HTML 和 CSS 的背景，而不是 C 或者 Java。（译者注：在 Node 盛行的今天，情况或许有些不一样。）&lt;/p&gt;
 &lt;p&gt;因此，文本谦虚的目标是想让大家都能理解作用域和闭包，他们的原理是什么，尤其重要的是如果更好地使用他们。在阅读本文之前，需要您有一些 JavaScript 中变量和函数的基础知识。&lt;br&gt;
@@ -8261,10 +8261,10 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;高性能的 Web 应用是获得伟大用户体验的关键。随着 Web 应用越来越复杂，要想建立吸引人的用户体验，了解性能的影响是至关重要的。在过去的几年中，浏览器中也新增了许多 API 来帮助我们分析网络性能、页面加载时间等。但这些并没有给出详尽的足够灵活的方式，来帮助我们分析具体是什么降低了我们网站的性能。&lt;a href=&quot;http://www.w3.org/TR/user-timing/&quot;&gt;User Timing API&lt;/a&gt; 提供了一套机制来帮助我们测量我们的应用，从而找到应用中耗时的部分。在本文中，我将介绍这个 API 并提供一些如何使用它的例子。&lt;/p&gt;
-&lt;h2 id=&quot;你不能优化那些不能被测量的东西&quot;&gt;&lt;a href=&quot;#你不能优化那些不能被测量的东西&quot; class=&quot;headerlink&quot; title=&quot;你不能优化那些不能被测量的东西&quot;&gt;&lt;/a&gt;你不能优化那些不能被测量的东西&lt;/h2&gt;&lt;p&gt;给运行缓慢的应用提速的第一步是，找到应用中耗时的部位。要想找到这些烫手山药，最理想的方式就是对 JavaScript 代码进行区域性的运行时间测量，这是寻找如何提高网站性能的第一步。幸运的是，可以在代码的不同部位去调用 &lt;a href=&quot;http://www.w3.org/TR/user-timing/&quot;&gt;User Timing API&lt;/a&gt;，提取到时间的详细数据，来帮助你进行性能优化。&lt;/p&gt;
-&lt;h2 id=&quot;高精度时间和now&quot;&gt;&lt;a href=&quot;#高精度时间和now&quot; class=&quot;headerlink&quot; title=&quot;高精度时间和now()&quot;&gt;&lt;/a&gt;高精度时间和&lt;code&gt;now()&lt;/code&gt;&lt;/h2&gt;&lt;p&gt;准确测量时间的一个基础是精确度，之前我们是基于毫秒的时间测量，这种方式工作良好，但是对于一个每帧需要在 16ms 内绘制完成的 60FPS 的网站，如果只有毫秒精度的测量，对于网站的分析就缺乏所需要的精度。&lt;a href=&quot;http://www.w3.org/TR/hr-time/&quot;&gt;High Resolution Time&lt;/a&gt; 是现代浏览器内置的一种新的测量时间的方式，它给我们提供了一个精确到微秒的浮点类型的时间戳，是之前精度的 1000 倍。&lt;/p&gt;
-&lt;p&gt;可以通过调用 &lt;a href=&quot;http://www.w3.org/TR/navigation-timing/#performance&quot;&gt;Performance&lt;/a&gt; 对象中的&lt;a href=&quot;http://www.w3.org/TR/hr-time/#sec-extenstions-performance-interface&quot;&gt;扩展方法&lt;/a&gt; &lt;code&gt;now()&lt;/code&gt; 来获取当前的时间，就像下面代码这样：&lt;br&gt;
+      &lt;p&gt;高性能的 Web 应用是获得伟大用户体验的关键。随着 Web 应用越来越复杂，要想建立吸引人的用户体验，了解性能的影响是至关重要的。在过去的几年中，浏览器中也新增了许多 API 来帮助我们分析网络性能、页面加载时间等。但这些并没有给出详尽的足够灵活的方式，来帮助我们分析具体是什么降低了我们网站的性能。&lt;a href=&quot;http://www.w3.org/TR/user-timing/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;User Timing API&lt;/a&gt; 提供了一套机制来帮助我们测量我们的应用，从而找到应用中耗时的部分。在本文中，我将介绍这个 API 并提供一些如何使用它的例子。&lt;/p&gt;
+&lt;h2 id=&quot;你不能优化那些不能被测量的东西&quot;&gt;&lt;a href=&quot;#你不能优化那些不能被测量的东西&quot; class=&quot;headerlink&quot; title=&quot;你不能优化那些不能被测量的东西&quot;&gt;&lt;/a&gt;你不能优化那些不能被测量的东西&lt;/h2&gt;&lt;p&gt;给运行缓慢的应用提速的第一步是，找到应用中耗时的部位。要想找到这些烫手山药，最理想的方式就是对 JavaScript 代码进行区域性的运行时间测量，这是寻找如何提高网站性能的第一步。幸运的是，可以在代码的不同部位去调用 &lt;a href=&quot;http://www.w3.org/TR/user-timing/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;User Timing API&lt;/a&gt;，提取到时间的详细数据，来帮助你进行性能优化。&lt;/p&gt;
+&lt;h2 id=&quot;高精度时间和now&quot;&gt;&lt;a href=&quot;#高精度时间和now&quot; class=&quot;headerlink&quot; title=&quot;高精度时间和now()&quot;&gt;&lt;/a&gt;高精度时间和&lt;code&gt;now()&lt;/code&gt;&lt;/h2&gt;&lt;p&gt;准确测量时间的一个基础是精确度，之前我们是基于毫秒的时间测量，这种方式工作良好，但是对于一个每帧需要在 16ms 内绘制完成的 60FPS 的网站，如果只有毫秒精度的测量，对于网站的分析就缺乏所需要的精度。&lt;a href=&quot;http://www.w3.org/TR/hr-time/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;High Resolution Time&lt;/a&gt; 是现代浏览器内置的一种新的测量时间的方式，它给我们提供了一个精确到微秒的浮点类型的时间戳，是之前精度的 1000 倍。&lt;/p&gt;
+&lt;p&gt;可以通过调用 &lt;a href=&quot;http://www.w3.org/TR/navigation-timing/#performance&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Performance&lt;/a&gt; 对象中的&lt;a href=&quot;http://www.w3.org/TR/hr-time/#sec-extenstions-performance-interface&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;扩展方法&lt;/a&gt; &lt;code&gt;now()&lt;/code&gt; 来获取当前的时间，就像下面代码这样：&lt;br&gt;
     
     </summary>
     
@@ -8282,7 +8282,7 @@ circle {
     <link href="http://bubkoo.com/2014/02/22/JSHint-options/"/>
     <id>http://bubkoo.com/2014/02/22/JSHint-options/</id>
     <published>2014-02-22T00:22:44.000Z</published>
-    <updated>2017-04-25T01:13:14.000Z</updated>
+    <updated>2017-05-02T00:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://bubkoo.qiniudn.com/jshint-dark.png" alt="JSHint"></p>
 <p>有时候会查找 <a href="http://jshint.com/" target="_blank" rel="external">JSHint</a> 某些选项的具体含义，针对项目需求开启或关闭某些选项，所以从<a href="https://github.com/basecss/jshint-doc-cn" target="_blank" rel="external">这里</a>转载了 JSHint 选项列表的中文翻译，供不时之需。</p>
@@ -8384,8 +8384,8 @@ circle {
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;http://bubkoo.qiniudn.com/jshint-dark.png&quot; alt=&quot;JSHint&quot;&gt;&lt;/p&gt;
-&lt;p&gt;有时候会查找 &lt;a href=&quot;http://jshint.com/&quot;&gt;JSHint&lt;/a&gt; 某些选项的具体含义，针对项目需求开启或关闭某些选项，所以从&lt;a href=&quot;https://github.com/basecss/jshint-doc-cn&quot;&gt;这里&lt;/a&gt;转载了 JSHint 选项列表的中文翻译，供不时之需。&lt;/p&gt;
-&lt;p&gt;这是 JSHint 所有配置选项的完整列表。如果发现遗漏了某些信息，你可以给作者提&lt;a href=&quot;https://github.com/jshint/jshint/issues/new&quot;&gt; issues&lt;/a&gt; 或者&lt;a href=&quot;https://github.com/basecss/jshint-doc-cn/blob/master/anton@kovalyov.net&quot;&gt;发邮件&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;有时候会查找 &lt;a href=&quot;http://jshint.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JSHint&lt;/a&gt; 某些选项的具体含义，针对项目需求开启或关闭某些选项，所以从&lt;a href=&quot;https://github.com/basecss/jshint-doc-cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;转载了 JSHint 选项列表的中文翻译，供不时之需。&lt;/p&gt;
+&lt;p&gt;这是 JSHint 所有配置选项的完整列表。如果发现遗漏了某些信息，你可以给作者提&lt;a href=&quot;https://github.com/jshint/jshint/issues/new&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt; issues&lt;/a&gt; 或者&lt;a href=&quot;https://github.com/basecss/jshint-doc-cn/blob/master/anton@kovalyov.net&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;发邮件&lt;/a&gt;。&lt;/p&gt;
     
     </summary>
     
@@ -8483,13 +8483,13 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;原文链接：&lt;a href=&quot;http://coding.smashingmagazine.com/2012/06/12/javascript-profiling-chrome-developer-tools/&quot;&gt;JavaScript Profiling With The Chrome Developer Tools&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;原文链接：&lt;a href=&quot;http://coding.smashingmagazine.com/2012/06/12/javascript-profiling-chrome-developer-tools/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JavaScript Profiling With The Chrome Developer Tools&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;现在，让我们来让你的网站跑得更快，网站性能通常包括两个方面：页面加载速度和脚本执行速度，有很多方法可以让网站加载更快，例如，压缩文件和 CND 等，但是要让脚本执行更快就得靠开发人员自己了。&lt;/p&gt;
 &lt;p&gt;代码很小的改动就可能对性能产生巨大影响，不同位置的几行代码可能就意味着一个快的网站和产生可怕的“无响应脚本”对话框的网站之间的区别。本文展示了使用 Chrome 开发工具来找到这些性能关键点代码的一些方法。&lt;/p&gt;
-&lt;h2 id=&quot;建立基准线&quot;&gt;&lt;a href=&quot;#建立基准线&quot; class=&quot;headerlink&quot; title=&quot;建立基准线&quot;&gt;&lt;/a&gt;建立基准线&lt;/h2&gt;&lt;p&gt;我们来看一个简单的&lt;a href=&quot;http://zgrossbart.github.io/jsprofarticle/index1.htm&quot;&gt;颜色排序应用&lt;/a&gt;，这个应用展示了一个由各种颜色构成的网格，您可以拖放任意一个颜色点来混淆。每一个颜色点都是一个 div 标签，使用了一些 CSS 来让它们看起来像一个圆点。&lt;/p&gt;
+&lt;h2 id=&quot;建立基准线&quot;&gt;&lt;a href=&quot;#建立基准线&quot; class=&quot;headerlink&quot; title=&quot;建立基准线&quot;&gt;&lt;/a&gt;建立基准线&lt;/h2&gt;&lt;p&gt;我们来看一个简单的&lt;a href=&quot;http://zgrossbart.github.io/jsprofarticle/index1.htm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;颜色排序应用&lt;/a&gt;，这个应用展示了一个由各种颜色构成的网格，您可以拖放任意一个颜色点来混淆。每一个颜色点都是一个 div 标签，使用了一些 CSS 来让它们看起来像一个圆点。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://bubkoo.qiniudn.com/color%20sorter.png&quot; alt=&quot;Color Sorter&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://zgrossbart.github.io/jsprofarticle/index1.htm&quot;&gt;点击这里&lt;/a&gt;访问该应用。&lt;/p&gt;
-&lt;p&gt;生成一个这些颜色有点棘手，所以我参考了 &lt;a href=&quot;http://krazydad.com/tutorials/makecolors.php&quot;&gt;Making Annoying Rainbows in JavaScript&lt;/a&gt; 这篇文章。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://zgrossbart.github.io/jsprofarticle/index1.htm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;点击这里&lt;/a&gt;访问该应用。&lt;/p&gt;
+&lt;p&gt;生成一个这些颜色有点棘手，所以我参考了 &lt;a href=&quot;http://krazydad.com/tutorials/makecolors.php&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Making Annoying Rainbows in JavaScript&lt;/a&gt; 这篇文章。&lt;/p&gt;
     
     </summary>
     
@@ -8548,11 +8548,11 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;原文发表在 &lt;a href=&quot;http://calendar.perfplanet.com/&quot;&gt;Performance Calendar&lt;/a&gt; 上，作为其 2010 年系列文章的一部分。在&lt;a href=&quot;http://bubkoo.com/2014/02/13/writing-fast-memory-efficient-javascript/&quot;&gt;上一篇&lt;/a&gt;翻译的文章中，作者推荐了这篇文章，译者阅读之后觉得有一定的价值，而且网络上没有这篇文章的中文翻译，权当学习就在此翻译成了中文，水平有限，如果有表达不恰当或者表达有误的地方，请直接在评论中指出。&lt;/p&gt;
-&lt;p&gt;原文链接：&lt;a href=&quot;http://calendar.perfplanet.com/2010/bulletproof-javascript-benchmarks/&quot;&gt;Bulletproof JavaScript benchmarks&lt;/a&gt;，下面开始翻译正文。&lt;/p&gt;
+      &lt;p&gt;原文发表在 &lt;a href=&quot;http://calendar.perfplanet.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Performance Calendar&lt;/a&gt; 上，作为其 2010 年系列文章的一部分。在&lt;a href=&quot;http://bubkoo.com/2014/02/13/writing-fast-memory-efficient-javascript/&quot;&gt;上一篇&lt;/a&gt;翻译的文章中，作者推荐了这篇文章，译者阅读之后觉得有一定的价值，而且网络上没有这篇文章的中文翻译，权当学习就在此翻译成了中文，水平有限，如果有表达不恰当或者表达有误的地方，请直接在评论中指出。&lt;/p&gt;
+&lt;p&gt;原文链接：&lt;a href=&quot;http://calendar.perfplanet.com/2010/bulletproof-javascript-benchmarks/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Bulletproof JavaScript benchmarks&lt;/a&gt;，下面开始翻译正文。&lt;/p&gt;
 &lt;p&gt;编写 JavaScript 基准测试并不是想象的那么容易，撇开潜在的跨浏览器兼容问题不说，还将面临很多陷阱（甚至诡雷）。&lt;/p&gt;
-&lt;p&gt;这也是我创建 &lt;a href=&quot;http://jsperf.com/&quot;&gt;jsPerf&lt;/a&gt; 的一部分原因，jsPerf 提供了一个非常简单的 Web 接口，您可以非常轻松地创建和分享不同代码片段的性能测试用例。您不需要考虑其他问题，只需要输入你想做基准测试的代码，jsPerf 就会为您创建一个运行在不同的浏览器和设备上测试用例。&lt;/p&gt;
-&lt;p&gt;其实，jsPerf 最开始使用的是一个基于 &lt;a href=&quot;https://github.com/broofa/jslitmus&quot;&gt;JSLitmus&lt;/a&gt; 的基准测试库 - &lt;a href=&quot;https://github.com/mathiasbynens/benchmark.js&quot;&gt;Benchmark.js&lt;/a&gt;&lt;br&gt;。后来添加了很多新功能，最近，&lt;a href=&quot;http://allyoucanleet.com/&quot;&gt;John-David Dalton&lt;/a&gt;&lt;br&gt; 又从头开始完全重写了该代码，Benchmark.js 也变得越来越完善。&lt;/p&gt;
+&lt;p&gt;这也是我创建 &lt;a href=&quot;http://jsperf.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;jsPerf&lt;/a&gt; 的一部分原因，jsPerf 提供了一个非常简单的 Web 接口，您可以非常轻松地创建和分享不同代码片段的性能测试用例。您不需要考虑其他问题，只需要输入你想做基准测试的代码，jsPerf 就会为您创建一个运行在不同的浏览器和设备上测试用例。&lt;/p&gt;
+&lt;p&gt;其实，jsPerf 最开始使用的是一个基于 &lt;a href=&quot;https://github.com/broofa/jslitmus&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JSLitmus&lt;/a&gt; 的基准测试库 - &lt;a href=&quot;https://github.com/mathiasbynens/benchmark.js&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Benchmark.js&lt;/a&gt;&lt;br&gt;。后来添加了很多新功能，最近，&lt;a href=&quot;http://allyoucanleet.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;John-David Dalton&lt;/a&gt;&lt;br&gt; 又从头开始完全重写了该代码，Benchmark.js 也变得越来越完善。&lt;/p&gt;
 &lt;p&gt;本文将阐明编写和运行 JavaScript 基准测试的各种陷阱。&lt;br&gt;
     
     </summary>
@@ -8778,9 +8778,9 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;原文连接：&lt;a href=&quot;http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/&quot;&gt;Writing Fast, Memory-Efficient JavaScript&lt;/a&gt; &lt;/p&gt;
-&lt;p&gt;许多 JavaScript 引擎都是为了快速执行的大型 JavaScript 应用程序设计而特别设计，如 Google &lt;a href=&quot;http://code.google.com/p/v8/&quot;&gt;V8&lt;/a&gt; 引擎（正被 Chrome 和 &lt;a href=&quot;http://nodejs.org/&quot;&gt;NodeJS&lt;/a&gt; 使用）。在开发过程中，如果你关心内存使用情况和页面性能，你应该了解户浏览器的 JavaScript 引擎的内部运作原理。&lt;/p&gt;
-&lt;p&gt;无论是V8、&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/SpiderMonkey&quot;&gt;SpiderMonkey&lt;/a&gt;（Firefox）、&lt;a href=&quot;http://my.opera.com/ODIN/blog/carakan-faq&quot;&gt;Carakan&lt;/a&gt;（Opera）、&lt;a href=&quot;http://en.wikipedia.org/wiki/Chakra_(JScript_engine&quot;&gt;Chakra&lt;/a&gt;)（IE）或其他 JavaScript  引擎，了解引擎背后的一些运行机制可以帮助你&lt;strong&gt;更好地优化你的应用程序&lt;/strong&gt;。但，这并不是说应该专门为某一浏览器或引擎进行程序的优化，而且，永远不要这样做。&lt;/p&gt;
+      &lt;p&gt;原文连接：&lt;a href=&quot;http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing Fast, Memory-Efficient JavaScript&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;许多 JavaScript 引擎都是为了快速执行的大型 JavaScript 应用程序设计而特别设计，如 Google &lt;a href=&quot;http://code.google.com/p/v8/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;V8&lt;/a&gt; 引擎（正被 Chrome 和 &lt;a href=&quot;http://nodejs.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NodeJS&lt;/a&gt; 使用）。在开发过程中，如果你关心内存使用情况和页面性能，你应该了解户浏览器的 JavaScript 引擎的内部运作原理。&lt;/p&gt;
+&lt;p&gt;无论是V8、&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/SpiderMonkey&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SpiderMonkey&lt;/a&gt;（Firefox）、&lt;a href=&quot;http://my.opera.com/ODIN/blog/carakan-faq&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Carakan&lt;/a&gt;（Opera）、&lt;a href=&quot;http://en.wikipedia.org/wiki/Chakra_(JScript_engine&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Chakra&lt;/a&gt;)（IE）或其他 JavaScript  引擎，了解引擎背后的一些运行机制可以帮助你&lt;strong&gt;更好地优化你的应用程序&lt;/strong&gt;。但，这并不是说应该专门为某一浏览器或引擎进行程序的优化，而且，永远不要这样做。&lt;/p&gt;
 &lt;p&gt;你应该先问自己下面几个问题：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;我可以做些什么来让我的代码更加高效&lt;/li&gt;
@@ -8880,7 +8880,7 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;http://www.mongodb.org/&quot;&gt;MongoDB&lt;/a&gt;是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的。这里推荐一个快速入门教程 - &lt;a href=&quot;http://www.cnblogs.com/huangxincheng/category/355399.html&quot;&gt;8天学通 MongoDB&lt;/a&gt;，写的很全面。这里讨论的是 MongoDB 的用户和身份验证。&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;http://www.mongodb.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;MongoDB&lt;/a&gt;是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的。这里推荐一个快速入门教程 - &lt;a href=&quot;http://www.cnblogs.com/huangxincheng/category/355399.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;8天学通 MongoDB&lt;/a&gt;，写的很全面。这里讨论的是 MongoDB 的用户和身份验证。&lt;/p&gt;
 &lt;p&gt;在默认情况下，MongoDB 不会进行身份验证，也没有账号，只要能连接上服务就可以对数据库进行各种操作，如果你在一个面向公众的服务器上使用它，那么这的确是一个问题。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://bubkoo.qiniudn.com/logo-mongodb-tagline.png&quot; alt=&quot;http://blog.mongodb.org/&quot;&gt;&lt;br&gt;
     
@@ -9024,7 +9024,7 @@ circle {
     <summary type="html">
     
       &lt;p&gt;delete 操作符用于删除对象的属性。&lt;/p&gt;
-&lt;p&gt;似乎很多同学（包括我）对 delete 操作符都是似是而非，为什么有的属性可以被删除，有的却不能被删除？为什么能够删除对象的属性却不能删除变量或函数？在 eval 和 &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/JavaScript/Strict_mode&quot;&gt;严格模式&lt;/a&gt;下，delete 操作符又有哪些特性？等等。。&lt;/p&gt;
+&lt;p&gt;似乎很多同学（包括我）对 delete 操作符都是似是而非，为什么有的属性可以被删除，有的却不能被删除？为什么能够删除对象的属性却不能删除变量或函数？在 eval 和 &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/JavaScript/Strict_mode&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;严格模式&lt;/a&gt;下，delete 操作符又有哪些特性？等等。。&lt;/p&gt;
 &lt;p&gt;本文将从基本概念到 ECMPScript 内部原理来学习 delete 操作符。&lt;/p&gt;
 &lt;h2 id=&quot;语法&quot;&gt;&lt;a href=&quot;#语法&quot; class=&quot;headerlink&quot; title=&quot;语法&quot;&gt;&lt;/a&gt;语法&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;表达式&lt;/strong&gt;&lt;/p&gt;
 &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;delete&lt;/span&gt; object.property    &lt;span class=&quot;comment&quot;&gt;// 点操作符方式，常用方式&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;delete&lt;/span&gt; object[&lt;span class=&quot;string&quot;&gt;&#39;property&#39;&lt;/span&gt;] &lt;span class=&quot;comment&quot;&gt;// 字符串属性名方式&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -9034,7 +9034,7 @@ circle {
 &lt;li&gt;property - 将要删除的属性&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;返回值&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;delete 操作符返回 true 或 false。当被 delete 的对象的属性存在并且拥有 DontDelete (对象属性的一个内部属性，拥有该内部属性表明该属性不能被删除) 时返回 false（在&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/JavaScript/Strict_mode&quot;&gt;严格模式&lt;/a&gt;下将抛出异常），否则返回 true。需要注意的是，对象属性不存在时也返回 true，&lt;em&gt;所以返回值并非完全等同于删除成功与否&lt;/em&gt;。&lt;/p&gt;
+&lt;p&gt;delete 操作符返回 true 或 false。当被 delete 的对象的属性存在并且拥有 DontDelete (对象属性的一个内部属性，拥有该内部属性表明该属性不能被删除) 时返回 false（在&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/JavaScript/Strict_mode&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;严格模式&lt;/a&gt;下将抛出异常），否则返回 true。需要注意的是，对象属性不存在时也返回 true，&lt;em&gt;所以返回值并非完全等同于删除成功与否&lt;/em&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://bubkoo.qiniudn.com/delete-operator.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
@@ -9252,10 +9252,10 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;原文链接：&lt;a href=&quot;http://teropa.info/blog/2013/11/03/make-your-own-angular-part-1-scopes-and-digest.html&quot;&gt;Make Your Own AngularJS, Part 1: Scopes And Digest&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;原文链接：&lt;a href=&quot;http://teropa.info/blog/2013/11/03/make-your-own-angular-part-1-scopes-and-digest.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Make Your Own AngularJS, Part 1: Scopes And Digest&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://bubkoo.qiniudn.com/AngularJS-large.png&quot; alt=&quot;AngularJS&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Angular 是一个成熟和功能强大的 JavaScript 框架，也是一个庞大的框架，要正真有效地使用它，需要掌握许多新概念。在 Web 开发人员涌向 Angular 的同时，许多人都面临着同样的疑问：Digest 到底是做什么的？可以有哪些不同的方式来定义一个指令（directive）？service 和 provider 之间有些什么区别？&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://docs.angularjs.org/&quot;&gt;Angular官方文档&lt;/a&gt;是非常好的学习资源，并且还有越来越多的&lt;a href=&quot;http://syntaxspectrum.com/tag/angularjs/&quot;&gt;第三方资源&lt;/a&gt;，不过，想要深入了解一个新的框架，没有比分解它，然后研究其内部运作原理更加有效。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://docs.angularjs.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Angular官方文档&lt;/a&gt;是非常好的学习资源，并且还有越来越多的&lt;a href=&quot;http://syntaxspectrum.com/tag/angularjs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;第三方资源&lt;/a&gt;，不过，想要深入了解一个新的框架，没有比分解它，然后研究其内部运作原理更加有效。&lt;/p&gt;
 &lt;p&gt;在本系列文章中，我将从零开始建立一个 AngularJS 类库，并逐步深入讲解，最后，您将对 Angular 的工作原理有一个全面深刻地理解。&lt;/p&gt;
 &lt;p&gt;这是本系列的第一部分，我们将分析 Angular 中的 scopes 的工作原理，并且将知道像 &lt;code&gt;$eval&lt;/code&gt;、&lt;code&gt;$digest&lt;/code&gt; 和 &lt;code&gt;$apply&lt;/code&gt; 这些方法到底有些什么作用，Angular 的脏值检查（dirty-checking）貌似很神奇，但是后面您将看到的并非如此。&lt;/p&gt;
     
@@ -9299,9 +9299,9 @@ circle {
     
       <category term="JavaScript" scheme="http://bubkoo.com/tags/javascript/"/>
     
-      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
-    
       <category term="Algorithm" scheme="http://bubkoo.com/tags/algorithm/"/>
+    
+      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
     
       <category term="Archives" scheme="http://bubkoo.com/tags/archives/"/>
     
@@ -9453,19 +9453,19 @@ circle {
     
     <summary type="html">
     
-      &lt;h2 id=&quot;算法原理&quot;&gt;&lt;a href=&quot;#算法原理&quot; class=&quot;headerlink&quot; title=&quot;算法原理&quot;&gt;&lt;/a&gt;算法原理&lt;/h2&gt;&lt;p&gt;基数排序 (Radix Sort) 是一种非比较型整数排序算法，其原理是将整数按位数切割成不同的数字，然后按每个位数分别比较。基数排序的发明可以追溯到 1887 年&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E8%B5%AB%E7%88%BE%E6%9B%BC%C2%B7%E4%BD%95%E6%A8%82%E7%A6%AE&quot;&gt;赫尔曼·何乐礼&lt;/a&gt;在&lt;a href=&quot;http://zh.wikipedia.org/w/index.php?title=%E6%89%93%E5%AD%94%E5%8D%A1%E7%89%87%E5%88%B6%E8%A1%A8%E6%9C%BA&amp;amp;action=edit&amp;amp;redlink=1&quot;&gt;打孔卡片制表机 (Tabulation Machine)&lt;/a&gt;上的贡献。&lt;/p&gt;
+      &lt;h2 id=&quot;算法原理&quot;&gt;&lt;a href=&quot;#算法原理&quot; class=&quot;headerlink&quot; title=&quot;算法原理&quot;&gt;&lt;/a&gt;算法原理&lt;/h2&gt;&lt;p&gt;基数排序 (Radix Sort) 是一种非比较型整数排序算法，其原理是将整数按位数切割成不同的数字，然后按每个位数分别比较。基数排序的发明可以追溯到 1887 年&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E8%B5%AB%E7%88%BE%E6%9B%BC%C2%B7%E4%BD%95%E6%A8%82%E7%A6%AE&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;赫尔曼·何乐礼&lt;/a&gt;在&lt;a href=&quot;http://zh.wikipedia.org/w/index.php?title=%E6%89%93%E5%AD%94%E5%8D%A1%E7%89%87%E5%88%B6%E8%A1%A8%E6%9C%BA&amp;amp;action=edit&amp;amp;redlink=1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;打孔卡片制表机 (Tabulation Machine)&lt;/a&gt;上的贡献。&lt;/p&gt;
 &lt;p&gt;排序过程：将所有待比较数值（&lt;strong&gt;正整数&lt;/strong&gt;）统一为同样的数位长度，数位较短的数前面补零。然后，从最低位开始，依次进行一次排序。这样从最低位排序一直到最高位排序完成以后, 数列就变成一个有序序列。&lt;/p&gt;
 &lt;p&gt;基数排序法会使用到桶 (Bucket)，顾名思义，通过将要比较的位（个位、十位、百位…），将要排序的元素分配至 0~9 个桶中，借以达到排序的作用，在某些时候，基数排序法的效率高于其它的比较性排序法。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.cs.usfca.edu/~galles/visualization/RadixSort.html&quot;&gt;Data Structure Visualizations&lt;/a&gt; 提供了一个基数排序的分步动画演示。&lt;br&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.cs.usfca.edu/~galles/visualization/RadixSort.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Data Structure Visualizations&lt;/a&gt; 提供了一个基数排序的分步动画演示。&lt;br&gt;
     
     </summary>
     
     
       <category term="JavaScript" scheme="http://bubkoo.com/tags/javascript/"/>
     
-      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
-    
       <category term="Algorithm" scheme="http://bubkoo.com/tags/algorithm/"/>
+    
+      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
     
   </entry>
   
@@ -9509,16 +9509,16 @@ circle {
 &lt;li&gt;将待排序的一组数，分档规入这些子桶，并将桶中的数据进行排序&lt;/li&gt;
 &lt;li&gt;将各个桶中的数据有序的合并起来&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.cs.usfca.edu/~galles/visualization/BucketSort.html&quot;&gt;Data Structure Visualizations&lt;/a&gt; 提供了一个桶排序的分步动画演示。&lt;br&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.cs.usfca.edu/~galles/visualization/BucketSort.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Data Structure Visualizations&lt;/a&gt; 提供了一个桶排序的分步动画演示。&lt;br&gt;
     
     </summary>
     
     
       <category term="JavaScript" scheme="http://bubkoo.com/tags/javascript/"/>
     
-      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
-    
       <category term="Algorithm" scheme="http://bubkoo.com/tags/algorithm/"/>
+    
+      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
     
   </entry>
   
@@ -9542,7 +9542,7 @@ circle {
     
     <summary type="html">
     
-      &lt;h2 id=&quot;算法原理&quot;&gt;&lt;a href=&quot;#算法原理&quot; class=&quot;headerlink&quot; title=&quot;算法原理&quot;&gt;&lt;/a&gt;算法原理&lt;/h2&gt;&lt;p&gt;猴子排序 (Bogo Sort) 是个既不实用又原始的排序算法，其原理等同将一堆卡片抛起，落在桌上后检查卡片是否已整齐排列好，若非就再抛一次。其名字源自 Quantum bogodynamics，又称 bozo sort、blort sort 或猴子排序（参见&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E7%84%A1%E9%99%90%E7%8C%B4%E5%AD%90%E5%AE%9A%E7%90%86&quot;&gt;无限猴子定理&lt;/a&gt;）。并且在最坏的情况下所需时间是无限的。&lt;/p&gt;
+      &lt;h2 id=&quot;算法原理&quot;&gt;&lt;a href=&quot;#算法原理&quot; class=&quot;headerlink&quot; title=&quot;算法原理&quot;&gt;&lt;/a&gt;算法原理&lt;/h2&gt;&lt;p&gt;猴子排序 (Bogo Sort) 是个既不实用又原始的排序算法，其原理等同将一堆卡片抛起，落在桌上后检查卡片是否已整齐排列好，若非就再抛一次。其名字源自 Quantum bogodynamics，又称 bozo sort、blort sort 或猴子排序（参见&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E7%84%A1%E9%99%90%E7%8C%B4%E5%AD%90%E5%AE%9A%E7%90%86&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;无限猴子定理&lt;/a&gt;）。并且在最坏的情况下所需时间是无限的。&lt;/p&gt;
 &lt;p&gt;伪代码：&lt;/p&gt;
 &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; not InOrder(list) &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   Shuffle(list)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;done&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
@@ -9551,9 +9551,9 @@ circle {
     
       <category term="JavaScript" scheme="http://bubkoo.com/tags/javascript/"/>
     
-      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
-    
       <category term="Algorithm" scheme="http://bubkoo.com/tags/algorithm/"/>
+    
+      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
     
   </entry>
   
@@ -9622,9 +9622,9 @@ circle {
     
       <category term="JavaScript" scheme="http://bubkoo.com/tags/javascript/"/>
     
-      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
-    
       <category term="Algorithm" scheme="http://bubkoo.com/tags/algorithm/"/>
+    
+      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
     
   </entry>
   
@@ -9667,7 +9667,7 @@ circle {
     
     <summary type="html">
     
-      &lt;h2 id=&quot;算法原理&quot;&gt;&lt;a href=&quot;#算法原理&quot; class=&quot;headerlink&quot; title=&quot;算法原理&quot;&gt;&lt;/a&gt;算法原理&lt;/h2&gt;&lt;p&gt;归并排序（Merge Sort，台湾译作：合并排序）是建立在归并操作上的一种有效的排序算法。该算法是采用&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E5%88%86%E6%B2%BB%E6%B3%95&quot;&gt;分治法&lt;/a&gt;（Divide and Conquer）的一个非常典型的应用。&lt;/p&gt;
+      &lt;h2 id=&quot;算法原理&quot;&gt;&lt;a href=&quot;#算法原理&quot; class=&quot;headerlink&quot; title=&quot;算法原理&quot;&gt;&lt;/a&gt;算法原理&lt;/h2&gt;&lt;p&gt;归并排序（Merge Sort，台湾译作：合并排序）是建立在归并操作上的一种有效的排序算法。该算法是采用&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E5%88%86%E6%B2%BB%E6%B3%95&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;分治法&lt;/a&gt;（Divide and Conquer）的一个非常典型的应用。&lt;/p&gt;
 &lt;p&gt;归并操作(Merge)，也叫归并算法，指的是将两个已经排序的序列合并成一个序列的操作。归并排序算法依赖归并操作。归并排序有多路归并排序、两路归并排序 , 可用于内排序，也可以用于外排序。这里仅对内排序的两路归并方法进行讨论。 &lt;/p&gt;
 &lt;p&gt;算法思路：&lt;/p&gt;
 &lt;ol&gt;
@@ -9682,9 +9682,9 @@ circle {
     
       <category term="JavaScript" scheme="http://bubkoo.com/tags/javascript/"/>
     
-      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
-    
       <category term="Algorithm" scheme="http://bubkoo.com/tags/algorithm/"/>
+    
+      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
     
   </entry>
   
@@ -9750,9 +9750,9 @@ circle {
     
       <category term="JavaScript" scheme="http://bubkoo.com/tags/javascript/"/>
     
-      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
-    
       <category term="Algorithm" scheme="http://bubkoo.com/tags/algorithm/"/>
+    
+      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
     
   </entry>
   
@@ -9808,7 +9808,7 @@ circle {
 &lt;li&gt;将新元素插入到该位置后&lt;/li&gt;
 &lt;li&gt;重复步骤 2~5&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;如果比较操作的代价比交换操作大的话，可以采用&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%B3%95&quot;&gt;二分查找法&lt;/a&gt;来减少比较操作的数目。该算法可以认为是插入排序的一个变种，称为&lt;strong&gt;二分查找排序&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;如果比较操作的代价比交换操作大的话，可以采用&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%B3%95&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;二分查找法&lt;/a&gt;来减少比较操作的数目。该算法可以认为是插入排序的一个变种，称为&lt;strong&gt;二分查找排序&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;二分查找法，是一种在有序数组中查找某一特定元素的搜索算法。搜素过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则搜素过程结束；如果某一特定元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半中查找，而且跟开始一样从中间元素开始比较。如果在某一步骤数组为空，则代表找不到。这种搜索算法每一次比较都使搜索范围缩小一半。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://bubkoo.qiniudn.com/Insertion_sort_animation.gif&quot; alt=&quot;图片来自维基百科&quot;&gt;&lt;/p&gt;
     
@@ -9817,9 +9817,9 @@ circle {
     
       <category term="JavaScript" scheme="http://bubkoo.com/tags/javascript/"/>
     
-      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
-    
       <category term="Algorithm" scheme="http://bubkoo.com/tags/algorithm/"/>
+    
+      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
     
   </entry>
   
@@ -9919,7 +9919,7 @@ circle {
       &lt;h2 id=&quot;算法原理&quot;&gt;&lt;a href=&quot;#算法原理&quot; class=&quot;headerlink&quot; title=&quot;算法原理&quot;&gt;&lt;/a&gt;算法原理&lt;/h2&gt;&lt;p&gt;先上一张堆排序动画演示图片：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://bubkoo.qiniudn.com/Sorting_heapsort_anim.gif&quot; alt=&quot;图片来自维基百科&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1. 不得不说说二叉树&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;要了解堆首先得了解一下&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91&quot;&gt;二叉树&lt;/a&gt;，在计算机科学中，二叉树是每个节点最多有两个子树的树结构。通常子树被称作“左子树”（left subtree）和“右子树”（right subtree）。二叉树常被用于实现&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B%E6%A8%B9&quot;&gt;二叉查找树&lt;/a&gt;和&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E5%A0%86&quot;&gt;二叉堆&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;要了解堆首先得了解一下&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;二叉树&lt;/a&gt;，在计算机科学中，二叉树是每个节点最多有两个子树的树结构。通常子树被称作“左子树”（left subtree）和“右子树”（right subtree）。二叉树常被用于实现&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B%E6%A8%B9&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;二叉查找树&lt;/a&gt;和&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E5%A0%86&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;二叉堆&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;二叉树的每个结点至多只有二棵子树（不存在度大于 2 的结点），二叉树的子树有左右之分，次序不能颠倒。二叉树的第 i 层至多有 2&lt;sup&gt;i&lt;/sup&gt; - 1 个结点；深度为 k 的二叉树至多有 2&lt;sup&gt;k&lt;/sup&gt; - 1 个结点；对任何一棵二叉树 T，如果其终端结点数为 n&lt;sub&gt;0&lt;/sub&gt;，度为 2 的结点数为 n&lt;sub&gt;2&lt;/sub&gt;，则n&lt;sub&gt;0&lt;/sub&gt; = n&lt;sub&gt;2&lt;/sub&gt; + 1。&lt;/p&gt;
 &lt;p&gt;树和二叉树的三个主要差别：&lt;/p&gt;
 &lt;ul&gt;
@@ -9938,9 +9938,9 @@ circle {
     
       <category term="JavaScript" scheme="http://bubkoo.com/tags/javascript/"/>
     
-      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
-    
       <category term="Algorithm" scheme="http://bubkoo.com/tags/algorithm/"/>
+    
+      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
     
   </entry>
   
@@ -9991,9 +9991,9 @@ circle {
     
       <category term="JavaScript" scheme="http://bubkoo.com/tags/javascript/"/>
     
-      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
-    
       <category term="Algorithm" scheme="http://bubkoo.com/tags/algorithm/"/>
+    
+      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
     
   </entry>
   
@@ -10080,13 +10080,13 @@ circle {
     
     <summary type="html">
     
-      &lt;h2 id=&quot;算法原理&quot;&gt;&lt;a href=&quot;#算法原理&quot; class=&quot;headerlink&quot; title=&quot;算法原理&quot;&gt;&lt;/a&gt;算法原理&lt;/h2&gt;&lt;p&gt;快速排序是图灵奖得主&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E6%9D%B1%E5%B0%BC%C2%B7%E9%9C%8D%E7%88%BE&quot;&gt; C. R. A. Hoare&lt;/a&gt; 于 1960 年提出的一种划分交换排序。它采用了一种分治的策略，通常称其为&lt;a href=&quot;http://en.wikipedia.org/wiki/Quicksort&quot;&gt;分治法(Divide-and-ConquerMethod)&lt;/a&gt;。&lt;/p&gt;
+      &lt;h2 id=&quot;算法原理&quot;&gt;&lt;a href=&quot;#算法原理&quot; class=&quot;headerlink&quot; title=&quot;算法原理&quot;&gt;&lt;/a&gt;算法原理&lt;/h2&gt;&lt;p&gt;快速排序是图灵奖得主&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E6%9D%B1%E5%B0%BC%C2%B7%E9%9C%8D%E7%88%BE&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt; C. R. A. Hoare&lt;/a&gt; 于 1960 年提出的一种划分交换排序。它采用了一种分治的策略，通常称其为&lt;a href=&quot;http://en.wikipedia.org/wiki/Quicksort&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;分治法(Divide-and-ConquerMethod)&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://bubkoo.qiniudn.com/C.R.A.Hoare.jpg&quot; alt=&quot;C. R. A. Hoare&quot;&gt;&lt;/p&gt;
 &lt;p&gt;分治法的基本思想是：将原问题分解为若干个规模更小但结构与原问题相似的子问题。递归地解这些子问题，然后将这些子问题的解组合为原问题的解。&lt;/p&gt;
 &lt;p&gt;利用分治法可将快速排序的分为三步：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;在数据集之中，选择一个元素作为”基准”（pivot）。&lt;/li&gt;
-&lt;li&gt;所有小于”基准”的元素，都移到”基准”的左边；所有大于”基准”的元素，都移到”基准”的右边。这个操作称为&lt;a href=&quot;http://en.wikipedia.org/wiki/Quicksort&quot;&gt;分区 (partition) 操作&lt;/a&gt;，分区操作结束后，基准元素所处的位置就是最终排序后它的位置。&lt;/li&gt;
+&lt;li&gt;所有小于”基准”的元素，都移到”基准”的左边；所有大于”基准”的元素，都移到”基准”的右边。这个操作称为&lt;a href=&quot;http://en.wikipedia.org/wiki/Quicksort&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;分区 (partition) 操作&lt;/a&gt;，分区操作结束后，基准元素所处的位置就是最终排序后它的位置。&lt;/li&gt;
 &lt;li&gt;对”基准”左边和右边的两个子集，不断重复第一步和第二步，直到所有子集只剩下一个元素为止。&lt;br&gt;&lt;img src=&quot;http://bubkoo.qiniudn.com/Sorting_quicksort_anim.gif&quot; alt=&quot;图片来自维基百科&quot;&gt;
     
     </summary>
@@ -10094,9 +10094,9 @@ circle {
     
       <category term="JavaScript" scheme="http://bubkoo.com/tags/javascript/"/>
     
-      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
-    
       <category term="Algorithm" scheme="http://bubkoo.com/tags/algorithm/"/>
+    
+      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
     
   </entry>
   
@@ -10153,9 +10153,9 @@ circle {
     
       <category term="JavaScript" scheme="http://bubkoo.com/tags/javascript/"/>
     
-      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
-    
       <category term="Algorithm" scheme="http://bubkoo.com/tags/algorithm/"/>
+    
+      <category term="Sort" scheme="http://bubkoo.com/tags/sort/"/>
     
   </entry>
   
@@ -10181,9 +10181,9 @@ circle {
     
       <category term="JavaScript" scheme="http://bubkoo.com/tags/javascript/"/>
     
-      <category term="Algorithm" scheme="http://bubkoo.com/tags/algorithm/"/>
-    
       <category term="Shuffle" scheme="http://bubkoo.com/tags/shuffle/"/>
+    
+      <category term="Algorithm" scheme="http://bubkoo.com/tags/algorithm/"/>
     
   </entry>
   
@@ -10723,14 +10723,14 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;原文链接：&lt;a href=&quot;http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/&quot;&gt;How Browsers Work: Behind the scenes of modern web browsers&lt;/a&gt;&lt;br&gt;原文日期：2011年8月5日&lt;/p&gt;
-&lt;h2 id=&quot;序言&quot;&gt;&lt;a href=&quot;#序言&quot; class=&quot;headerlink&quot; title=&quot;序言&quot;&gt;&lt;/a&gt;序言&lt;/h2&gt;&lt;p&gt;这是一篇全面介绍基于 Webkit 和 Gecko 内核浏览器内部原理的入门文章，是以色列开发人员 &lt;a href=&quot;http://www.html5rocks.com/profiles/#taligarsiel&quot;&gt;Tali Garsiel&lt;/a&gt; 大量研究的成果。在过去的几年中，她查阅了所有公开发布的关于浏览器内部机制的数据（请参见&lt;a href=&quot;#resources&quot;&gt;参考资料&lt;/a&gt;），并花了很多时间来研读网络浏览器的源代码。她这样写道：&lt;/p&gt;
+      &lt;p&gt;原文链接：&lt;a href=&quot;http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;How Browsers Work: Behind the scenes of modern web browsers&lt;/a&gt;&lt;br&gt;原文日期：2011年8月5日&lt;/p&gt;
+&lt;h2 id=&quot;序言&quot;&gt;&lt;a href=&quot;#序言&quot; class=&quot;headerlink&quot; title=&quot;序言&quot;&gt;&lt;/a&gt;序言&lt;/h2&gt;&lt;p&gt;这是一篇全面介绍基于 Webkit 和 Gecko 内核浏览器内部原理的入门文章，是以色列开发人员 &lt;a href=&quot;http://www.html5rocks.com/profiles/#taligarsiel&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Tali Garsiel&lt;/a&gt; 大量研究的成果。在过去的几年中，她查阅了所有公开发布的关于浏览器内部机制的数据（请参见&lt;a href=&quot;#resources&quot;&gt;参考资料&lt;/a&gt;），并花了很多时间来研读网络浏览器的源代码。她这样写道：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;在 IE 占据 90% 市场份额的年代，我们除了把浏览器当成一个“黑盒”，什么也做不了。如今，开源浏览器拥有了过半的市场份额，因此，是时候来揭开神秘的面纱，一探网络浏览器的内幕了。呃，里面只有数以百万行计的 C++ 代码 …&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.html5rocks.com/profiles/#taligarsiel&quot;&gt;Tali Garsiel&lt;/a&gt; 在&lt;a href=&quot;http://taligarsiel.com/&quot;&gt;她的网站&lt;/a&gt;上公布了自己的研究成果，但是我们觉得它值得让更多的人来了解，所以我们&lt;a href=&quot;http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/&quot;&gt;在此&lt;/a&gt;重新整理并公布。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.html5rocks.com/profiles/#taligarsiel&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Tali Garsiel&lt;/a&gt; 在&lt;a href=&quot;http://taligarsiel.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;她的网站&lt;/a&gt;上公布了自己的研究成果，但是我们觉得它值得让更多的人来了解，所以我们&lt;a href=&quot;http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;在此&lt;/a&gt;重新整理并公布。&lt;/p&gt;
 &lt;p&gt;作为一名 Web 开发人员，&lt;strong&gt;学习浏览器的内部工作原理将有助于您作出更明智的决策，并理解那些最佳开发实践的个中缘由&lt;/strong&gt;。尽管这是一篇相当长的文档，但是我们建议您多花一些时间来仔细阅读，读完之后，您肯定会觉得所费不虚。&lt;/p&gt;
-&lt;p class=&quot;sign&quot;&gt;&lt;a href=&quot;http://www.html5rocks.com/profiles/#paulirish&quot;&gt;Paul Irish&lt;/a&gt;，Chrome 浏览器开发人员事务部&lt;/p&gt;
+&lt;p class=&quot;sign&quot;&gt;&lt;a href=&quot;http://www.html5rocks.com/profiles/#paulirish&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Paul Irish&lt;/a&gt;，Chrome 浏览器开发人员事务部&lt;/p&gt;
     
     </summary>
     
@@ -10915,7 +10915,7 @@ circle {
 &lt;p&gt;Source Map 提供了一个与语言无关的方式，来将生产环境中的代码映射回开发环境中的原始代码。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;在现代的开发流程中，我们的开发环境和实际线上环境的代码通常都不一样。在应用上线部署前，我们通常都要对我们的代码进行编译、合并、压缩或者其他方面的优化，这使得我们非常困难来准确定位会原始代码。但是，在生成过程中，Source Map 文件储存了这些位置信息，因此，当我们查找一行中的某个位置时，Source Map 文件可以准确定位到原始文件中的位置。这使得我们线上环境中的代码变得可读，甚至可调试，为开发者提供了极大的便利。这就是 Source Map 的用武之地。&lt;/p&gt;
-&lt;p&gt;在这篇介绍性的教程中，我们利用一个非常简单的 JavaScript 和 SASS 代码，通过各种编译器运行它们，然后在 Source Map 的帮助下，在浏览器中查看我们的原始文件。文中示例代码可以在这里【&lt;a href=&quot;https://github.com/NETTUTS/Source-Maps-101&quot;&gt;下载&lt;/a&gt;】。&lt;br&gt;
+&lt;p&gt;在这篇介绍性的教程中，我们利用一个非常简单的 JavaScript 和 SASS 代码，通过各种编译器运行它们，然后在 Source Map 的帮助下，在浏览器中查看我们的原始文件。文中示例代码可以在这里【&lt;a href=&quot;https://github.com/NETTUTS/Source-Maps-101&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;下载&lt;/a&gt;】。&lt;br&gt;
     
     </summary>
     
@@ -11050,12 +11050,12 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;翻译自：&lt;a href=&quot;http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/?redirect_from_locale=zh&quot;&gt;Introduction to JavaScript Source Maps&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;翻译自：&lt;a href=&quot;http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/?redirect_from_locale=zh&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Introduction to JavaScript Source Maps&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;水平有限，有表达错误和不准确的地方，可以在回复中直接指出来，英语水平高的同学可以直接看上面的原文。&lt;/p&gt;
 &lt;p&gt;下面开始正文。&lt;/p&gt;
-&lt;p&gt;你有没有希望保持你的客户端代码可读性，更重要的是可调式性，即使你合并和压缩过代码，同时又不影响性能？现在你可以通过 &lt;a href=&quot;https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit?hl=en_US&amp;amp;pli=1&amp;amp;pli=1#heading=h.1ce2c87bpj24&quot;&gt;Source Maps&lt;/a&gt; 的魔力来实现。&lt;/p&gt;
+&lt;p&gt;你有没有希望保持你的客户端代码可读性，更重要的是可调式性，即使你合并和压缩过代码，同时又不影响性能？现在你可以通过 &lt;a href=&quot;https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit?hl=en_US&amp;amp;pli=1&amp;amp;pli=1#heading=h.1ce2c87bpj24&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Source Maps&lt;/a&gt; 的魔力来实现。&lt;/p&gt;
 &lt;p&gt;从根本上说，这是一种将合并/压缩后的文件映射回未构建状态的方式。当构建产品，合并和压缩你的 JavaScript 文件的同时，生成一个包含源文件信息的 Source Maps 文件。当你查询生成后的文件中某一行号和列号的位置时，你可以通过 Source Maps 来返回它所对应的原始位置。开发人员工具（WebKit 最新版，Google Chrome，Firefox 23+）可以自动解析 Source Maps，使得看起来好像你在运行未压缩和合并的文件。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.thecssninja.com/demo/source_mapping/&quot;&gt;Demo: Get original location&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.thecssninja.com/demo/source_mapping/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Demo: Get original location&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;打开上面示例的连接，在包含生成后文件的文本区域的任何地方点击鼠标右键，选择 “Get original location”，将通过生成后的文件的行号和列号查询 Source Maps，并返回原始代码的位置。确保你的控制台是打开的，这样你就可以看到输出。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://bubkoo.qiniudn.com/source-map-demo.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;
     
@@ -11144,7 +11144,7 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;其实，我最开始接触到的是 Sublime Text 2，被其轻量、简洁以及漂亮的配色所瞬间征服，后来升级为 &lt;a href=&quot;http://www.sublimetext.com/&quot;&gt;Sublime Text 3&lt;/a&gt;，使用过程中有一些需要设置的地方，还有一些常用插件的安装和设置技巧等，有时候会忘记某些设置方法或者快捷键，然后不得不上网查。恰逢周末，其中的一些东西记录下来，一方面加深自己的印象，同时方便查阅。&lt;/p&gt;
+      &lt;p&gt;其实，我最开始接触到的是 Sublime Text 2，被其轻量、简洁以及漂亮的配色所瞬间征服，后来升级为 &lt;a href=&quot;http://www.sublimetext.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Sublime Text 3&lt;/a&gt;，使用过程中有一些需要设置的地方，还有一些常用插件的安装和设置技巧等，有时候会忘记某些设置方法或者快捷键，然后不得不上网查。恰逢周末，其中的一些东西记录下来，一方面加深自己的印象，同时方便查阅。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://bubkoo.qiniudn.com/sublime-text-2-logo.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;
     
     </summary>
@@ -11378,7 +11378,7 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;在前端开发的过程中，一个最繁琐的工作就是写 HTML、CSS 代码。数量繁多的标签、属性、尖括号、标签闭合等，让前端们甚是苦恼。于是，我向大家推荐 &lt;a href=&quot;http://emmet.io/&quot;&gt;Emmet&lt;/a&gt;，它提供了一套非常简单的语法规则，书写起来非常爽快，然后只需要敲一个快捷键就立刻生成对应的 HTML 或 CSS 代码，极大提高了代码书写效率。&lt;/p&gt;
+      &lt;p&gt;在前端开发的过程中，一个最繁琐的工作就是写 HTML、CSS 代码。数量繁多的标签、属性、尖括号、标签闭合等，让前端们甚是苦恼。于是，我向大家推荐 &lt;a href=&quot;http://emmet.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Emmet&lt;/a&gt;，它提供了一套非常简单的语法规则，书写起来非常爽快，然后只需要敲一个快捷键就立刻生成对应的 HTML 或 CSS 代码，极大提高了代码书写效率。&lt;/p&gt;
     
     </summary>
     
@@ -11417,17 +11417,17 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;开始使用 &lt;a href=&quot;http://zespia.tw/hexo/?utm_source=feedly&quot;&gt;HEXO&lt;/a&gt; 时就发现默认主题 &lt;strong&gt;light&lt;/strong&gt; 的 &lt;strong&gt;style.css&lt;/strong&gt; 文件是没有经过压缩的，虽然文件本身不大，对博客加载速度不会有太大影响，但是作为喜欢折腾的程序猿，同时为了提升自身博客那么一点点的完美性，一直想去解决这个问题，由于工作比较忙，这个就一直压在心里，直到昨天写完博客，又开始折腾起来。下面记录了具体的修改方式，有需要的同学可以试试。&lt;/p&gt;
+      &lt;p&gt;开始使用 &lt;a href=&quot;http://zespia.tw/hexo/?utm_source=feedly&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HEXO&lt;/a&gt; 时就发现默认主题 &lt;strong&gt;light&lt;/strong&gt; 的 &lt;strong&gt;style.css&lt;/strong&gt; 文件是没有经过压缩的，虽然文件本身不大，对博客加载速度不会有太大影响，但是作为喜欢折腾的程序猿，同时为了提升自身博客那么一点点的完美性，一直想去解决这个问题，由于工作比较忙，这个就一直压在心里，直到昨天写完博客，又开始折腾起来。下面记录了具体的修改方式，有需要的同学可以试试。&lt;/p&gt;
 &lt;p&gt;PS：本博的主题是基于默认主题稍作修改后的样式。&lt;/p&gt;
-&lt;p&gt;最开始想使用 &lt;a href=&quot;http://gruntjs.com/&quot;&gt;Grunt&lt;/a&gt; 来压缩，但是这样只能在博客文件目录内引入 Grunt 插件。这就使得文件结构不那么清晰，作为比较追求完美的我，最后还是放弃了该方式。什么？你还不知道 Grunt，那么你 out 很久了，简单的说 Grunt 就是前端自动化构建工具，实现 JS、CSS 文件合并和压缩什么的，飞一般的赶脚啊，有木有。。还有什么 CSS 预编译，JS 单元测试，都可以轻松搞定，如果你在前端开发过程中还在不停按 F5 刷新页面（另外有个工具叫 &lt;a href=&quot;http://getf5.com/&quot;&gt;&lt;strong&gt;F5&lt;/strong&gt;&lt;/a&gt;，不推荐使用，免费版每十分钟的弹窗太揪心了），推荐使用 Grunt 的 &lt;strong&gt;watch&lt;/strong&gt; 和 &lt;strong&gt;livereload&lt;/strong&gt; 插件，监视文件自动刷新，用起来太爽了，个人非常感谢 NodeJS 和 Grunt 给前端带来的便利。&lt;/p&gt;
+&lt;p&gt;最开始想使用 &lt;a href=&quot;http://gruntjs.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Grunt&lt;/a&gt; 来压缩，但是这样只能在博客文件目录内引入 Grunt 插件。这就使得文件结构不那么清晰，作为比较追求完美的我，最后还是放弃了该方式。什么？你还不知道 Grunt，那么你 out 很久了，简单的说 Grunt 就是前端自动化构建工具，实现 JS、CSS 文件合并和压缩什么的，飞一般的赶脚啊，有木有。。还有什么 CSS 预编译，JS 单元测试，都可以轻松搞定，如果你在前端开发过程中还在不停按 F5 刷新页面（另外有个工具叫 &lt;a href=&quot;http://getf5.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;strong&gt;F5&lt;/strong&gt;&lt;/a&gt;，不推荐使用，免费版每十分钟的弹窗太揪心了），推荐使用 Grunt 的 &lt;strong&gt;watch&lt;/strong&gt; 和 &lt;strong&gt;livereload&lt;/strong&gt; 插件，监视文件自动刷新，用起来太爽了，个人非常感谢 NodeJS 和 Grunt 给前端带来的便利。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://bubkoo.qiniudn.com/grunt-logo.png&quot; alt=&quot;&quot; title=&quot;牛逼的Grunt，LOGO也这么牛叉&quot;&gt;
     
     </summary>
     
     
-      <category term="Hexo" scheme="http://bubkoo.com/tags/hexo/"/>
-    
       <category term="CSS" scheme="http://bubkoo.com/tags/css/"/>
+    
+      <category term="Hexo" scheme="http://bubkoo.com/tags/hexo/"/>
     
   </entry>
   
@@ -11450,7 +11450,7 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;http://angular-ui.github.io/&quot;&gt;Angular-Ui&lt;/a&gt; 对于 &lt;a href=&quot;http://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt; 开发者来说是一个非常重要的工具，其中 &lt;a href=&quot;https://github.com/angular-ui/ui-router&quot;&gt;UI-Router&lt;/a&gt; 又是重中之重。&lt;a href=&quot;https://github.com/angular-ui/ui-router&quot;&gt;UI-Router&lt;/a&gt; 插件提供了“嵌套作用域等规则”等有用的特性，对于复杂项目开发非常实用，最近在项目中开始使用 &lt;a href=&quot;https://github.com/angular-ui/ui-router&quot;&gt;UI-Router&lt;/a&gt; ，于是决定好好把它学习一遍，这些文章都来源于 &lt;a href=&quot;https://github.com/angular-ui/ui-router/wiki&quot;&gt;UI-Router 的 github&lt;/a&gt;，由于能力有限，有些地方没有看懂，另外还有一些地方只能意译出来，希望大家在参观的过程中指出其中的错误。&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;http://angular-ui.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Angular-Ui&lt;/a&gt; 对于 &lt;a href=&quot;http://angularjs.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AngularJS&lt;/a&gt; 开发者来说是一个非常重要的工具，其中 &lt;a href=&quot;https://github.com/angular-ui/ui-router&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;UI-Router&lt;/a&gt; 又是重中之重。&lt;a href=&quot;https://github.com/angular-ui/ui-router&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;UI-Router&lt;/a&gt; 插件提供了“嵌套作用域等规则”等有用的特性，对于复杂项目开发非常实用，最近在项目中开始使用 &lt;a href=&quot;https://github.com/angular-ui/ui-router&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;UI-Router&lt;/a&gt; ，于是决定好好把它学习一遍，这些文章都来源于 &lt;a href=&quot;https://github.com/angular-ui/ui-router/wiki&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;UI-Router 的 github&lt;/a&gt;，由于能力有限，有些地方没有看懂，另外还有一些地方只能意译出来，希望大家在参观的过程中指出其中的错误。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;/2014/01/01/angular/ui-router/guide/state-manager/&quot;&gt;学习 ui-router - 管理状态&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;/2014/01/01/angular/ui-router/guide/nested-states%20&amp;amp;%20nested-views/&quot;&gt;学习 ui-router - 状态嵌套和视图嵌套&lt;/a&gt;&lt;/li&gt;
@@ -11493,7 +11493,7 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;参考原文：&lt;a href=&quot;https://github.com/angular-ui/ui-router/wiki/The-Components&quot;&gt;https://github.com/angular-ui/ui-router/wiki/The-Components&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;参考原文：&lt;a href=&quot;https://github.com/angular-ui/ui-router/wiki/The-Components&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/angular-ui/ui-router/wiki/The-Components&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;$state / $stateProvider&lt;/strong&gt;：管理状态定义、当前状态和状态转换。包含触发状态转换的事件和回调函数，异步解决目标状态的任何依赖项，更新&lt;code&gt;$location&lt;/code&gt;到当前状态。由于状态包含关联的 url，通过$urlRouterProvider生成一个路由规则来执行转换的状态。&lt;/p&gt;
 &lt;/li&gt;
@@ -11609,7 +11609,7 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;参考原文：&lt;a href=&quot;https://github.com/angular-ui/ui-router/wiki/URL-Routing&quot;&gt;https://github.com/angular-ui/ui-router/wiki/URL-Routing&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;参考原文：&lt;a href=&quot;https://github.com/angular-ui/ui-router/wiki/URL-Routing&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/angular-ui/ui-router/wiki/URL-Routing&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;在你的应用中大多数状态都有与其相关联的 url，路由控制不是设计完成 state 之后的事后想法，而是开始开发时就应该考虑的问题。&lt;/p&gt;
 &lt;p&gt;这里是如何设置一个基本url。&lt;/p&gt;
 &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$stateProvider&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    .state(&lt;span class=&quot;string&quot;&gt;&#39;contacts&#39;&lt;/span&gt;, &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;attr&quot;&gt;url&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;/contacts&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;attr&quot;&gt;templateUrl&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;contacts.html&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -11657,7 +11657,7 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;参考原文：&lt;a href=&quot;https://github.com/angular-ui/ui-router/wiki/Multiple-Named-Views&quot;&gt;https://github.com/angular-ui/ui-router/wiki/Multiple-Named-Views&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;参考原文：&lt;a href=&quot;https://github.com/angular-ui/ui-router/wiki/Multiple-Named-Views&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/angular-ui/ui-router/wiki/Multiple-Named-Views&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;可以给&lt;code&gt;ui-view&lt;/code&gt;指定名称，这样一个模板中就可以有多个&lt;code&gt;ui-view&lt;/code&gt;。假设您有一个应用，需要动态填充&lt;code&gt;graph&lt;/code&gt;、&lt;code&gt;table data&lt;/code&gt;和&lt;code&gt;filters&lt;/code&gt;，像下面这样：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://bubkoo.qiniudn.com/MultipleNamedViewsExample.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;当您需要使用多视图时，需要用到状态的&lt;code&gt;views&lt;/code&gt;属性，&lt;code&gt;views&lt;/code&gt;属性值是一个对象。&lt;/p&gt;
@@ -11733,7 +11733,7 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;参考原文：&lt;a href=&quot;https://github.com/angular-ui/ui-router/wiki/Nested-States-%26-Nested-Views&quot;&gt;https://github.com/angular-ui/ui-router/wiki/Nested-States-%26-Nested-Views&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;参考原文：&lt;a href=&quot;https://github.com/angular-ui/ui-router/wiki/Nested-States-%26-Nested-Views&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/angular-ui/ui-router/wiki/Nested-States-%26-Nested-Views&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;状态嵌套的方法&quot;&gt;&lt;a href=&quot;#状态嵌套的方法&quot; class=&quot;headerlink&quot; title=&quot;状态嵌套的方法&quot;&gt;&lt;/a&gt;状态嵌套的方法&lt;/h2&gt;&lt;p&gt;状态可以相互嵌套。有三个嵌套的方法：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;使用“点标记法”，例如：&lt;code&gt;.state(&amp;#39;contacts.list&amp;#39;, {})&lt;/code&gt;&lt;/li&gt;
@@ -11844,7 +11844,7 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;参考原文：&lt;a href=&quot;https://github.com/angular-ui/ui-router/wiki&quot;&gt;https://github.com/angular-ui/ui-router/wiki&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;参考原文：&lt;a href=&quot;https://github.com/angular-ui/ui-router/wiki&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/angular-ui/ui-router/wiki&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;ui-router 的工作原理非常类似于 Angular 的路由控制器，但它只关注状态。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;在应用程序的整个用户界面和导航中，一个状态对应于一个页面位置&lt;/li&gt;
@@ -11984,10 +11984,10 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;元旦放假一天，由于太宅，于是有了新年第一个产出。主题来源于这一周在项目中使用 &lt;a href=&quot;http://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt; 所遇到的问题，在此做一个使用笔记，以加深对 &lt;a href=&quot;http://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt; 的理解。本人文笔不行，如文章被有幸浏览到，还请各位童鞋多多提意见。&lt;/p&gt;
-&lt;h2 id=&quot;AugularJS-简单介绍&quot;&gt;&lt;a href=&quot;#AugularJS-简单介绍&quot; class=&quot;headerlink&quot; title=&quot;AugularJS 简单介绍&quot;&gt;&lt;/a&gt;AugularJS 简单介绍&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt; 由 Google 倾力打造的前端 JavaScript 工具。这里只说它是“工具”，没说它是完整的“框架”，是因为它并不是定位于去完成一套框架要做的事。更重要的，是它给我们提供了一种新的应用组织与开发方式。与其他许多模版系统最大的不同在于，他直接扩展了现有的 HTML 架构，透过声明式语言 (Directives Syntax)直接赋予 HTML 新的功能，让许多 &lt;a href=&quot;http://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt; 自定义的 HTML 属性自然而然地融入 HTML 之中，并且赋予其意义。这是大多数模版系统不敢做的尝试。&lt;/p&gt;
-&lt;p&gt;另外，在其他模版系统当中，都会实作所谓的模板引擎(Template Engine)，它们通常都通过模版字符串与数据进行连接，生成最终的 HTML 字符串，并将结果通过&lt;code&gt;innerHTML&lt;/code&gt;属性插入 DOM 树中。这意味着任何数据发生改变时，都需要重新将数据、模版合并成字符串，然后当作&lt;code&gt;innerHTML&lt;/code&gt;插入 DOM 树中，所以存在一些从字符串转换成 HTML 的隐性成本。但是 &lt;a href=&quot;http://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt; 是与众不同的，&lt;a href=&quot;http://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt; 通过自身的编译引擎将 HTML 和自定义的 HTML 语法(Directives)，解析成 DOM 结构之后，&lt;a href=&quot;http://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt; 会直接将原生的 DOM 当作网页片段模板，然后直接对 DOM 进行操作，大幅减少了转换成本，当然绑定效率可见比其他模板要高很多。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;没有银弹&lt;/strong&gt;，与其他所有的模版系统一样，这个世界没有银弹，不会有任何一套框架可以解决所有问题，&lt;a href=&quot;http://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt; 也不例外。所以，要能理解 &lt;a href=&quot;http://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt; 所擅长与不擅长的领域，可以有助于你评估与理解是否要采用 &lt;a href=&quot;http://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt; 当作你未来的开发框架。
+      &lt;p&gt;元旦放假一天，由于太宅，于是有了新年第一个产出。主题来源于这一周在项目中使用 &lt;a href=&quot;http://angularjs.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AngularJS&lt;/a&gt; 所遇到的问题，在此做一个使用笔记，以加深对 &lt;a href=&quot;http://angularjs.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AngularJS&lt;/a&gt; 的理解。本人文笔不行，如文章被有幸浏览到，还请各位童鞋多多提意见。&lt;/p&gt;
+&lt;h2 id=&quot;AugularJS-简单介绍&quot;&gt;&lt;a href=&quot;#AugularJS-简单介绍&quot; class=&quot;headerlink&quot; title=&quot;AugularJS 简单介绍&quot;&gt;&lt;/a&gt;AugularJS 简单介绍&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://angularjs.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AngularJS&lt;/a&gt; 由 Google 倾力打造的前端 JavaScript 工具。这里只说它是“工具”，没说它是完整的“框架”，是因为它并不是定位于去完成一套框架要做的事。更重要的，是它给我们提供了一种新的应用组织与开发方式。与其他许多模版系统最大的不同在于，他直接扩展了现有的 HTML 架构，透过声明式语言 (Directives Syntax)直接赋予 HTML 新的功能，让许多 &lt;a href=&quot;http://angularjs.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AngularJS&lt;/a&gt; 自定义的 HTML 属性自然而然地融入 HTML 之中，并且赋予其意义。这是大多数模版系统不敢做的尝试。&lt;/p&gt;
+&lt;p&gt;另外，在其他模版系统当中，都会实作所谓的模板引擎(Template Engine)，它们通常都通过模版字符串与数据进行连接，生成最终的 HTML 字符串，并将结果通过&lt;code&gt;innerHTML&lt;/code&gt;属性插入 DOM 树中。这意味着任何数据发生改变时，都需要重新将数据、模版合并成字符串，然后当作&lt;code&gt;innerHTML&lt;/code&gt;插入 DOM 树中，所以存在一些从字符串转换成 HTML 的隐性成本。但是 &lt;a href=&quot;http://angularjs.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AngularJS&lt;/a&gt; 是与众不同的，&lt;a href=&quot;http://angularjs.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AngularJS&lt;/a&gt; 通过自身的编译引擎将 HTML 和自定义的 HTML 语法(Directives)，解析成 DOM 结构之后，&lt;a href=&quot;http://angularjs.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AngularJS&lt;/a&gt; 会直接将原生的 DOM 当作网页片段模板，然后直接对 DOM 进行操作，大幅减少了转换成本，当然绑定效率可见比其他模板要高很多。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;没有银弹&lt;/strong&gt;，与其他所有的模版系统一样，这个世界没有银弹，不会有任何一套框架可以解决所有问题，&lt;a href=&quot;http://angularjs.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AngularJS&lt;/a&gt; 也不例外。所以，要能理解 &lt;a href=&quot;http://angularjs.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AngularJS&lt;/a&gt; 所擅长与不擅长的领域，可以有助于你评估与理解是否要采用 &lt;a href=&quot;http://angularjs.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AngularJS&lt;/a&gt; 当作你未来的开发框架。
     
     </summary>
     
@@ -12055,18 +12055,18 @@ circle {
     
     <summary type="html">
     
-      &lt;p&gt;这几天折腾了一下&lt;a href=&quot;http://zespia.tw/hexo/&quot;&gt;Hexo&lt;/a&gt;，遇到一些问题，解决方案大都来自Google和&lt;a href=&quot;http://zespia.tw/hexo/docs/&quot;&gt;Hexo官方文档&lt;/a&gt;，现在把这些问题汇总在这里，并附上解决方案，或者抛出自己遇到的问题，渴求解决方案。&lt;/p&gt;
+      &lt;p&gt;这几天折腾了一下&lt;a href=&quot;http://zespia.tw/hexo/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;，遇到一些问题，解决方案大都来自Google和&lt;a href=&quot;http://zespia.tw/hexo/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo官方文档&lt;/a&gt;，现在把这些问题汇总在这里，并附上解决方案，或者抛出自己遇到的问题，渴求解决方案。&lt;/p&gt;
 &lt;p&gt;后续会陆续更新我在使用过程中遇到的问题和使用心得。&lt;/p&gt;
 &lt;p&gt;注：这里不涉及Hexo的安装方法，具体的安装和使用可以参照下面教程：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://zipperary.com/categories/hexo/&quot;&gt;Hexo系列教程 - Zippera’s blog&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://ibruce.info/2013/11/22/hexo-your-blog/&quot;&gt;hexo你的博客 - ibruce&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://blog.jimliu.net/2013/09/08/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/&quot;&gt;使用hexo搭建静态博客 - Jim Liu’s Blog&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://beiyuu.com/github-pages/&quot;&gt;使用Github Pages建独立博客 - BeiYuu&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://yangjian.me/workspace/building-blog-with-hexo/&quot;&gt;使用hexo搭建博客 - Alimon’s blog&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://blog.ishgo.cn/2013/09/15/ishgohexo%E5%9B%A2%E9%98%9F%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98/&quot;&gt;用Hexo快速打造静态博客 - iShgo 团队博客&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://sys.la/2013/09/07/hexo/&quot;&gt;hexo教程 - Sys.La&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://blog.gfdsa.net/2013/04/09/hexo/hexolessontwo/&quot;&gt;Hexo主题制作 - youxiachai&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://zipperary.com/categories/hexo/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo系列教程 - Zippera’s blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://ibruce.info/2013/11/22/hexo-your-blog/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hexo你的博客 - ibruce&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.jimliu.net/2013/09/08/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;使用hexo搭建静态博客 - Jim Liu’s Blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://beiyuu.com/github-pages/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;使用Github Pages建独立博客 - BeiYuu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://yangjian.me/workspace/building-blog-with-hexo/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;使用hexo搭建博客 - Alimon’s blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.ishgo.cn/2013/09/15/ishgohexo%E5%9B%A2%E9%98%9F%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;用Hexo快速打造静态博客 - iShgo 团队博客&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://sys.la/2013/09/07/hexo/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hexo教程 - Sys.La&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.gfdsa.net/2013/04/09/hexo/hexolessontwo/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo主题制作 - youxiachai&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;给文章添加多个tag或category&quot;&gt;&lt;a href=&quot;#给文章添加多个tag或category&quot; class=&quot;headerlink&quot; title=&quot;给文章添加多个tag或category&quot;&gt;&lt;/a&gt;给文章添加多个tag或category&lt;/h2&gt;&lt;p&gt;第一次写Hexo的时候发现，如果这样写&lt;code&gt;tags:前端,Hexo,HTML,JavaScript&lt;/code&gt;，tag显示不是按照逗号分隔的方式显示，而是整个显示为一个tag，这显然不是我们需要的，经过研究可以采用如下两种方式给文章添加多tag，对于添加category同样适用。
     
