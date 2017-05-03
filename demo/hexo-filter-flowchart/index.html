@@ -44,8 +44,11 @@ ga('send', 'pageview');</script><script id="baidu_tongji">var _hmt = _hmt || [];
 <![endif]--><script>__start__ = window.performance && performance.timing ? performance.timing.navigationStart : Date.now();</script></head><body><header id="header" hoot="default" hoot-rate="1" class="inner"><div class="f-left"><a href="/" class="site-title">bubkoo</a></div><nav class="f-right"><ul class="site-nav"><li><a href="/">&lt;&gt;</a></li><li><a href="/archives">Archives</a></li><li><a href="https://github.com/bubkoo">Github</a></li></ul></nav></header><div id="container" class="inner"><div id="main"><article class="article page"><div class="article-wrap"><header class="article-header"><h1 class="article-header-title">hexo-filter-flowchart</h1></header><section class="article-content"><blockquote>
 <p>Generate flowchart diagrams for Hexo.</p>
 </blockquote>
-<p><div id="flowchart-0" class="flow-chart"></div></p>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: Start|past:>http://www.google.com[blank]
+<h2 id="install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save hexo-filter-flowchart</div></pre></td></tr></table></figure>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><div id="flowchart-0" class="flow-chart"></div>
+
+<h2 id="license"><a href="#License" class="headerlink" title="License"></a>License</h2><p>MIT</p>
+<p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: Start|past:>http://www.google.com[blank]
 e=>end: End:>http://www.google.com
 op1=>operation: My Operation|past
 op2=>operation: Stuff|current
@@ -59,7 +62,7 @@ st->op1(right)->cond
 cond(yes, right)->c2
 cond(no)->sub1(left)->op1
 c2(yes)->io->e
-c2(no)->op2->e</textarea><textarea id="flowchart-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(document.getElementById("flowchart-0-options").value);  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></section><footer class="article-footer clearfix"></footer></div></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><style>.gitment-root-container{
+c2(no)->op2->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12,"theme":"simple"}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p></section><footer class="article-footer clearfix"></footer></div></article><section id="article-comment" class="article-comment"></section><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><style>.gitment-root-container{
   margin: 40px 0;
 }
 .gitment-container {
