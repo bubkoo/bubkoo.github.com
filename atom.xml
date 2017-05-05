@@ -2516,7 +2516,7 @@
     <link href="http://bubkoo.com/2015/04/17/a-visual-guide-to-css3-flexbox-properties/"/>
     <id>http://bubkoo.com/2015/04/17/a-visual-guide-to-css3-flexbox-properties/</id>
     <published>2015-04-17T13:10:40.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>Flexbox 布局是 CSS3 中一种新的布局模型，被称为<a href="http://www.w3.org/TR/css-flexbox/" target="_blank" rel="external">弹性盒模型</a>。该模型是为了改进容器中内容的对齐、方向和排序方式，即使是动态，甚至是未知大小的容器。弹性盒模型的主要特点是，可以在不同屏幕尺寸下以最佳的方式，修改其子项的高度或宽度来填充容器的可用空间。</p>
 <p>许多设计师和开发人员认为这种布局使用起来更加简单，弹性盒模型的使元素的定位更加简单，从而某些复杂的布局可以用更少的代码来实现，进而简化了开发过程。Flexbox 布局算法是基于方向的，这与基于垂直和水平的 block 和 inline 布局不同。弹性盒模型可用于小应用或组建的布局，然而对于大型应用应该使用 <a href="http://www.w3.org/TR/css-grid/" target="_blank" rel="external">Grid 布局</a>。</p>
@@ -2696,7 +2696,7 @@
     <link href="http://bubkoo.com/2015/04/05/javascript-style-guide/"/>
     <id>http://bubkoo.com/2015/04/05/javascript-style-guide/</id>
     <published>2015-04-05T20:26:37.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>Airbnb 的 <a href="https://github.com/airbnb/javascript/blob/master/README.md" target="_blank" rel="external">ES5 规范</a>写的非常好，现在添加了 ES6 的部分。</p>
 <p>另外<a href="http://www.ruanyifeng.com/" target="_blank" rel="external">阮一峰老师</a>的 <a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ECMAScript 6 入门</a>值得参考。</p>
@@ -3264,7 +3264,7 @@
     <link href="http://bubkoo.com/2015/02/02/best-practice-for-creating-custom-elements/"/>
     <id>http://bubkoo.com/2015/02/02/best-practice-for-creating-custom-elements/</id>
     <published>2015-02-02T11:23:14.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>越来越多的文章和讨论都是关于什么是 web 组件，什么是自定义元素，它们有什么好处以及如何使用它们，这些概念也逐渐进入开发人员的视野。如果你还不知道创建自定义元素的概念，请参考阅读<a href="http://www.smashingmagazine.com/2014/03/04/introduction-to-custom-elements/" target="_blank" rel="external">详细介绍自定义元素</a>。</p>
 <p>尽管这些新概念还没有在开发中大量使用，我认为是时候讨论一下使用它们的最佳实践。本文将通过对比分析两种创建自定义元素方法的优缺点，最后得出创建自定义元素的最佳实践。</p>
@@ -3318,7 +3318,7 @@
     <link href="http://bubkoo.com/2015/02/02/create-custom-elements/"/>
     <id>http://bubkoo.com/2015/02/02/create-custom-elements/</id>
     <published>2015-02-02T00:35:35.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>现在的 web 严重缺乏表现力。你只要瞧一眼“现代”的 web 应用，比如 GMail，就会明白了：</p>
 <p><img src="http://bubkoo.qiniudn.com/gmail-dom.png" alt="现代 web 应用：使用 div 堆砌而成"></p>
@@ -3530,7 +3530,7 @@
     <link href="http://bubkoo.com/2015/02/01/using-the-tabindex-attribute/"/>
     <id>http://bubkoo.com/2015/02/01/using-the-tabindex-attribute/</id>
     <published>2015-02-01T17:04:07.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="http://www.w3.org/html/wg/drafts/html/master/editing.html#attr-tabindex" target="_blank" rel="external">tabindex</a> 属性用于管理键盘焦点，决定元素是否能被选中，以及按下 <code>tab</code> 键过程中被选中的顺序，使用得当能够极大的提高应用的易用性，然而，不恰当地使用时可以键盘用户对应用的可用性。到底如何使用？设置为 <code>0</code> 会有什么效果？设置为 <code>-1</code> 会有什么效果？本文将为你揭晓。</p>
 <a id="more"></a>
@@ -3578,7 +3578,7 @@
     <link href="http://bubkoo.com/2015/01/31/understanding-and-solving-internet-explorer-leak-patterns/"/>
     <id>http://bubkoo.com/2015/01/31/understanding-and-solving-internet-explorer-leak-patterns/</id>
     <published>2015-01-31T00:04:06.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>在过去，内存泄漏并没有为 Web 开发人员带来巨大的问题。页面保持着相对简单，并且在页面之间的跳转时可以释放内存资源，即便还存在内存泄露，那也是小到可以被忽略。</p>
 <p>现在，新的 Web 应用达到更高的水准，页面可能运行数小时而不跳转，通过 Web 服务动态检索和更新页面。JavaScript 语言特性也被发挥到极致，通过复杂的事件绑定、面向对象和闭包等特性构成了整个 Web 应用。面对这些变化，内存泄露问题变得越来越突出，尤其是之前那些通过刷新（导航）隐藏的内存泄露问题。</p>
@@ -3643,7 +3643,7 @@
     <link href="http://bubkoo.com/2015/01/25/Strange-JavaScript-Errors-and-How-to-Fix-Them/"/>
     <id>http://bubkoo.com/2015/01/25/Strange-JavaScript-Errors-and-How-to-Fix-Them/</id>
     <published>2015-01-25T21:47:02.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>调试 JavaScript 也许是一场噩梦：一些错误非常难理解，并且给出的错误行号并不是总是很有帮助。如果有一个列表，列举这些错误的意思和如何修复它们，将对我们非常有帮助。</p>
 <p>本文列举了 JavaScript 中一些奇怪的错误。对于相同的错误不同的浏览器可能给出不同的提示，所以分别给出了不同的例子。</p>
@@ -3776,7 +3776,7 @@
     <link href="http://bubkoo.com/2014/12/02/use-nodemon-with-node-applications/"/>
     <id>http://bubkoo.com/2014/12/02/use-nodemon-with-node-applications/</id>
     <published>2014-12-02T03:28:38.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://camo.githubusercontent.com/fd1ea21338ceeef34920e44e97d099f3c47a78c3/687474703a2f2f6e6f64656d6f6e2e696f2f6e6f64656d6f6e2e737667" alt="nodemon"></p>
 <p><a href="http://nodemon.io/" target="_blank" rel="external">nodemon</a> 是一款非常实用的工具，用来监控 NodeJS 源代码的任何变化和自动重启你的服务器，这样我们只需要刷新页面就能看到你的改动。这里还有个一个工具 <a href="http://supervisord.org/" target="_blank" rel="external">supervisor</a> 也能实现同样的功能，但相比起来 nodemon 更加灵活轻量，内存占用更少。</p>
@@ -3831,7 +3831,7 @@
     <link href="http://bubkoo.com/2014/11/13/Partial-Application-in-JavaScript/"/>
     <id>http://bubkoo.com/2014/11/13/Partial-Application-in-JavaScript/</id>
     <published>2014-11-13T10:32:45.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><a href="http://en.wikipedia.org/wiki/Partial_application" target="_blank" rel="external">Partial Application</a>？不要被字面意思误解，这里要说的并不是 Application，而是 JavaScript 中的 <code>function</code>。可以这样来描述 Partial Application，一个接受多个参数的函数，预先给该函数绑定一些参数，并返回一个新的函数来接受剩下未绑定的参数。貌似有点像柯里化(currying)函数，但不尽然。</p>
 <p>典型的柯里化函数定义如下：</p>
@@ -3887,7 +3887,7 @@
     <link href="http://bubkoo.com/2014/10/24/thinking-about-D3-s-data-bingding/"/>
     <id>http://bubkoo.com/2014/10/24/thinking-about-D3-s-data-bingding/</id>
     <published>2014-10-24T17:19:30.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>如果用 <a href="http://d3js.org/" target="_blank" rel="external">D3</a> 来构建一个简单的散点图，我们需要创建一些<a href="http://www.w3.org/TR/SVG/shapes.html#CircleElement" target="_blank" rel="external">圆点（circle）</a>来展示你的数据。当你发现 D3 并没有提供内置的方法来同时创建多个 DOM 元素时，也许你会感到惊讶，但是，等等，<a href="https://www.destroyallsoftware.com/talks/wat" target="_blank" rel="external">为什么呢</a>？</p>
 <a id="more"></a>
@@ -4035,7 +4035,7 @@ circle {
     <link href="http://bubkoo.com/2014/07/13/ecma-262-3-in-detail-chapter-8-evaluation-strategy/"/>
     <id>http://bubkoo.com/2014/07/13/ecma-262-3-in-detail-chapter-8-evaluation-strategy/</id>
     <published>2014-07-13T23:22:39.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>此文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-8-evaluation-strategy/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 8. Evaluation strategy</a>.</p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本文将讨论在 ECMAScript 中向函数传递参数的策略。</p>
@@ -4139,7 +4139,7 @@ circle {
     <link href="http://bubkoo.com/2014/06/22/ecma-262-3-in-detail-chapter-7-2-oop-ecmascript-implementation/"/>
     <id>http://bubkoo.com/2014/06/22/ecma-262-3-in-detail-chapter-7-2-oop-ecmascript-implementation/</id>
     <published>2014-06-22T18:57:22.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>此文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-7-2-oop-ecmascript-implementation/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 7.2. OOP: ECMAScript implementation</a>.</p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>这一章的第二部分是关于 EMCAScript 中的面向对象编程。在第一部分中我们讨论了 OOP 的基本理论并勾画出和 ECMAScript 的相似之处。在阅读第二部分之前，如果有必要，我还是建议首先阅读这一章的<a href="http://bubkoo.com/2014/06/21/ecma-262-3-in-detail-chapter-7-1-oop-the-general-theory/">第一部分 概论</a>，因为后面将会用到其中的一些术语。</p>
@@ -4450,7 +4450,7 @@ circle {
     <link href="http://bubkoo.com/2014/06/21/ecma-262-3-in-detail-chapter-7-1-oop-the-general-theory/"/>
     <id>http://bubkoo.com/2014/06/21/ecma-262-3-in-detail-chapter-7-1-oop-the-general-theory/</id>
     <published>2014-06-21T18:57:22.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>此文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-7-1-oop-general-theory/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 7.1. OOP: The general theory</a>.</p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本文主要讨论 ECMAScript 中面向对象编程。之前已经有大量的文章讨论过该话题了，但本文与那些文章不同，本文主要从理论方面来解析其内部原理。重点讨论对象创建算法，对象之间的关系（包含最基本的关系 – 继承）是如何形成的，并给出了明确的定义（我希望这可以消除一些文章中对于 JavaScript 中 OOP 的疑虑和混乱）。</p>
@@ -4642,7 +4642,7 @@ circle {
     <link href="http://bubkoo.com/2014/06/15/ecma-262-3-in-detail-chapter-6-closures/"/>
     <id>http://bubkoo.com/2014/06/15/ecma-262-3-in-detail-chapter-6-closures/</id>
     <published>2014-06-15T21:56:23.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的文章 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-5-functions/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 6. Closures</a>.</p>
 <p>其中大部分参考了 <a href="http://zh.blog.goddyzhao.me/" target="_blank" rel="external">goddyzhao</a> 的<a href="http://zh.blog.goddyzhao.me/post/11311499651/closures" target="_blank" rel="external">翻译</a>。</p>
@@ -4794,7 +4794,7 @@ circle {
     <link href="http://bubkoo.com/2014/06/12/ecma-262-3-in-detail-chapter-5-functions/"/>
     <id>http://bubkoo.com/2014/06/12/ecma-262-3-in-detail-chapter-5-functions/</id>
     <published>2014-06-12T21:56:23.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的文章 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-5-functions/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 5. Functions</a>.</p>
 <p>其中大部分参考了 <a href="http://zh.blog.goddyzhao.me/" target="_blank" rel="external">goddyzhao</a> 的<a href="http://zh.blog.goddyzhao.me/post/11273713920/functions#_=_" target="_blank" rel="external">翻译</a>。</p>
@@ -4980,7 +4980,7 @@ circle {
     <link href="http://bubkoo.com/2014/06/01/ecma-262-3-in-detail-chapter-4-scope-chain/"/>
     <id>http://bubkoo.com/2014/06/01/ecma-262-3-in-detail-chapter-4-scope-chain/</id>
     <published>2014-06-01T21:56:23.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的文章 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-4-scope-chain/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 4. Scope chain</a>.</p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>通过<a href="http://bubkoo.com/2014/05/31/ecma-262-3-in-detail-chapter-2-variable-object/">第二章 变量对象</a>的学习我们知道，执行上下文的数据（变量、函数声明、函数形参）都是以属性的方式储存在变量对象中。</p>
@@ -5128,7 +5128,7 @@ circle {
     <link href="http://bubkoo.com/2014/06/01/ecma-262-3-in-detail-chapter-3-this/"/>
     <id>http://bubkoo.com/2014/06/01/ecma-262-3-in-detail-chapter-3-this/</id>
     <published>2014-06-01T09:56:23.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的文章 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-3-this/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 3. This.</a></p>
 <p>翻译过程参考了现有的中文翻译，学习 ECMAScript 是一个非常抽象的过程，因为很多概念都是通过抽象的方式来解释的，作者尝试尽量用一些简单的方式并使用了一些具体图表，来使我们的学习曲线稍微平稳一点。</p>
@@ -5221,7 +5221,7 @@ circle {
     <link href="http://bubkoo.com/2014/05/31/ecma-262-3-in-detail-chapter-2-variable-object/"/>
     <id>http://bubkoo.com/2014/05/31/ecma-262-3-in-detail-chapter-2-variable-object/</id>
     <published>2014-05-31T20:56:23.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的文章 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-2-variable-object/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 2. Variable object.</a></p>
 <p>参考了一些译文，作为自己学习 ECMAScript 的一点积累。</p>
@@ -5381,7 +5381,7 @@ circle {
     <link href="http://bubkoo.com/2014/05/28/ecma-262-3-in-detail-chapter-1-execution-contexts/"/>
     <id>http://bubkoo.com/2014/05/28/ecma-262-3-in-detail-chapter-1-execution-contexts/</id>
     <published>2014-05-28T16:56:23.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的 <a href="http://dmitrysoshnikov.com/ecmascript/chapter-1-execution-contexts/" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 1. Execution Contexts.</a></p>
 <p>参阅了已有的中文翻译，以此来加深对 ECMAScript 的理解。</p>
@@ -5453,7 +5453,7 @@ circle {
     <link href="http://bubkoo.com/2014/05/20/javascript-the-core/"/>
     <id>http://bubkoo.com/2014/05/20/javascript-the-core/</id>
     <published>2014-05-20T16:54:01.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>此文译自 <a href="http://dmitrysoshnikov.com/" target="_blank" rel="external">Dmitry A. Soshnikov</a> 的 <a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/" target="_blank" rel="external">JavaScript. The core.</a>.</p>
 <p>本文是<a href="http://dmitrysoshnikov.com/tag/ecma-262-3/" target="_blank" rel="external">详解 ECMA-262-3 系列</a>的概述和总结。每个部分都包含对应章节的连接，所以你可以阅读它们以获得更深入的了解。</p>
@@ -5621,7 +5621,7 @@ circle {
     <link href="http://bubkoo.com/2014/05/08/intro-to-aspect-oriented-programming/"/>
     <id>http://bubkoo.com/2014/05/08/intro-to-aspect-oriented-programming/</id>
     <published>2014-05-08T16:30:37.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>原文连接：<a href="http://know.cujojs.com/tutorials/aop/intro-to-aspect-oriented-programming" target="_blank" rel="external">Intro to Aspect Oriented Programming</a></p>
 <p>本文简单地介绍了 AOP 的原理，以及 AOP 与其他方式的异同，并没有涉及太多的复杂逻辑，另外推荐下面两篇文章，这些文章中都间接或直接提及了 AOP：</p>
@@ -5700,7 +5700,7 @@ circle {
     <link href="http://bubkoo.com/2014/04/22/improve-cross-domain-communication-with-client-side-solutions/"/>
     <id>http://bubkoo.com/2014/04/22/improve-cross-domain-communication-with-client-side-solutions/</id>
     <published>2014-04-22T17:45:48.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>此类文章在社区中一抓一大把，但为什么还要来翻译这篇文章呢？最主要的原因是本章的配图太好了，一看就懂，扯远了。。</p>
 <p>原文：<a href="http://www.ibm.com/developerworks/library/wa-crossdomaincomm/" target="_blank" rel="external">Improve cross-domain communication with client-side solutions</a></p>
@@ -5800,7 +5800,7 @@ circle {
     <link href="http://bubkoo.com/2014/04/21/patterns-for-large-scale-javascript-application-architecture/"/>
     <id>http://bubkoo.com/2014/04/21/patterns-for-large-scale-javascript-application-architecture/</id>
     <published>2014-04-21T22:57:24.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>我们今天要讨论的主题是，大型 JavaScript 应用中一些有效的设计模式。本文基于我最近发布在 LondonJS 上同名演讲，灵感则来自于 Nicholas Zakas <a href="http://yuilibrary.com/theater/nicholas-zakas/zakas-architecture/" target="_blank" rel="external">之前的研究成果</a>。</p>
 <h2 id="我是谁以及我为什么要撰写这个主题"><a href="#我是谁以及我为什么要撰写这个主题？" class="headerlink" title="我是谁以及我为什么要撰写这个主题？"></a>我是谁以及我为什么要撰写这个主题？</h2><p>我目前是 AOL 的一名 JavaScript 和 UI 开发人员，负责规划和编写下一代面向用户的应用的前端架构。这些应用不仅复杂，而且需要一种可扩展和高复用的架构，我的职责之一就是确保这类应用中的设计模式尽可能是可持续的。</p>
@@ -6050,7 +6050,7 @@ circle {
     <link href="http://bubkoo.com/2014/04/21/http-cookies-explained/"/>
     <id>http://bubkoo.com/2014/04/21/http-cookies-explained/</id>
     <published>2014-04-21T15:08:49.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>HTTP cookies，通常称之为“cookie”，已经存在很长时间了，但是仍然没有被充分理解。首要问题是存在许多误解，认为 cookie 是后门程序或病毒，却忽视了其工作原理。第二个问题是，对于 cookie 的操作缺少统一的接口。尽管存在这些问题，cookie 仍旧在 Web 开发中扮演者重要的角色，以至于如果没有出现相应的代替品就消失的话，我们许多喜欢的 Web 应用将变的不可用。</p>
 <h2 id="cookie-的起源"><a href="#cookie-的起源" class="headerlink" title="cookie 的起源"></a>cookie 的起源</h2><p>早期的 Web 应用面临的最大问题之一就是如何维持状态。简言之，服务器无法知道两个请求是否来自于同一个浏览器。当时，最简单的办法就是在请求的页面中插入一个 token，然后在下次请求时将这个 token 返回至服务器。这需要在页面的 form 表单中插入一个包含 token 的隐藏域，或者将 token 放在 URL 的 query 字符串中来传递。这两种方法都需要手动操作，而且极易出错。</p>
@@ -6146,7 +6146,7 @@ circle {
     <link href="http://bubkoo.com/2014/04/20/angry-birds-of-javascript-mighty-eagle-automation/"/>
     <id>http://bubkoo.com/2014/04/20/angry-birds-of-javascript-mighty-eagle-automation/</id>
     <published>2014-04-20T21:40:10.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-mighty-eagle-automation.png" alt=""></p>
 <p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
@@ -6280,7 +6280,7 @@ circle {
     <link href="http://bubkoo.com/2014/04/19/angry-birds-of-javascript-big-brother-bird-patterns/"/>
     <id>http://bubkoo.com/2014/04/19/angry-birds-of-javascript-big-brother-bird-patterns/</id>
     <published>2014-04-19T00:39:52.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://bubkoo.qiniudn.com/angry-birds-of-javascript-big-brother-bird-patterns.jpg" alt=""></p>
 <p>一群恶魔的猪从无辜的小鸟那里偷走了所有的前端架构，现在它们要夺回来。一对特工英雄（愤怒的小鸟）将攻击那些卑鄙的猪，直到夺回属于他们的前端架构。（译者注：本系列是关乎前端架构的讨论，作者借用当前最风靡的游戏 - 愤怒的小鸟，为我们揭开了前端架构的真实面目。）</p>
@@ -7226,7 +7226,7 @@ circle {
     <link href="http://bubkoo.com/2014/03/25/promises-and-async-programming/"/>
     <id>http://bubkoo.com/2014/03/25/promises-and-async-programming/</id>
     <published>2014-03-25T08:36:57.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>在 JavaScript 中处理异步和回调就是家常便饭，我们通常会面对这样一些问题：</p>
 <ol>
@@ -7291,7 +7291,7 @@ circle {
     <link href="http://bubkoo.com/2014/03/25/async-programming-is-messy/"/>
     <id>http://bubkoo.com/2014/03/25/async-programming-is-messy/</id>
     <published>2014-03-25T07:14:35.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-异常和-trycatch"><a href="#1-异常和-try-catch" class="headerlink" title="1. 异常和 try/catch"></a>1. 异常和 try/catch</h2><p>当执行可能失败的操作时，采用异常机制和 try/catch 是一种直观的方式，这样我们就可以从异常中恢复，或将异常抛出，异常沿着调用堆栈到达调用者，调用者可以处理该异常或将其继续抛出。</p>
 <p>看一个简单的例子：</p>
@@ -7433,7 +7433,7 @@ circle {
     <link href="http://bubkoo.com/2014/03/25/mastering-async-error-handling-with-promises/"/>
     <id>http://bubkoo.com/2014/03/25/mastering-async-error-handling-with-promises/</id>
     <published>2014-03-25T02:32:37.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>正如我们在<a href="http://bubkoo.com/2014/03/25/async-programming-is-messy/">凌乱的异步编程</a>一文中看到的那样，基于回调函数的异步代码的错误处理也很快变得混乱起来，丢失了许多同步代码具有的优秀品质，使我们更难定位到错误原因。在<a href="http://bubkoo.com/2014/03/25/simplifying-async-with-promises/">用 Promises 简化异步编程</a>一文中，我们介绍了 Promises，看到了它如何使我们回到“调用 - 返回”编程模型，允许异步错误像同步错误那样沿着调用堆栈向上传播，并提供一种更清晰方法来管理异步，特别是在处理错误时。</p>
 <h2 id="1-trycatchfinally"><a href="#1-Try-catch-finally" class="headerlink" title="1. Try/catch/finally"></a>1. Try/catch/finally</h2><p>在同步代码中，try/catch/finally 提供了一种简单友好但非常强大的惯用语法来执行任务、处理错误，并且总是确保稍后可以执行清理。</p>
@@ -7557,7 +7557,7 @@ circle {
     <link href="http://bubkoo.com/2014/03/22/javascript-promises/"/>
     <id>http://bubkoo.com/2014/03/22/javascript-promises/</id>
     <published>2014-03-22T23:57:12.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>童鞋们，请准备好迎接 Web 开发历史上一个重大时刻。。。</p>
 <p>[鼓声响起]</p>
@@ -8282,7 +8282,7 @@ circle {
     <link href="http://bubkoo.com/2014/02/22/JSHint-options/"/>
     <id>http://bubkoo.com/2014/02/22/JSHint-options/</id>
     <published>2014-02-22T00:22:44.000Z</published>
-    <updated>2017-05-03T03:07:01.000Z</updated>
+    <updated>2017-05-05T06:03:28.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://bubkoo.qiniudn.com/jshint-dark.png" alt="JSHint"></p>
 <p>有时候会查找 <a href="http://jshint.com/" target="_blank" rel="external">JSHint</a> 某些选项的具体含义，针对项目需求开启或关闭某些选项，所以从<a href="https://github.com/basecss/jshint-doc-cn" target="_blank" rel="external">这里</a>转载了 JSHint 选项列表的中文翻译，供不时之需。</p>
